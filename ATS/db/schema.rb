@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220205518) do
+ActiveRecord::Schema.define(version: 20180220230048) do
+
+  create_table "degrees", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "employers", force: :cascade do |t|
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -19,21 +28,8 @@ ActiveRecord::Schema.define(version: 20180220205518) do
     t.string   "last_name"
     t.string   "user_image"
     t.integer  "google_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-end
 
-ActiveRecord::Schema.define(version: 20180220200457) do
-
-  create_table "degrees", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-end
-
-  ActiveRecord::Schema.define(version: 20180220200435) do
-
-  create_table "employers", force: :cascade do |t|
-
-  end
 end

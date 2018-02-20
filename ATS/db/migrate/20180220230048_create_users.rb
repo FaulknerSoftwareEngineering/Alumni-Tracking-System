@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string 'last_name'
       t.string 'user_image'
       t.integer 'google_id'
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

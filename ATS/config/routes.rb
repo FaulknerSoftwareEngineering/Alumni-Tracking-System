@@ -4,7 +4,7 @@ Rails.application.routes.draw do
  root 'welcome#index'
  
  #generate user routes
- resources :user
+ resources :users
  resources :degrees
  resources :employers
 
