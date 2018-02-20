@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+// https://github.com/twbs/bootstrap-rubygem
+// Available variables - https://github.com/twbs/bootstrap-rubygem
+@import "bootstrap";
+
+div.main {
+    padding: 10px;
+}
