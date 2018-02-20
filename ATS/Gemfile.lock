@@ -211,10 +211,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0)
   byebug
   coffee-rails (~> 4.1.0)
-<<<<<<< HEAD
   google-api-client
-=======
->>>>>>> 6049e9baa053a54e5a5ad2c67c1f51ea55129823
   haml
   jbuilder (~> 2.0)
   jquery-rails
