@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'haml'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use sqlite3 as the database for Active Record

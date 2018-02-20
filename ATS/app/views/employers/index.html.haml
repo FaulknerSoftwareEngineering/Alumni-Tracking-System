@@ -1,0 +1,10 @@
+%h1 All Employers
+
+%table#employers
+    %thead
+        %tr
+            %th Employer Name
+    %tbody
+        - @employers.each do|employer|
+            %tr
+                %td= employer.name
