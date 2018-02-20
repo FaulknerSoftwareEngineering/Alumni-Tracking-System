@@ -1,0 +1,15 @@
+-#  This file is app/views/degrees/index.html.haml
+-# Created by Zack Pace and AB 
+-# on: Feburary 20, 2018 
+%h1 All Degrees
+
+%table#degrees
+  %thead
+    %tr
+      %th Name
+
+  %tbody
+    - @degrees.each do |degree|
+      %tr
+        %td= degree.name 
+
