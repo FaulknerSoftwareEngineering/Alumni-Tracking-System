@@ -1,0 +1,21 @@
+-# This file is app/views/users/index.html.haml Creator: Ethan Created on: 2/20/18
+%h1 All users
+%table#users
+    %thead
+        %tr
+            %th First Name
+            %th Last Name
+            %th Email
+            %th User Image
+            %th Google Id
+    %tbody
+        - @users.each do |user|
+            %tr
+                %td= user.first_name
+                %td= user.last_name
+                %td= user.email
+                %td= user.user_image
+                %td= user.google_id
+                %td= link_to "More about #{user.title}", user
+
+= link_to 'Add new user', new_user_path
