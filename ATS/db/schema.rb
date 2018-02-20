@@ -19,8 +19,21 @@ ActiveRecord::Schema.define(version: 20180220205518) do
     t.string   "last_name"
     t.string   "user_image"
     t.integer  "google_id"
+  end
+end
+
+ActiveRecord::Schema.define(version: 20180220200457) do
+
+  create_table "degrees", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+end
 
+  ActiveRecord::Schema.define(version: 20180220200435) do
+
+  create_table "employers", force: :cascade do |t|
+
+  end
 end
