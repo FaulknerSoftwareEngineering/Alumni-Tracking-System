@@ -1,0 +1,8 @@
+%h2 Edit Employer
+
+= form_tag employer_path(@employer), :method => :put do
+
+  = label :employer, :name, 'Name'
+  = text_field :employer, 'name'
+
+  = submit_tag 'Save Changes'
