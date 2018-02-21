@@ -1,0 +1,17 @@
+-# Ethan Widen - 2/20/18
+%h1 All users
+
+%table#users
+    %thead
+        %tr
+            %th First Name
+            %th Last Name
+            %th Email
+            %th Google ID
+    %tbody
+        - @users.each do|user|
+            %tr
+                %td= user.first_name
+                %td= user.last_name
+                %td= user.email
+                %td= user.google_id
