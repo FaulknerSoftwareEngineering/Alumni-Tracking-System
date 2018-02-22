@@ -1,0 +1,7 @@
+%h2 Create New Employer
+= form_tag employers_path, :method => :post do
+    
+    = label :employer, :name, 'Name'
+    = text_field :employer, :name
+    
+    = submit_tag 'Save Changes'
