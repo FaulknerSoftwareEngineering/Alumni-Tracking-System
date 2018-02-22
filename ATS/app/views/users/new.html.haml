@@ -1,0 +1,21 @@
+-# Ethan Widen  - 2/21/18
+%h2 Create New user
+= form_tag users_path, :method => :post do
+    
+    %div{:class => 'form-group'}
+        = label :user, :first_name, 'First Name'
+        = text_field :user, :first_name, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :user, :last_name, 'Last Name'
+        = text_field :user, :last_name, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :user, :email, 'Email'
+        = email_field :user, :email, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :user, :google_id, 'Google ID'
+        = number_field(:user, :google_id, in: 1.0..1000000.0, step: 1.0, :class => 'form-control') 
+    
+    = submit_tag 'Save Changes'
