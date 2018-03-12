@@ -1,0 +1,14 @@
+%h1 All Employers
+
+= link_to 'Add new employer', new_employer_path
+
+%table#employers
+    %thead
+        %tr
+            %th Employer Name
+            %th Edit
+    %tbody
+        - @employers.each do|employer|
+            %tr
+                %td= employer.name
+                %td= link_to "Edit #{employer.name}", edit_employer_path(employer)

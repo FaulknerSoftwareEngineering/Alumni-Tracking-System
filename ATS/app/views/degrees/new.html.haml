@@ -1,0 +1,11 @@
+-# Created by Zack Pace and AB 
+-# on: Feburary 21, 2018 
+%h2 Create New Degree
+
+= form_tag degrees_path, :method => :post do
+
+  = label :movie, :title, 'Name'
+  = text_field :degree, :name
+
+
+  = submit_tag 'Save Changes'

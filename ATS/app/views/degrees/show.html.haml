@@ -1,0 +1,14 @@
+-# Created by Zack Pace and AB 
+-# on: Feburary 21, 2018 
+%h2 Details about #{@degree.name}
+
+
+%ul#details
+
+
+
+= link_to 'Edit info', edit_degree_path(@degree)
+
+= link_to 'Delete', degree_path(@degree), :method => :delete
+
+= link_to 'Back to degree list', degrees_path

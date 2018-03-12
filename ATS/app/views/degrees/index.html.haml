@@ -1,0 +1,22 @@
+-#  This file is app/views/degrees/index.html.haml
+-# Created by Zack Pace and AB 
+-# on: Feburary 20, 2018 
+%h1 All Degrees
+
+%table#degrees
+  %thead
+    %tr
+      %th Name
+      %th More Info
+
+  %tbody
+    - @degrees.each do |degree|
+      %tr
+        %td= degree.name
+        %td= link_to "More about #{degree.name}", degree_path(degree)
+
+%p
+  = link_to 'Add new degree', new_degree_path
+
+%p
+  = link_to 'home page', welcome_index_path
