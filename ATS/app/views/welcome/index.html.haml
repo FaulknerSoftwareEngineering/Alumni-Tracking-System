@@ -1,11 +1,9 @@
 -# Ethan Widen - 2/20/18
-<h1>Alumni Tracking System</h1>
+%h1 Alumni Tracking System
+= render :partial => 'shared/flash', :locals => { :flash => flash }
 %p
     = link_to 'Degrees', degrees_path
 %p
     = link_to 'Employers', employers_path
 %p
-    = link_to 'Users', users_path
-    
-// %p
-//     = link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in"
+    = link_to 'Users', users_path, :id => "user_link"

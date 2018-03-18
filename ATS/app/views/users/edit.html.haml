@@ -3,8 +3,6 @@
 
 = form_tag user_path(@user), :method => :put do
 
-
-
     %div{:class => 'form-group'}
         = label :user, :provider, 'Provider'
         = text_field :user, :provider, :class => 'form-control'
@@ -31,16 +29,18 @@
     
     %div{:class => 'form-group'}
         = label :user, :oauth_token, 'oauth_token'
-        = email_field :user, :oauth_token, :class => 'form-control'
+        = text_field :user, :oauth_token, :class => 'form-control'
         
     %div{:class => 'form-group'}
         = label :user, :oauth_expires_at, 'oauth_expires_at'
-        = email_field :user, :oauth_expires_at, :class => 'form-control'
+        = text_field :user, :oauth_expires_at, :class => 'form-control'
     
     %div{:class => 'form-group'}
         = label :user, :google_id, 'Google ID'
-        = number_field(:user, :google_id, in: 1.0..1000000.0, step: 1.0, :class => 'form-control') 
-    = submit_tag 'Save Changes'
+        = text_field :user, :google_id, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'
   
   
   

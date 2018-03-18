@@ -1,7 +1,19 @@
 class UsersController < ApplicationController
     #Ethan Widen 2/20/18
+    
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :google_id)
+        params.require(:user).permit(
+            :provider,
+            :uid,
+            :email,
+            :name,
+            :first_name,
+            :last_name,
+            :user_image,
+            :oauth_token,
+            :oauth_expires_at,
+            :google_id
+            )
     end
 
     def index
@@ -15,7 +27,7 @@ class UsersController < ApplicationController
     
     def create
         @user = User.create!(user_params)
-        flash[:success] = "#{@user.first_name} #{@user.last_name} was successfully created."
+        flash[:success] = "#{@user.name} as successfully created."
         redirect_to users_path
     end
     
@@ -26,7 +38,7 @@ class UsersController < ApplicationController
     def update
         @user = User.find params[:id]
         @user.update_attributes!(user_params)
-        flash[:success] = "#{@user.first_name} #{@user.last_name} was successfully updated."
+        flash[:success] = "#{@user.name} was successfully updated."
         redirect_to users_path
     end
     

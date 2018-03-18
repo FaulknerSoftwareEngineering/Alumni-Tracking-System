@@ -1,0 +1,12 @@
+//Ethan Widen 3/18/18
+//This partial takes the flash and converts it to a bootstrap message "type"
+//[primary, secondary, success (or notice), danger, warning, info]
+//and a "msg" to be displayed. It will then output as many bootstrap dismissable alerts
+//as there are messages in the flash.
+//Use this code in HAML:
+//= render :partial => 'shared/flash', :locals => { :flash => flash }
+#flash-display
+    - flash.each do |type, msg|
+        %div{:class => "alert alert-#{type == :notice ? "success" : type} fadeout", "data-dismiss" => "alert"}
+            %button.close &times;
+            = msg if msg.is_a?(String)
