@@ -45,12 +45,20 @@ gem 'haml'
 
 #Google API Client
 gem 'google-api-client'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'capybara'
+  gem 'rspec-rails'
 end
 
+
+group :test do
+  gem 'cucumber-rails' 
+  gem 'cucumber-rails-training-wheels'
+end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
