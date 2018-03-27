@@ -8,18 +8,19 @@
 %table#users.table
     %thead
         %tr
-            %th First Name
-            %th Last Name
+            %th Name
             %th Email
-            %th Google ID
+            %th uid
+            %th oauth_token
             %th Edit
     %tbody
         - @users.each do|user|
+        - #byebug
             %tr
-                %td= user.first_name
-                %td= user.last_name
+                %td= user.name
                 %td= user.email
-                %td= user.google_id
-                %td= link_to "Edit #{user.first_name} #{user.last_name}", edit_user_path(user)
+                %td= user.uid
+                %td= user.oauth_token
+                %td= link_to "Edit #{user.name}", edit_user_path(user)
                 
 = link_to 'Add new user', new_user_path

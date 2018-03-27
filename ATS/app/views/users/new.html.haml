@@ -3,19 +3,32 @@
 = form_tag users_path, :method => :post do
     
     %div{:class => 'form-group'}
-        = label :user, :first_name, 'First Name'
-        = text_field :user, :first_name, :class => 'form-control'
+        = label :user, :provider, 'Provider'
+        = text_field :user, :provider, :class => 'form-control'
     
     %div{:class => 'form-group'}
-        = label :user, :last_name, 'Last Name'
-        = text_field :user, :last_name, :class => 'form-control'
+        = label :user, :uid, 'Uid'
+        = text_field :user, :uid, :class => 'form-control'
     
     %div{:class => 'form-group'}
         = label :user, :email, 'Email'
         = email_field :user, :email, :class => 'form-control'
         
     %div{:class => 'form-group'}
+        = label :user, :name, 'Name'
+        = text_field :user, :name, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :user, :oauth_token, 'oauth_token'
+        = email_field :user, :oauth_token, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :user, :oauth_expires_at, 'oauth_expires_at'
+        = email_field :user, :oauth_expires_at, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
         = label :user, :google_id, 'Google ID'
         = number_field(:user, :google_id, in: 1.0..1000000.0, step: 1.0, :class => 'form-control') 
-    
-    = submit_tag 'Save Changes'
+        
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'
