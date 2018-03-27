@@ -14,10 +14,20 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
+<<<<<<< HEAD
       '/students'
     when /^the edit page for "(.*)"$/ then edit_student_path(Student.find_by(first_name: $1))
     when /^the details page for "(.*)"$/ then student_path(Student.find_by(first_name: $1))
     when /^the add student page$/ then new_student_path
+=======
+      '/'
+    when /^the users table page$/
+      users_path
+    when /^the new user page$/
+      new_user_path
+   when /^the edit user page for "(.*)"$/
+      edit_user_path(User.find_by_name($1))
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

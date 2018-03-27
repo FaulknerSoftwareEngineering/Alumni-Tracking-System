@@ -78,7 +78,11 @@ end
 #
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
+<<<<<<< HEAD
     When %{I fill in "#{name}" with "#{value}"}
+=======
+    step %{I fill in "#{name}" with "#{value}"}
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
   end
 end
 

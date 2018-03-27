@@ -1,6 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
+<<<<<<< HEAD
       "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/models/student.rb": [
         null,
         null,
@@ -80,6 +81,8 @@
         1,
         null
       ],
+=======
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
       "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/models/degree.rb": [
         0,
         null,
@@ -97,14 +100,47 @@
       "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/models/user.rb": [
         null,
         0,
+<<<<<<< HEAD
         0
       ],
       "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/controllers/employers_controller.rb": [
+=======
+        null,
         0,
         0,
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/controllers/sessions_controller.rb": [
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
+        0,
+        0,
+        0,
+        0,
+<<<<<<< HEAD
+        0,
+=======
+        0
+      ],
+      "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/controllers/users_controller.rb": [
+        0,
+        null,
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
         0,
         0,
         0,
@@ -134,6 +170,7 @@
         0,
         0,
         0,
+<<<<<<< HEAD
         0
       ],
       "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/controllers/users_controller.rb": [
@@ -143,18 +180,42 @@
         0,
         0,
         null,
+=======
+        null,
+        0
+      ],
+      "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/controllers/degrees_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
         0,
         0,
         0,
         null,
         0,
         0,
+<<<<<<< HEAD
+=======
+        0,
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
         null,
         0,
         null,
         0,
         0,
         0,
+<<<<<<< HEAD
+=======
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
         0,
         0,
         null,
@@ -168,6 +229,7 @@
         0,
         0,
         0,
+<<<<<<< HEAD
         null,
         0
       ],
@@ -180,9 +242,52 @@
         0
       ],
       "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/controllers/degrees_controller.rb": [
+=======
+        0,
+        null,
+        0,
+        0,
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
         0,
         0,
         0,
+        0,
+<<<<<<< HEAD
+=======
+        null,
+        0
+      ],
+      "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/controllers/employers_controller.rb": [
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
+        0,
+        0,
+        0,
+        0,
+<<<<<<< HEAD
+        null,
+        0,
+        0,
+        0,
+        null,
+=======
+        0,
+        0,
+        0,
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+<<<<<<< HEAD
+=======
+        null,
+        0,
+        null,
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
         0,
         0,
         0,
@@ -194,29 +299,12 @@
         0,
         null,
         0,
-        null,
-        0,
-        0,
-        0,
-        null,
         0,
         0,
         0,
         0,
         0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+<<<<<<< HEAD
         0,
         null,
         0,
@@ -230,5 +318,42 @@
       ]
     },
     "timestamp": 1521854938
+=======
+        0
+      ],
+      "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/controllers/application_controller.rb": [
+        0,
+        null,
+        null,
+        0,
+        0
+      ],
+      "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/controllers/welcome_controller.rb": [
+        0,
+        null,
+        0,
+        null,
+        0,
+        0
+      ],
+      "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/helpers/sessions_helper.rb": [
+        0,
+        0
+      ],
+      "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/helpers/application_helper.rb": [
+        0,
+        0
+      ],
+      "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/helpers/users_helper.rb": [
+        0,
+        0
+      ],
+      "/home/ubuntu/workspace/Alumni-Tracking-System/ATS/app/helpers/welcome_helper.rb": [
+        0,
+        0
+      ]
+    },
+    "timestamp": 1521402629
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
   }
 }

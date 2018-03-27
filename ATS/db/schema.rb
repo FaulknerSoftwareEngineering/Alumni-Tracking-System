@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180323222249) do
+=======
+ActiveRecord::Schema.define(version: 20180327184742) do
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
 
   create_table "degrees", force: :cascade do |t|
     t.string   "name"
@@ -26,21 +30,32 @@ ActiveRecord::Schema.define(version: 20180323222249) do
   end
 
   create_table "students", force: :cascade do |t|
+<<<<<<< HEAD
     t.datetime "date_of_birth"
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "uid"
     t.string   "email"
+    t.string   "name"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "user_image"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
     t.integer  "google_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end
