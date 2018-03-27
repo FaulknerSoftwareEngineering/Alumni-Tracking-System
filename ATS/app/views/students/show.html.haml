@@ -1,0 +1,25 @@
+-# Created by Zack Pace
+-# on: March 23, 2018 
+%h2 Details about #{@student.first_name}
+
+
+%ul#details
+ %li
+  Name:
+  = @student.first_name
+ %li
+  Date Of Birth:
+  = @student.date_of_birth.strftime("%m/%d/%Y")
+
+%ul#degrees
+
+
+%ul#work_history
+
+
+
+= link_to 'Edit info', edit_student_path(@student)
+
+= button_to 'Delete', student_path(@student), :method => :delete, :confirm => 'Are you sure?'
+
+= link_to 'Back to student list', student_path

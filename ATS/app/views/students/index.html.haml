@@ -1,0 +1,26 @@
+
+-# Created by Zack Pace
+-# on: March 23, 2018 
+%h1 All student
+
+%table#student.table
+  %thead
+    %tr
+      %th first_name
+      %th last_name
+      %th date_of_birth
+      %th More Info
+
+  %tbody
+    - @students.each do |student|
+      %tr
+        %td= student.first_name
+        %td= student.last_name
+        %td= student.date_of_birth.strftime("%m/%d/%Y")
+        %td= link_to "More about #{student.first_name}", student_path(student)
+
+%p
+  = link_to 'Add new student', new_student_path
+
+%p
+  = link_to 'home page', welcome_index_path
