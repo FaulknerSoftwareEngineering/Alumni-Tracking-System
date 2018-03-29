@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 20180329175744) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+  
+  add_index "employers", ["students_id"], name: "index_employers_on_students_id"
 
   create_table "employments", force: :cascade do |t|
     t.string   "current_job"
@@ -95,6 +97,13 @@ ActiveRecord::Schema.define(version: 20180329175744) do
   end
 
   add_index "roles", ["users_id"], name: "index_roles_on_users_id"
+
+  create_table "student_universities", id: false, force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "university_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
