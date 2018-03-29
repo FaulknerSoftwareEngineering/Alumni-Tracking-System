@@ -49,18 +49,6 @@ gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'byebug'
-<<<<<<< HEAD
-  gem 'simplecov', :require => false
-  gem 'capybara'
-  gem 'database_cleaner'
-  
-end
-group :test do
-  gem 'cucumber-rails', :require => false
-  gem 'cucumber-rails-training-wheels'
- 
-end
-=======
   gem 'database_cleaner', '1.4.1'
   gem 'launchy'
   gem 'rspec-rails'
@@ -72,7 +60,6 @@ group :test do
   gem 'cucumber-rails' 
   gem 'cucumber-rails-training-wheels'
 end
->>>>>>> 0d4f2cf6fba90a8395967755d3a60d0dca9ff3bc
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

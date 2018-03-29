@@ -1,5 +1,4 @@
 class StudentsController < ApplicationController
-<<<<<<< HEAD
 =begin 
     Created by Zack Pace
     on: March 23, 2018 
@@ -47,6 +46,4 @@ def create
     redirect_to students_path
   end
     
-=======
->>>>>>> 60810894da23d0ca4e9087751ad21279949b2f4b
 end
