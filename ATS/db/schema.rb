@@ -60,10 +60,11 @@ ActiveRecord::Schema.define(version: 20180329175744) do
     t.string   "name"
     t.string   "number"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "students_id"
   end
-  
+
   add_index "employers", ["students_id"], name: "index_employers_on_students_id"
 
   create_table "employments", force: :cascade do |t|
