@@ -1,4 +1,4 @@
 class Department < ActiveRecord::Base
-    has_many :degrees
+    has_many :degree
     belongs_to :college
 end
