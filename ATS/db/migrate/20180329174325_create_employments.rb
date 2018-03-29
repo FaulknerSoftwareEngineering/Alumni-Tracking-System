@@ -1,8 +1,10 @@
 class CreateEmployments < ActiveRecord::Migration
   def change
     create_table :employments do |t|
-      t.string :current_job
+      t.string :job_title
+      t.boolean :current_job
       t.boolean :in_field
+      t.date :start_date
       t.belongs_to :employer, index: true
       t.integer :employer_id
       t.belongs_to :student, index: true

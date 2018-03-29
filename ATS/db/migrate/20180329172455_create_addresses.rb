@@ -6,9 +6,6 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :state
       t.integer :zip
       t.string :country
-      t.string :cell_number
-      t.string :work_number
-      t.string :home_number
       t.belongs_to :student, index: true
       t.integer :student_id
       t.timestamps null: false

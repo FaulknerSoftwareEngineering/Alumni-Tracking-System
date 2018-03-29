@@ -4,6 +4,8 @@ class CreateGradSchools < ActiveRecord::Migration
       t.boolean :applied
       t.boolean :accepted
       t.string :status
+      t.string :higher_degree_type
+      t.string :higher_degree_name
       t.belongs_to :student, index: true
       t.integer :student_id
       t.timestamps null: false

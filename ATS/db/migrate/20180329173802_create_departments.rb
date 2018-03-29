@@ -2,6 +2,7 @@ class CreateDepartments < ActiveRecord::Migration
   def change
     create_table :departments do |t|
       t.string :name
+      t.string :dept_chair
       t.belongs_to :college, index: true
       t.integer :college_id
       t.timestamps null: false

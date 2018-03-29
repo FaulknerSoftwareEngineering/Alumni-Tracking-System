@@ -4,7 +4,6 @@ class CreateDegrees < ActiveRecord::Migration
       t.string :type
       t.string :name
       t.string :college
-      t.date :graduated_on
       t.belongs_to :department, index: true
       t.integer :department_id
       t.timestamps
