@@ -7,6 +7,7 @@ Rails.application.routes.draw do
  resources :users
  resources :degrees
  resources :employers
+ resources :universities
  resources :students do
     resources :employers
 end
