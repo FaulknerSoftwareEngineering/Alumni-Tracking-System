@@ -1,0 +1,2 @@
+module EarnedDegreesHelper
+end

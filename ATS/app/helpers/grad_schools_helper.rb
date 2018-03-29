@@ -1,0 +1,2 @@
+module GradSchoolsHelper
+end
