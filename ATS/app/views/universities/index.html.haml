@@ -1,0 +1,14 @@
+%h1 All Universities
+
+= link_to 'Add new university', new_university_path
+
+%table#universities
+    %thead
+        %tr
+            %th University Name
+            %th Edit
+    %tbody
+        - @universities.each do|university|
+            %tr
+                %td= university.name
+                %td= link_to "Edit #{university.name}", edit_university_path(university)
