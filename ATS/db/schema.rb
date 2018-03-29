@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327184742) do
+ActiveRecord::Schema.define(version: 20180328163359) do
 
   create_table "degrees", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20180327184742) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "roles", ["users_id"], name: "index_roles_on_users_id"
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
@@ -41,9 +50,12 @@ ActiveRecord::Schema.define(version: 20180327184742) do
     t.string   "user_image"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.integer  "role_id"
     t.integer  "google_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
+
+  add_index "users", ["role_id"], name: "index_users_on_role_id"
 
 end
