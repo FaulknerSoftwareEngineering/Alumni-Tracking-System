@@ -9,6 +9,12 @@ Rails.application.routes.draw do
     resources :degrees
 end
  resources :employers
+ resources :universities
+ resources :roles
+ resources :students do
+    resources :employers
+end
+
  
  get 'auth/:provider/callback' => 'sessions#create'
  get 'logout' => 'sessions#destroy'

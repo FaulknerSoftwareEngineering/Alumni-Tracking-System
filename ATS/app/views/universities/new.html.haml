@@ -1,0 +1,7 @@
+%h2 Create New University
+= form_tag universities_path, :method => :post do
+    
+    = label :university, :name, 'Name'
+    = text_field :university, :name
+    
+    = submit_tag 'Save Changes'

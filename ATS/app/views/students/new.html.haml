@@ -1,0 +1,19 @@
+-# Created by Zack Pace
+-# on: March 23, 2018 
+%h2 new student
+= form_tag students_path, :method => :post do
+    
+    %div{:class => 'form-group'}
+        = label :student, :first_name, 'First Name'
+        = text_field :student, :first_name, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :student, :last_name, 'Last Name'
+        = text_field :student, :last_name, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :student, :date_of_birth, 'Date Of Birth'
+        = date_select(:student, :date_of_birth,start_year: 1900 )
+        
+   
+    = submit_tag 'Save Changes'
