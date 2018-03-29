@@ -1,0 +1,8 @@
+%h2 Edit University
+
+= form_tag university_path(@university), :method => :put do
+
+  = label :university, :name, 'Name'
+  = text_field :university, 'name'
+
+  = submit_tag 'Save Changes'
