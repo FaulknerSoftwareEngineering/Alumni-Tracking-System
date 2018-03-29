@@ -1,9 +1,18 @@
 -# Created by Zack Pace and AB 
 -# on: Feburary 21, 2018 
-= form_tag degree_path(@degree), :method => :put do
+-form_tag degree_path(@degree), :method => :put do
 
   = label :degree, :name, 'name'
   = text_field :degree, 'name'
  
 
   = submit_tag 'Save Changes'
+  
+// = form_tag student_degree_path(@student, @degree), :method => :put do |f|
+
+//   = f.label :degree, :name, 'name'
+//   = f.text_field :degree, 'name'
+  
+// = f.submit "Update Info"
+
+// = link_to 'All degrees for this student', student_degree_path(@student)

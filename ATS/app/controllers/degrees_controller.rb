@@ -3,26 +3,41 @@ class DegreesController < ApplicationController
     Created by Zack Pace & Amanda Burton
     on: Feburary 20, 2018 
 =end
-    def index
-        @degrees = Degree.all
-    end
+  def index
+    @degrees = Degree.all
+  end
     
-def show
-  id = params[:id] 
-  @degree = Degree.find(id) 
-  
-end
+  def show
+    id = params[:id] 
+    @degree = Degree.find(id) 
+    
+  end
 
-def new
-  @degree = Degree.new
-end 
+  def new
+    @degree = Degree.new
     
-def create
+    # @student = Student.find(params[:student_id])
+    
+    # @degree ||= @student.degree.new
+  end 
+      
+  def create
     params.require(:degree)
     permitted = params[:degree].permit(:name)
     @degree = Degree.create!(permitted)
     flash[:notice] = "#{@degree.name} was successfully created."
     redirect_to degrees_path
+    
+    # @student = Student.find(params[:student_id])
+    
+    # @degree = @student.degree.build(params[:degree])
+    
+    # if @degree.save
+    #   flash[:notice] = 'Degree successfully created.'
+    #   redirect_to(student_degrees_path(@student))
+    # else
+    #   render :action => 'new'
+    # end
   end
 
   def edit
@@ -31,8 +46,8 @@ def create
 
   def update
    permitted = params[:degree].permit(:name)
-  @degree = Degree.find params[:id]
-  @degree.update_attributes!(permitted)
+    @degree = Degree.find params[:id]
+    @degree.update_attributes!(permitted)
     flash[:notice] = "#{@degree.name} was successfully updated."
     redirect_to degrees_path(@degree)
   end

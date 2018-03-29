@@ -5,7 +5,9 @@ Rails.application.routes.draw do
  
  #generate user routes
  resources :users
- resources :degrees
+ resources :students do
+    resources :degrees
+end
  resources :employers
  
  get 'auth/:provider/callback' => 'sessions#create'
