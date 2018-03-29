@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20180329191208) do
     t.datetime "updated_at",   null: false
   end
 
+
   create_table "degrees", force: :cascade do |t|
     t.string   "type"
     t.string   "name"
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180329191208) do
     t.integer  "department_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "student_id"
   end
 
   add_index "degrees", ["department_id"], name: "index_degrees_on_department_id"
