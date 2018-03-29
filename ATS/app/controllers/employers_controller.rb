@@ -3,6 +3,7 @@
   On: February 20, 2018
 =end
 class EmployersController < ApplicationController
+
     def employer_params
         params.require(:employer).permit(:name)
     end
