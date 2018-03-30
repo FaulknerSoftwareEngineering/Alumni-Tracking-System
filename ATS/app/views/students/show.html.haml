@@ -6,8 +6,24 @@
 %ul#details
  %li
   Name:
-  = @student.first_name
-
+  = @student.first_name + " "
+  = @student.middle_name + " "
+  = @student.last_name
+ %li
+  Cell Phone:
+   = @student.cell_number
+  %li
+  Home Phone:
+   = @student.home_number 
+  %li
+  Work Phone:
+   = @student.work_number
+  %li
+   Email:
+   = @student.primary_email
+  %li
+   Secondary Email:
+   = @student.secondary_email
 %ul#degrees
 
 

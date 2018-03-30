@@ -15,6 +15,7 @@ Feature: create and edit students
         Given I am on the student home page
         And I follow "Add new student"
         And  I fill in "First Name" with "Jack"
+        And I fill in "Cell Phone" with "123-456-7890"
         And I press "Save Changes"
         Then I should be on the student home page
         And I should see "Jack"
