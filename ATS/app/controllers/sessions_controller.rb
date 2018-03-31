@@ -3,9 +3,13 @@ class SessionsController < ApplicationController
     skip_before_action :require_login, only: [:create]
     def create
         user = User.from_omniauth(env["omniauth.auth"])
-        session[:user_id] = user.id
-        #session[:role_id] = user.role.role_id
-        redirect_to root_path
+        if user
+            session[:user_id] = user.id
+            #session[:role_id] = user.role.role_id
+            redirect_to root_path
+        else
+            self.destroy
+        end
     end
 
     def destroy
