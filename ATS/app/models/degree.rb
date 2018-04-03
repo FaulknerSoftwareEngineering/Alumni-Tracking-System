@@ -1,4 +1,4 @@
 class Degree < ActiveRecord::Base
     belongs_to :department
-    belongs_to :earned_degree
+    has_many :earned_degree
 end
