@@ -1,5 +1,7 @@
 -# Created by Zack Pace
 -# on: March 23, 2018 
+-# edited on March 29, 18 
+= link_to 'Back to student list', students_path
 %h2 new student
 = form_tag students_path, :method => :post do
     
@@ -8,12 +10,44 @@
         = text_field :student, :first_name, :class => 'form-control'
     
     %div{:class => 'form-group'}
+        = label :student, :middle_name, 'Middle Name'
+        = text_field :student, :middle_name, :class => 'form-control'
+    %div{:class => 'form-group'}
         = label :student, :last_name, 'Last Name'
         = text_field :student, :last_name, :class => 'form-control'
-    
     %div{:class => 'form-group'}
-        = label :student, :date_of_birth, 'Date Of Birth'
-        = date_select(:student, :date_of_birth,start_year: 1900 )
-        
-   
+        = label :student, :primary_email, 'primary email'
+        = text_field :student, :primary_email, :class => 'form-control'
+    %div{:class => 'form-group'}
+        = label :student, :secondary_email, 'secondary email'
+        = text_field :student, :secondary_email, :class => 'form-control'
+    %div{:class => 'form-group'}
+        = label :student, :cell_number, 'Cell Phone'
+        = text_field :student, :cell_number, :class => 'form-control'
+    %div{:class => 'form-group'}
+        = label :student, :work_number, 'Work Phone'
+        = text_field :student, :work_number, :class => 'form-control'
+    %div{:class => 'form-group'}
+        = label :student, :home_number, 'Home Phone'
+        = text_field :student, :home_number, :class => 'form-control'
+    %div{:class => 'form-group'}
+        = label :addresses, :street_address, 'Street Address'
+        = text_field :addresses, :street_address, :class => 'form-control'
+    %div{:class => 'form-group'}
+        = label :addresses, :city, 'City'
+        = text_field :addresses, :city, :class => 'form-control'
+        = label :addresses, :state, 'State'
+        = text_field :addresses, :state, :class => 'form-control'
+        = label :addresses, :zip, 'ZIP Code'
+        = text_field :addresses, :zip, :class => 'form-control'
+    %div{:class => 'form-group'}
+        = label :earned_degree, :season, 'Graduation Season'
+        = select :earned_degree, :season, EarnedDegree.grad_seasons
+        = label :earned_degree, :year_graduated, 'Graduation Year'
+        = select_year(Date.today, start_year: 1942, end_year: Date.today.year,prefix: :earned_degree,field_name: :year_graduated)
+    %div{:class => 'form-group'}
+        = label :earned_degree, :degree_id, 'Degree earned'
+        = collection_select(:earned_degree, :degree_id, Degree.all, :id, :name)
     = submit_tag 'Save Changes'
+    
+    
