@@ -3,21 +3,28 @@ class DegreesController < ApplicationController
     Created by Zack Pace & Amanda Burton
     on: Feburary 20, 2018 
 =end
+
+  def find_degree
+    @colleges = College.all
+    @departments = Department.all
+    @degrees = Degree.all
+  end
+
     def index
         @degrees = Degree.all
     end
     
-def show
-  id = params[:id] 
-  @degree = Degree.find(id) 
+  def show
+    id = params[:id] 
+    @degree = Degree.find(id) 
   
-end
-
-def new
-  @degree = Degree.new
-end 
+  end
+  
+  def new
+    @degree = Degree.new
+  end 
     
-def create
+  def create
     params.require(:degree)
     permitted = params[:degree].permit(:name)
     @degree = Degree.create!(permitted)

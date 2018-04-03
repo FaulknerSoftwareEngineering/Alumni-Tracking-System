@@ -6,7 +6,30 @@ class StudentsController < ApplicationController
 =end
 
 def student_params
-        params.require(:student).permit(:first_name,:last_name)
+        params.require(:student).permit(
+        :first_name,
+        :middle_name,
+        :last_name,
+        :primary_email,
+        :secondary_email,
+        :cell_number,
+        :work_number,
+        :home_number)
+end
+
+def addresses_params
+      params.require(:addresses).permit(
+        :street_address,
+        :city,
+        :state,
+        :zip)
+end
+
+def earned_degree_params
+      params.require(:earned_degree).permit(
+        :season,
+        :year_graduated,
+        :degree_id)
 end
 
 def index
@@ -16,6 +39,8 @@ end
 def show
   id = params[:id] 
   @student = Student.find(id) 
+  @addresses = Address.find_by(student_id: id)
+  @earned_degrees = @student.earned_degrees
   
 end
 
@@ -25,24 +50,35 @@ end
     
 def create
     @student = Student.create!(student_params)
+    @addresses = Address.create!(addresses_params.merge({student_id: @student.id}))
+    @earned_degree = EarnedDegree.create!(earned_degree_params.merge({student_id: @student.id}))
     flash[:notice] = "#{@student.first_name} #{@student.last_name} was successfully created."
     redirect_to students_path
-  end
+end
 
   def edit
-    @student = Student.find params[:id]
+    id = params[:id] 
+    @student = Student.find(id) 
+    @addresses = Address.find_by(student_id: id)
   end
 
   def update
-  @student = Student.find params[:id]
+  id = params[:id] 
+  @student = Student.find(id) 
+  @addresses = Address.find_by(student_id: id)
   @student.update_attributes!(student_params)
-    flash[:notice] = "#{@student.first_name} #{@student.last_name} was successfully updated."
-    redirect_to students_path(@student)
+  @addresses.update_attributes!(addresses_params)
+  flash[:notice] = "#{@student.first_name} #{@student.last_name} was successfully updated."
+  redirect_to students_path(@student)
   end
 
   def destroy
-    @student = Student.find(params[:id])
+    id = params[:id] 
+    @student = Student.find(id) 
+    @addresses = Address.find_by(student_id: id)
     @student.destroy
+    @addresses.destroy
+    EarnedDegree.where(student_id: id).destroy_all
     flash[:notice] = "Student '#{@student.first_name} #{@student.last_name}' deleted."
     redirect_to students_path
   end

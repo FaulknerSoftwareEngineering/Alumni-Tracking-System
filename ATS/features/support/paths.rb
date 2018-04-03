@@ -21,6 +21,12 @@ module NavigationHelpers
       new_user_path
    when /^the edit user page for "(.*)"$/
       edit_user_path(User.find_by_name($1))
+    when /^the student home page$/
+      '/students'
+    when /^the student details page for "(.*)"$/
+      student_path(Student.find_by(first_name: $1))
+    when /^the edit student page for "(.*)"$/
+      edit_student_path(Student.find_by(first_name: $1))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
