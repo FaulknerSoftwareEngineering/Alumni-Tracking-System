@@ -1,0 +1,2 @@
+class EarnedDegreesController < ApplicationController
+end
