@@ -1,0 +1,17 @@
+-# Created on 04/03/18 by Amanda Burton and Christopher Smith
+-# May need to be a partial
+%p
+    = form_tag '/colleges/edit', :method => :get do
+        = render :partial => 'colleges/colleges_dropdown'
+        = submit_tag 'Edit College'
+-#= link_to 'Add new college', new_college_path
+%p
+    = form_tag '/departments/edit', :method => :get do
+        = render :partial => 'departments/departments_dropdown'
+        = submit_tag 'Edit Department'
+-#= link_to 'Add new department', new_department_path
+%p
+    = form_tag edit_degree_path(), :method => :get do
+        = render :partial => 'degrees_dropdown'
+        = submit_tag 'Edit Degree'
+= link_to 'Add new degree', new_degree_path
