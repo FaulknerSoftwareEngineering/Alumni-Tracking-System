@@ -3,6 +3,12 @@
 = form_tag employer_path(@employer), :method => :put do
 
   = label :employer, :name, 'Name'
-  = text_field :employer, 'name'
-
+  = text_field :name, 'name'
+  
+  = label :employer, :phone, 'Phone Number'
+  = text_field :number, 'number'
+   
+  = label :employer, :email, 'Email'
+  = text_field :email, 'email'
+   
   = submit_tag 'Save Changes'
