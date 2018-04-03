@@ -11,8 +11,11 @@ Rails.application.routes.draw do
  resources :roles
  resources :students do
     resources :employers
-end
+    end
 
+# For testing college/department/degree partials
+ get 'find_degree' => 'degrees#find_degree'
+ 
  
  get 'auth/:provider/callback' => 'sessions#create'
  get 'logout' => 'sessions#destroy'
