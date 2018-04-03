@@ -11,6 +11,7 @@ Rails.application.routes.draw do
  resources :roles
  resources :students do
     resources :employers
+    resources :earned_degrees
 end
 
  

@@ -6,8 +6,9 @@
 
 #Ethan Widen 3/27/18
 class Student < ActiveRecord::Base
-    has_many :employments
+    has_many :employments, dependent: :destroy
     has_many :grad_schools
     has_many :degrees
-    has_many :addresses
+    has_many :addresses, dependent: :destroy
+    has_many :earned_degrees, dependent: :destroy
 end

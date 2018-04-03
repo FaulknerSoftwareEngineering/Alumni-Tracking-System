@@ -6,28 +6,32 @@
 %ul#details
  %li
   Name:
-  = @student.first_name + " "
-  = @student.middle_name + " "
-  = @student.last_name
+  = "#{@student.first_name}  #{@student.middle_name}  #{@student.last_name}"
  %li
   Cell Phone:
-   = @student.cell_number
-  %li
+  = "#{@student.cell_number}"
+ %li
   Home Phone:
-   = @student.home_number 
-  %li
+  = @student.home_number 
+ %li
   Work Phone:
-   = @student.work_number
-  %li
-   Email:
-   = @student.primary_email
-  %li
-   Secondary Email:
-   = @student.secondary_email
+  = @student.work_number
+ %li
+  Primary Email:
+  = @student.primary_email
+ %li 
+  Secondary Email:
+  = @student.secondary_email
+ %li
+  Address:
+  = "#{@addresses.street_address} #{@addresses.city}, #{@addresses.state} #{@addresses.zip}"
 %ul#degrees
+ %h4 
+  Degrees
+ %li
+  - @earned_degrees.each do |earned|
+   =" #{earned.degree.name} #{earned.year_graduated} #{earned.season}"
 
-
-%ul#work_history
 
 
 
@@ -35,4 +39,4 @@
 
 = button_to 'Delete', student_path(@student), :method => :delete, :confirm => 'Are you sure?'
 
-= link_to 'Back to student list', student_path
+= link_to 'Back to student list', students_path

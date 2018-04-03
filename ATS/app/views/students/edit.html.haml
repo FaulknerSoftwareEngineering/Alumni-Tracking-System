@@ -26,6 +26,15 @@
     %div{:class => 'form-group'}
         = label :student, :home_number, 'Home Phone'
         = text_field :student, :home_number, :class => 'form-control'
-        
+    %div{:class => 'form-group'}
+        = label :addresses, :street_address, 'Street Address'
+        = text_field :addresses, :street_address, :class => 'form-control'
+    %div{:class => 'form-group'}
+        = label :addresses, :city, 'City'
+        = text_field :addresses, :city, :class => 'form-control'
+        = label :addresses, :state, 'State'
+        = text_field :addresses, :state, :class => 'form-control'
+        = label :addresses, :zip, 'ZIP Code'
+        = text_field :addresses, :zip, :class => 'form-control'
    
     = submit_tag 'Save Changes'
