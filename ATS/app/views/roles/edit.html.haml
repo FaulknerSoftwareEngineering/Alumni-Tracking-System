@@ -1,0 +1,14 @@
+-# Ethan Widen 3/17/18
+%h2 Edit role
+
+= form_tag role_path(@role), :method => :put do
+
+    %div{:class => 'form-group'}
+        = label :role, :name, 'Name'
+        = text_field :role, :name, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'
+  
+  
+  
