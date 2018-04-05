@@ -1,6 +1,6 @@
 # Ethan Widen 2/20/18
 class User < ActiveRecord::Base
-    
+    has_one :role
     def self.from_omniauth(auth)
         user = User.where(email: auth.info.email, name: auth.info.name).first
         if !user.blank?

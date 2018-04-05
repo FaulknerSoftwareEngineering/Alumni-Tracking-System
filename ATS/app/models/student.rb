@@ -11,4 +11,9 @@ class Student < ActiveRecord::Base
     has_many :degrees
     has_many :addresses, dependent: :destroy
     has_many :earned_degrees, dependent: :destroy
+    
+    def self.students_in_department(role)
+        #byebug
+        return Student.all
+    end
 end

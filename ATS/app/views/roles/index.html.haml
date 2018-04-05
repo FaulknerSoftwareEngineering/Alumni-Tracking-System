@@ -1,0 +1,20 @@
+-# Ethan Widen - 2/20/18
+%h1 All roles
+#flash-display
+    - flash.each do |type, msg|
+        %div{:class => "alert alert-#{type == :notice ? "success" : type} fadeout", "data-dismiss" => "alert"}
+            %button.close &times;
+            = msg if msg.is_a?(String)
+%table#roles.table
+    %thead
+        %tr
+            %th Name
+            %th Edit
+    %tbody
+        - @roles.each do|role|
+        - #byebug
+            %tr
+                %td= role.name
+                %td= link_to "Edit #{role.name}", edit_role_path(role)
+                
+= link_to 'Add new role', new_role_path

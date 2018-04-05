@@ -33,7 +33,8 @@ def earned_degree_params
 end
 
 def index
-    @students = Student.all
+    #byebug
+    @students = Student.students_in_department(session[:role_id])
 end
     
 def show

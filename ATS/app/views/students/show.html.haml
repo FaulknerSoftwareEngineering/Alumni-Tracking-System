@@ -24,7 +24,7 @@
   = @student.secondary_email
  %li
   Address:
-  = "#{@addresses.street_address} #{@addresses.city}, #{@addresses.state} #{@addresses.zip}"
+  = "#{@addresses.street_address} #{@addresses.city}, #{@addresses.state} #{@addresses.zip}" unless @addresses.blank?
 %ul#degrees
  %h4 
   Degrees
