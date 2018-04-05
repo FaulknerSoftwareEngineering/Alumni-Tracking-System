@@ -7,14 +7,14 @@
 
 %p
   = link_to 'home page', welcome_index_path
-%h1 All student
+%h1 All students
 = render :partial => 'shared/flash', :locals => { :flash => flash }
 %table#student.table
   %thead
     %tr
       %th First Name
       %th Last Name
-      %th degree
+      %th Degree
       %th Grad Year
       %th Grad Term
       %th More Info
