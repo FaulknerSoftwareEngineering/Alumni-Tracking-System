@@ -10,9 +10,9 @@ class DegreesController < ApplicationController
     @degrees = Degree.all
   end
 
-    def index
-        @degrees = Degree.all
-    end
+  def index
+      @degrees = Degree.all
+  end
     
   def show
     id = params[:id] 

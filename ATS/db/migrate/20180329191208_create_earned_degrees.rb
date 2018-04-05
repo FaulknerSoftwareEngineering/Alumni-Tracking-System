@@ -3,6 +3,7 @@ class CreateEarnedDegrees < ActiveRecord::Migration
     create_table :earned_degrees do |t|
       t.string :season
       t.string :year_graduated
+      t.string :type
       t.belongs_to :student, index: true
       t.integer :student_id
       t.belongs_to :degree, index: true

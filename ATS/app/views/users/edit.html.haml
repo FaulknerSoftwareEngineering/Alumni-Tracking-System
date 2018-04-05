@@ -18,14 +18,6 @@
     %div{:class => 'form-group'}
         = label :user, :name, 'Name'
         = text_field :user, :name, :class => 'form-control'
-        
-    %div{:class => 'form-group'}
-        = label :user, :first_name, 'First Name'
-        = text_field :user, :first_name, :class => 'form-control'
-    
-    %div{:class => 'form-group'}
-        = label :user, :last_name, 'Last Name'
-        = text_field :user, :last_name, :class => 'form-control'
     
     %div{:class => 'form-group'}
         = label :user, :oauth_token, 'oauth_token'
@@ -38,6 +30,9 @@
     %div{:class => 'form-group'}
         = label :user, :google_id, 'Google ID'
         = text_field :user, :google_id, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = collection_select :role, :id, Role.all, :id, :name 
     
     %div{:class => 'form-group'}
         = submit_tag "Submit", :class => 'btn btn-primary'

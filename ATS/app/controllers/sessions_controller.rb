@@ -5,8 +5,9 @@ class SessionsController < ApplicationController
         user = User.from_omniauth(env["omniauth.auth"])
         if user
             session[:user_id] = user.id
+            #byebug
+            session[:role_id] = user.role_id
             redirect_to root_path
-            #session[:role_id] = user.role.role_id
         else
             self.destroy
             #redirect_to root_path
