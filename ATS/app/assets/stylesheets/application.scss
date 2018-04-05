@@ -46,3 +46,14 @@ body {
    height:60px;   /* Height of the footer */
    background:#6cf;
 }
+#warning {
+    color: red;
+    padding: 0.5em;
+    font-weight: bold;
+    border: 2px solid red;
+}
+div.field_with_errors input {
+    border: 1px solid red;
+    background-color: yellow;
+    font-weight: bold;
+}
