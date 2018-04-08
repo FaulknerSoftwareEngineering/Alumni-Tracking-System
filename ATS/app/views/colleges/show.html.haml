@@ -1,0 +1,19 @@
+-# Created by Christopher Smith and Amanda Burton
+-# on: April 6, 2018 
+%h2 Details about 
+= @college.name
+
+
+%ul#details
+    %li
+        Name:
+        = @college.name
+    %li
+        Dean:
+        = @college.college_dean
+
+
+= link_to 'Edit info', edit_college_path(@college)
+
+
+= link_to 'Back to college list', colleges_path

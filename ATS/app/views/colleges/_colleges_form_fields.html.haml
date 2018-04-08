@@ -1,0 +1,12 @@
+-# Created by Christopher Smith and Amanda Burton
+- unless @college.errors.empty?
+    #warning
+        Errors prevented this movie from being #{controller.action_name}d:
+        %ul
+            - @college.errors.full_messages.each do|error|
+                %li= error
+
+= label :college, :title, 'Name'
+= text_field :college, :name
+= label :college_dean, :title, 'Dean'
+= text_field :college_dean, :dean

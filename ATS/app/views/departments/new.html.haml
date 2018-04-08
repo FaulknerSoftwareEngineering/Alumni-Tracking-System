@@ -1,0 +1,10 @@
+-# Created by Christopher Smith and Amanda Burton
+-# on: April 6, 2018 
+%h2 Create New Department
+
+= form_tag departments_path, :method => :post do
+
+  = render :partial => 'departments_form_fields'
+  = render :partial => 'colleges/colleges_dropdown'
+
+  = submit_tag 'Save Changes'

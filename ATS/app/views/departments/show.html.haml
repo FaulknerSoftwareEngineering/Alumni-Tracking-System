@@ -1,0 +1,19 @@
+-# Created by Christopher Smith and Amanda Burton
+-# on: April 6, 2018 
+%h2 Details about #{@department.name}
+
+
+%ul#details
+    %li
+        Name:
+        = @department.name
+    %li
+        Dept Chair:
+        = @department.dept_chair
+    %li
+        College:
+        = @college
+
+= link_to 'Edit info', edit_department_path(@department)
+
+= link_to 'Back to departments list', departments_path

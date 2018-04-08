@@ -4,8 +4,8 @@
 
 = form_tag degrees_path, :method => :post do
 
-  = label :movie, :title, 'Name'
-  = text_field :degree, :name
+  = render :partial => 'degrees_form_fields'
+  = render :partial => 'departments/departments_dropdown'
 
 
   = submit_tag 'Save Changes'
