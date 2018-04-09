@@ -1,0 +1,8 @@
+-# Created by Christopher Smith and Amanda Burton
+-# on: April 6, 2018 
+= form_tag department_path(@department), :method => :put do
+
+  = render :partial => 'departments_form_fields'
+  = render :partial => 'colleges/colleges_dropdown'
+
+  = submit_tag 'Save Changes'

@@ -1,0 +1,28 @@
+-#  This file is app/views/degrees/index.html.haml
+-# Created by Christopher Smith and Amanda Burton
+-# on: April 6, 2018 
+%h1 All Departments
+
+- if flash[:notice]
+  #notice.message= flash[:notice]
+- elsif flash[:warning]
+  #warning.message= flash[:warning]
+
+%table#departments
+  %thead
+    %tr
+      %th Name
+      %th More Info
+
+  %tbody
+    - @departments.each do |department|
+      %tr
+        %td= department.name
+        %td= link_to "More about #{department.name}", department_path(department)
+        
+
+%p
+  = link_to 'Add new department', new_department_path
+
+%p
+  = link_to 'home page', welcome_index_path
