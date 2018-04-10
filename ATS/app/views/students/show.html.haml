@@ -34,9 +34,20 @@
 
 
 
+%div{:class => 'linebutons'}  
+ = button_to 'Edit info', edit_student_path(@student),:method => :get
 
-= link_to 'Edit info', edit_student_path(@student)
+ = button_to 'Delete', student_path(@student), :method => :delete, :confirm => 'Are you sure?'
 
-= button_to 'Delete', student_path(@student), :method => :delete, :confirm => 'Are you sure?'
+%div
+ = button_to 'Back to student list', students_path,:method => :get
 
-= link_to 'Back to student list', students_path
+
+
+
+%div{:class => 'linebutons'} 
+ = button_to 'Graduate Degrees', :id => "Graduate_Degrees"     
+ = button_to 'Employment', :id => "Employment"     
+ 
+ 
+%div{:id => "table_div"}

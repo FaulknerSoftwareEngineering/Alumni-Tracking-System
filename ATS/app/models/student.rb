@@ -16,4 +16,9 @@ class Student < ActiveRecord::Base
         #byebug
         return Student.all
     end
+    
+    
+    validates :first_name, :presence => true;
+    validates :last_name, :presence => true;
+    
 end
