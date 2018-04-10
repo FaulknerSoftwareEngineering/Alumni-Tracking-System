@@ -82,6 +82,25 @@ end
     flash[:notice] = "Student '#{@student.first_name} #{@student.last_name}' deleted."
     redirect_to students_path
   end
+  
+  def add_grad_school
+    @universities = University.all
+    @id = params[:id]
+    @name = Student.find(@id).first_name + " " + Student.find(@id).last_name
+  end
     
+  def submit_add_grad_school
+    
+  end
+  
+  def add_employer
+    @employers = Employer.all
+    @id = params[:id]
+    @name = Student.find(@id).first_name + " " + Student.find(@id).last_name
+  end
+  
+  def submit_add_employer
+    
+  end
 
 end

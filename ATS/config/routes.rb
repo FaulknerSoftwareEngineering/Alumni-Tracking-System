@@ -23,4 +23,10 @@ end
  get 'logout' => 'sessions#destroy'
  get 'auth/failure' => 'sessions#failure'
  get 'auth/google_oauth2', :as => 'login'
+ 
+ get 'students/:id/add_grad_school' => 'students#add_grad_school', as: :add_grad_school
+ get 'students/:id/submit_add_grad_school' => 'students#submit_add_grad_school', as: :submit_add_grad_school
+ 
+ get 'students/:id/add_employer' => 'students#add_employer', as: :add_employer
+ get 'students/:id/submit_add_employer' => 'students#submit_add_employer', as: :submit_add_employer
 end
