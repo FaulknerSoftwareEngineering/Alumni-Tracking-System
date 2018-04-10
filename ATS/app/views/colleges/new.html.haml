@@ -1,0 +1,10 @@
+-# Created by Christopher Smith and Amanda Burton
+-# on: April 6, 2018 
+%h2 Create New College
+
+= form_tag colleges_path, :method => :post do
+
+  = render :partial => 'colleges_form_fields'
+
+
+  = submit_tag 'Save Changes'

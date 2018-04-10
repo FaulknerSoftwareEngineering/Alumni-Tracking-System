@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329191208) do
+ActiveRecord::Schema.define(version: 20180407013245) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_address"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20180329191208) do
   end
 
   create_table "degrees", force: :cascade do |t|
-    t.string   "type"
+    t.string   "degree_type"
     t.string   "name"
     t.integer  "department_id"
     t.datetime "created_at"
