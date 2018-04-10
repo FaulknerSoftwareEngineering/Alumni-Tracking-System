@@ -176,7 +176,7 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
     os (0.9.6)
-    pg (1.0.0)
+    pg (0.21.0)
     popper_js (1.12.9)
     public_suffix (3.0.2)
     rack (1.6.9)
@@ -310,7 +310,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   omniauth-google-oauth2
-  pg
+  pg (~> 0.21.0)
   popper_js (~> 1.12.9)
   rails (= 4.2.10)
   rails-erd
