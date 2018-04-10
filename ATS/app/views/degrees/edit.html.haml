@@ -2,8 +2,7 @@
 -# on: Feburary 21, 2018 
 = form_tag degree_path(@degree), :method => :put do
 
-  = label :degree, :name, 'name'
-  = text_field :degree, 'name'
+  = render :partial => 'degrees_form_fields'
  
 
   = submit_tag 'Save Changes'

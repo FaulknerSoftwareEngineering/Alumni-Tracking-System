@@ -4,44 +4,61 @@ class DegreesController < ApplicationController
     on: Feburary 20, 2018 
 =end
 
+  def degree_params
+        params.require(:degree).permit(:name, :degree_type, :department_id)
+  end
+
   def find_degree
     @colleges = College.all
     @departments = Department.all
     @degrees = Degree.all
   end
 
-    def index
+  def index
+    if request.xhr?
+        @degrees = Department.find(params[:id]).degrees
+        render(:json => @degrees)
+    else
         @degrees = Degree.all
     end
+  end
     
   def show
     id = params[:id] 
     @degree = Degree.find(id) 
-  
+    @department = @degree.department.name
   end
   
   def new
     @degree = Degree.new
+    @departments = Department.all
   end 
     
   def create
-    params.require(:degree)
-    permitted = params[:degree].permit(:name)
-    @degree = Degree.create!(permitted)
-    flash[:notice] = "#{@degree.name} was successfully created."
-    redirect_to degrees_path
+    @degree = Degree.create(degree_params)
+    @degree.department=(Department.find(params[:department_id]))
+    if @degree.save
+      flash[:notice] = "#{@degree.name} was successfully created."
+      redirect_to degrees_path
+    else
+      render 'new'
+    end
   end
 
   def edit
     @degree = Degree.find params[:id]
+    @departments = Department.all
   end
 
   def update
-   permitted = params[:degree].permit(:name)
-  @degree = Degree.find params[:id]
-  @degree.update_attributes!(permitted)
-    flash[:notice] = "#{@degree.name} was successfully updated."
-    redirect_to degrees_path(@degree)
+    @degree = Degree.find params[:id]
+    @degree.department=(Department.find(params[:department_id]))
+    if @degree.update_attributes(degree_params)
+      flash[:notice] = "#{@degree.name} was successfully updated."
+      redirect_to degrees_path(@degree)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

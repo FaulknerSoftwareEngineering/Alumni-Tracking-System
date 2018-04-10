@@ -1,0 +1,10 @@
+-# Ethan Widen  - 2/21/18
+%h2 Create New Role
+= form_tag roles_path, :method => :post do
+    
+    %div{:class => 'form-group'}
+        = label :role, :name, 'Name'
+        = text_field :role, :name, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'

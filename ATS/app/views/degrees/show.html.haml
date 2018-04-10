@@ -1,9 +1,20 @@
 -# Created by Zack Pace and AB 
 -# on: Feburary 21, 2018 
-%h2 Details about #{@degree.name}
+%h2 Details about 
+= @degree.name
 
 
 %ul#details
+    %li
+        Name:
+        = @degree.name
+    %li
+        Degree Type:
+        = @degree.degree_type
+    %li
+        Department:
+        = @department
+
 
 
 

@@ -1,0 +1,22 @@
+-#  This file is app/views/colleges/index.html.haml
+-# Created by Christopher Smith and Amanda Burton
+-# on: April 6, 2018 
+%h1 All Colleges
+
+%table#colleges
+  %thead
+    %tr
+      %th Name
+      %th More Info
+
+  %tbody
+    - @colleges.each do |college|
+      %tr
+        %td= college.name
+        %td= link_to "More about #{college.name}", college_path(college)
+
+%p
+  = link_to 'Add new college', new_college_path
+
+%p
+  = link_to 'home page', welcome_index_path

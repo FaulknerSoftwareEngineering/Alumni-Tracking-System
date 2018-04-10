@@ -28,7 +28,10 @@
     
     %div{:class => 'form-group'}
         = label :user, :google_id, 'Google ID'
-        = number_field(:user, :google_id, in: 1.0..1000000.0, step: 1.0, :class => 'form-control') 
+        = number_field(:user, :google_id, in: 1.0..1000000.0, step: 1.0, :class => 'form-control')
+     
+    %div{:class => 'form-group'}
+        = collection_select(:role, :role_id, Role.all, :id, :name)
         
     %div{:class => 'form-group'}
         = submit_tag "Submit", :class => 'btn btn-primary'

@@ -1,0 +1,11 @@
+-# Created by Christopher Smith and Amanda Burton
+- unless @department.errors.empty?
+    #warning
+        Errors prevented this movie from being #{controller.action_name}d:
+        %ul
+            - @department.errors.full_messages.each do|error|
+                %li= error
+= label :department, :title, 'Name'
+= text_field :department, :name
+= label :dept_chair, :title, 'Chair'
+= text_field :department, :dept_chair
