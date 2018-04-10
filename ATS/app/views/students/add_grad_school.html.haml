@@ -1,0 +1,6 @@
+%h2 Add Grad School to 
+= @name
+
+= form_tag submit_add_grad_school_path(@id), :method => :get do
+    = render :partial => 'universities/university_dropdown'
+    = submit_tag 'Add University'

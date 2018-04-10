@@ -1,0 +1,6 @@
+%h2 Add Employer to
+= @name
+
+= form_tag submit_add_employer_path(@id), :method => :get do
+    = render :partial => 'employers/employer_dropdown'
+    = submit_tag 'Add Employer'

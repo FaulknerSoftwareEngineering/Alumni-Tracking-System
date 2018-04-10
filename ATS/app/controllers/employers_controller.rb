@@ -18,9 +18,13 @@ class EmployersController < ApplicationController
     end
     
     def create
-        @employer = Employer.create!(employer_params)
-        flash[:notice] = "#{@employer.name} was successfully created."
-        redirect_to employers_path
+        @employer = Employer.create(employer_params)
+        if @employer.update_attributes(params[:employer])
+            flash[:notice] = "#{@employer.name} was successfully created."
+            redirect_to employers_path
+        else
+            render 'new'
+        end
     end
     
     def edit
@@ -29,8 +33,12 @@ class EmployersController < ApplicationController
     
     def update
         @employer = Employer.find params[:id]
-        @employer.update_attributes!(employer_params)
-        flash[:notice] = "#{@employer.name} was successfully updated."
-        redirect_to employers_path()
+        if @employer.update_attributes(employer_params)
+            #@employer.update_attributes!(employer_params)
+            flash[:notice] = "#{@employer.name} was successfully updated."
+            redirect_to employers_path()
+        else
+            render 'edit'
+        end
     end
 end

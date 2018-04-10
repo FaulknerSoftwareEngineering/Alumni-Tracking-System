@@ -1,0 +1,12 @@
+-#Created by Javan Rampersad
+-#Employer detail form partial
+
+- unless @employer.errors.empty?
+    #warning
+        Errors prevented this movie from being #{controller.action_name}d :
+        %ul
+            - @employer.errors.full_messages.each do |error|
+                %li = error
+
+= label :employer, :name, 'Name'
+= text_field :employer, 'name'

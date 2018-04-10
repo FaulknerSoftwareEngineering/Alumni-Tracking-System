@@ -2,6 +2,10 @@
 
 = form_tag employer_path(@employer), :method => :put do
 
+<<<<<<< HEAD
+  = render :partial => 'employer_form'
+
+=======
   = label :employer, :name, 'Name'
   = text_field :name, 'name'
   
@@ -11,4 +15,5 @@
   = label :employer, :email, 'Email'
   = text_field :email, 'email'
    
+>>>>>>> 9c7d29b620ed5fd665fdf8fd99cc145953eb6e6f
   = submit_tag 'Save Changes'
