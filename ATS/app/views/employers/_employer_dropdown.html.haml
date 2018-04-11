@@ -1,2 +1,2 @@
 %div{:class => 'form-group'}
-    = select_tag 'id', options_for_select(@employers.collect{ |u| [u.name, u.id] })
+    = collection_select(:employment, :employer_id, Employer.all, :id, :name)
