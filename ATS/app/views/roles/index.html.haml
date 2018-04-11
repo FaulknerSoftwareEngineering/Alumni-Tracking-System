@@ -17,4 +17,9 @@
                 %td= role.name
                 %td= link_to "Edit #{role.name}", edit_role_path(role)
                 
-= link_to 'Add new role', new_role_path
+
+%p
+    = link_to 'Add New Role', new_role_path
+
+%p
+    = link_to 'Home Page', root_path

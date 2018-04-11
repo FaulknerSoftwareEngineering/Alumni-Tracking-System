@@ -7,4 +7,10 @@
   = render :partial => 'departments_form_fields'
   = render :partial => 'colleges/colleges_dropdown'
 
-  = submit_tag 'Save Changes'
+  %div{:class => 'form-group'}
+    = submit_tag 'Save Changes', :class => 'btn btn-primary'
+  
+
+  
+%p
+  = link_to 'Cancel', departments_path  

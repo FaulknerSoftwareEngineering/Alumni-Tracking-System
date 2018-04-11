@@ -2,7 +2,13 @@
 
 = form_tag university_path(@university), :method => :put do
 
-  = label :university, :name, 'Name'
-  = text_field :university, 'name'
+  %div{:class => 'form-group'}
+    = label :university, :name, 'Name'
+    = text_field :university, 'name', , :class => 'form-control'
 
   = submit_tag 'Save Changes'
+  
+%p
+  = link_to 'Back to Details Page', university_path(@university)
+%p
+  = link_to 'Back to University List', universities_path

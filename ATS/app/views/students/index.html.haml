@@ -2,9 +2,6 @@
 -# Created by Zack Pace
 -# on: March 23, 2018 
 -# edited by ZP on 3/29/18
-%div{:class => 'linebutons'}  
-  = button_to 'home page', welcome_index_path,:method => :get
-  = button_to 'Add new student', new_student_path,:method => :get
   
 %h1 All students
 = render :partial => 'shared/flash', :locals => { :flash => flash }
@@ -27,3 +24,9 @@
         %td= "#{student.earned_degrees.first.year_graduated}" unless student.earned_degrees.blank?
         %td= "#{student.earned_degrees.first.season}" unless student.earned_degrees.blank?
         %td= link_to "More about #{student.first_name}", student_path(student)
+
+%p
+  = link_to 'Add New Student', new_student_path        
+%p
+  = link_to 'Home Page', root_path
+  

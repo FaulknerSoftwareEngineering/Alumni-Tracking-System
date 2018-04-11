@@ -14,10 +14,8 @@
     %div{:class => 'form-group'}
         = label :earned_degree, :degree_id, 'Degree earned'
         = collection_select(:earned_degree, :degree_id, Degree.all, :id, :name)
+    %div{:class => 'form-group'}
+        = submit_tag 'Save Changes', :class => 'btn btn-primary'
     
-    = submit_tag 'Save Changes'
-    
-    
-        
-    
-    
+%p
+    = link_to 'Cancel', students_path  

@@ -4,7 +4,7 @@
 = @college.name
 
 
-%ul#details
+%ul#details.table
     %li
         Name:
         = @college.name
@@ -12,8 +12,7 @@
         Dean:
         = @college.college_dean
 
-
-= link_to 'Edit info', edit_college_path(@college)
-
-
-= link_to 'Back to college list', colleges_path
+%p
+    = link_to 'Edit Info', edit_college_path(@college)
+%p
+    = link_to 'Back to College List', colleges_path

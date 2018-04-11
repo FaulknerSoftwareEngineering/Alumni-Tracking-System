@@ -17,9 +17,9 @@
 
 
 
-
-= link_to 'Edit info', edit_degree_path(@degree)
-
-= link_to 'Delete', degree_path(@degree), :method => :delete
-
-= link_to 'Back to degree list', degrees_path
+%p
+    = link_to 'Edit Info', edit_degree_path(@degree)
+%p
+    = link_to 'Delete', degree_path(@degree), :method => :delete
+%p
+    = link_to 'Back to Degree List', degrees_path

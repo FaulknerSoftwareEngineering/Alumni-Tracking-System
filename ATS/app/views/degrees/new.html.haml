@@ -3,9 +3,11 @@
 %h2 Create New Degree
 
 = form_tag degrees_path, :method => :post do
-
   = render :partial => 'degrees_form_fields'
   = render :partial => 'departments/departments_dropdown'
 
-
-  = submit_tag 'Save Changes'
+  %div{:class => 'form-group'}
+    = submit_tag 'Save Changes', :class => 'btn btn-primary'
+    
+%p
+  = link_to 'Cancel', degrees_path    

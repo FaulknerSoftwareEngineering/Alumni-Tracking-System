@@ -5,7 +5,9 @@
         %ul
             - @degree.errors.full_messages.each do|error|
                 %li= error
-= label :degree, :title, 'Name'
-= text_field :degree, :name
-= label :degree, :title, 'Type'
-= text_field :degree, :degree_type
+%div{:class => 'form-group'}
+    = label :degree, :title, 'Name'
+    = text_field :degree, :name, :class => 'form-control'
+%div{:class => 'form-group'}    
+    = label :degree, :title, 'Type'
+    = text_field :degree, :degree_type, :class => 'form-control'

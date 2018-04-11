@@ -8,7 +8,7 @@
 - elsif flash[:warning]
   #warning.message= flash[:warning]
 
-%table#departments
+%table#departments.table
   %thead
     %tr
       %th Name
@@ -22,7 +22,7 @@
         
 
 %p
-  = link_to 'Add new department', new_department_path
+  = link_to 'Add New Department', new_department_path
 
 %p
-  = link_to 'home page', welcome_index_path
+  = link_to 'Home Page', root_path
