@@ -1,8 +1,8 @@
 %h1 All Universities
 
-= link_to 'Add new university', new_university_path
 
-%table#universities
+
+%table#universities.table
     %thead
         %tr
             %th University Name
@@ -12,3 +12,8 @@
             %tr
                 %td= university.name
                 %td= link_to "Edit #{university.name}", edit_university_path(university)
+                
+%p
+    = link_to 'Add New University', new_university_path      
+%p
+    = link_to 'Home Page', welcome_index_path

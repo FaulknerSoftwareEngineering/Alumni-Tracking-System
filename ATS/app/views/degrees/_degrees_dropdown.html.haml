@@ -1,2 +1,3 @@
 -# Created on 04/03/18 by Amanda Burton and Christopher Smith
-= select_tag 'degree_id', options_for_select(@degrees.collect{ |u| [u.name, u.id] })
+%div{:class => 'form-group'}
+    = select_tag 'degree_id', options_for_select(@degrees.collect{ |u| [u.name, u.id] })

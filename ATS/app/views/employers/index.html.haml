@@ -1,8 +1,6 @@
 %h1 All Employers
 
-= link_to 'Add new employer', new_employer_path
-
-%table#employers
+%table#employers.table
     %thead
         %tr
             %th Employer Name
@@ -12,3 +10,10 @@
             %tr
                 %td= employer.name
                 %td= link_to "Edit #{employer.name}", edit_employer_path(employer)
+
+
+%p
+    = link_to 'Add New Employer', new_employer_path
+
+%p
+    = link_to 'Home Page', welcome_index_path

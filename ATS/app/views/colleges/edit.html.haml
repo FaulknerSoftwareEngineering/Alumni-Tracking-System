@@ -4,5 +4,10 @@
 
   = render :partial => 'colleges_form_fields'
  
-
   = submit_tag 'Save Changes'
+  
+%p
+  = link_to 'Back to Details Page', college_path(@college)
+%p
+  = link_to 'Back to College List', colleges_path
+    

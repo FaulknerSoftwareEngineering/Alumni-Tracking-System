@@ -5,8 +5,9 @@
         %ul
             - @college.errors.full_messages.each do|error|
                 %li= error
-
-= label :college, :title, 'Name'
-= text_field :college, :name
-= label :college_dean, :title, 'Dean'
-= text_field :college_dean, :dean
+%div{:class => 'form-group'}
+    = label :college, :title, 'Name'
+    = text_field :college, :name, :class => 'form-control'
+%div{:class => 'form-group'}
+    = label :college_dean, :title, 'Dean'
+    = text_field :college_dean, :dean, :class => 'form-control'

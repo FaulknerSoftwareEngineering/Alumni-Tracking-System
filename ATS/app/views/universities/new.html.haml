@@ -4,4 +4,8 @@
     = label :university, :name, 'Name'
     = text_field :university, :name
     
-    = submit_tag 'Save Changes'
+    %div{:class => 'form-group'}
+      = submit_tag 'Save Changes', :class => 'btn btn-primary'
+    
+%p
+  = link_to 'Cancel', universities_path

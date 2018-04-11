@@ -3,7 +3,7 @@
 -# on: April 6, 2018 
 %h1 All Colleges
 
-%table#colleges
+%table#colleges.table
   %thead
     %tr
       %th Name
@@ -16,7 +16,7 @@
         %td= link_to "More about #{college.name}", college_path(college)
 
 %p
-  = link_to 'Add new college', new_college_path
+  = link_to 'Add New College', new_college_path
 
 %p
-  = link_to 'home page', welcome_index_path
+  = link_to 'Home Page', welcome_index_path

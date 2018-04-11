@@ -1,1 +1,2 @@
-= select_tag 'id', options_for_select(@employers.collect{ |u| [u.name, u.id] })
+%div{:class => 'form-group'}
+    = select_tag 'id', options_for_select(@employers.collect{ |u| [u.name, u.id] })

@@ -7,6 +7,6 @@
         %ul
             - @employer.errors.full_messages.each do |error|
                 %li = error
-
-= label :employer, :name, 'Name'
-= text_field :employer, 'name'
+%div{:class => 'form-group'}
+    = label :employer, :name, 'Name'
+    = text_field :employer, 'name', :class => 'form-control'
