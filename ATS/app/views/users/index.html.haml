@@ -22,5 +22,9 @@
                 %td= user.uid
                 %td= user.oauth_token
                 %td= link_to "Edit #{user.name}", edit_user_path(user)
-                
-= link_to 'Add new user', new_user_path
+             
+
+%p
+    = link_to 'Add New User', new_user_path      
+%p
+    = link_to 'Home Page', welcome_index_path

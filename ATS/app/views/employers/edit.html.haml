@@ -2,18 +2,19 @@
 
 = form_tag employer_path(@employer), :method => :put do
 
-<<<<<<< HEAD
   = render :partial => 'employer_form'
-
-=======
-  = label :employer, :name, 'Name'
-  = text_field :name, 'name'
   
+%div{:class => 'form-group'}  
   = label :employer, :phone, 'Phone Number'
-  = text_field :number, 'number'
+  = text_field :number, 'number', :class => 'form-control'
    
+%div{:class => 'form-group'}    
   = label :employer, :email, 'Email'
-  = text_field :email, 'email'
+  = text_field :email, 'email', :class => 'form-control'
    
->>>>>>> 9c7d29b620ed5fd665fdf8fd99cc145953eb6e6f
   = submit_tag 'Save Changes'
+  
+%p
+  = link_to 'Back to Details Page', employer_path(@employer)
+%p
+  = link_to 'Back to Employer List', employers_path

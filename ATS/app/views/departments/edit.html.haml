@@ -6,3 +6,9 @@
   = render :partial => 'colleges/colleges_dropdown'
 
   = submit_tag 'Save Changes'
+  
+  
+%p
+  = link_to 'Back to Details Page', department_path(@department)
+%p
+  = link_to 'Back to Department List', departments_path

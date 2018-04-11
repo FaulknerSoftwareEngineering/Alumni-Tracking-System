@@ -33,13 +33,13 @@
    =" #{earned.degree.name}  #{earned.year_graduated} #{earned.season}"
 
 
-
-= link_to 'Add New Grad School', add_grad_school_path(@student.id)
-%div
+%p
+ = link_to 'Add New Grad School', add_grad_school_path(@student.id)
+%p
  = link_to 'Add New Employer', add_employer_path(@student.id)
-%div
- = link_to 'Edit info', edit_student_path(@student)
-
-= button_to 'Delete', student_path(@student), :method => :delete, :confirm => 'Are you sure?'
-
-= link_to 'Back to student list', students_path
+%p
+ = link_to 'Edit Info', edit_student_path(@student)
+%p
+ = link_to 'Delete', student_path(@student), :method => :delete
+%p
+ = link_to 'Back to Student List', students_path

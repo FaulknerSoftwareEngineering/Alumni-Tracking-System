@@ -5,7 +5,11 @@
         %ul
             - @department.errors.full_messages.each do|error|
                 %li= error
-= label :department, :title, 'Name'
-= text_field :department, :name
-= label :dept_chair, :title, 'Chair'
-= text_field :department, :dept_chair
+%div{:class => 'form-group'}
+    = label :department, :title, 'Name'
+    = text_field :department, :name, :class => 'form-control'
+    
+%div{:class => 'form-group'}
+    = label :dept_chair, :title, 'Chair'
+    = text_field :department, :dept_chair, :class => 'form-control'
+    
