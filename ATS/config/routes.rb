@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  #get 'welcome/index'
 
  root 'welcome#index'
  
@@ -18,6 +18,7 @@ end
 
 
 # For testing college/department/degree partials
+#begin
  get 'find_degree' => 'degrees#find_degree'
  
  
@@ -32,3 +33,4 @@ end
  get 'students/:id/add_employer' => 'students#add_employer', as: :add_employer
  get 'students/:id/submit_add_employer' => 'students#submit_add_employer', as: :submit_add_employer
 end
+#end
