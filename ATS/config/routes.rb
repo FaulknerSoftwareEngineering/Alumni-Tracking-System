@@ -25,6 +25,7 @@ end
 
 get 'students/:id/add_degree_student' => 'students_details#add_degree_student'
 get 'students/students/grad_school' => 'students#grad_school'
+get 'students/students/employment' => 'students#employment'
 # end testing group for student details page
  
  

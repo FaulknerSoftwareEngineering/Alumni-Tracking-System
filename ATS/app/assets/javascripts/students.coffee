@@ -9,17 +9,15 @@ $ ->
    error: (jqXHR, textStatus, errorThrown) ->
      alert "Error"
    success: (data, textStatus, jqXHR) ->
-     alert "Success... Somehow"
-     $('#table_div').html "Successful AJAX call: #{data}"
+     $('#table_div').html "#{data}"
  $("#Employment").click ->
   $.ajax
    type: "get"
-   url: "students/grad_school"
+   url: "students/employment"
    error: (jqXHR, textStatus, errorThrown) ->
      alert "Error"
    success: (data, textStatus, jqXHR) ->
-     alert "Success... Somehow"
-     $('#table_div').html "Successful AJAX call: #{data}"
+     $('#table_div').html "#{data}"
       
     
     

@@ -85,12 +85,12 @@ end
   end
   
   def grad_school
-
+    @grad_degrees = Student.all
     render :partial => 'graduate_degree_table'
   end
   
   def employment
-   
+    @employment = Student.all
     render :partial => 'employment_student_table'
   end
   
