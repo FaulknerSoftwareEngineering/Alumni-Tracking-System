@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  #get 'welcome/index'
 
  root 'welcome#index'
  
@@ -18,6 +18,7 @@ end
 
 
 # For testing college/department/degree partials
+#begin
  get 'find_degree' => 'degrees#find_degree'
  
  
@@ -26,3 +27,4 @@ end
  get 'auth/failure' => 'sessions#failure'
  get 'auth/google_oauth2', :as => 'login'
 end
+#end
