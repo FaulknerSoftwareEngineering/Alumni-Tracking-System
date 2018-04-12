@@ -55,9 +55,9 @@ def index
 end
     
 def show
-  id = params[:id] 
-  @student = Student.find(id) 
-  @addresses = Address.find_by(student_id: id)
+  @id = params[:id] 
+  @student = Student.find(@id) 
+  @addresses = Address.find_by(student_id: @id)
   @earned_degrees = @student.earned_degrees
   
 end
@@ -102,6 +102,7 @@ end
   end
   
   def grad_school
+    @id = params[:id]
     @grad_degrees = Student.all
     render :partial => 'graduate_degree_table'
   end

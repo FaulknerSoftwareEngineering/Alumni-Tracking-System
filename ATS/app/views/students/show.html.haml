@@ -25,7 +25,6 @@
  %li
   Address:
   = "#{@addresses.street_address} #{@addresses.city}, #{@addresses.state} #{@addresses.zip}" unless @addresses.blank?
-#side_bar
 %ul#degrees
  %h4 
   Degrees
@@ -49,6 +48,10 @@
 %div{:class => 'linebuttons'} 
  = button_tag 'Graduate Degrees', :id => "Graduate_Degrees"     
  = button_tag 'Employment', :id => "Employment"     
- 
+
+%div{:class => 'linebuttons'} 
+ = button_to 'add new employment', add_employer_path(@id) ,:method => :get    
+ = button_to 'add new grad school', add_grad_school_path(@id) ,:method => :get
+    
  
 %div{:id => "table_div"}
