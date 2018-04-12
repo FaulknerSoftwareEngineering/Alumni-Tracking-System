@@ -35,12 +35,14 @@ class DegreesController < ApplicationController
   end 
     
   def create
-    @degree = Degree.create(degree_params)
-    @degree.department=(Department.find(params[:department_id]))
-    if @degree.save
-      flash[:notice] = "#{@degree.name} was successfully created."
-      redirect_to degrees_path
-    else
+    begin
+      @degree = Degree.create(degree_params)
+      @degree.department=(Department.find(params[:department_id]))
+      if @degree.save
+        flash[:notice] = "#{@degree.name} was successfully created."
+        redirect_to degrees_path
+      end
+    rescue StandardError => e
       render 'new'
     end
   end
