@@ -1,3 +1,4 @@
+<<<<<<<<< saved version
 %h2 Edit Employer
 
 = form_tag employer_path(@employer), :method => :put do
@@ -8,3 +9,13 @@
   = link_to 'Back to Details Page', employer_path(@employer)
 %p
   = link_to 'Back to Employer List', employers_path
+=========
+%h2 Edit Employer
+
+= form_tag employer_path(@employer), :method => :put do
+
+  = label :employer, :name, 'Name'
+  = text_field :employer, 'name'
+
+  = submit_tag 'Save Changes'
+>>>>>>>>> local version
