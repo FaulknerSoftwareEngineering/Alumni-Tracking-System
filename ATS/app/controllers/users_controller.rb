@@ -35,11 +35,15 @@ class UsersController < ApplicationController
     end
     
     def edit
+        @departments = Department.all
+        @colleges = College.all
         @user = User.find params[:id]
         @role = Role.find_by_id(@user.role_id)
     end
     
     def update
+        @departments = Department.all
+        @colleges = College.all
         @user = User.find params[:id]
         @role = Role.find_by_id(params[:role][:id])
         @user.update_attributes!(user_params)

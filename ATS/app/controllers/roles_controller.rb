@@ -15,9 +15,13 @@ class RolesController < ApplicationController
         @role = Role.new
     end
     
-     def create
+    def create
         @role = Role.create!(role_params)
         flash[:success] = "#{@role.name} as successfully created."
         redirect_to roles_path
+    end
+    
+    def edit
+        @role = Role.find_by_id params[:id]
     end
 end
