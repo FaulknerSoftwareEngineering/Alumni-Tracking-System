@@ -3,6 +3,7 @@
 = form_tag degree_path(@degree), :method => :put do
 
   = render :partial => 'degrees_form_fields'
+  = render :partial => 'departments/departments_dropdown'
  
 
   = submit_tag 'Save Changes'
@@ -10,4 +11,4 @@
 %p
   = link_to 'Back to Details Page', degree_path(@degree)
 %p
-  = link_to 'Back to Degree List', deegrees_path
+  = link_to 'Back to Degree List', degrees_path

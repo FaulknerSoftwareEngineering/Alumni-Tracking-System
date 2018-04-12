@@ -1,3 +1,4 @@
 -# Created on 04/03/18 by Amanda Burton and Christopher Smith
 %div{:class => 'form-group'}
+    = label :department_id, :title, 'Department'
     = select_tag 'department_id', options_for_select(@departments.collect{ |u| [u.name, u.id] })
