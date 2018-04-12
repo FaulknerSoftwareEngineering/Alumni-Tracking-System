@@ -9,15 +9,15 @@
                 %li = error
 %div{:class => 'form-group'}
     = label :employer, :name, 'Name'
-    = text_field :employer, 'name', :class => 'form-control'
+    = text_field :employer, :name, :class => 'form-control'
 
 %div{:class => 'form-group'}  
-    = label :employer, :phone, 'Phone Number'
-    = text_field :number, 'number', :class => 'form-control'
+    = label :employer, :number, 'Phone Number'
+    = text_field :employer, :number, :class => 'form-control'
    
 %div{:class => 'form-group'}    
     = label :employer, :email, 'Email'
-    = text_field :email, 'email', :class => 'form-control'
+    = text_field :employer, :email, :class => 'form-control'
 
 %div
     = submit_tag 'Save Changes'
