@@ -2,38 +2,37 @@
 -# on: March 23, 2018 
 %h2 Details about #{@student.first_name}
 
-#container
-%div{:class => "left_column"} 
- %ul#details 
-  %li
-   Name:
-   = "#{@student.first_name}  #{@student.middle_name}  #{@student.last_name}"
-  %li
-   Cell Phone:
-   = "#{@student.cell_number}"
-  %li
-   Home Phone:
-   = @student.home_number 
-  %li
-   Work Phone:
-   = @student.work_number
-  %li
-   Primary Email:
-   = @student.primary_email
-  %li 
-   Secondary Email:
-   = @student.secondary_email
-  %li
-   Address:
-   = "#{@addresses.street_address} #{@addresses.city}, #{@addresses.state} #{@addresses.zip}" unless @addresses.blank?
-%div{:class => "right_column"}
- %ul#degrees
-  %h4 
-   Degrees
-  
-  %li{:class => 'degree_list'}
-   - @earned_degrees.each do |earned|
-    =" #{earned.degree.name}  #{earned.year_graduated} #{earned.season}"
+
+%ul#details
+ %li
+  Name:
+  = "#{@student.first_name}  #{@student.middle_name}  #{@student.last_name}"
+ %li
+  Cell Phone:
+  = "#{@student.cell_number}"
+ %li
+  Home Phone:
+  = @student.home_number 
+ %li
+  Work Phone:
+  = @student.work_number
+ %li
+  Primary Email:
+  = @student.primary_email
+ %li 
+  Secondary Email:
+  = @student.secondary_email
+ %li
+  Address:
+  = "#{@addresses.street_address} #{@addresses.city}, #{@addresses.state} #{@addresses.zip}" unless @addresses.blank?
+%ul#degrees
+ %h4 
+  Degrees
+ %li
+  - @earned_degrees.each do |earned|
+   =" #{earned.degree.name}  #{earned.year_graduated} #{earned.season}"
+
+
 
 %div{:class => 'linebuttons'}  
  = link_to 'Edit info', edit_student_path(@student),:method => :get
@@ -47,6 +46,10 @@
 %div{:class => 'linebuttons'} 
  = button_tag 'Graduate Degrees', :id => "Graduate_Degrees"     
  = button_tag 'Employment', :id => "Employment"     
- 
+
+%div{:class => 'linebuttons'} 
+ = button_to 'add new employment', add_employer_path(@id) ,:method => :get    
+ = button_to 'add new grad school', add_grad_school_path(@id) ,:method => :get
+    
  
 %div{:id => "table_div"}
