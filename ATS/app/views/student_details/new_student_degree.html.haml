@@ -1,12 +1,8 @@
--# Created by Zack Pace
--# on: March 23, 2018 
--# edited on March 29, 18 
-= button_to 'Back to student list', students_path,:method => :get
-%h2 new student
+
+%h2 new degree for student
 = form_tag students_path, :method => :post do
-    
-    = render :partial => 'student_form'
-    %div{:class => 'form-group'}
+
+     %div{:class => 'form-group'}
         = label :earned_degree, :season, 'Graduation Season'
         = select :earned_degree, :season, EarnedDegree.grad_seasons
         = label :earned_degree, :year_graduated, 'Graduation Year'
@@ -14,8 +10,3 @@
     %div{:class => 'form-group'}
         = label :earned_degree, :degree_id, 'Degree earned'
         = collection_select(:earned_degree, :degree_id, Degree.all, :id, :name)
-    %div{:class => 'form-group'}
-        = submit_tag 'Save Changes', :class => 'btn btn-primary'
-    
-%p
-    = link_to 'Cancel', students_path  

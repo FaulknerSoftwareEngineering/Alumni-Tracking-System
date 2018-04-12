@@ -2,40 +2,8 @@
 -# on: March 23, 2018 
 = form_tag student_path(@student), :method => :put do
     
-    %div{:class => 'form-group'}
-        = label :student, :first_name, 'First Name'
-        = text_field :student, :first_name, :class => 'form-control'
-    %div{:class => 'form-group'}
-        = label :student, :middle_name, 'Middle Name'
-        = text_field :student, :middle_name, :class => 'form-control'
-    %div{:class => 'form-group'}
-        = label :student, :last_name, 'Last Name'
-        = text_field :student, :last_name, :class => 'form-control'
-    %div{:class => 'form-group'}
-        = label :student, :primary_email, 'primary email'
-        = text_field :student, :primary_email, :class => 'form-control'
-    %div{:class => 'form-group'}
-        = label :student, :secondary_email, 'secondary email'
-        = text_field :student, :secondary_email, :class => 'form-control'
-    %div{:class => 'form-group'}
-        = label :student, :cell_number, 'Cell Phone'
-        = text_field :student, :cell_number, :class => 'form-control'
-    %div{:class => 'form-group'}
-        = label :student, :work_number, 'Work Phone'
-        = text_field :student, :work_number, :class => 'form-control'
-    %div{:class => 'form-group'}
-        = label :student, :home_number, 'Home Phone'
-        = text_field :student, :home_number, :class => 'form-control'
-    %div{:class => 'form-group'}
-        = label :addresses, :street_address, 'Street Address'
-        = text_field :addresses, :street_address, :class => 'form-control'
-    %div{:class => 'form-group'}
-        = label :addresses, :city, 'City'
-        = text_field :addresses, :city, :class => 'form-control'
-        = label :addresses, :state, 'State'
-        = text_field :addresses, :state, :class => 'form-control'
-        = label :addresses, :zip, 'ZIP Code'
-        = text_field :addresses, :zip, :class => 'form-control'
+    = render :partial => 'student_form'
+   
    
     = submit_tag 'Save Changes'
     

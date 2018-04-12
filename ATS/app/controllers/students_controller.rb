@@ -33,7 +33,7 @@ def earned_degree_params
 end
 
 def index
-    #byebug
+    
     @students = Student.students_in_department(session[:role_id])
 end
     
@@ -82,6 +82,16 @@ end
     EarnedDegree.where(student_id: id).destroy_all
     flash[:notice] = "Student '#{@student.first_name} #{@student.last_name}' deleted."
     redirect_to students_path
+  end
+  
+  def grad_school
+    @grad_degrees = Student.all
+    render :partial => 'graduate_degree_table'
+  end
+  
+  def employment
+    @employment = Student.all
+    render :partial => 'employment_student_table'
   end
   
   def add_grad_school

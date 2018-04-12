@@ -13,13 +13,21 @@ Rails.application.routes.draw do
  resources :colleges
  resources :students do
     resources :employers
-    resources :earned_degrees
 end
 
 
 # For testing college/department/degree partials
 #begin
  get 'find_degree' => 'degrees#find_degree'
+ 
+ 
+ 
+# For testing links on student details page
+
+get 'students/:id/add_degree_student' => 'students_details#add_degree_student'
+get 'students/students/grad_school' => 'students#grad_school'
+get 'students/students/employment' => 'students#employment'
+# end testing group for student details page
  
  
  get 'auth/:provider/callback' => 'sessions#create'
