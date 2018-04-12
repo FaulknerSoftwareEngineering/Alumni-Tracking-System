@@ -5,7 +5,10 @@
 class EmployersController < ApplicationController
 
     def employer_params
-        params.require(:employer).permit(:name)
+        params.require(:employer).permit(
+            :name,
+            :phone,
+            :email)
     end
     
     def index

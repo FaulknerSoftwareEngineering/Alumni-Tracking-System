@@ -2,15 +2,3 @@
 = form_tag employers_path, :method => :post do
     
   = render :partial => 'employer_form'
-  
-  = label :employer, :phone, 'Phone Number'
-  = text_field :number, 'number'
-  
-  = label :employer, :email, 'Email'
-  = text_field :email, 'email'
-  
-  %div{:class => 'form-group'}
-    = submit_tag 'Save Changes', :class => 'btn btn-primary'
-    
-%p
-  = link_to 'Cancel', employers_path
