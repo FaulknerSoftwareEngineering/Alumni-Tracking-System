@@ -33,6 +33,8 @@
         
     %div{:class => 'form-group'}
         = collection_select :role, :id, Role.all, :id, :name 
+        = render :partial => 'departments/departments_dropdown'
+        = render :partial => 'colleges/colleges_dropdown'
     
     %div{:class => 'form-group'}
         = submit_tag "Submit", :class => 'btn btn-primary'
