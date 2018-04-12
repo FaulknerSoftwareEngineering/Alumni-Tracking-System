@@ -1,5 +1,5 @@
 
--#= button_to 'add new employment', add_employer_path ,:method => :get
+= button_to 'add new employment', add_employer_path(@id) ,:method => :get
 
 %table#student.table
   %thead
@@ -9,12 +9,16 @@
       %th Start Date
       %th End Date
       %th In Field?
+      %th Delete
+      %th Edit
 
   %tbody
     - @employment.each do |employ|
       %tr
         %td= "Placeholder"
+        %td= employ.job_title
+        %td= employ.start_date
         %td= "Placeholder"
-        %td= "Placeholder"
-        %td= "Placeholder"
-        %td= "Placeholder"
+        %td= employ.in_field
+        %td= "delete"
+        %td= "edit"

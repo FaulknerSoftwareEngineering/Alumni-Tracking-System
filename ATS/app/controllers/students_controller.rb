@@ -103,12 +103,15 @@ end
   
   def grad_school
     @id = params[:id]
-    @grad_degrees = Student.all
+    @student = Student.find(@id)  
+    @grad_degrees = @student.grad_schools
     render :partial => 'graduate_degree_table'
   end
   
   def employment
-    @employment = Student.all
+    @id = params[:id]
+    @student = Student.find(@id)
+    @employment = @student.employments
     render :partial => 'employment_student_table'
   end
   

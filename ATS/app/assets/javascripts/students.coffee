@@ -3,17 +3,19 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
  $("#Graduate_Degrees").click ->
+  id = $('.hidden').html()
   $.ajax
    type: "get"
-   url: "students/grad_school"
+   url: "students/#{id}/grad_school"
    error: (jqXHR, textStatus, errorThrown) ->
      alert "Error"
    success: (data, textStatus, jqXHR) ->
      $('#table_div').html "#{data}"
  $("#Employment").click ->
+  id = $('.hidden').html()
   $.ajax
    type: "get"
-   url: "students/employment"
+   url: "students/#{id}/employment"
    error: (jqXHR, textStatus, errorThrown) ->
      alert "Error"
    success: (data, textStatus, jqXHR) ->
