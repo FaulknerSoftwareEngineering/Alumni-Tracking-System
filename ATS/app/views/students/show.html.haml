@@ -28,18 +28,19 @@
 %ul#degrees
  %h4 
   Degrees
- %li
-  - @earned_degrees.each do |earned|
-   =" #{earned.degree.name}  #{earned.year_graduated} #{earned.season}"
+ - @earned_degrees.each do |earned|
+  %li
+   =" #{earned.degree_name}  #{earned.year_graduated} #{earned.season}"
+ = link_to 'Add Degree', student_add_earned_degree_path()
 
 
 
 %div{:class => 'linebuttons'}  
- = button_to 'Edit info', edit_student_path(@student),:method => :get
+ = link_to 'Edit info', edit_student_path(@student),:method => :get
 
  = button_to 'Delete', student_path(@student), :method => :delete, :confirm => 'Are you sure?'
 
-
+ = link_to 'Back To Student Index', students_path
 
 
 %div{:class => 'hidden'}  
@@ -50,7 +51,7 @@
 %div{:class => 'linebuttons'} 
  = button_tag 'Graduate Degrees', :id => "Graduate_Degrees"     
  = button_tag 'Employment', :id => "Employment"     
-
+ 
     
  
 %div{:id => "table_div"}

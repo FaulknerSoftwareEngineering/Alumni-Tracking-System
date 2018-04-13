@@ -1,1 +1,2 @@
-= select_tag 'id', options_for_select(@universities.collect{ |u| [u.name, u.id] })
+-#= select_tag 'id', options_for_select(@universities.collect{ |u| [u.name, u.id] })
+= collection_select(:grad_schools, :university_id, University.all, :id, :name)

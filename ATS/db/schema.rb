@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412020602) do
+ActiveRecord::Schema.define(version: 20180413204217) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_address"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20180412020602) do
     t.integer  "student_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.date     "end_date"
   end
 
   add_index "employments", ["employer_id"], name: "index_employments_on_employer_id"
@@ -100,9 +101,11 @@ ActiveRecord::Schema.define(version: 20180412020602) do
     t.integer  "student_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "university_id"
   end
 
   add_index "grad_schools", ["student_id"], name: "index_grad_schools_on_student_id"
+  add_index "grad_schools", ["university_id"], name: "index_grad_schools_on_university_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

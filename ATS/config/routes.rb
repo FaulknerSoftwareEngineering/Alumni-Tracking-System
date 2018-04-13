@@ -12,7 +12,6 @@ Rails.application.routes.draw do
  resources :departments
  resources :colleges
  resources :students do
-    resources :employers
 end
 
 
@@ -22,12 +21,13 @@ end
  
  
  
-# For testing links on student details page
+# For links on student details page
 
-get 'students/:id/add_degree_student' => 'students_details#add_degree_student'
+get 'students/:id/add_degree' => 'students_details#add_earned_degree', as: :student_add_earned_degree
+get 'students/:id/submit_add_degree' => 'students_details#submit_add_earned_degree', as: :submit_student_add_earned_degree
 get 'students/students/:id/grad_school' => 'students#grad_school'
 get 'students/students/:id/employment' => 'students#employment'
-# end testing group for student details page
+# end group for student details page
  
  
  get 'auth/:provider/callback' => 'sessions#create'
@@ -35,10 +35,13 @@ get 'students/students/:id/employment' => 'students#employment'
  get 'auth/failure' => 'sessions#failure'
  get 'auth/google_oauth2', :as => 'login'
  
- get 'students/:id/add_grad_school' => 'students#add_grad_school', as: :add_grad_school
- get 'students/:id/submit_add_grad_school' => 'students#submit_add_grad_school', as: :submit_add_grad_school
+ get 'students/:id/add_grad_school' => 'students_details#add_grad_school', as: :add_grad_school
+ get 'students/:id/submit_add_grad_school' => 'students_details#submit_add_grad_school', as: :submit_add_grad_school
  
- get 'students/:id/add_employer' => 'students#add_employer', as: :add_employer
- get 'students/:id/submit_add_employer' => 'students#submit_add_employer', as: :submit_add_employer
+ get 'students/:id/add_employment' => 'students_details#add_employment', as: :add_employment
+ get 'students/:id/submit_add_employment' => 'students_details#submit_add_employment', as: :submit_add_employment
+ delete  'students/:id/delete_employment' => 'students_details#delete_employment', as: :delete_employment
+ get 'students/:id/edit_employment' => 'students_details#edit_employment', as: :edit_employment
+ get 'students/:id/update_employment' => 'students_details#update_employment', as: :update_employment
 end
 #end
