@@ -1,6 +1,6 @@
 
 
--#= button_to 'add new grad school', add_grad_school_path(@id) ,:method => :get
+= button_to 'add new grad school', add_grad_school_path(@id) ,:method => :get
 
 %table#student.table
   %thead
@@ -13,5 +13,5 @@
     - @grad_degrees.each do |grad_degrees|
       %tr
         %td= "Placeholder"
-        %td= "Placeholder"
-        %td= "Placeholder"
+        %td= grad_degrees.higher_degree_name
+        %td= grad_degrees.higher_degree_type

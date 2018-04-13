@@ -25,8 +25,8 @@ end
 # For testing links on student details page
 
 get 'students/:id/add_degree_student' => 'students_details#add_degree_student'
-get 'students/students/grad_school' => 'students#grad_school'
-get 'students/students/employment' => 'students#employment'
+get 'students/students/:id/grad_school' => 'students#grad_school'
+get 'students/students/:id/employment' => 'students#employment'
 # end testing group for student details page
  
  
