@@ -1,5 +1,8 @@
 -# Created by Zack Pace
 -# on: March 23, 2018 
+
+= render :partial => 'shared/flash', :locals => { :flash => flash }
+
 %h2 Details about #{@student.first_name}
 
 
@@ -30,7 +33,8 @@
   Degrees
  - @earned_degrees.each do |earned|
   %li
-   =" #{earned.degree_name}  #{earned.year_graduated} #{earned.season}"
+   =" #{earned.degree_name}  #{earned.year_graduated}  #{earned.season}            "
+   = link_to 'Delete Degree', delete_earned_degree_path(earned), :method => :delete
  = link_to 'Add Degree', student_add_earned_degree_path()
 
 

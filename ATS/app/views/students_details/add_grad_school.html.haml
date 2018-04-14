@@ -2,29 +2,9 @@
 = @name
 
 = form_tag submit_add_grad_school_path(@id), :method => :get do
-    = render :partial => 'universities/university_dropdown'
+    = render :partial => 'grad_school_form'
     
-    %div{:class => 'form-group'}
-        = label :grad_schools, :applied, 'Applied?'
-        = check_box_tag "grad_schools[applied]", true,false,:id => "grad_schools_applied"
-            
-    %div{:class => 'form-group'}
-        = label :grad_schools, :accepted, 'Accepted?'
-        = check_box_tag "grad_schools[accepted]", true,false,:id => "grad_schools_accepted"
-    
-    %div{:class => 'form-group'}
-        = label :grad_schools, :status, 'Status'
-        = text_field :grad_schools, :status, :class => 'form-control'
-    
-    %div{:class => 'form-group'}
-        = label :grad_schools, :higher_degree_type, 'Degree Type'
-        = text_field :grad_schools, :higher_degree_type, :class => 'form-control'
-    
-    %div{:class => 'form-group'}
-        = label :grad_schools, :higher_degree_name, 'Degree Name'
-        = text_field :grad_schools, :higher_degree_name, :class => 'form-control'
-    
-    = submit_tag 'Add University'
+    = submit_tag 'Add University', :class => 'btn btn-primary'
     
 %div
     =link_to 'Cancel', student_path(@id)

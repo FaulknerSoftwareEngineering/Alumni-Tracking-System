@@ -44,7 +44,7 @@ def show
   @id = params[:id] 
   @student = Student.find(@id) 
   @addresses = Address.find_by(student_id: @id)
-  @earned_degrees = @student.earned_degrees
+  @earned_degrees = @student.earned_degrees.order(:year_graduated)
   
 end
 

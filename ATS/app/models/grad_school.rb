@@ -7,6 +7,11 @@ class GradSchool < ActiveRecord::Base
     def university_name
         return University.find(self.university_id).name
     end
+    def student_name
+        student = Student.find(self.student_id)
+        return student.first_name + " " + student.last_name  
+    end
+    
     private
     def default_values
       self.applied ||= false

@@ -28,37 +28,70 @@ def grad_schools_params
     :university_id)
 end
    
-   
-def add_earned_degree
+#earned degrees
+  def add_earned_degree
     @id = params[:id]
     @student = Student.find(@id)
     @earned_degree = EarnedDegree.new
-   end
-   
-def submit_add_earned_degree
-    id = params[:id] 
-    @student = Student.find(id) 
-    EarnedDegree.create!(earned_degree_params.merge({student_id: @student.id}))
-    redirect_to students_path(@student)
-end
-def add_grad_school
+  end
+     
+  def submit_add_earned_degree
+    @id = params[:id] 
+    EarnedDegree.create!(earned_degree_params.merge({student_id: @id}))
+    redirect_to student_path(@id)
+  end
+  def delete_earned_degree
+    @id = params[:id] 
+    @earned_degree= EarnedDegree.find(@id) 
+    @student = Student.find(@earned_degree.student_id)
+    if @student.earned_degrees.count > 1
+      @earned_degree.destroy
+    else
+      flash[:notice] = "Can't delete the last degree"
+    end
+    redirect_to student_path(@student)
+  end
+
+#grad school
+  def add_grad_school
     @universities = University.all
     @id = params[:id]
     @name = Student.find(@id).first_name + " " + Student.find(@id).last_name
-end
-    
+  end
+      
   def submit_add_grad_school
     @id = params[:id]
     @grad_schools = GradSchool.create!(grad_schools_params.merge({student_id: @id}))
     redirect_to student_path(@id)
   end
+  def delete_grad_school
+    @id = params[:id] 
+    @grad_school= GradSchool.find(@id) 
+    @student_id = @grad_school.student_id
+    @grad_school.destroy
+    redirect_to student_path(@student_id)
+  end
+  def edit_grad_school
+    @id = params[:id] 
+    @grad_school = GradSchool.find(@id) 
+    @name = @grad_school.student_name
+    @student_id = Student.find(@grad_school.student_id).id
+  end
+  def update_grad_school
+    id = params[:id] 
+    @grad_school = GradSchool.find(id)
+    @grad_school.update_attributes!(grad_schools_params)
+    @student_id = @grad_school.student_id
+    redirect_to student_path(@student_id)
+  end
+#employment
   
   def add_employment
     @employers = Employer.all
     @id = params[:id]
     @name = Student.find(@id).first_name + " " + Student.find(@id).last_name
   end
-  
+
   def submit_add_employment
     @id = params[:id]
     @student = Student.find(@id) 

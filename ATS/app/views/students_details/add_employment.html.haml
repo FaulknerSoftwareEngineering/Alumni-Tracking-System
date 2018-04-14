@@ -5,7 +5,7 @@
     = form_tag submit_add_employment_path(@id), :method => :get do
         = render :partial => 'employment'
         %div
-            = submit_tag 'Add Employer'
+            = submit_tag 'Add Employer', :class => 'btn btn-primary'
             
         %div
             = link_to 'Cancel', student_path(@id)

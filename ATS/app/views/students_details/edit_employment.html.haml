@@ -6,7 +6,7 @@
         = render :partial => 'employment'
         
         %div
-            = submit_tag 'Edit Employment'
+            = submit_tag 'Edit Employment', :class => 'btn btn-primary'
             
-        %div
-            = link_to 'Cancel', student_path(@student_id)
+%div
+    = link_to 'Cancel', student_path(@student_id)

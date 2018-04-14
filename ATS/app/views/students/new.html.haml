@@ -6,7 +6,7 @@
 = form_tag students_path, :method => :post do
     
     = render :partial => 'student_form'
-    = render :partial => 'student_details/earned_degree'
+    = render :partial => 'students_details/earned_degree'
     %div{:class => 'form-group'}
         = submit_tag 'Save Changes', :class => 'btn btn-primary'
     
