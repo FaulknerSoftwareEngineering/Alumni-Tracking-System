@@ -1,0 +1,12 @@
+%h2 Add Employer to
+= @employment.student_name
+
+%div
+    = form_tag update_employment_path(@id), :method => :get do
+        = render :partial => 'employment'
+        
+        %div
+            = submit_tag 'Edit Employment', :class => 'btn btn-primary'
+            
+%div
+    = link_to 'Cancel', student_path(@student_id)
