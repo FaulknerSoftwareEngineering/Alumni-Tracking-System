@@ -6,14 +6,7 @@
 = form_tag students_path, :method => :post do
     
     = render :partial => 'student_form'
-    %div{:class => 'form-group'}
-        = label :earned_degree, :season, 'Graduation Season'
-        = select :earned_degree, :season, EarnedDegree.grad_seasons
-        = label :earned_degree, :year_graduated, 'Graduation Year'
-        = select_year(Date.today, start_year: 1942, end_year: Date.today.year,prefix: :earned_degree,field_name: :year_graduated)
-    %div{:class => 'form-group'}
-        = label :earned_degree, :degree_id, 'Degree earned'
-        = collection_select(:earned_degree, :degree_id, Degree.all, :id, :name)
+    = render :partial => 'students_details/earned_degree'
     %div{:class => 'form-group'}
         = submit_tag 'Save Changes', :class => 'btn btn-primary'
     

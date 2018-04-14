@@ -1,5 +1,5 @@
 
--#= button_to 'add new employment', add_employer_path ,:method => :get
+= button_to 'add new employment', add_employment_path(@id) ,:method => :get
 
 %table#student.table
   %thead
@@ -9,12 +9,19 @@
       %th Start Date
       %th End Date
       %th In Field?
+      %th Delete
+      %th Edit
 
   %tbody
     - @employment.each do |employ|
       %tr
-        %td= "Placeholder"
-        %td= "Placeholder"
-        %td= "Placeholder"
-        %td= "Placeholder"
-        %td= "Placeholder"
+        %td= employ.employer_name unless employ.employer_id.blank?
+        %td= employ.job_title
+        %td= employ.start_date
+        -if employ.current_job
+          %td= "Current Job"
+        -else
+          %td= employ.end_date
+        %td= employ.in_field
+        %td= link_to 'delete employment', delete_employment_path(employ), :method => :delete
+        %td= link_to 'Edit employment', edit_employment_path(employ),:method => :get

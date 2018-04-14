@@ -1,17 +1,28 @@
 
 
--#= button_to 'add new grad school', add_grad_school_path(@id) ,:method => :get
+= button_to 'add new grad school', add_grad_school_path(@id) ,:method => :get
 
 %table#student.table
   %thead
     %tr
       %th University
       %th Degree
-      %th Degree Type
-
+      %th type
+      %th applied
+      %th accepted
+      %th status
+      %th edit
+      %th delete
   %tbody
     - @grad_degrees.each do |grad_degrees|
       %tr
-        %td= "Placeholder"
-        %td= "Placeholder"
-        %td= "Placeholder"
+        %td= grad_degrees.university_name unless grad_degrees.university_id.blank?
+        %td= grad_degrees.higher_degree_name
+        %td= grad_degrees.higher_degree_type
+        %td= grad_degrees.applied
+        %td= grad_degrees.accepted
+        %td= grad_degrees.status
+        %td= link_to 'Delete Grad School', delete_grad_school_path(grad_degrees), :method => :delete
+        %td= link_to 'Edit Grad School', edit_grad_school_path(grad_degrees),:method => :get
+        
+        
