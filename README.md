@@ -6,3 +6,5 @@ The system uses the Ruby on Rails framework.
 
 Code Climate Maintainability
 <a href="https://codeclimate.com/github/FaulknerSoftwareEngineering/Alumni-Tracking-System/maintainability"><img src="https://api.codeclimate.com/v1/badges/8417f385b8dd22eda658/maintainability" /></a>
+
+Code to run entity relation diagram generator: <code>bundle exec erd</code>
