@@ -26,13 +26,20 @@ class UsersController < ApplicationController
     def new
         @roles = Role.all
         @user = User.new
+        @departments = Department.all
+        @colleges = College.all
     end
     
     def create
+        @departments = Department.where(id: params[:departments][:ids])
+        @colleges = College.where(id: params[:colleges][:ids])
         @role = Role.find_by_id(params[:role][:id])
         @user = User.create!(user_params)
-        @user.role = @role
-        flash[:success] = "#{@user.name} as successfully created."
+        @user.role_id = @role.id
+        @user.colleges = @colleges
+        @user.departments = @departments
+        @user.save!
+        flash[:success] = "#{@user.name} was successfully created."
         redirect_to users_path
     end
     
@@ -41,6 +48,8 @@ class UsersController < ApplicationController
         @colleges = College.all
         @user = User.find params[:id]
         @role = Role.find_by_id(@user.role_id)
+        @sel_departments = @user.departments
+        @sel_colleges = @user.colleges
     end
     
     def update

@@ -33,11 +33,13 @@
         
     %div{:class => 'form-group'}
         = label :role, :id, 'User Role'
-        = collection_select :role, :id, Role.all, :id, :name 
+        = collection_select :role, :id, Role.all, :id, :name, {}, :class => 'form-control'
+    %div{:class => 'form-group', :id => 'college_selector', :style=> ("display:none;" unless @role.colleges_visible)}
         = label :colleges, :ids, 'User Accessible Colleges'
-        = collection_select :colleges, :ids, @colleges, :id, :name, {}, {:multiple => true}
+        = collection_select :colleges, :ids, @colleges, :id, :name, {:selected => @sel_colleges.map(&:id)}, {:multiple => true, :class => 'form-control'}
+    %div{:class => 'form-group', :id => 'department_selector', :style=>("display:none;" unless @role.departments_visible)}
         = label :colleges, :ids, 'User Accessible Departments'
-        = collection_select :departments, :ids, @departments, :id, :name, {}, {:multiple => true}
+        = collection_select :departments, :ids, @departments, :id, :name, {:selected => @sel_colleges.map(&:id)}, {:multiple => true, :class => 'form-control'}
     
     %div{:class => 'form-group'}
         = submit_tag "Submit", :class => 'btn btn-primary'
