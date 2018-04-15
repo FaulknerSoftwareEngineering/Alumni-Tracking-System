@@ -13,7 +13,9 @@ class UsersController < ApplicationController
             :oauth_token,
             :oauth_expires_at,
             :google_id,
-            :role
+            :role,
+            :colleges,
+            :departments
             )
     end
 
@@ -42,12 +44,14 @@ class UsersController < ApplicationController
     end
     
     def update
-        @departments = Department.all
-        @colleges = College.all
+        @departments = Department.where(id: params[:departments][:ids])
+        @colleges = College.where(id: params[:colleges][:ids])
         @user = User.find params[:id]
         @role = Role.find_by_id(params[:role][:id])
         @user.update_attributes!(user_params)
         @user.role_id = @role.id
+        @user.colleges = @colleges
+        @user.departments = @departments
         @user.save!
         flash[:success] = "#{@user.name} was successfully updated."
         redirect_to users_path

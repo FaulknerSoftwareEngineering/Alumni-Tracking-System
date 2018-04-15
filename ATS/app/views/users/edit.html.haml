@@ -32,9 +32,12 @@
         = text_field :user, :google_id, :class => 'form-control'
         
     %div{:class => 'form-group'}
+        = label :role, :id, 'User Role'
         = collection_select :role, :id, Role.all, :id, :name 
-        = render :partial => 'departments/departments_dropdown'
-        = render :partial => 'colleges/colleges_dropdown'
+        = label :colleges, :ids, 'User Accessible Colleges'
+        = collection_select :colleges, :ids, @colleges, :id, :name, {}, {:multiple => true}
+        = label :colleges, :ids, 'User Accessible Departments'
+        = collection_select :departments, :ids, @departments, :id, :name, {}, {:multiple => true}
     
     %div{:class => 'form-group'}
         = submit_tag "Submit", :class => 'btn btn-primary'
