@@ -109,7 +109,15 @@ students = [
 ];
 
 Student.create(students)
-roles = Role.create([{ name: 'VPAA' }, { name: 'College Dean' }, { name: 'Department Chair'}, { name: 'Administrative Assistants'}, { name: 'System Admin'}])
-users = User.create([{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen'}, {email: 'shammond@faulkner.edu', name: 'Susan Hammond'}])
+roles = Role.create(
+	[
+		{ name: 'VPAA' , colleges_visible: false, departments_visible: false}, 
+		{ name: 'College Dean', colleges_visible: true, departments_visible: false}, 
+		{ name: 'Department Chair', colleges_visible: false, departments_visible: true}, 
+		{ name: 'Administrative Assistants', colleges_visible: true, departments_visible: true}, 
+		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
+	]
+)
+users = User.create([{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, {email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1}])
 degrees = Degree.create([{name: 'CSIS'},{name: 'English'},{name: 'Business Administration'}])
 colleges = College.create([{name: 'Arts and Sciences', college_dean: 'Jeff Arrington'}, {name: 'Business', college_dean: 'Someone'}])

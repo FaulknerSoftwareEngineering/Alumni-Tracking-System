@@ -3,7 +3,9 @@ class RolesController < ApplicationController
     
     def role_params
         params.require(:role).permit(
-            :name
+            :name,
+            :colleges_visible,
+            :departments_visible
         )
     end
     
