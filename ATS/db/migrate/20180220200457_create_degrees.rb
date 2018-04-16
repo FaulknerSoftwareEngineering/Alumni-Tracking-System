@@ -1,10 +1,10 @@
 class CreateDegrees < ActiveRecord::Migration
   def change
     create_table :degrees do |t|
-      t.string :type
       t.string :name
       #t.string :college - Should this be here? Since degree -> department -> college?
       t.belongs_to :department, index: true
+      t.belongs_to :degree_type, index: true
       t.integer :department_id
       t.timestamps
     end

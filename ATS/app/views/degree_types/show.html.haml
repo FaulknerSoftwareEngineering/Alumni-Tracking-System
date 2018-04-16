@@ -1,0 +1,17 @@
+-#Created by Christopher Smith & Amanda Burton on: April 15, 2018 
+%h2 Details about 
+= @degree_type.name
+
+
+%ul#details
+    %li
+        Name:
+        = @degree_type.name
+
+
+%p
+    = link_to 'Edit Info', edit_degree_type_path(@degree_type)
+%p
+    = link_to 'Delete', degree_type_path(@degree_type), :method => :delete
+%p
+    = link_to 'Back to Degree Type List', degree_types_path

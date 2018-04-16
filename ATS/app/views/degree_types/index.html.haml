@@ -1,0 +1,26 @@
+-#Created by Christopher Smith & Amanda Burton on: April 15, 2018 
+%h1 All Degrees Types
+
+- if flash[:notice]
+  #notice.message= flash[:notice]
+- elsif flash[:warning]
+  #warning.message= flash[:warning]
+
+%table#degree_types.table
+  %thead
+    %tr
+      %th Name
+      %th More Info
+      
+  %tbody
+    - @degree_types.each do |degree_type|
+      %tr
+        %td= degree_type.name
+        %td= link_to "More about #{degree_type.name}", degree_type_path(degree_type)
+
+%p
+  = link_to 'Add New Degree', new_degree_type_path
+
+%p
+  = link_to 'Home Page', root_path
+  

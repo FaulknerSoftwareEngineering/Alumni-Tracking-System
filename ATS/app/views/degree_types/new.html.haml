@@ -1,0 +1,13 @@
+-#Created by Christopher Smith & Amanda Burton on: April 15, 2018 
+%h2 Create New Degree Type
+
+= form_tag degree_types_path, :method => :post do
+  %div{:class => 'form-group'}
+    = label :degree_type, :title, 'Name'
+    = text_field :degree_type, :name, :class => 'form-control'
+  
+  %div{:class => 'form-group'}
+    = submit_tag 'Save Changes', :class => 'btn btn-primary'
+    
+%p
+  = link_to 'Cancel', degree_types_path 
