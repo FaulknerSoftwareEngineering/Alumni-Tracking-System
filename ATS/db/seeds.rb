@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 case Rails.env
-  When "development"
+  when "development"
 students = [
 	{first_name: 'Baxter', middle_name: 'Macdonald', last_name: 'Park', primary_email: 'ipsum@nonenimcommodo.ca', secondary_email: 'elit@egetvolutpatornare.org', cell_number: '1-659-614-6991', work_number: '1-265-965-1292', home_number: '1-989-248-7403', tracked: 'True '},
 	{first_name: 'Rowan', middle_name: 'Nichols', last_name: 'Wiggins', primary_email: 'Cras@dolor.com', secondary_email: 'pharetra.nibh@veliteget.com', cell_number: '1-574-999-6837', work_number: '1-296-643-6094', home_number: '1-906-106-7868', tracked: 'True '},
@@ -114,7 +114,7 @@ colleges = College.create([{name: 'Arts and Sciences', college_dean: 'Jeff Arrin
 departments = Department.create([{name: 'Computer Science', dept_chair: 'Idong Mkpong-Ruffin', college_id: 1},{name: 'Mathematics', dept_chair: 'Sharon Paulk', college_id: 1}])
 degrees = Degree.create([{name: 'CSIS', degree_type_id: 2, department_id: 1},{name: 'English'},{name: 'Business Administration'}])
  
-  When "production"
+  when "production"
 degree_types = [{name: "Bachelors of Business Administration"},
 	{name: "Bachelors of Science"},
 	{name: "Bachelors of Arts"},
@@ -138,8 +138,10 @@ roles = Role.create(
 		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
 	]
 )
-users = User.create([{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, {email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1}])
-
-
-
-
+users = User.create(
+	[
+		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, 
+		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1}
+	]
+)
+end
