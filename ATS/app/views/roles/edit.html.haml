@@ -6,6 +6,14 @@
     %div{:class => 'form-group'}
         = label :role, :name, 'Name'
         = text_field :role, :name, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :role, :colleges_visible, 'Are colleges visible when creating a user with this role?'
+        = check_box :role, :colleges_visible, {:selected => @role.colleges_visible, :class => 'form-control'}
+        
+    %div{:class => 'form-group'}
+        = label :role, :departments_visible, 'Are departments visible when creating a user with this role?'
+        = check_box :role, :departments_visible, {:selected => @role.departments_visible, :class => 'form-control'}
     
     %div{:class => 'form-group'}
         = submit_tag "Submit", :class => 'btn btn-primary'
