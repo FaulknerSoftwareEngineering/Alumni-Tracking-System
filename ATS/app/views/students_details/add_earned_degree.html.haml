@@ -6,3 +6,5 @@
     = render :partial => 'earned_degree'
     %div{:class => 'form-group'}
         = submit_tag 'Save Changes', :class => 'btn btn-primary'
+    %div
+        = link_to 'Cancel', student_path(@id)
