@@ -111,8 +111,17 @@ case Rails.env
 		];
 		Student.create(students)
 		colleges = College.create([{name: 'Arts and Sciences', college_dean: 'Jeff Arrington'}, {name: 'Business', college_dean: 'Someone'}])
-		departments = Department.create([{name: 'Computer Science', dept_chair: 'Idong Mkpong-Ruffin', college_id: 1},{name: 'Mathematics', dept_chair: 'Sharon Paulk', college_id: 1}])
-		degrees = Degree.create([{name: 'CSIS', degree_type_id: 2, department_id: 1},{name: 'English'},{name: 'Business Administration'}])
+		departments = Department.create([{name: 'Computer Science', dept_chair: 'Idong Mkpong-Ruffin', college_id: 1},{name: 'Mathematics', dept_chair: 'Sharon Paulk', college_id: 1},{name: 'Business', dept_chair: 'Someone', college_id: 2},{name: 'English', dept_chair: 'Wright', college_id: 1}])
+		degrees = Degree.create([{name: 'CSIS', degree_type_id: 2, department_id: 1},{name: 'English', degree_type_id: 4, department_id: 4},{name: 'Business Administration', degree_type_id: 2, department_id: 3}])
+		EarnedDegree.create([ {student_id: 1, degree_id: 1},
+			{student_id: 2, degree_id: 1},
+			{student_id: 2, degree_id: 3},
+			{student_id: 3, degree_id: 2},
+			{student_id: 4, degree_id: 4},
+			{student_id: 5, degree_id: 3},
+			{student_id: 6, degree_id: 1},
+			{student_id: 7, degree_id: 2},
+		])
 end
 
 degree_types = [{name: "Bachelors of Business Administration"},
