@@ -4,6 +4,11 @@
 
 = form_tag degrees_path, :method => :post do
   = render :partial => 'degrees_form_fields'
+  
+  %div{:class => 'form-group'}
+    = label :degree_type, :title, 'Type'
+    = select_tag 'degree[degree_type_id]', options_for_select(@degree_types.collect{ |u| [u.name, u.id] })
+    
   = render :partial => 'departments/departments_dropdown'
 
   %div{:class => 'form-group'}

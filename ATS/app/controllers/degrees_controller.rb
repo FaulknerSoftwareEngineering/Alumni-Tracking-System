@@ -5,7 +5,7 @@ class DegreesController < ApplicationController
 =end
 
   def degree_params
-        params.require(:degree).permit(:name, :degree_type, :department_id)
+        params.require(:degree).permit(:name, :degree_type, :department_id, :degree_type_id)
   end
 
   def find_degree
@@ -27,20 +27,25 @@ class DegreesController < ApplicationController
     id = params[:id] 
     @degree = Degree.find(id) 
     @department = @degree.department.name
+    @degree_type = @degree.degree_type
   end
   
   def new
     @degree = Degree.new
     @departments = Department.all
+    @degree_types = DegreeType.all
+    
   end 
     
   def create
-    @degree = Degree.create(degree_params)
-    @degree.department=(Department.find(params[:department_id]))
-    if @degree.save
-      flash[:notice] = "#{@degree.name} was successfully created."
-      redirect_to degrees_path
-    else
+    begin
+      @degree = Degree.create(degree_params)
+      @degree.department=(Department.find(params[:department_id]))
+      if @degree.save
+        flash[:notice] = "#{@degree.name} was successfully created."
+        redirect_to degrees_path
+      end
+    rescue StandardError => e
       render 'new'
     end
   end
@@ -48,6 +53,7 @@ class DegreesController < ApplicationController
   def edit
     @degree = Degree.find params[:id]
     @departments = Department.all
+    @degree_types = DegreeType.all
   end
 
   def update
