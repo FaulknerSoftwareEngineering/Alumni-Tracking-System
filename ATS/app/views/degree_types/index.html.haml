@@ -19,8 +19,7 @@
         %td= link_to "More about #{degree_type.name}", degree_type_path(degree_type)
 
 %p
-  = link_to 'Add New Degree', new_degree_type_path
-
+  = render partial: 'shared/new_button', locals: {new_name: "Degree Type", path: new_degree_type_path}
 %p
-  = link_to 'Home Page', root_path
+  = render partial: 'shared/home_page_button'
   

@@ -20,9 +20,7 @@
         %td= department.name
         %td= link_to "More about #{department.name}", department_path(department)
         
-
 %p
-  = link_to 'Add New Department', new_department_path
-
+  = render partial: 'shared/new_button', locals: {new_name: "Department", path: new_department_path}
 %p
-  = link_to 'Home Page', root_path
+  = render partial: 'shared/home_page_button'
