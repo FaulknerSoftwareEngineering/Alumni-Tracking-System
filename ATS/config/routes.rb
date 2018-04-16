@@ -13,6 +13,7 @@ Rails.application.routes.draw do
  resources :colleges
  resources :students do
 end
+ resources :degree_types
 
 
 # For testing college/department/degree partials

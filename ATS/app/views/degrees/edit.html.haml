@@ -4,7 +4,7 @@
 
   = render :partial => 'degrees_form_fields'
   = render :partial => 'departments/departments_dropdown'
- 
+  = select_tag 'degree_type_id', options_for_select(@degree_types.collect{ |u| [u.name, u.id] })
 
   = submit_tag 'Save Changes'
   
