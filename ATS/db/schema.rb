@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180413204217) do
+ActiveRecord::Schema.define(version: 20180415220841) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_address"
@@ -33,15 +33,21 @@ ActiveRecord::Schema.define(version: 20180413204217) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "degrees", force: :cascade do |t|
-    t.string   "degree_type"
+  create_table "degree_types", force: :cascade do |t|
     t.string   "name"
-    t.string   "college"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "degrees", force: :cascade do |t|
+    t.string   "name"
     t.integer  "department_id"
+    t.integer  "degree_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "degrees", ["degree_type_id"], name: "index_degrees_on_degree_type_id"
   add_index "degrees", ["department_id"], name: "index_degrees_on_department_id"
 
   create_table "departments", force: :cascade do |t|
@@ -57,6 +63,7 @@ ActiveRecord::Schema.define(version: 20180413204217) do
   create_table "earned_degrees", force: :cascade do |t|
     t.string   "season"
     t.string   "year_graduated"
+    t.string   "type"
     t.integer  "student_id"
     t.integer  "degree_id"
     t.datetime "created_at",     null: false
@@ -168,8 +175,6 @@ ActiveRecord::Schema.define(version: 20180413204217) do
     t.string   "uid"
     t.string   "email"
     t.string   "name"
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "user_image"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"

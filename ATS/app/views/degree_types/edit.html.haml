@@ -1,0 +1,13 @@
+-#Created by Christopher Smith & Amanda Burton on: April 15, 2018 
+= form_tag degree_type_path(@degree_type), :method => :put do
+
+  %div{:class => 'form-group'}
+    = label :degree_type, :title, 'Name'
+    = text_field :degree_type, :name, :class => 'form-control'
+
+  = submit_tag 'Save Changes'
+  
+%p
+  = link_to 'Back to Details Page', degree_type_path(@degree_type)
+%p
+  = link_to 'Back to Degree Type List', degree_types_path
