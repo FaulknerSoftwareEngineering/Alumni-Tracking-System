@@ -2,13 +2,15 @@
 -# on: April 6, 2018 
 = form_tag department_path(@department), :method => :put do
 
-  = render :partial => 'departments_form_fields'
-  = render :partial => 'colleges/colleges_dropdown'
+  %div{:class => 'form-group'}
+    = render :partial => 'departments_form_fields'
+    = render :partial => 'colleges/colleges_dropdown'
 
-  = submit_tag 'Save Changes'
+  %div{:class => 'form-group'}
+    = submit_tag 'Save Changes', :class => 'btn btn-primary'
   
   
 %p
-  = link_to 'Back to Details Page', department_path(@department)
+  = render partial: 'shared/cancel_button', locals: {path: department_path(@department)}
 %p
-  = link_to 'Back to Department List', departments_path
+  = render partial: 'shared/back_to_list_button', locals: {list_name: "Department", path: departments_path}

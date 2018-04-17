@@ -2,12 +2,15 @@
 -# on: April sixth, 2018 
 = form_tag college_path(@college), :method => :put do
 
-  = render :partial => 'colleges_form_fields'
+  %div{:class => 'form-group'}
+    = render :partial => 'colleges_form_fields'
  
-  = submit_tag 'Save Changes'
+  %div{:class => 'form-group'}
+    = submit_tag 'Save Changes', :class => 'btn btn-primary'
   
+
 %p
-  = link_to 'Back to Details Page', college_path(@college)
+  = render partial: 'shared/cancel_button', locals: {path: college_path(@college)}
 %p
-  = link_to 'Back to College List', colleges_path
+  = render partial: 'shared/back_to_list_button', locals: {list_name: "College", path: colleges_path}
     

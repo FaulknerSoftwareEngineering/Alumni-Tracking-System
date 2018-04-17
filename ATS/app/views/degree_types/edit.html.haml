@@ -5,9 +5,10 @@
     = label :degree_type, :title, 'Name'
     = text_field :degree_type, :name, :class => 'form-control'
 
-  = submit_tag 'Save Changes'
+  %div{:class => 'form-group'}
+    = submit_tag 'Save Changes', :class => 'btn btn-primary'
   
 %p
-  = link_to 'Back to Details Page', degree_type_path(@degree_type)
+  = render partial: 'shared/cancel_button', locals: {path: degree_type_path(@degree_type)}
 %p
-  = link_to 'Back to Degree Type List', degree_types_path
+  = render partial: 'shared/back_to_list_button', locals: {list_name: "Degree Type", path: degree_types_path}
