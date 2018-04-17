@@ -5,6 +5,7 @@ class CreateEmployments < ActiveRecord::Migration
       t.boolean :current_job
       t.boolean :in_field
       t.date :start_date
+      t.date :end_date
       t.belongs_to :employer, index: true
       t.integer :employer_id
       t.belongs_to :student, index: true

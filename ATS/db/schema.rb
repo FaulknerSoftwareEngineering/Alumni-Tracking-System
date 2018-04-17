@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 20180417005240) do
   end
 
   create_table "degrees", force: :cascade do |t|
+    t.string   "degree_type"
     t.string   "name"
+    t.string   "college"
     t.integer  "department_id"
-    t.integer  "degree_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "degrees", ["degree_type_id"], name: "index_degrees_on_degree_type_id"
   add_index "degrees", ["department_id"], name: "index_degrees_on_department_id"
 
   create_table "departments", force: :cascade do |t|
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20180417005240) do
   create_table "earned_degrees", force: :cascade do |t|
     t.string   "season"
     t.string   "year_graduated"
-    t.string   "type"
     t.integer  "student_id"
     t.integer  "degree_id"
     t.datetime "created_at",     null: false
@@ -117,11 +116,9 @@ ActiveRecord::Schema.define(version: 20180417005240) do
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "colleges_visible"
-    t.boolean  "departments_visible"
     t.integer  "users_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "roles", ["users_id"], name: "index_roles_on_users_id"
@@ -178,6 +175,8 @@ ActiveRecord::Schema.define(version: 20180417005240) do
     t.string   "uid"
     t.string   "email"
     t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "user_image"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
