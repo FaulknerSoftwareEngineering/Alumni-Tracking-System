@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 if Rails.env.development? || Rails.env.test?
 	students = [
 	{first_name: 'Baxter', middle_name: 'Macdonald', last_name: 'Park', primary_email: 'ipsum@nonenimcommodo.ca', secondary_email: 'elit@egetvolutpatornare.org', cell_number: '1-659-614-6991', work_number: '1-265-965-1292', home_number: '1-989-248-7403', tracked: 'True '},
@@ -113,6 +114,7 @@ if Rails.env.development? || Rails.env.test?
 	colleges = College.create([{name: 'Arts and Sciences', college_dean: 'Jeff Arrington'}, {name: 'Business', college_dean: 'Someone'}])
 	departments = Department.create([{name: 'Computer Science', dept_chair: 'Idong Mkpong-Ruffin', college_id: 1},{name: 'Mathematics', dept_chair: 'Sharon Paulk', college_id: 1}])
 	#degrees = Degree.create([{name: 'CSIS', degree_type_id: 2, department_id: 1},{name: 'English'},{name: 'Business Administration'}])
+
 end
 
 degree_types = [{name: "Bachelors of Business Administration"},
@@ -126,8 +128,8 @@ degree_types = [{name: "Bachelors of Business Administration"},
 	{name: "Minor"},
 	{name: "PhD"}
 ];
-DegreeType.create(degree_types)
 
+DegreeType.create(degree_types)
 
 roles = Role.create(
 	[
@@ -138,8 +140,10 @@ roles = Role.create(
 		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
 	]
 )
-users = User.create([{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, {email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1}])
 
-
-
-
+users = User.create(
+	[
+		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, 
+		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1}
+	]
+)
