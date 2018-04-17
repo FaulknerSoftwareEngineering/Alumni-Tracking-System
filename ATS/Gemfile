@@ -55,6 +55,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'ZenTest', '4.11.0'
   gem 'rails-erd'
+  gem 'metric_fu'
 end
 
 
