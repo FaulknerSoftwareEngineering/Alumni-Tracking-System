@@ -6,7 +6,6 @@ $(function()
                 url: '/departments',
                 data: {"id" : $('#college_id').val()},
                 success: function(data) {
-                    alert("Amanda is cool");
                     $('#department_id').empty();
                     $.each(data, function(i, p) {
                         $('#department_id').append($('<option></option>').val(data[i].id).html(data[i].name));
@@ -28,7 +27,6 @@ $(function()
                 url: '/degrees',
                 data: {"id" : $('#department_id').val()},
                 success: function(data) {
-                    alert("Christopher is cool");
                     $('#degree_id').empty();
                     $.each(data, function(i, p) {
                         $('#degree_id').append($('<option></option>').val(data[i].id).html(data[i].name));

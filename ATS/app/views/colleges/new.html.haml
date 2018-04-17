@@ -11,6 +11,4 @@
   
 
 %p
-  = link_to 'Cancel', colleges_path
-  
-  
+  = render partial: 'shared/cancel_button', locals: {path: colleges_path}

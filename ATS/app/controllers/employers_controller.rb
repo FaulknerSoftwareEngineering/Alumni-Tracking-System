@@ -8,7 +8,8 @@ class EmployersController < ApplicationController
         params.require(:employer).permit(
             :name,
             :number,
-            :email)
+            :email,
+            :contact_name)
     end
     
     def index

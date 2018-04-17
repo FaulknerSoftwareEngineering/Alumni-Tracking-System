@@ -1,7 +1,7 @@
 class DegreeTypesController < ApplicationController
 =begin 
     Created by Christopher Smith & Amanda Burton
-    on: April 15, 2018 
+    on: Aril 15, 2018 
 =end
 
   def degree_type_params
