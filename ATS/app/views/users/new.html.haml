@@ -28,10 +28,18 @@
     
     %div{:class => 'form-group'}
         = label :user, :google_id, 'Google ID'
-        = number_field(:user, :google_id, in: 1.0..1000000.0, step: 1.0, :class => 'form-control')
+        = text_field :user, :google_id, :class => 'form-control'
      
     %div{:class => 'form-group'}
-        = collection_select(:role, :role_id, Role.all, :id, :name)
+        = label :role, :id, 'User Role'
+        = collection_select :role, :id, Role.all, :id, :name, {}, :class => 'form-control'
+    %div{:class => 'form-group', :id => 'college_selector', :style=>"display:none;"}
+        = label :colleges, :ids, 'User Accessible Colleges'
+        = collection_select :colleges, :ids, @colleges, :id, :name, {:selected => nil}, {:multiple => true, :class => 'form-control'}
+    %div{:class => 'form-group', :id => 'department_selector', :style=>"display:none;"}
+        = label :colleges, :ids, 'User Accessible Departments'
+        = collection_select :departments, :ids, @departments, :id, :name, {:selected => nil}, {:multiple => true, :class => 'form-control'}
+    
         
     %div{:class => 'form-group'}
         = submit_tag "Submit", :class => 'btn btn-primary'

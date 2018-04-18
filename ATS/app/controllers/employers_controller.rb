@@ -7,8 +7,9 @@ class EmployersController < ApplicationController
     def employer_params
         params.require(:employer).permit(
             :name,
-            :phone,
-            :email)
+            :number,
+            :email,
+            :contact_name)
     end
     
     def index
@@ -22,7 +23,7 @@ class EmployersController < ApplicationController
     
     def create
         @employer = Employer.create(employer_params)
-        if @employer.update_attributes(params[:employer])
+        if @employer.update_attributes(employer_params)
             flash[:notice] = "#{@employer.name} was successfully created."
             redirect_to employers_path
         else

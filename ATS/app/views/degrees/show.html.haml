@@ -10,16 +10,14 @@
         = @degree.name
     %li
         Degree Type:
-        = @degree.degree_type
+        = @degree.degree_type.name
     %li
         Department:
         = @department
 
-
-
 %p
-    = link_to 'Edit Info', edit_degree_path(@degree)
+    = render partial: 'shared/edit_button', locals: {path: edit_degree_path(@degree)}
+-#%p
+    -#= render partial: 'shared/delete_button', locals: {path: degree_path(@degree)}
 %p
-    = link_to 'Delete', degree_path(@degree), :method => :delete
-%p
-    = link_to 'Back to Degree List', degrees_path
+    = render partial: 'shared/back_to_list_button', locals: {list_name: "Degree", path: degrees_path}

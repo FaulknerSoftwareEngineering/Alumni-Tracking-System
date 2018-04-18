@@ -14,9 +14,13 @@ class UniversitiesController < ApplicationController
     end
     
     def create
-        @university = University.create!(university_params)
-        flash[:notice] = "#{@university.name} was successfully created."
-        redirect_to universities_path
+        begin
+            @university = University.create!(university_params)
+            flash[:notice] = "#{@university.name} was successfully created."
+            redirect_to universities_path
+        rescue
+            render 'new'
+        end
     end
     
     def edit

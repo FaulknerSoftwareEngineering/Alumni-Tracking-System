@@ -1,0 +1,14 @@
+-#Created by Christopher Smith & Amanda Burton on: April 15, 2018 
+= form_tag degree_type_path(@degree_type), :method => :put do
+
+  %div{:class => 'form-group'}
+    = label :degree_type, :title, 'Name'
+    = text_field :degree_type, :name, :class => 'form-control'
+
+  %div{:class => 'form-group'}
+    = submit_tag 'Save Changes', :class => 'btn btn-primary'
+  
+%p
+  = render partial: 'shared/cancel_button', locals: {path: degree_type_path(@degree_type)}
+%p
+  = render partial: 'shared/back_to_list_button', locals: {list_name: "Degree Type", path: degree_types_path}

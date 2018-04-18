@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412201206) do
+
+ActiveRecord::Schema.define(version: 20180417005240) do
+
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_address"
@@ -33,14 +35,21 @@ ActiveRecord::Schema.define(version: 20180412201206) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "degree_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "degrees", force: :cascade do |t|
-    t.string   "degree_type"
     t.string   "name"
     t.integer  "department_id"
+    t.integer  "degree_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "degrees", ["degree_type_id"], name: "index_degrees_on_degree_type_id"
   add_index "degrees", ["department_id"], name: "index_degrees_on_department_id"
 
   create_table "departments", force: :cascade do |t|
@@ -70,9 +79,10 @@ ActiveRecord::Schema.define(version: 20180412201206) do
     t.string   "name"
     t.string   "number"
     t.string   "email"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "students_id"
+    t.string   "contact_name"
   end
 
   add_index "employers", ["students_id"], name: "index_employers_on_students_id"
@@ -86,6 +96,7 @@ ActiveRecord::Schema.define(version: 20180412201206) do
     t.integer  "student_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.date     "end_date"
   end
 
   add_index "employments", ["employer_id"], name: "index_employments_on_employer_id"
@@ -100,15 +111,19 @@ ActiveRecord::Schema.define(version: 20180412201206) do
     t.integer  "student_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "university_id"
   end
 
   add_index "grad_schools", ["student_id"], name: "index_grad_schools_on_student_id"
+  add_index "grad_schools", ["university_id"], name: "index_grad_schools_on_university_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
+    t.boolean  "colleges_visible"
+    t.boolean  "departments_visible"
     t.integer  "users_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   add_index "roles", ["users_id"], name: "index_roles_on_users_id"

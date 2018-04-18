@@ -1,0 +1,17 @@
+-#Created by Christopher Smith & Amanda Burton on: April 15, 2018 
+%h2 Details about 
+= @degree_type.name
+
+
+%ul#details
+    %li
+        Name:
+        = @degree_type.name
+
+
+%p
+    = render partial: 'shared/edit_button', locals: {path: edit_degree_type_path(@degree_type)}
+%p
+    = render partial: 'shared/delete_button', locals: {path: degree_type_path(@degree_type)}
+%p
+    = render partial: 'shared/back_to_list_button', locals: {list_name: "Degree Type", path: degree_types_path}

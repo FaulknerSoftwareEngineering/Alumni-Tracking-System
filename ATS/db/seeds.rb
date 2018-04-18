@@ -5,7 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-students = [
+
+
+if Rails.env.development? || Rails.env.test?
+	students = [
 	{first_name: 'Baxter', middle_name: 'Macdonald', last_name: 'Park', primary_email: 'ipsum@nonenimcommodo.ca', secondary_email: 'elit@egetvolutpatornare.org', cell_number: '1-659-614-6991', work_number: '1-265-965-1292', home_number: '1-989-248-7403', tracked: 'True '},
 	{first_name: 'Rowan', middle_name: 'Nichols', last_name: 'Wiggins', primary_email: 'Cras@dolor.com', secondary_email: 'pharetra.nibh@veliteget.com', cell_number: '1-574-999-6837', work_number: '1-296-643-6094', home_number: '1-906-106-7868', tracked: 'True '},
 	{first_name: 'Ainsley', middle_name: 'Cook', last_name: 'Becker', primary_email: 'Nullam@Inlorem.edu', secondary_email: 'id@dictumplacerataugue.com', cell_number: '1-799-390-1712', work_number: '1-856-342-1563', home_number: '1-615-175-9482', tracked: 'True '},
@@ -106,10 +109,41 @@ students = [
 	{first_name: 'Preston', middle_name: 'Singleton', last_name: 'Finley', primary_email: 'pede@asollicitudin.com', secondary_email: 'Aliquam.erat@loremutaliquam.net', cell_number: '1-772-659-0980', work_number: '1-277-108-3188', home_number: '1-692-747-5376', tracked: ' False'},
 	{first_name: 'Ali', middle_name: 'Cross', last_name: 'Rush', primary_email: 'aliquet.odio@mi.net', secondary_email: 'Integer@mollisPhasellus.net', cell_number: '1-545-679-8895', work_number: '1-352-453-6212', home_number: '1-202-222-3242', tracked: ' False'},
 	{first_name: 'Halla', middle_name: 'Booth', last_name: 'Mcintosh', primary_email: 'faucibus@infaucibus.edu', secondary_email: 'pede.Suspendisse.dui@orci.co.uk', cell_number: '1-301-553-5378', work_number: '1-944-533-1557', home_number: '1-618-639-9246', tracked: ' False'}
+	];
+	Student.create(students)
+	colleges = College.create([{name: 'Arts and Sciences', college_dean: 'Jeff Arrington'}, {name: 'Business', college_dean: 'Someone'}])
+	departments = Department.create([{name: 'Computer Science', dept_chair: 'Idong Mkpong-Ruffin', college_id: 1},{name: 'Mathematics', dept_chair: 'Sharon Paulk', college_id: 1}])
+	#degrees = Degree.create([{name: 'CSIS', degree_type_id: 2, department_id: 1},{name: 'English'},{name: 'Business Administration'}])
+
+end
+
+degree_types = [{name: "Bachelors of Business Administration"},
+	{name: "Bachelors of Science"},
+	{name: "Bachelors of Arts"},
+	{name: "Bachelors of Music Education"},
+	{name: "Associate of Arts"},
+	{name: "Associate of Science"},
+	{name: "Masters of Arts"},
+	{name: "Masters of Science"},
+	{name: "Minor"},
+	{name: "PhD"}
 ];
 
-Student.create(students)
-roles = Role.create([{ name: 'VPAA' }, { name: 'College Dean' }, { name: 'Department Chair'}, { name: 'Administrative Assistants'}, { name: 'System Admin'}])
-users = User.create([{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen'}, {email: 'shammond@faulkner.edu', name: 'Susan Hammond'}])
-degrees = Degree.create([{name: 'CSIS'},{name: 'English'},{name: 'Business Administration'}])
-colleges = College.create([{name: 'Arts and Sciences', college_dean: 'Jeff Arrington'}, {name: 'Business', college_dean: 'Someone'}])
+DegreeType.create(degree_types)
+
+roles = Role.create(
+	[
+		{ name: 'VPAA' , colleges_visible: false, departments_visible: false}, 
+		{ name: 'College Dean', colleges_visible: true, departments_visible: false}, 
+		{ name: 'Department Chair', colleges_visible: false, departments_visible: true}, 
+		{ name: 'Administrative Assistants', colleges_visible: true, departments_visible: true}, 
+		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
+	]
+)
+
+users = User.create(
+	[
+		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, 
+		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1}
+	]
+)

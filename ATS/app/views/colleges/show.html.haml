@@ -13,6 +13,8 @@
         = @college.college_dean
 
 %p
-    = link_to 'Edit Info', edit_college_path(@college)
+    = render partial: 'shared/edit_button', locals: {path: edit_college_path(@college)}
+-#%p
+-#    = render partial: 'shared/delete_button', locals: {path: degree_type_path(@degree_type)}
 %p
-    = link_to 'Back to College List', colleges_path
+    = render partial: 'shared/back_to_list_button', locals: {list_name: "College", path: colleges_path}
