@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
     has_many :user_departments
     has_many :colleges, :through => :user_colleges
     has_many :departments, :through => :user_departments
+    belongs_to :role
     def self.from_omniauth(auth)
         user = User.where(email: auth.info.email, name: auth.info.name).first
         if !user.blank?
