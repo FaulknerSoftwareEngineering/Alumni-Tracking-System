@@ -9,7 +9,7 @@
         = @department.name
     %li
         Dept Chair:
-        = @department.dept_chair
+        = @dept_chair.name unless @dept_chair.nil?
     %li
         College:
         = @college

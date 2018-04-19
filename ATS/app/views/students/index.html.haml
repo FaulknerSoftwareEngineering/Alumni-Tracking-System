@@ -16,14 +16,14 @@
       %th More Info
 
   %tbody
-    - @earned_degrees.each do |earnded|
+    - @earned_degrees.each do |earned|
       %tr
-        %td= earnded.first_name
-        %td= earnded.last_name
-        %td= earnded.degree_name 
-        %td= earnded.year_graduated 
-        %td= earnded.season
-        %td= link_to "More about #{earnded.first_name}", student_path(earnded.student_id)
+        %td= earned.first_name
+        %td= earned.last_name
+        %td= earned.degree_name 
+        %td= earned.year_graduated 
+        %td= earned.season
+        %td= link_to "More about #{earned.first_name}", student_path(earned.student_id)
 
 %p
   = link_to 'Add New Student', new_student_path        
