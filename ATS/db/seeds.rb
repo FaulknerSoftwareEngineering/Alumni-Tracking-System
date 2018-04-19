@@ -114,6 +114,9 @@ if Rails.env.development? || Rails.env.test?
 	colleges = College.create([{name: 'Arts and Sciences'}, {name: 'Business'}])
 	departments = Department.create([{name: 'Computer Science', college_id: 1},{name: 'Mathematics', college_id: 1}])
 	degrees = Degree.create([{name: 'CSIS', degree_type_id: 2, department_id: 1},{name: 'English'},{name: 'Business Administration'}])
+	user_departments = UserDepartment.create({user_id: 2, department_id: 1})
+	user_college = UserCollege.create({user_id: 1, college_id: 1})
+	earned_degrees = EarnedDegree.create([{student_id: 1, degree_id: 1}, {student_id: 2, degree_id: 2}, {student_id: 3, degree_id: 1}])
 
 end
 
