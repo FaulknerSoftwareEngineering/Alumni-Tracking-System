@@ -28,7 +28,6 @@ class CollegesController < ApplicationController
         @college = College.find params[:id]
         @college_deans = User.where(role_id: 2)
         @user_college = UserCollege.find_by_college_id( @college.id)
-        #byebug
         if @user_college
             @sel_college_dean = User.find_by(id: @user_college.user_id)
         else
