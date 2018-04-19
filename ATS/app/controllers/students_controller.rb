@@ -37,7 +37,6 @@ end
 def index
     
     @students = Student.accessible_students(session[:role_id], session[:user_id])
-    
     sort = params[:sort] || session[:sort]
     case sort
     when 'first_name'

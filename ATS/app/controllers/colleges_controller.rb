@@ -53,6 +53,8 @@ class CollegesController < ApplicationController
         id = params[:id] 
         @college = College.find(id) 
         @user_college = UserCollege.find_by_college_id( @college.id)
-        @college_dean = User.find_by_id @user_college.user_id
+        if @user_college
+            @college_dean = User.find_by_id @user_college.user_id
+        end
     end
 end

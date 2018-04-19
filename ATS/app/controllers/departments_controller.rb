@@ -62,7 +62,11 @@ class DepartmentsController < ApplicationController
         id = params[:id] 
         @department = Department.find(id)
         @user_department = UserDepartment.find_by_department_id( @department.id)
-        @dept_chair = User.find_by_id @user_department.user_id
-        @college = College.find(@department.college_id).name
+        if @user_department
+            @dept_chair = User.find_by_id @user_department.user_id
+        end
+        if !@department.college_id.nil?
+            @college = College.find(@department.college_id).name
+        end
     end
 end

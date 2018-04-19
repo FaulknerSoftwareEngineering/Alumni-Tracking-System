@@ -24,6 +24,6 @@
              
 
 %p
-    = link_to 'Add New User', new_user_path      
+    = render partial: 'shared/new_button', locals: {new_name: "User", path: new_user_path}   
 %p
-    = link_to 'Home Page', root_path
+    = render partial: 'shared/home_page_button'
