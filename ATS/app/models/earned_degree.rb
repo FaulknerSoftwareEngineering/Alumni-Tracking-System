@@ -7,23 +7,23 @@ class EarnedDegree < ActiveRecord::Base
     end
     
     
-    def degree_name
+    def self.degree_name
         degree = Degree.find(self.degree_id)
         return degree.name
     end
     
-    def first_name
+    def self.first_name
         return Student.find(self.student_id).first_name
     end
     
-    def last_name
+    def self.last_name
         return Student.find(self.student_id).last_name
     end
     
-    def first_name_order
+    def self.first_name_order
         return Student.find(self.student_id).first_name.downcase
     end
-    def last_name_order
+    def self.last_name_order
         return Student.find(self.student_id).last_name.downcase
     end
 end

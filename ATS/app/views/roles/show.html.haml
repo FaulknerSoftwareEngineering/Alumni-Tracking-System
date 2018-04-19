@@ -1,0 +1,24 @@
+-# Created by Ethan Widen
+-# on: April 18, 2018 
+
+= render :partial => 'shared/flash', :locals => { :flash => flash }
+
+%h2 Details about #{@role.name}
+
+
+%ul#details
+    %li
+        Name:
+        = "#{@role.name}"
+    %li
+        Colleges visible to this role:
+        = "#{@role.colleges_visible}"
+    %li
+        Departments visible to this role:
+        = "#{@role.colleges_visible}"
+
+%div{:class => 'linebuttons'}  
+    %p
+        = link_to 'Edit info', edit_role_path(@role), :method => :get
+    %p
+        = link_to 'Back To roles list', roles_path

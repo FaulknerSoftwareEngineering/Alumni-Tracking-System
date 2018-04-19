@@ -10,7 +10,7 @@
         = @college.name
     %li
         Dean:
-        = @college.college_dean
+        = @college_dean.name unless @college_dean.nil?
 
 %p
     = render partial: 'shared/edit_button', locals: {path: edit_college_path(@college)}

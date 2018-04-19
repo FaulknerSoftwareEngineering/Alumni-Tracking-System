@@ -12,7 +12,6 @@
             %th Edit
     %tbody
         - @roles.each do|role|
-        - #byebug
             %tr
                 %td= role.name
                 %td= link_to "Edit #{role.name}", edit_role_path(role)
