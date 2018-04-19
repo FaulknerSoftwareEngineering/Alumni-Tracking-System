@@ -113,7 +113,7 @@ if Rails.env.development? || Rails.env.test?
 	Student.create(students)
 	colleges = College.create([{name: 'Arts and Sciences', college_dean: 'Jeff Arrington'}, {name: 'Business', college_dean: 'Someone'}])
 	departments = Department.create([{name: 'Computer Science', dept_chair: 'Idong Mkpong-Ruffin', college_id: 1},{name: 'Mathematics', dept_chair: 'Sharon Paulk', college_id: 1}])
-	#degrees = Degree.create([{name: 'CSIS', degree_type_id: 2, department_id: 1},{name: 'English'},{name: 'Business Administration'}])
+	degrees = Degree.create([{name: 'CSIS', degree_type_id: 2, department_id: 1},{name: 'English'},{name: 'Business Administration'}])
 
 end
 
@@ -134,8 +134,8 @@ DegreeType.create(degree_types)
 roles = Role.create(
 	[
 		{ name: 'VPAA' , colleges_visible: false, departments_visible: false}, 
-		{ name: 'College Dean', colleges_visible: true, departments_visible: false}, 
-		{ name: 'Department Chair', colleges_visible: false, departments_visible: true}, 
+		{ name: 'College Dean', colleges_visible: false, departments_visible: false}, 
+		{ name: 'Department Chair', colleges_visible: false, departments_visible: false}, 
 		{ name: 'Administrative Assistants', colleges_visible: true, departments_visible: true}, 
 		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
 	]
