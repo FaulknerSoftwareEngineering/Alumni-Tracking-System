@@ -13,7 +13,6 @@
 
 
 %p
-    = link_to 'Add New Employer', new_employer_path
-
+    = render partial: 'shared/new_button', locals: {new_name: "Employer", path: new_employer_path}
 %p
-    = link_to 'Home Page', root_path
+    = render partial: 'shared/home_page_button'

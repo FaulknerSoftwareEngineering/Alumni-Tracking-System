@@ -23,8 +23,6 @@
     = label :employer, :email, 'Email'
     = text_field :employer, :email, :class => 'form-control'
 
-%div
-    = submit_tag 'Save Changes'
+%div{:class => 'form-group'}
+    = submit_tag 'Save Changes', :class => 'btn btn-primary'
     
-%div
-    = link_to 'Cancel', employers_path
