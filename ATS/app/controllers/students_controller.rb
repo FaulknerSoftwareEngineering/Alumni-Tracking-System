@@ -36,7 +36,7 @@ end
 
 def index
     
-    @students = Student.students_in_department(session[:role_id])
+    @students = Student.accessible_students(session[:role_id], session[:user_id])
     
     sort = params[:sort] || session[:sort]
     case sort
@@ -55,6 +55,7 @@ def index
     
     
     @earned_degrees = EarnedDegree.where(student_id: @students).sort_by(&ordering)
+    byebug
 end
     
 def show
