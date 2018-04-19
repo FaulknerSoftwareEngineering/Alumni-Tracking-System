@@ -13,7 +13,6 @@ class EarnedDegree < ActiveRecord::Base
     end
     
     def self.first_name
-        byebug
         return Student.find(self.student_id).first_name
     end
     
