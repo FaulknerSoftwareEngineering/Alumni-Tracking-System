@@ -6,8 +6,9 @@
             - @college.errors.full_messages.each do|error|
                 %li= error
 %div{:class => 'form-group'}
-    = label :college, :title, 'Name'
+    = label :college, :name, 'Name'
     = text_field :college, :name, :class => 'form-control'
 %div{:class => 'form-group'}
-    = label :college_dean, :title, 'Dean'
-    = text_field :college_dean, :dean, :class => 'form-control'
+    = label :user_college, :user_id, 'Dean'
+    = collection_select :user_college, :user_id, @college_deans, :id, :name, {:selected => (@sel_college_dean.id unless @sel_college_dean.nil?)}, {:class => 'form-control'}
+    

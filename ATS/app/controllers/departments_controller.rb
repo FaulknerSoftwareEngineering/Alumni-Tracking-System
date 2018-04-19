@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
     def department_params
-        params.require(:department).permit(:name, :dept_chair, :college_id)
+        params.require(:department).permit(:name, :college_id)
     end
     
     def index
@@ -15,6 +15,7 @@ class DepartmentsController < ApplicationController
     
     def new
         @department = Department.new
+        @department_chairs = User.where(role_id: 3)
         # default: render 'new' template
         @colleges = College.all
     end
@@ -22,6 +23,7 @@ class DepartmentsController < ApplicationController
     def create
         @department = Department.create(department_params)
         @department.college=(College.find(params[:college_id]))
+        @user_department = UserDepartment.create(department_id: @department.id, user_id: params[:user_department][:user_id])
         if @department.save
             flash[:notice] = "#{@department.name} was successfully created."
             redirect_to departments_path
@@ -32,13 +34,25 @@ class DepartmentsController < ApplicationController
     
     def edit
         @department = Department.find params[:id]
+        @department_chairs = User.where(role_id: 3)
+        @user_department = UserDepartment.find_by_department_id( @department.id)
+        if @user_department
+            @sel_dept_chair =  User.find_by(id: @user_department.user_id)
+        else
+            UserDepartment.create(department_id: @department.id)
+            @sel_dept_chair = nil
+        end
         @colleges = College.all
+        #byebug
     end
     
     def update
         @department = Department.find params[:id]
         @department.college=(College.find(params[:college_id]))
-        if @department.update_attributes!(department_params)
+        @user_department = UserDepartment.find_by_department_id( @department.id)
+        @user_department.update_attributes!({user_id: params[:user_department][:user_id], department_id: @department.id}) unless @user_department.nil?
+       #byebug
+        if @department.update_attributes!(department_params) 
             flash[:notice] = "#{@department.name} was successfully updated."
             redirect_to departments_path(@department)
         else
@@ -47,8 +61,10 @@ class DepartmentsController < ApplicationController
     end
     
     def show
-    id = params[:id] 
-    @department = Department.find(id)
-    @college = College.find(@department.college_id).name
+        id = params[:id] 
+        @department = Department.find(id)
+        @user_department = UserDepartment.find_by_department_id( @department.id)
+        @dept_chair = User.find_by_id @user_department.user_id
+        @college = College.find(@department.college_id).name
     end
 end

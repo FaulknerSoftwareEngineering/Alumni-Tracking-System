@@ -111,8 +111,8 @@ if Rails.env.development? || Rails.env.test?
 	{first_name: 'Halla', middle_name: 'Booth', last_name: 'Mcintosh', primary_email: 'faucibus@infaucibus.edu', secondary_email: 'pede.Suspendisse.dui@orci.co.uk', cell_number: '1-301-553-5378', work_number: '1-944-533-1557', home_number: '1-618-639-9246', tracked: ' False'}
 	];
 	Student.create(students)
-	colleges = College.create([{name: 'Arts and Sciences', college_dean: 'Jeff Arrington'}, {name: 'Business', college_dean: 'Someone'}])
-	departments = Department.create([{name: 'Computer Science', dept_chair: 'Idong Mkpong-Ruffin', college_id: 1},{name: 'Mathematics', dept_chair: 'Sharon Paulk', college_id: 1}])
+	colleges = College.create([{name: 'Arts and Sciences'}, {name: 'Business'}])
+	departments = Department.create([{name: 'Computer Science', college_id: 1},{name: 'Mathematics', college_id: 1}])
 	degrees = Degree.create([{name: 'CSIS', degree_type_id: 2, department_id: 1},{name: 'English'},{name: 'Business Administration'}])
 
 end
@@ -143,7 +143,7 @@ roles = Role.create(
 
 users = User.create(
 	[
-		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, 
-		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1}
+		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 3}, 
+		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 3}
 	]
 )
