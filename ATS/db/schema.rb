@@ -119,12 +119,9 @@ ActiveRecord::Schema.define(version: 20180417005240) do
     t.string   "name"
     t.boolean  "colleges_visible"
     t.boolean  "departments_visible"
-    t.integer  "users_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
-
-  add_index "roles", ["users_id"], name: "index_roles_on_users_id"
 
   create_table "student_universities", id: false, force: :cascade do |t|
     t.integer  "student_id"

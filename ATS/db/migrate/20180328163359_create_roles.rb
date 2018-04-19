@@ -6,7 +6,6 @@ class CreateRoles < ActiveRecord::Migration
       #Is the college multi-select visible upon creating a user with this role
       t.boolean :departments_visible
       #Is the department multi-select visible upon creating a user with this role
-      t.belongs_to :users, index: true
       t.timestamps null: false
     end
   end
