@@ -1,5 +1,5 @@
 
-= link_to 'add new employment', add_employment_path(@id) ,:method => :get
+= link_to 'Add New Employment', add_employment_path(@id) ,:method => :get
 
 %table#student.table
   %thead
@@ -23,5 +23,5 @@
         -else
           %td= employ.end_date
         %td= employ.in_field
-        %td= link_to 'delete employment', delete_employment_path(employ), :method => :delete
-        %td= link_to 'Edit employment', edit_employment_path(employ),:method => :get
+        %td= link_to 'Delete Employment', delete_employment_path(employ), :method => :delete
+        %td= link_to 'Edit Employment', edit_employment_path(employ),:method => :get

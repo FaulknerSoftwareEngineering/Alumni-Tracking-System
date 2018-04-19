@@ -3,7 +3,7 @@
 -# on: March 23, 2018 
 -# edited by ZP on 3/29/18
   
-%h1 All students
+%h1 All Students
 = render :partial => 'shared/flash', :locals => { :flash => flash }
 %table#student.table
   %thead
@@ -23,10 +23,10 @@
         %td= earned.degree_name 
         %td= earned.year_graduated 
         %td= earned.season
-        %td= link_to "More about #{earned.first_name}", student_path(earned.student_id)
+        %td= link_to "More About #{earned.first_name}", student_path(earned.student_id)
 
 %p
-  = link_to 'Add New Student', new_student_path        
+  = link_to 'Add New Student', new_student_path, :class => 'btn btn-primary'     
 %p
-  = link_to 'Home Page', root_path
+  = render partial: 'shared/home_page_button'
   

@@ -1,4 +1,4 @@
-%h2 Add Employer to
+%h2 Add Employer To
 = @employment.student_name
 
 %div
@@ -9,4 +9,4 @@
             = submit_tag 'Edit Employment', :class => 'btn btn-primary'
             
 %div
-    = link_to 'Cancel', student_path(@student_id)
+    = render partial: 'shared/cancel_button', locals: {path: student_path(@student_id)}
