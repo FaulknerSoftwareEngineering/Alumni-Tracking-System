@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20180417005240) do
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
-    t.string   "college_dean"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -52,7 +51,6 @@ ActiveRecord::Schema.define(version: 20180417005240) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
-    t.string   "dept_chair"
     t.integer  "college_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -117,7 +115,6 @@ ActiveRecord::Schema.define(version: 20180417005240) do
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
-
     t.boolean  "colleges_visible"
     t.boolean  "departments_visible"
     t.integer  "user_id"
