@@ -6,6 +6,136 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+degree_types = [{name: "Bachelors of Business Administration"},
+	{name: "Bachelors of Science"},
+	{name: "Bachelors of Arts"},
+	{name: "Bachelors of Music Education"},
+	{name: "Associate of Arts"},
+	{name: "Associate of Science"},
+	{name: "Masters of Arts"},
+	{name: "Masters of Science"},
+	{name: "Minor"},
+	{name: "PhD"},
+	{name: "Bachelors of Criminal Justice"},
+	{name: "B.S. in Business"},
+	{name: "B.S. in Human Resource Management"},
+	{name: "Masters of Justice Administration"},
+	{name: "M.Ed."},
+	{name: "MBA"},
+	{name: "M.S. in Business"}
+];
+
+DegreeType.create(degree_types)
+
+colleges = [{name: "College of Arts and Sciences"},
+	{name: "College of Bible"},
+	{name: "College of Business"},
+	{name: "College of Education"},
+];
+
+College.create(colleges)
+
+departments = [{name:  "Computer Science", college_id: 1},
+	{name:  "Criminal Justice/Legal Studies", college_id: 1},
+	{name:  "English", college_id: 1},
+	{name:  "Humanities", college_id: 1},
+	{name:  "Mathematics", college_id: 1},
+	{name:  "Music", college_id: 1},
+	{name:  "Kinesiology and Exercise Science", college_id: 1},
+	{name:  "Natural and Physical Sciences", college_id: 1},
+	{name:  "Social and Behavioral Sciences", college_id: 1},
+	{name:  "Bibilical Studies", college_id: 2},
+	{name:  "Vocational Christian Ministry", college_id: 2},
+	{name:  "Business", college_id: 3},
+	{name:  "Education", college_id: 4},
+]
+
+Department.create(departments)
+
+degrees = [{name: "Computer Science", department_id: 1, degree_type: 2},
+	{name: "Computer Information Science", department_id: 1, degree_type: 2},
+	{name: "Informatics", department_id: 1, degree_type: 2},
+	{name: "Computer Information Science", department_id: 1, degree_type: 6},
+	{name: "Criminal Justice", department_id: 2, degree_type: 2},
+	{name: "Legal Studies", department_id: 2, degree_type: 2},
+	{name: "Bachelors of Criminal Justice", department_id: 2, degree_type: 11},
+	{name: "Justice Administration", department_id: 2, degree_type: 14},
+	{name: "Criminal Justice/AS", department_id: 2, degree_type: 8},
+	{name: "Legal Studies/AS", department_id: 2, degree_type: 8},
+	{name: "Criminalistics", department_id: 2, degree_type: 8},
+	{name: "English", department_id: 3, degree_type: 3},
+	{name: "Humanities", department_id: 4, degree_type: 3},
+	{name: "Humanities/MA", department_id: 4, degree_type: 7},
+	{name: "Humanities/PhD", department_id: 4, degree_type: 10},
+	{name: "Liberal Arts", department_id: 4, degree_type: 3},
+	{name: "Liberal Arts/AA", department_id: 4, degree_type: 5},
+	{name: "Liberal Arts/AS", department_id: 4, degree_type: 6},
+	{name: "Music (Vocal)", department_id: 6, degree_type: 3},
+	{name: "Music (Instrumental)", department_id: 6, degree_type: 3},
+	{name: "Music", department_id: 6, degree_type: 9},
+	{name: "Mathematics", department_id: 5, degree_type: 2},
+	{name: "Exercise Science", department_id: 7, degree_type: 2},
+	{name: "Physical Education", department_id: 7, degree_type: 2},
+	{name: "Sports Management", department_id: 7, degree_type: 2},
+	{name: "Biology/BS", department_id: 8, degree_type: 2},
+	{name: "Biology/BA", department_id: 8, degree_type: 3},
+	{name: "BioChemistry", department_id: 8, degree_type: 2},
+	{name: "Science", department_id: 8, degree_type: 8},
+	{name: "History", department_id: 9, degree_type: 2},
+	{name: "Social Science", department_id: 9, degree_type: 2},
+	{name: "History (Min)", department_id: 9, degree_type: 9},
+	{name: "Political Science (Min)", department_id: 9, degree_type: 9},
+	{name: "Sociology (Min)", department_id: 9, degree_type: 9},
+	{name: "Psychology (Min)", department_id: 9, degree_type: 9},
+	{name: "Counseling (Min)", department_id: 9, degree_type: 9},
+	{name: "General/Clinical Psychology", department_id: 9, degree_type: 2},
+	{name: "Counseling Psychology", department_id: 9, degree_type: 2},
+	{name: "Industrial/Organizational Psychology", department_id: 9, degree_type: 2},
+	{name: "Forensic Psychology", department_id: 9, degree_type: 2},
+	{name: "Sports Psychology", department_id: 9, degree_type: 2},
+	{name: "Health and Rehabilitation Psychology", department_id: 9, degree_type: 2},
+	{name: "Health and Rehabilitation Psychology (pre-OT)", department_id: 9, degree_type: 2},
+	{name: "Accounting", department_id: 12, degree_type: 2},
+	{name: "Business Administration", department_id: 12, degree_type: 2},
+	{name: "Management", department_id: 12, degree_type: 2},
+	{name: "Management Information Systems", department_id: 12, degree_type: 2},		
+	{name: "Bachelors of Business Administration", department_id: 12, degree_type: 1},
+	{name: "Masters of Business Administration", department_id: 12, degree_type: 16},
+	{name: "B.S. in Business", department_id: 12, degree_type: 12},
+	{name: "M.S. in Business", department_id: 12, degree_type: 17},
+	{name: "Human Resource Management", department_id: 12, degree_type: 2},
+	{name: "Bibilical Studies", department_id: 10, degree_type: 3},
+	{name: "Bibilical Studies/MA", department_id: 10, degree_type: 7},
+	{name: "Christian Ministry", department_id: 10, degree_type: 7},
+	{name: "Christian Counseling and Family Ministry", department_id: 10, degree_type: 7},
+	{name: "Master of Philosphy", department_id: 10, degree_type: 7},
+	{name: "Bibilical Studies/PhD", department_id: 10, degree_type: 10},
+	{name: "Collaborative Education", department_id: 13, degree_type: 2},
+	{name: "Early Childhood Education", department_id: 13, degree_type: 2},
+	{name: "Elementary Education", department_id: 13, degree_type: 2},
+	{name: "Counseling", department_id: 13, degree_type: 8},
+	{name: "School Counseling", department_id: 13, degree_type: 8},
+	{name: "Teaching", department_id: 13, degree_type: 7},
+	{name: "M.Ed.", department_id: 13, degree_type: 15},
+
+]
+
+roles = Role.create(
+	[
+		{ name: 'VPAA' , colleges_visible: false, departments_visible: false}, 
+		{ name: 'College Dean', colleges_visible: true, departments_visible: false}, 
+		{ name: 'Department Chair', colleges_visible: false, departments_visible: true}, 
+		{ name: 'Administrative Assistants', colleges_visible: true, departments_visible: true}, 
+		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
+	]
+)
+
+users = User.create(
+	[
+		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, 
+		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1}
+	]
+)
 
 if Rails.env.development? || Rails.env.test?
 	students = [
@@ -117,33 +247,3 @@ if Rails.env.development? || Rails.env.test?
 
 end
 
-degree_types = [{name: "Bachelors of Business Administration"},
-	{name: "Bachelors of Science"},
-	{name: "Bachelors of Arts"},
-	{name: "Bachelors of Music Education"},
-	{name: "Associate of Arts"},
-	{name: "Associate of Science"},
-	{name: "Masters of Arts"},
-	{name: "Masters of Science"},
-	{name: "Minor"},
-	{name: "PhD"}
-];
-
-DegreeType.create(degree_types)
-
-roles = Role.create(
-	[
-		{ name: 'VPAA' , colleges_visible: false, departments_visible: false}, 
-		{ name: 'College Dean', colleges_visible: true, departments_visible: false}, 
-		{ name: 'Department Chair', colleges_visible: false, departments_visible: true}, 
-		{ name: 'Administrative Assistants', colleges_visible: true, departments_visible: true}, 
-		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
-	]
-)
-
-users = User.create(
-	[
-		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, 
-		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1}
-	]
-)
