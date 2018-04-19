@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20180417005240) do
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
-    t.string   "college_dean"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -124,6 +123,7 @@ ActiveRecord::Schema.define(version: 20180417005240) do
   end
 
   add_index "roles", ["user_id"], name: "index_roles_on_user_id"
+
 
   create_table "student_universities", id: false, force: :cascade do |t|
     t.integer  "student_id"
