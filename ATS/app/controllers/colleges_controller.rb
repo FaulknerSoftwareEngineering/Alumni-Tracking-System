@@ -39,7 +39,8 @@ class CollegesController < ApplicationController
     def update
         @college = College.find params[:id]
         @user_college = UserCollege.find_by_college_id(@college.id)
-        @user_college.update_attributes!({user_id: params[:user_college][:user_id], college_id: @college.id}) unless @user_college.nil?
+        @user_id = params[:user_college][:user_id] unless params[:user_college].nil?
+        @user_college.update_attributes!({user_id: @user_id, college_id: @college.id}) unless @user_college.nil?
         
         if @college.update_attributes!(college_params)
             flash[:notice] = "#{@college.name} was successfully updated."

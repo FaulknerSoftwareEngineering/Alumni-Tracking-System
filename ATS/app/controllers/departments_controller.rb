@@ -49,7 +49,8 @@ class DepartmentsController < ApplicationController
         @department = Department.find params[:id]
         @department.college=(College.find(params[:college_id]))
         @user_department = UserDepartment.find_by_department_id( @department.id)
-        @user_department.update_attributes!({user_id: params[:user_department][:user_id], department_id: @department.id}) unless @user_department.nil?
+        @user_id = params[:user_department][:user_id] unless params[:user_department].nil?
+        @user_department.update_attributes!({user_id: @user_id, department_id: @department.id}) unless @user_department.nil?
         if @department.update_attributes!(department_params) 
             flash[:notice] = "#{@department.name} was successfully updated."
             redirect_to departments_path(@department)
