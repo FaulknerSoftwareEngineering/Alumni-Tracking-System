@@ -4,8 +4,12 @@
 
   %div{:class => 'form-group'}
     = render :partial => 'degrees_form_fields'
-    = render :partial => 'departments/departments_dropdown'
-    = select_tag 'degree_type_id', options_for_select(@degree_types.collect{ |u| [u.name, u.id] })
+    %div{:class => 'form-group'}
+      = label :department_id, :title, 'Department'
+      = select_tag 'degree[department_id]', options_for_select(@departments.collect{ |u| [u.name, u.id] }, selected: @default_dept)
+    %div{:class => 'form-group'}
+      = label :degree_type_id, :title, 'Degree Type'  
+      = select_tag 'degree[degree_type_id]', options_for_select(@degree_types.collect{ |u| [u.name, u.id] }, selected: @default_degree_type)
 
   %div{:class => 'form-group'}
     = submit_tag 'Save Changes', :class => 'btn btn-primary'
@@ -13,4 +17,4 @@
 %p
   = render partial: 'shared/cancel_button', locals: {path: degree_path(@degree)}
 %p
-  = render partial: 'shared/back_to_list_button', locals: {list_name: "Degree List", path: degrees_path}
+  = render partial: 'shared/back_to_list_button', locals: {list_name: "Degree", path: degrees_path}
