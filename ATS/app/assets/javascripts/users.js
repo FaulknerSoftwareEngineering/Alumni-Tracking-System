@@ -18,3 +18,7 @@ $(function()
         });
     }
 );
+$(document).ready( function () {
+    $('#users').DataTable();
+} 
+);
