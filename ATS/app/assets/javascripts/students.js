@@ -3,7 +3,7 @@ $(function() {
    $("#Graduate_Degrees").click(function() {
 
     var id;
-    id = $('.hidden').html();
+    id = $('#hidden_id').html();
     $.ajax({
       type: "get",
       url: "students/" + id + "/grad_school",
@@ -20,7 +20,7 @@ $(function() {
     $("#Employment").click(function() {
       
         var id;
-        id = $('.hidden').html();
+        id = $('#hidden_id').html();
          $.ajax({
           type: "get",
           url: "students/" + id + "/employment",
