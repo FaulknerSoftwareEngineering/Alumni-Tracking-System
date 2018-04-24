@@ -1,7 +1,7 @@
 -# Created by Zack Pace
 -# on: March 23, 2018 
 -# edited on March 29, 18 
-%h2 New Student
+%h2 New Alumni
 = form_tag students_path, :method => :post do
     
     = render :partial => 'student_form'
@@ -10,4 +10,4 @@
         = submit_tag 'Save Changes', :class => 'btn btn-primary'
     
 %p
-    = render partial: 'shared/back_to_list_button', locals: {list_name: "Student", path: students_path}
+    = render partial: 'shared/back_to_list_button', locals: {list_name: "Alumni", path: students_path}

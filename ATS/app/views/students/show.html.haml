@@ -42,7 +42,7 @@
 %div{:class => 'linebuttons'}  
  = render partial: 'shared/edit_button', locals: {new_name: "Edit Info", path: edit_student_path(@student)}
  = link_to 'Delete', student_path(@student), :method => :delete, :confirm => 'Are you sure?'
- = render partial: 'shared/back_to_list_button', locals: {list_name: "Student", path: students_path}
+ = render partial: 'shared/back_to_list_button', locals: {list_name: "Alumni", path: students_path}
 
 
 %div{:class => 'hidden'}  
