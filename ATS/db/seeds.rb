@@ -5,6 +5,31 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+roles = Role.create(
+	[
+		{ name: 'VPAA' , colleges_visible: false, departments_visible: false}, 
+		{ name: 'College Dean', colleges_visible: true, departments_visible: false}, 
+		{ name: 'Department Chair', colleges_visible: false, departments_visible: true}, 
+		{ name: 'Administrative Assistants', colleges_visible: true, departments_visible: true}, 
+		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
+	]
+)
+
+users = User.create(
+	[
+		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, 
+		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1},
+		{email: 'drampersad@faulkner.edu', name: 'Dave Rampersad', role_id: 1},
+		{email: 'jarrington@faulkner.edu', name: 'Jeff Arrington', role_id: 2},
+		{email: 'sgleaves@faulkner.edu', name: 'Scott Gleaves', role_id: 2},
+		{email: 'lcowell@faulkner.edu', name: 'Leslie Cowell', role_id: 2},
+		{email: 'dkhadanga@faulkner.edu', name: 'Dave Khadanga', role_id: 2},
+		{email: 'jjewell@faulkner.edu', name: 'Jason Jewell', role_id: 3},
+		{email: 'spaulk@faulkner.edu', name: 'Sharon Paulk', role_id: 3},
+		{email: 'jwright.edu', name: 'Jonathan Wright', role_id: 3},
+		{email: 'imkpong-ruffin@faulkner.edu', name: 'Idong Mkpong-Ruffin', role_id: 3}
+	]
+)
 
 degree_types = [{name: "Bachelors of Business Administration"},
 	{name: "Bachelors of Science"},
@@ -35,8 +60,17 @@ colleges = [{name: "College of Arts and Sciences"},
 
 College.create(colleges)
 
-AS = College.find_by_name("College of Arts and Sciences")
-Bib = College.find_by_name("College of Bible")
+
+AS = College.find_by(name: "College of Arts and Sciences")
+Bib = College.find_by(name: "College of Bible")
+Bus = College.find_by(name: "College of Business")
+Edu = College.find_by(name: "College of Education")
+UserCollege.create(user: User.find_by(name: 'Jeff Arrington'), college: AS)
+UserCollege.create(user: User.find_by(name: 'Scott Gleaves'), college: Bib)
+UserCollege.create(user: User.find_by(name: 'Leslie Cowell'), college: Edu)
+UserCollege.create(user: User.find_by(name: 'Dave Khadanga'), college: Bus)
+
+
 departments = [{name:  "Computer Science", college_id: AS.id},
 	{name:  "Criminal Justice/Legal Studies", college_id: AS.id},
 	{name:  "English", college_id: AS.id},
@@ -48,8 +82,8 @@ departments = [{name:  "Computer Science", college_id: AS.id},
 	{name:  "Social and Behavioral Sciences", college_id: AS.id},
 	{name:  "Bibilical Studies", college_id: Bib.id},
 	{name:  "Vocational Christian Ministry", college_id: Bib.id},
-	{name:  "Business", college_id: College.find_by_name("College of Business").id},
-	{name:  "Education", college_id: College.find_by_name("College of Education").id},
+	{name:  "Business", college_id: Bus.id},
+	{name:  "Education", college_id: Edu.id},
 ]
 
 Department.create(departments)
@@ -72,6 +106,8 @@ Bibdept = Department.find_by_name("Bibilical Studies")
 Kindept = Department.find_by_name("Kinesiology and Exercise Science")
 Scidept = Department.find_by_name("Natural and Physical Sciences")
 Socdept = Department.find_by_name("Social and Behavioral Sciences")
+Mathdept = Department.find_by(name: "Mathematics")
+
 degrees = [{name: "Computer Science", department_id: CSdept.id, degree_type_id: BS.id},
 	{name: "Computer Information Science", department_id: CSdept.id, degree_type_id: BS.id},
 	{name: "Informatics", department_id: CSdept.id, degree_type_id: BS.id},
@@ -141,22 +177,11 @@ degrees = [{name: "Computer Science", department_id: CSdept.id, degree_type_id: 
 ]
 Degree.create(degrees)
 
-roles = Role.create(
-	[
-		{ name: 'VPAA' , colleges_visible: false, departments_visible: false}, 
-		{ name: 'College Dean', colleges_visible: true, departments_visible: false}, 
-		{ name: 'Department Chair', colleges_visible: false, departments_visible: true}, 
-		{ name: 'Administrative Assistants', colleges_visible: true, departments_visible: true}, 
-		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
-	]
-)
+UserDepartment.create(user: User.find_by(name:'Idong Mkpong-Ruffin'), 
+	department: CSdept)
+UserDepartment.create(user: User.find_by(name:"Jason Jewell"), 
+	department: Humdept)
 
-users = User.create(
-	[
-		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, 
-		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1}
-	]
-)
 
 if Rails.env.development? || Rails.env.test?
 	students = [
@@ -262,6 +287,16 @@ if Rails.env.development? || Rails.env.test?
 	{first_name: 'Halla', middle_name: 'Booth', last_name: 'Mcintosh', primary_email: 'faucibus@infaucibus.edu', secondary_email: 'pede.Suspendisse.dui@orci.co.uk', cell_number: '1-301-553-5378', work_number: '1-944-533-1557', home_number: '1-618-639-9246', tracked: ' False'}
 	];
 	Student.create(students)
+
+=begin
+	colleges = College.create([{name: 'Arts and Sciences'}, {name: 'Business'}])
+	departments = Department.create([{name: 'Computer Science', college_id: 1},{name: 'Mathematics', college_id: 1}])
+	degrees = Degree.create([{name: 'CSIS', degree_type_id: 2, department_id: 1},{name: 'English'},{name: 'Business Administration'}])
+	user_departments = UserDepartment.create({user_id: 2, department_id: 1})
+	user_college = UserCollege.create({user_id: 1, college_id: 1})
+	earned_degrees = EarnedDegree.create([{student_id: 1, degree_id: 1}, {student_id: 2, degree_id: 2}, {student_id: 3, degree_id: 1}])
+=end
+
 	earned_degrees = [
 	{degree_id: 38, student_id: 27},
 	{degree_id: 57, student_id: 45},
