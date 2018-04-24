@@ -43,6 +43,7 @@ class DepartmentsController < ApplicationController
             @sel_dept_chair = nil
         end
         @colleges = College.all
+        @default_college = @department.college_id.to_s
     end
     
     def update
