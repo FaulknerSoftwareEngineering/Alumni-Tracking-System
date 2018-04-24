@@ -40,6 +40,8 @@ class Student < ActiveRecord::Base
                 when 4
                     #Not sure about AAs, maybe aggregating the two together?
             end
+        else
+            return Student.all
         end
     end
     
