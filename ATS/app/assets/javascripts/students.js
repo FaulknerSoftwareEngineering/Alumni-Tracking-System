@@ -35,6 +35,6 @@ $(function() {
 }); 
     
 $(document).ready( function () {
-    $('#student').DataTable();
+    $('#student.table').DataTable();
 } 
 );
