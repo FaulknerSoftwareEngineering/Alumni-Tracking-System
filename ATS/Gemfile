@@ -42,9 +42,6 @@ gem 'popper_js', '~> 1.12.9'
 #haml
 gem 'haml'
 
-#datatables
-gem 'jquery-datatables-rails', '~> 3.4.0'
-
 #Google API Client
 gem 'google-api-client'
 gem 'omniauth-google-oauth2'
