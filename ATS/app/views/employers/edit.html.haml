@@ -5,6 +5,6 @@
   = render :partial => 'employer_form'
   
 %p
-  = link_to 'Back to Details Page', employer_path(@employer)
+  = render partial: 'shared/cancel_button', locals: {path: employer_path(@employer)}
 %p
-  = link_to 'Back to Employer List', employers_path
+  = render partial: 'shared/back_to_list_button', locals: {list_name: "Employer", path: employers_path}

@@ -4,7 +4,9 @@
 
   %div{:class => 'form-group'}
     = render :partial => 'departments_form_fields'
-    = render :partial => 'colleges/colleges_dropdown'
+  %div{:class => 'form-group'}
+    = label :college_id, :title, 'Faulkner College'
+    = select_tag 'college_id', options_for_select(@colleges.collect{ |u| [u.name, u.id] }, selected: @default_college)
 
   %div{:class => 'form-group'}
     = submit_tag 'Save Changes', :class => 'btn btn-primary'

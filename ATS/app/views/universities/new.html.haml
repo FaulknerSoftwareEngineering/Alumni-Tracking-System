@@ -8,4 +8,4 @@
     = submit_tag 'Save Changes', :class => 'btn btn-primary'
     
 %p
-  = link_to 'Cancel', universities_path
+  = render partial: 'shared/cancel_button', locals: {path: universities_path}   

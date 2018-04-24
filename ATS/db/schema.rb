@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417005240) do
+ActiveRecord::Schema.define(version: 20180418145952) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_address"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20180417005240) do
     t.string   "college_dean"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "contact_supports", force: :cascade do |t|
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "degree_types", force: :cascade do |t|
@@ -93,7 +100,6 @@ ActiveRecord::Schema.define(version: 20180417005240) do
     t.integer  "student_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.date     "end_date"
   end
 
   add_index "employments", ["employer_id"], name: "index_employments_on_employer_id"
@@ -108,11 +114,9 @@ ActiveRecord::Schema.define(version: 20180417005240) do
     t.integer  "student_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "university_id"
   end
 
   add_index "grad_schools", ["student_id"], name: "index_grad_schools_on_student_id"
-  add_index "grad_schools", ["university_id"], name: "index_grad_schools_on_university_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

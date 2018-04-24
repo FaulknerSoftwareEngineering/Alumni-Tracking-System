@@ -36,7 +36,7 @@ end
 
 def index
     
-    @students = Student.students_in_department(session[:role_id])
+    @students = Student.accessible_students(session[:role_id], session[:user_id])
     
     sort = params[:sort] || session[:sort]
     case sort
@@ -51,7 +51,6 @@ def index
     when 'season'
       ordering,@season_header = :season, 'hilite'
     end
-    
     
     
     @earned_degrees = EarnedDegree.where(student_id: @students).sort_by(&ordering)
@@ -88,7 +87,12 @@ end
   @student = Student.find(id) 
   @addresses = Address.find_by(student_id: id)
   @student.update_attributes!(student_params)
+  if @addresses.nil?
+    @addresses = Address.create!(addresses_params.merge({student_id: @student.id}))
+  else
   @addresses.update_attributes!(addresses_params)
+  end
+  
   flash[:notice] = "#{@student.first_name} #{@student.last_name} was successfully updated."
   redirect_to students_path(@student)
   end

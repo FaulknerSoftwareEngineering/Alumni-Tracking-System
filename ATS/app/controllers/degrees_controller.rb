@@ -40,7 +40,6 @@ class DegreesController < ApplicationController
   def create
     begin
       @degree = Degree.create(degree_params)
-      @degree.department=(Department.find(params[:department_id]))
       if @degree.save
         flash[:notice] = "#{@degree.name} was successfully created."
         redirect_to degrees_path
@@ -54,17 +53,21 @@ class DegreesController < ApplicationController
     @degree = Degree.find params[:id]
     @departments = Department.all
     @degree_types = DegreeType.all
+    @default_dept = @degree.department_id.to_s
+    @default_degree_type = @degree.degree_type_id.to_s
   end
 
   def update
+    #byebug
     @degree = Degree.find params[:id]
-    @degree.department=(Department.find(params[:department_id]))
+    #@degree.department=(Department.find(params[:department_id]))
     if @degree.update_attributes(degree_params)
       flash[:notice] = "#{@degree.name} was successfully updated."
       redirect_to degrees_path(@degree)
     else
       render 'edit'
     end
+    #byebug
   end
 
   def destroy

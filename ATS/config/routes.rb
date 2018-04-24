@@ -20,7 +20,7 @@ end
 #begin
  get 'find_degree' => 'degrees#find_degree'
  
- 
+ post 'contact_supports' => 'welcome#contact_support'
  
 # For links on student details page
 get 'students/students/:id/grad_school' => 'students#grad_school'

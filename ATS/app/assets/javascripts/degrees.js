@@ -36,3 +36,7 @@ $(function()
         });
     }
 );
+$(document).ready( function () {
+    $('#degrees').DataTable();
+} 
+);

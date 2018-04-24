@@ -6,10 +6,12 @@
   = render :partial => 'degrees_form_fields'
   
   %div{:class => 'form-group'}
+    = label :department_id, :title, 'Department'
+    = select_tag 'degree[department_id]', options_for_select(@departments.collect{ |u| [u.name, u.id] })
+  %div{:class => 'form-group'}
     = label :degree_type, :title, 'Type'
     = select_tag 'degree[degree_type_id]', options_for_select(@degree_types.collect{ |u| [u.name, u.id] })
     
-  = render :partial => 'departments/departments_dropdown'
 
   %div{:class => 'form-group'}
     = submit_tag 'Save Changes', :class => 'btn btn-primary'

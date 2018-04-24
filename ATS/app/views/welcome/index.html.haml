@@ -2,19 +2,19 @@
 %h5 Alumni Tracking System
 = render :partial => 'shared/flash', :locals => { :flash => flash }
 %p
-    = link_to 'Students', students_path
+    = link_to 'Alumni', students_path
+    <br>
+    = link_to 'Employers', employers_path
+    <br>
+    = link_to 'Universities', universities_path
 %p
-%h6 Set-up Functions
+%h6 Maintenance Functions
 %p
     = link_to 'Faulkner Colleges', colleges_path
     <br>
     = link_to 'Departments', departments_path
     <br>
     = link_to 'Degrees', degrees_path
-    <br>
-    = link_to 'Employers', employers_path
-    <br>
-    = link_to 'Universities', universities_path
     <br>
     = link_to 'Degree Types', degree_types_path
     <br>

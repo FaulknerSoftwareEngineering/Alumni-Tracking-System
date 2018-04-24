@@ -6,10 +6,10 @@
             - @department.errors.full_messages.each do|error|
                 %li= error
 %div{:class => 'form-group'}
-    = label :department, :title, 'Name'
+    = label :department, :name, 'Name'
     = text_field :department, :name, :class => 'form-control'
     
 %div{:class => 'form-group'}
-    = label :dept_chair, :title, 'Chair'
-    = text_field :department, :dept_chair, :class => 'form-control'
+    = label :user_department, :user_id, 'Chair'
+    = collection_select :user_department, :user_id, @department_chairs, :id, :name, {:selected => (@sel_dept_chair.id unless @sel_dept_chair.nil?)}, {:class => 'form-control'}
     

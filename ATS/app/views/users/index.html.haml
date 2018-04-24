@@ -1,10 +1,5 @@
 -# Ethan Widen - 2/20/18
 %h1 All users
-#flash-display
-    - flash.each do |type, msg|
-        %div{:class => "alert alert-#{type == :notice ? "success" : type} fadeout", "data-dismiss" => "alert"}
-            %button.close &times;
-            = msg if msg.is_a?(String)
 %table#users.table
     %thead
         %tr
@@ -15,7 +10,6 @@
             %th Edit
     %tbody
         - @users.each do|user|
-        - #byebug
             %tr
                 %td= user.name
                 %td= user.email
@@ -25,6 +19,6 @@
              
 
 %p
-    = link_to 'Add New User', new_user_path      
+    = render partial: 'shared/new_button', locals: {new_name: "User", path: new_user_path}   
 %p
-    = link_to 'Home Page', root_path
+    = render partial: 'shared/home_page_button'
