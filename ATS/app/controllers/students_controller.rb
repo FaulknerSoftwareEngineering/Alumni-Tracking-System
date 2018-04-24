@@ -87,7 +87,12 @@ end
   @student = Student.find(id) 
   @addresses = Address.find_by(student_id: id)
   @student.update_attributes!(student_params)
+  if @addresses.nil?
+    @addresses = Address.create!(addresses_params.merge({student_id: @student.id}))
+  else
   @addresses.update_attributes!(addresses_params)
+  end
+  
   flash[:notice] = "#{@student.first_name} #{@student.last_name} was successfully updated."
   redirect_to students_path(@student)
   end
