@@ -18,7 +18,7 @@
                 
 
 %p
-    = link_to 'Add New Role', new_role_path
+    = render partial: 'shared/new_button', locals: {new_name: "Role", path: new_role_path}
 
 %p
-    = link_to 'Home Page', root_path
+    = render partial: 'shared/home_page_button'

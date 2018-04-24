@@ -17,8 +17,8 @@
         Departments visible to this role:
         = "#{@role.colleges_visible}"
 
-%div{:class => 'linebuttons'}  
-    %p
-        = link_to 'Edit info', edit_role_path(@role), :method => :get
-    %p
-        = link_to 'Back To roles list', roles_path
+
+%p
+    = render partial: 'shared/edit_button', locals: {path: edit_role_path(@role)}
+%p
+    = render partial: 'shared/back_to_list_button', locals: {list_name: "Role", path: roles_path}
