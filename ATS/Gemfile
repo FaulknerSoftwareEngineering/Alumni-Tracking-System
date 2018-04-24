@@ -49,6 +49,12 @@ gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'google-api-client'
 gem 'omniauth-google-oauth2'
 
+#ODF-Reports
+gem 'odf-report'
+
+#Rubyzip
+gem 'rubyzip'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'

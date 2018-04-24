@@ -1,0 +1,21 @@
+%h1 Reports
+
+= form_tag reports_generate_report_path , :method => :get do
+    %h5 By Graduation Year
+    %div{:class => 'form-group'}
+        = label :graduation_year, 'Graduation Year'
+        = date_select(:graduation_year, :graduation_year, discard_day: true, discard_month: true, start_year: 1940, :include_blank => '')
+        <br>
+        
+    %h5 By Term
+    %div{:class => 'form-group'}
+        = label :term, 'Term'
+        = select(:term, :term, EarnedDegree.grad_seasons, :include_blank => '')
+        <br>
+    
+    %h5 By Graduate School
+    %div{:class => 'form-group'}
+        = label :graduate_school, 'Graduate School'
+        = collection_select(:graduate_school, :graduate_school, University.all, :id, :name, :include_blank => '')
+        
+    = submit_tag 'Generate Report', :class => 'btn btn-primary, generate_report'

@@ -1,0 +1,11 @@
+report = ODFReport::Report.new("student_template.odt") do |r|
+
+    r.add_table("TABLE_1", @list_of_students, :header=>true) do |t|
+        t.add_column(:first_name, :first_name)
+        t.add_column(:last_name, :last_name)
+        t.add_column(:primary_email, :primary_email)
+        t.add_column(:cell_number, :cell_number)
+    end
+    
+end
+        

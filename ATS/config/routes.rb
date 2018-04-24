@@ -11,10 +11,10 @@ Rails.application.routes.draw do
  resources :roles
  resources :departments
  resources :colleges
- resources :students do
+ resources :students 
+ resources :reports, only: [:index] do
 end
  resources :degree_types
-
 
 # For testing college/department/degree partials
 #begin
@@ -26,6 +26,8 @@ end
 get 'students/students/:id/grad_school' => 'students#grad_school'
 get 'students/students/:id/employment' => 'students#employment'
 # end group for student details page
+
+get 'reports/generate_report' => 'reports#generate_report'
  
 #earned_degree
 get 'students/:id/add_degree' => 'students_details#add_earned_degree', as: :student_add_earned_degree
