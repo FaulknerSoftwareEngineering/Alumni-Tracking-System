@@ -37,6 +37,7 @@ end
 def index
     
     @students = Student.accessible_students(session[:role_id], session[:user_id])
+    
     sort = params[:sort] || session[:sort]
     case sort
     when 'first_name'
@@ -50,7 +51,6 @@ def index
     when 'season'
       ordering,@season_header = :season, 'hilite'
     end
-    
     
     
     @earned_degrees = EarnedDegree.where(student_id: @students).sort_by(&ordering)
