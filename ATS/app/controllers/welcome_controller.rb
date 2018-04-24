@@ -5,12 +5,5 @@ class WelcomeController < ApplicationController
     
   end
   
-  def contact_support
-    @contact_support = ContactSupport.new(email: params[:email], message: params[:message])
-    if @contact_support.save
-      @status = 'success'
-    else
-      @status = 'error'
-    end
-  end
+ 
 end
