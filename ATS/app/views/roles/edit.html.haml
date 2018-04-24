@@ -18,8 +18,7 @@
     %div{:class => 'form-group'}
         = submit_tag "Submit", :class => 'btn btn-primary'
   
-  
 %p
-    = link_to 'Back to Details Page', role_path(@role)
+    = render partial: 'shared/cancel_button', locals: {path: role_path(@role)}
 %p
-    = link_to 'Back to Role List', roles_path
+    = render partial: 'shared/back_to_list_button', locals: {list_name: "Role", path: role_path}    
