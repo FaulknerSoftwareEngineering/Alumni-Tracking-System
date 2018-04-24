@@ -3,30 +3,30 @@
 -# on: March 23, 2018 
 -# edited by ZP on 3/29/18
   
-%h1 All students
+%h1 All Students
 = render :partial => 'shared/flash', :locals => { :flash => flash }
 %table#student.table
   %thead
     %tr
-      %th First Name
-      %th Last Name
-      %th Degree
-      %th Grad Year
-      %th Grad Term
+      %th{:class => @first_name_header}= link_to 'First Name', students_path(:sort => 'first_name')
+      %th{:class => @last_name_header}= link_to 'Last Name', students_path(:sort => 'last_name')
+      %th{:class => @degree_header}= link_to 'Degree', students_path(:sort => 'degree')
+      %th{:class => @year_graduated_header}= link_to 'Year Graduated', students_path(:sort => 'year_graduated')
+      %th{:class => @season_header}= link_to 'Season Graduated', students_path(:sort => 'season')
       %th More Info
 
   %tbody
-    - @students.each do |student|
+    - @earned_degrees.each do |earned|
       %tr
-        %td= student.first_name
-        %td= student.last_name
-        %td= "#{student.earned_degrees.first.degree.name}" unless student.earned_degrees.blank?
-        %td= "#{student.earned_degrees.first.year_graduated}" unless student.earned_degrees.blank?
-        %td= "#{student.earned_degrees.first.season}" unless student.earned_degrees.blank?
-        %td= link_to "More about #{student.first_name}", student_path(student)
+        %td= earned.first_name
+        %td= earned.last_name
+        %td= earned.degree_name 
+        %td= earned.year_graduated 
+        %td= earned.season
+        %td= link_to "More About #{earned.first_name}", student_path(earned.student_id)
 
 %p
-  = link_to 'Add New Student', new_student_path        
+  = link_to 'Add New Student', new_student_path, :class => 'btn btn-primary'     
 %p
-  = link_to 'Home Page', root_path
+  = render partial: 'shared/home_page_button'
   

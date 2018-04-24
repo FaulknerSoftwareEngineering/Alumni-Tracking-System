@@ -7,9 +7,18 @@
         = text_field :role, :name, :class => 'form-control'
         
     %div{:class => 'form-group'}
+        = label :role, :colleges_visible, 'Are colleges visible when creating a user with this role?'
+        = check_box :role, :colleges_visible, {:selected => nil, :class => 'form-control'}
+        
+    %div{:class => 'form-group'}
+        = label :role, :departments_visible, 'Are departments visible when creating a user with this role?'
+        = check_box :role, :departments_visible, {:selected => nil, :class => 'form-control'}
+    
+        
+    %div{:class => 'form-group'}
         = submit_tag "Submit", :class => 'btn btn-primary'
         
         
         
 %p
-  = link_to 'Cancel', roles_path        
+    = link_to 'Cancel', roles_path        

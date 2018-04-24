@@ -3,7 +3,9 @@ class RolesController < ApplicationController
     
     def role_params
         params.require(:role).permit(
-            :name
+            :name,
+            :colleges_visible,
+            :departments_visible
         )
     end
     
@@ -23,5 +25,15 @@ class RolesController < ApplicationController
     
     def edit
         @role = Role.find_by_id params[:id]
+    end
+    
+    def show
+        @role = Role.find_by_id params[:id]
+    end
+    
+    def update
+        @role = Role.find_by_id params[:id]
+        @role.update_attributes!(role_params)
+        redirect_to roles_path
     end
 end

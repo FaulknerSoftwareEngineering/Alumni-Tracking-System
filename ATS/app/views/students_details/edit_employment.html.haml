@@ -1,0 +1,12 @@
+%h2 Add Employer To
+= @employment.student_name
+
+%div
+    = form_tag update_employment_path(@id), :method => :get do
+        = render :partial => 'employment'
+        
+        %div
+            = submit_tag 'Edit Employment', :class => 'btn btn-primary'
+            
+%div
+    = render partial: 'shared/cancel_button', locals: {path: student_path(@student_id)}

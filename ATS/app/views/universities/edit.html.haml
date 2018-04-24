@@ -4,11 +4,13 @@
 
   %div{:class => 'form-group'}
     = label :university, :name, 'Name'
-    = text_field :university, 'name', , :class => 'form-control'
+    = text_field :university, 'name',  :class => 'form-control'
 
-  = submit_tag 'Save Changes'
+  %div{:class => 'form-group'}
+    = submit_tag 'Save Changes', :class => 'btn btn-primary'
   
+
 %p
-  = link_to 'Back to Details Page', university_path(@university)
+  = render partial: 'shared/cancel_button', locals: {path: university_path(@university)}
 %p
-  = link_to 'Back to University List', universities_path
+  = render partial: 'shared/back_to_list_button', locals: {list_name: "Degree List", path: universities_path}

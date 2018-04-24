@@ -16,7 +16,6 @@
         %td= link_to "More about #{college.name}", college_path(college)
 
 %p
-  = link_to 'Add New College', new_college_path
-
+  = render partial: 'shared/new_button', locals: {new_name: "College", path: new_college_path}
 %p
-  = link_to 'Home Page', root_path
+  = render partial: 'shared/home_page_button'

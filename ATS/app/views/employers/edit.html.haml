@@ -1,4 +1,3 @@
-<<<<<<<<< saved version
 %h2 Edit Employer
 
 = form_tag employer_path(@employer), :method => :put do
@@ -6,16 +5,6 @@
   = render :partial => 'employer_form'
   
 %p
-  = link_to 'Back to Details Page', employer_path(@employer)
+  = render partial: 'shared/cancel_button', locals: {path: employer_path(@employer)}
 %p
-  = link_to 'Back to Employer List', employers_path
-=========
-%h2 Edit Employer
-
-= form_tag employer_path(@employer), :method => :put do
-
-  = label :employer, :name, 'Name'
-  = text_field :employer, 'name'
-
-  = submit_tag 'Save Changes'
->>>>>>>>> local version
+  = render partial: 'shared/back_to_list_button', locals: {list_name: "Employer", path: employers_path}

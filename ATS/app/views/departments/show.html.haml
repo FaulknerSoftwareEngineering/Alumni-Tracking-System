@@ -9,12 +9,14 @@
         = @department.name
     %li
         Dept Chair:
-        = @department.dept_chair
+        = @dept_chair.name unless @dept_chair.nil?
     %li
         College:
         = @college
 
 %p
-    = link_to 'Edit Info', edit_department_path(@department)
+    = render partial: 'shared/edit_button', locals: {path: edit_department_path(@department)}
+-#%p
+-#    = render partial: 'shared/delete_button', locals: {path: edit_department_path(@department)}
 %p
-    = link_to 'Back to Departments List', departments_path
+    = render partial: 'shared/back_to_list_button', locals: {list_name: "Department", path: departments_path}
