@@ -1,4 +1,4 @@
-%h2 Add Grad School to 
+%h2 Add Grad School To 
 = @name
 
 = form_tag submit_add_grad_school_path(@id), :method => :get do
@@ -7,4 +7,4 @@
     = submit_tag 'Add University', :class => 'btn btn-primary'
     
 %div
-    =link_to 'Cancel', student_path(@id)
+    = render partial: 'shared/cancel_button', locals: {path: student_path(@id)}

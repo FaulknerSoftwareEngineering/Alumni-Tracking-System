@@ -53,7 +53,6 @@ def index
     end
     
     
-    
     @earned_degrees = EarnedDegree.where(student_id: @students).sort_by(&ordering)
 end
     

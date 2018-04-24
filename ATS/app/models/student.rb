@@ -13,6 +13,7 @@ class Student < ActiveRecord::Base
     has_many :earned_degrees, dependent: :destroy
     
     def self.accessible_students(role, user)
+
         case role
             when 1, 5
                 return Student.all

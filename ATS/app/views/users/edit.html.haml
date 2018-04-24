@@ -45,6 +45,6 @@
         = submit_tag "Submit", :class => 'btn btn-primary'
   
 %p
-    = link_to 'Back to Details Page', user_path(@user)
+    = render partial: 'shared/cancel_button', locals: {path: user_path(@user)}
 %p
-    = link_to 'Back to User List', users_path
+    = render partial: 'shared/back_to_list_button', locals: {list_name: "Users", path: users_path}

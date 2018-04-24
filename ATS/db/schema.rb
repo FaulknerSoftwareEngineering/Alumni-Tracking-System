@@ -88,11 +88,11 @@ ActiveRecord::Schema.define(version: 20180417005240) do
     t.boolean  "current_job"
     t.boolean  "in_field"
     t.date     "start_date"
+    t.date     "end_date"
     t.integer  "employer_id"
     t.integer  "student_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.date     "end_date"
   end
 
   add_index "employments", ["employer_id"], name: "index_employments_on_employer_id"
@@ -105,9 +105,9 @@ ActiveRecord::Schema.define(version: 20180417005240) do
     t.string   "higher_degree_type"
     t.string   "higher_degree_name"
     t.integer  "student_id"
+    t.integer  "university_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "university_id"
   end
 
   add_index "grad_schools", ["student_id"], name: "index_grad_schools_on_student_id"

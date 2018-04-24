@@ -60,6 +60,7 @@ colleges = [{name: "College of Arts and Sciences"},
 
 College.create(colleges)
 
+
 AS = College.find_by(name: "College of Arts and Sciences")
 Bib = College.find_by(name: "College of Bible")
 Bus = College.find_by(name: "College of Business")
@@ -69,148 +70,118 @@ UserCollege.create(user: User.find_by(name: 'Scott Gleaves'), college: Bib)
 UserCollege.create(user: User.find_by(name: 'Leslie Cowell'), college: Edu)
 UserCollege.create(user: User.find_by(name: 'Dave Khadanga'), college: Bus)
 
-ASdepartments = ["Computer Science", "Criminal Justice",
-	"Legal Studies", "English", "Humanities", "Mathematics",
-	"Music", "Kinesiology and Exercise Science", 
-	"Natural and Physical Sciences",
-	"Social and Behavioral Sciences"]
 
-ASdepartments.each do |nm|
-	@ASdept = Department.create(name: nm)
-	AS.departments << @ASdept
-end
+departments = [{name:  "Computer Science", college_id: AS.id},
+	{name:  "Criminal Justice/Legal Studies", college_id: AS.id},
+	{name:  "English", college_id: AS.id},
+	{name:  "Humanities", college_id: AS.id},
+	{name:  "Mathematics", college_id: AS.id},
+	{name:  "Music", college_id: AS.id},
+	{name:  "Kinesiology and Exercise Science", college_id: AS.id},
+	{name:  "Natural and Physical Sciences", college_id: AS.id},
+	{name:  "Social and Behavioral Sciences", college_id: AS.id},
+	{name:  "Bibilical Studies", college_id: Bib.id},
+	{name:  "Vocational Christian Ministry", college_id: Bib.id},
+	{name:  "Business", college_id: Bus.id},
+	{name:  "Education", college_id: Edu.id},
+]
 
-Bibdepartments = ["Biblical Studies",
-	"Vocational Christian Ministry"]
-Bibdepartments.each do |nm|
-	@Bibdept = Department.create(name: nm)
-	Bib.departments << @Bibdept
-end
+Department.create(departments)
 
-Busdept = Department.create(name:  "Business")
-Bus.departments << Busdept
-Edudept = Department.create(name:  "Education")
-Edu.departments << Edudept
+BS = DegreeType.find_by_name("Bachelors of Science")
+BA = DegreeType.find_by_name("Bachelors of Arts")
+ASdeg = DegreeType.find_by_name("Associate of Science")
+MS = DegreeType.find_by_name("Masters of Science")
+MA = DegreeType.find_by_name("Masters of Arts")
+PHD = DegreeType.find_by_name("PhD")
+Minor = DegreeType.find_by_name("Minor")
+CSdept = Department.find_by_name("Computer Science")
+CJdept = Department.find_by_name("Criminal Justice/Legal Studies")
+Engdept = Department.find_by_name("English")
+Humdept = Department.find_by_name("Humanities")
+Musdept = Department.find_by_name("Music")
+Busdept = Department.find_by_name("Business")
+Edudept = Department.find_by_name("Education")
+Bibdept = Department.find_by_name("Bibilical Studies")
+Kindept = Department.find_by_name("Kinesiology and Exercise Science")
+Scidept = Department.find_by_name("Natural and Physical Sciences")
+Socdept = Department.find_by_name("Social and Behavioral Sciences")
+Mathdept = Department.find_by(name: "Mathematics")
 
-BS = DegreeType.find_by(name:"Bachelors of Science")
-BA = DegreeType.find_by(name:"Bachelors of Arts")
-ASdeg = DegreeType.find_by(name:"Associate of Science")
-MS = DegreeType.find_by(name:"Masters of Science")
-MA = DegreeType.find_by(name:"Masters of Arts")
-PHD = DegreeType.find_by(name:"PhD")
-Minor = DegreeType.find_by(name:"Minor")
-Engdept = AS.departments.find_by(name:"English")
-Humdept = AS.departments.find_by(name: "Humanities")
-CSdept = AS.departments.find_by(name: "Computer Science")
-Musdept = AS.departments.find_by(name:"Music")
-Bibdept = Bib.departments.find_by(name:"Bibilical Studies")
-Kindept = AS.departments.find_by(name:"Kinesiology and Exercise Science")
-Scidept = AS.departments.find_by(name:"Natural and Physical Sciences")
-Socdept = AS.departments.find_by(name:"Social and Behavioral Sciences")
-Mathdept = AS.departments.find_by(name: "Mathematics")
+degrees = [{name: "Computer Science", department_id: CSdept.id, degree_type_id: BS.id},
+	{name: "Computer Information Science", department_id: CSdept.id, degree_type_id: BS.id},
+	{name: "Informatics", department_id: CSdept.id, degree_type_id: BS.id},
+	{name: "Computer Information Science", department_id: CSdept.id, degree_type_id: ASdeg.id},
+	{name: "Criminal Justice", department_id: CJdept.id, degree_type_id: BS.id},
+	{name: "Legal Studies", department_id: CJdept.id, degree_type_id: BS.id},
+	{name: "Bachelors of Criminal Justice", department_id: CJdept.id, degree_type_id: DegreeType.find_by_name("Bachelors of Criminal Justice").id},
+	{name: "Justice Administration", department_id: CJdept.id, degree_type_id: DegreeType.find_by_name("Masters of Justice Administration").id},
+	{name: "Criminal Justice/AS", department_id: CJdept.id, degree_type_id: MS.id},
+	{name: "Legal Studies/AS", department_id: CJdept.id, degree_type_id: MS.id},
+	{name: "Criminalistics", department_id: CJdept.id, degree_type_id: MS.id},
+	{name: "English", department_id: Engdept.id, degree_type_id: BA.id},
+	{name: "Humanities", department_id: Humdept.id, degree_type_id: BA.id},
+	{name: "Humanities/MA", department_id: Humdept.id, degree_type_id: MA.id},
+	{name: "Humanities/PhD", department_id: Humdept.id, degree_type_id: PHD.id},
+	{name: "Liberal Arts", department_id: Humdept.id, degree_type_id: BA.id},
+	{name: "Liberal Arts/AA", department_id: Humdept.id, degree_type_id: DegreeType.find_by_name("Associate of Arts").id},
+	{name: "Liberal Arts/AS", department_id: Humdept.id, degree_type_id: ASdeg.id},
+	{name: "Music (Vocal)", department_id: Musdept.id, degree_type_id: BA.id},
+	{name: "Music (Instrumental)", department_id: Musdept.id, degree_type_id: BA.id},
+	{name: "Music", department_id: Musdept.id, degree_type_id: Minor.id},
+	{name: "Mathematics", department_id: Department.find_by_name("Mathematics").id, degree_type_id: BS.id},
+	{name: "Exercise Science", department_id: Kindept.id, degree_type_id: BS.id},
+	{name: "Physical Education", department_id: Kindept.id, degree_type_id: BS.id},
+	{name: "Sports Management", department_id: Kindept.id, degree_type_id: BS.id},
+	{name: "Biology/BS", department_id: Scidept.id, degree_type_id: BS.id},
+	{name: "Biology/BA", department_id: Scidept.id, degree_type_id: BA.id},
+	{name: "BioChemistry", department_id: Scidept.id, degree_type_id: BS.id},
+	{name: "Science", department_id: Scidept.id, degree_type_id: MS.id},
+	{name: "History", department_id: Socdept.id, degree_type_id: BS.id},
+	{name: "Social Science", department_id: Socdept.id, degree_type_id: BS.id},
+	{name: "History (Min)", department_id: Socdept.id, degree_type_id: Minor.id},
+	{name: "Political Science (Min)", department_id: Socdept.id, degree_type_id: Minor.id},
+	{name: "Sociology (Min)", department_id: Socdept.id, degree_type_id: Minor.id},
+	{name: "Psychology (Min)", department_id: Socdept.id, degree_type_id: Minor.id},
+	{name: "Counseling (Min)", department_id: Socdept.id, degree_type_id: Minor.id},
+	{name: "General/Clinical Psychology", department_id: Socdept.id, degree_type_id: BS.id},
+	{name: "Industrial/Organizational Psychology", department_id: Socdept.id, degree_type_id: BS.id},
+	{name: "Forensic Psychology", department_id: Socdept.id, degree_type_id: BS.id},
+	{name: "Sports Psychology", department_id: Socdept.id, degree_type_id: BS.id},
+	{name: "Health and Rehabilitation Psychology", department_id: Socdept.id, degree_type_id: BS.id},
+	{name: "Health and Rehabilitation Psychology (pre-OT)", department_id: Socdept.id, degree_type_id: BS.id},
+	{name: "Accounting", department_id: Busdept.id, degree_type_id: BS.id},
+	{name: "Business Administration", department_id: Busdept.id, degree_type_id: BS.id},
+	{name: "Management", department_id: Busdept.id, degree_type_id: BS.id},
+	{name: "Management Information Systems", department_id: Busdept.id, degree_type_id: BS.id},		
+	{name: "Bachelors of Business Administration", department_id: Busdept.id, 
+	degree_type_id: DegreeType.find_by_name("Bachelors of Business Administration").id},
+	{name: "Masters of Business Administration", department_id: Busdept.id, degree_type_id: DegreeType.find_by_name("MBA").id},
+	{name: "B.S. in Business", department_id: Busdept.id, degree_type_id: DegreeType.find_by_name("B.S. in Business").id},
+	{name: "M.S. in Business", department_id: Busdept.id, degree_type_id: DegreeType.find_by_name("M.S. in Business").id},
+	{name: "Human Resource Management", department_id: Busdept.id, degree_type_id: BS.id},
+	{name: "Bibilical Studies", department_id: Bibdept.id, degree_type_id: BA.id},
+	{name: "Bibilical Studies/MA", department_id: Bibdept.id, degree_type_id: MA.id},
+	{name: "Christian Ministry", department_id: Bibdept.id, degree_type_id: MA.id},
+	{name: "Christian Counseling and Family Ministry", department_id: Bibdept.id, degree_type_id: MA.id},
+	{name: "Master of Philosphy", department_id: Bibdept.id, degree_type_id: MA.id},
+	{name: "Bibilical Studies/PhD", department_id: Bibdept.id, degree_type_id: PHD.id},
+	{name: "Collaborative Education", department_id: Edudept.id, degree_type_id: BS.id},
+	{name: "Early Childhood Education", department_id: Edudept.id, degree_type_id: BS.id},
+	{name: "Elementary Education", department_id: Edudept.id, degree_type_id: BS.id},
+	{name: "Counseling", department_id: Edudept.id, degree_type_id: MS.id},
+	{name: "School Counseling", department_id: Edudept.id, degree_type_id: MS.id},
+	{name: "Teaching", department_id: Edudept.id, degree_type_id: MA.id},
+	{name: "M.Ed.", department_id: Edudept.id, degree_type_id: DegreeType.find_by_name("M.Ed.").id},
+
+]
+Degree.create(degrees)
 
 UserDepartment.create(user: User.find_by(name:'Idong Mkpong-Ruffin'), 
 	department: CSdept)
 UserDepartment.create(user: User.find_by(name:"Jason Jewell"), 
 	department: Humdept)
 
-CSDegrees = ["Computer Science", "Computer Information Science", "Informatics"]
-
-CSDegrees.each do |nm| 
-	@CSDegree = Degree.create(name: nm) 
-	CSdept.degrees << @CSDegree
-	BS.degrees << @CSDegree
-end
-
-CISASDegree = Degree.create(name: "Computer Information System/AS")
-CSdept.degrees << CISASDegree
-ASdeg.degrees << CISASDegree
-
-HumDegrees = ["Humanities", "Liberal Arts"]
-HumDegrees.each do |nm| 
-	@HumDegree = Degree.create(name: nm) 
-	Humdept.degrees << @HumDegree
-	BA.degrees << @HumDegree
-end
-
-MathDegree = Degree.create(name: "Mathematics")
-Mathdept.degrees << MathDegree
-BS.degrees << MathDegree
-
-EngDegree = Degree.create(name: "English")
-Engdept.degrees << EngDegree
-BA.degrees << EngDegree
-
-=begin
-
-degrees = [, department_id: , degree_type: BS},
-	{name: "Criminal Justice", department_id: CJdept, degree_type: BS},
-	{name: "Legal Studies", department_id: CJdept, degree_type: BS},
-	{name: "Bachelors of Criminal Justice", department_id: CJdept, degree_type: DegreeType.find_by_name("Bachelors of Criminal Justice")},
-	{name: "Justice Administration", department_id: CJdept, degree_type: DegreeType.find_by_name("Masters of Justice Administration")},
-	{name: "Criminal Justice/AS", department_id: CJdept, degree_type: MS},
-	{name: "Legal Studies/AS", department_id: CJdept, degree_type: MS},
-	{name: "Criminalistics", department_id: CJdept, degree_type: MS},
-
-	{name: "Humanities", department_id: Humdept, degree_type: BA},
-	{name: "Humanities/MA", department_id: Humdept, degree_type: MA},
-	{name: "Humanities/PhD", department_id: Humdept, degree_type: PHD},
-	{name: "Liberal Arts", department_id: Humdept, degree_type: BA},
-	{name: "Liberal Arts/AA", department_id: Humdept, degree_type: DegreeType.find_by_name("Associate of Arts")},
-	{name: "Liberal Arts/AS", department_id: Humdept, degree_type: ASdeg},
-	{name: "Music (Vocal)", department_id: Musdept, degree_type: BA},
-	{name: "Music (Instrumental)", department_id: Musdept, degree_type: BA},
-	{name: "Music", department_id: Musdept, degree_type: Minor},
-
-	{name: "Exercise Science", department_id: Kindept, degree_type: BS},
-	{name: "Physical Education", department_id: Kindept, degree_type: BS},
-	{name: "Sports Management", department_id: Kindept, degree_type: BS},
-	{name: "Biology/BS", department_id: Scidept, degree_type: BS},
-	{name: "Biology/BA", department_id: Scidept, degree_type: BA},
-	{name: "BioChemistry", department_id: Scidept, degree_type: BS},
-	{name: "Science", department_id: Scidept, degree_type: MS},
-	{name: "History", department_id: Socdept, degree_type: BS},
-	{name: "Social Science", department_id: Socdept, degree_type: BS},
-	{name: "History (Min)", department_id: Socdept, degree_type: Minor},
-	{name: "Political Science (Min)", department_id: Socdept, degree_type: Minor},
-	{name: "Sociology (Min)", department_id: Socdept, degree_type: Minor},
-	{name: "Psychology (Min)", department_id: Socdept, degree_type: Minor},
-	{name: "Counseling (Min)", department_id: Socdept, degree_type: Minor},
-	{name: "General/Clinical Psychology", department_id: Socdept, degree_type: BS},
-	{name: "Counseling Psychology", department_id: Socdept, degree_type: BS},
-	{name: "Industrial/Organizational Psychology", department_id: Socdept, degree_type: BS},
-	{name: "Forensic Psychology", department_id: Socdept, degree_type: BS},
-	{name: "Sports Psychology", department_id: Socdept, degree_type: BS},
-	{name: "Health and Rehabilitation Psychology", department_id: Socdept, degree_type: BS},
-	{name: "Health and Rehabilitation Psychology (pre-OT)", department_id: Socdept, degree_type: BS},
-	{name: "Accounting", department_id: Busdept, degree_type: BS},
-	{name: "Business Administration", department_id: Busdept, degree_type: BS},
-	{name: "Management", department_id: Busdept, degree_type: BS},
-	{name: "Management Information Systems", department_id: Busdept, degree_type: BS},		
-	{name: "Bachelors of Business Administration", department_id: Busdept, 
-	degree_type: DegreeType.find_by_name("Bachelors of Business Administration")},
-	{name: "Masters of Business Administration", department_id: Busdept, degree_type: DegreeType.find_by_name("MBA")},
-	{name: "B.S. in Business", department_id: Busdept, degree_type: DegreeType.find_by_name("B.S. in Business")},
-	{name: "M.S. in Business", department_id: Busdept, degree_type: DegreeType.find_by_name("M.S. in Business")},
-	{name: "Human Resource Management", department_id: Busdept, degree_type: BS},
-	{name: "Bibilical Studies", department_id: Bibdept, degree_type: BA},
-	{name: "Bibilical Studies/MA", department_id: Bibdept, degree_type: MA},
-	{name: "Christian Ministry", department_id: Bibdept, degree_type: MA},
-	{name: "Christian Counseling and Family Ministry", department_id: Bibdept, degree_type: MA},
-	{name: "Master of Philosphy", department_id: Bibdept, degree_type: MA},
-	{name: "Bibilical Studies/PhD", department_id: Bibdept, degree_type: PHD},
-	{name: "Collaborative Education", department_id: Edudept, degree_type: BS},
-	{name: "Early Childhood Education", department_id: Edudept, degree_type: BS},
-	{name: "Elementary Education", department_id: Edudept, degree_type: BS},
-	{name: "Counseling", department_id: Edudept, degree_type: MS},
-	{name: "School Counseling", department_id: Edudept, degree_type: MS},
-	{name: "Teaching", department_id: Edudept, degree_type: MA},
-	{name: "M.Ed.", department_id: Edudept, degree_type: DegreeType.find_by_name("M.Ed.")},
-
-]
-Department.create(degrees)
-Department.degree.create(degrees)
-=end
 
 if Rails.env.development? || Rails.env.test?
 	students = [
@@ -316,6 +287,7 @@ if Rails.env.development? || Rails.env.test?
 	{first_name: 'Halla', middle_name: 'Booth', last_name: 'Mcintosh', primary_email: 'faucibus@infaucibus.edu', secondary_email: 'pede.Suspendisse.dui@orci.co.uk', cell_number: '1-301-553-5378', work_number: '1-944-533-1557', home_number: '1-618-639-9246', tracked: ' False'}
 	];
 	Student.create(students)
+
 =begin
 	colleges = College.create([{name: 'Arts and Sciences'}, {name: 'Business'}])
 	departments = Department.create([{name: 'Computer Science', college_id: 1},{name: 'Mathematics', college_id: 1}])
@@ -324,5 +296,109 @@ if Rails.env.development? || Rails.env.test?
 	user_college = UserCollege.create({user_id: 1, college_id: 1})
 	earned_degrees = EarnedDegree.create([{student_id: 1, degree_id: 1}, {student_id: 2, degree_id: 2}, {student_id: 3, degree_id: 1}])
 =end
-end
 
+	earned_degrees = [
+	{degree_id: 38, student_id: 27},
+	{degree_id: 57, student_id: 45},
+	{degree_id: 16, student_id: 49},
+	{degree_id: 2, student_id: 45},
+	{degree_id: 3, student_id: 69},
+	{degree_id: 18, student_id: 19},
+	{degree_id: 14, student_id: 6},
+	{degree_id: 62, student_id: 79},
+	{degree_id: 46, student_id: 41},
+	{degree_id: 5, student_id: 12},
+	{degree_id: 28, student_id: 11},
+	{degree_id: 9, student_id: 56},
+	{degree_id: 63, student_id: 34},
+	{degree_id: 31, student_id: 18},
+	{degree_id: 24, student_id: 75},
+	{degree_id: 57, student_id: 31},
+	{degree_id: 51, student_id: 52},
+	{degree_id: 7, student_id: 31},
+	{degree_id: 7, student_id: 23},
+	{degree_id: 42, student_id: 48},
+	{degree_id: 45, student_id: 17},
+	{degree_id: 35, student_id: 59},
+	{degree_id: 44, student_id: 20},
+	{degree_id: 20, student_id: 3},
+	{degree_id: 3, student_id: 63},
+	{degree_id: 45, student_id: 62},
+	{degree_id: 11, student_id: 29},
+	{degree_id: 13, student_id: 13},
+	{degree_id: 33, student_id: 68},
+	{degree_id: 46, student_id: 51},
+	{degree_id: 4, student_id: 36},
+	{degree_id: 39, student_id: 78},
+	{degree_id: 6, student_id: 83},
+	{degree_id: 4, student_id: 21},
+	{degree_id: 45, student_id: 23},
+	{degree_id: 14, student_id: 3},
+	{degree_id: 31, student_id: 96},
+	{degree_id: 21, student_id: 49},
+	{degree_id: 52, student_id: 74},
+	{degree_id: 61, student_id: 68},
+	{degree_id: 1, student_id: 83},
+	{degree_id: 11, student_id: 41},
+	{degree_id: 63, student_id: 72},
+	{degree_id: 17, student_id: 40},
+	{degree_id: 27, student_id: 51},
+	{degree_id: 49, student_id: 48},
+	{degree_id: 18, student_id: 46},
+	{degree_id: 51, student_id: 8},
+	{degree_id: 13, student_id: 3},
+	{degree_id: 42, student_id: 66},
+	{degree_id: 11, student_id: 1},
+	{degree_id: 14, student_id: 95},
+	{degree_id: 43, student_id: 100},
+	{degree_id: 41, student_id: 57},
+	{degree_id: 46, student_id: 47},
+	{degree_id: 42, student_id: 57},
+	{degree_id: 50, student_id: 17},
+	{degree_id: 62, student_id: 26},
+	{degree_id: 40, student_id: 41},
+	{degree_id: 5, student_id: 97},
+	{degree_id: 63, student_id: 24},
+	{degree_id: 35, student_id: 77},
+	{degree_id: 7, student_id: 32},
+	{degree_id: 2, student_id: 93},
+	{degree_id: 9, student_id: 91},
+	{degree_id: 31, student_id: 90},
+	{degree_id: 32, student_id: 35},
+	{degree_id: 27, student_id: 53},
+	{degree_id: 12, student_id: 3},
+	{degree_id: 17, student_id: 62},
+	{degree_id: 57, student_id: 70},
+	{degree_id: 29, student_id: 77},
+	{degree_id: 52, student_id: 1},
+	{degree_id: 12, student_id: 18},
+	{degree_id: 55, student_id: 97},
+	{degree_id: 5, student_id: 24},
+	{degree_id: 16, student_id: 19},
+	{degree_id: 52, student_id: 23},
+	{degree_id: 50, student_id: 48},
+	{degree_id: 40, student_id: 42},
+	{degree_id: 31, student_id: 84},
+	{degree_id: 35, student_id: 56},
+	{degree_id: 5, student_id: 46},
+	{degree_id: 23, student_id: 13},
+	{degree_id: 51, student_id: 50},
+	{degree_id: 34, student_id: 75},
+	{degree_id: 21, student_id: 100},
+	{degree_id: 62, student_id: 75},
+	{degree_id: 1, student_id: 63},
+	{degree_id: 61, student_id: 58},
+	{degree_id: 5, student_id: 34},
+	{degree_id: 22, student_id: 53},
+	{degree_id: 19, student_id: 82},
+	{degree_id: 62, student_id: 61},
+	{degree_id: 5, student_id: 60},
+	{degree_id: 45, student_id: 2},
+	{degree_id: 8, student_id: 83},
+	{degree_id: 50, student_id: 44},
+	{degree_id: 59, student_id: 90},
+	{degree_id: 19, student_id: 91}
+	];
+	EarnedDegree.create(earned_degrees)
+
+end

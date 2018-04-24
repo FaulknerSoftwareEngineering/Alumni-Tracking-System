@@ -4,6 +4,8 @@
   <title>Alumni Tracking System</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -11,6 +13,7 @@
 <%= render "shared/nav" %>
 </header>
   <div class="main container">
+    <%= render "shared/flash" %>
     <%= yield %>
   </div>
 <footer>

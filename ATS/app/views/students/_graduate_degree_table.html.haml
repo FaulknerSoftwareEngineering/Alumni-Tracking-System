@@ -1,18 +1,18 @@
 
 
-= link_to 'add new grad school', add_grad_school_path(@id) ,:method => :get
+= link_to 'Add New Grad School', add_grad_school_path(@id) ,:method => :get
 
 %table#student.table
   %thead
     %tr
       %th University
       %th Degree
-      %th type
-      %th applied
-      %th accepted
-      %th status
-      %th edit
-      %th delete
+      %th Type
+      %th Applied
+      %th Accepted
+      %th Status
+      %th Edit
+      %th Delete
   %tbody
     - @grad_degrees.each do |grad_degrees|
       %tr

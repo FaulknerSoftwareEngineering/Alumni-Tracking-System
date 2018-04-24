@@ -1,5 +1,5 @@
 
-%h2 new degree for 
+%h2 New Degree For 
 = @student.first_name
 = form_tag submit_student_add_earned_degree_path(@id), :method => :get do
 
@@ -7,4 +7,4 @@
     %div{:class => 'form-group'}
         = submit_tag 'Save Changes', :class => 'btn btn-primary'
     %div
-        = link_to 'Cancel', student_path(@id)
+        = render partial: 'shared/cancel_button', locals: {path: student_path(@id)}

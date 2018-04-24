@@ -3,7 +3,7 @@
 
 = render :partial => 'shared/flash', :locals => { :flash => flash }
 
-%h2 Details about #{@student.first_name}
+%h2 Details About #{@student.first_name}
 
 
 %ul#details
@@ -40,11 +40,9 @@
 
 
 %div{:class => 'linebuttons'}  
- = link_to 'Edit info', edit_student_path(@student),:method => :get
-
+ = render partial: 'shared/edit_button', locals: {new_name: "Edit Info", path: edit_student_path(@student)}
  = link_to 'Delete', student_path(@student), :method => :delete, :confirm => 'Are you sure?'
-
- = link_to 'Back To Student Index', students_path
+ = render partial: 'shared/back_to_list_button', locals: {list_name: "Student", path: students_path}
 
 
 %div{:class => 'hidden'}  
@@ -53,8 +51,8 @@
 
 
 %div{:class => 'linebuttons'} 
- = button_tag 'Graduate Degrees', :id => "Graduate_Degrees"     
- = button_tag 'Employment', :id => "Employment"     
+ = button_tag 'Graduate Degrees', :id => "Graduate_Degrees",:class => 'btn btn-primary'
+ = button_tag 'Employment', :id => "Employment",:class => 'btn btn-primary'
  
     
  
