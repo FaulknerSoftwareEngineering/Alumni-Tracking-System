@@ -2,7 +2,7 @@ class GradSchool < ActiveRecord::Base
     belongs_to :student
     has_one :university
     after_initialize :default_values
-
+    
   
     def university_name
         return University.find(self.university_id).name

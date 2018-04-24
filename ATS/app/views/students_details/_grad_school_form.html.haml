@@ -12,10 +12,10 @@
     = label :grad_schools, :status, 'Status'
     = text_field :grad_schools, :status, :class => 'form-control'
 
+    
 %div{:class => 'form-group'}
-    = label :grad_schools, :higher_degree_type, 'Degree Type'
-    = text_field :grad_schools, :higher_degree_type, :class => 'form-control'
-
+    = label :grad_schools, :higher_degree_type, 'Type'
+    = collection_select(:grad_schools, :higher_degree_type, DegreeType.all, :id, :name)
 %div{:class => 'form-group'}
     = label :grad_schools, :higher_degree_name, 'Degree Name'
     = text_field :grad_schools, :higher_degree_name, :class => 'form-control'
