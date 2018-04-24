@@ -5,6 +5,31 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+roles = Role.create(
+	[
+		{ name: 'VPAA' , colleges_visible: false, departments_visible: false}, 
+		{ name: 'College Dean', colleges_visible: true, departments_visible: false}, 
+		{ name: 'Department Chair', colleges_visible: false, departments_visible: true}, 
+		{ name: 'Administrative Assistants', colleges_visible: true, departments_visible: true}, 
+		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
+	]
+)
+
+users = User.create(
+	[
+		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, 
+		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1},
+		{email: 'drampersad@faulkner.edu', name: 'Dave Rampersad', role_id: 1},
+		{email: 'jarrington@faulkner.edu', name: 'Jeff Arrington', role_id: 2},
+		{email: 'sgleaves@faulkner.edu', name: 'Scott Gleaves', role_id: 2},
+		{email: 'lcowell@faulkner.edu', name: 'Leslie Cowell', role_id: 2},
+		{email: 'dkhadanga@faulkner.edu', name: 'Dave Khadanga', role_id: 2},
+		{email: 'jjewell@faulkner.edu', name: 'Jason Jewell', role_id: 3},
+		{email: 'spaulk@faulkner.edu', name: 'Sharon Paulk', role_id: 3},
+		{email: 'jwright.edu', name: 'Jonathan Wright', role_id: 3},
+		{email: 'imkpong-ruffin@faulkner.edu', name: 'Idong Mkpong-Ruffin', role_id: 3}
+	]
+)
 
 degree_types = [{name: "Bachelors of Business Administration"},
 	{name: "Bachelors of Science"},
@@ -35,47 +60,90 @@ colleges = [{name: "College of Arts and Sciences"},
 
 College.create(colleges)
 
-AS = College.find_by_name("College of Arts and Sciences")
-Bib = College.find_by_name("College of Bible")
-departments = [{name:  "Computer Science", college_id: AS},
-	{name:  "Criminal Justice/Legal Studies", college_id: AS},
-	{name:  "English", college_id: AS},
-	{name:  "Humanities", college_id: AS},
-	{name:  "Mathematics", college_id: AS},
-	{name:  "Music", college_id: AS},
-	{name:  "Kinesiology and Exercise Science", college_id: AS},
-	{name:  "Natural and Physical Sciences", college_id: AS},
-	{name:  "Social and Behavioral Sciences", college_id: AS},
-	{name:  "Bibilical Studies", college_id: Bib},
-	{name:  "Vocational Christian Ministry", college_id: Bib},
-	{name:  "Business", college_id: Department.find_by_name("College of Business")},
-	{name:  "Education", college_id: Department.find_by_name("College of Education")},
-]
+AS = College.find_by(name: "College of Arts and Sciences")
+Bib = College.find_by(name: "College of Bible")
+Bus = College.find_by(name: "College of Business")
+Edu = College.find_by(name: "College of Education")
+UserCollege.create(user: User.find_by(name: 'Jeff Arrington'), college: AS)
+UserCollege.create(user: User.find_by(name: 'Scott Gleaves'), college: Bib)
+UserCollege.create(user: User.find_by(name: 'Leslie Cowell'), college: Edu)
+UserCollege.create(user: User.find_by(name: 'Dave Khadanga'), college: Bus)
 
-Department.create(departments)
+ASdepartments = ["Computer Science", "Criminal Justice",
+	"Legal Studies", "English", "Humanities", "Mathematics",
+	"Music", "Kinesiology and Exercise Science", 
+	"Natural and Physical Sciences",
+	"Social and Behavioral Sciences"]
 
-BS = DegreeType.find_by_name("Bachelors of Science")
-BA = DegreeType.find_by_name("Bachelors of Arts")
-ASdeg = DegreeType.find_by_name("Associate of Science")
-MS = DegreeType.find_by_name("Masters of Science")
-MA = DegreeType.find_by_name("Masters of Arts")
-PHD = DegreeType.find_by_name("PhD")
-Minor = DegreeType.find_by_name("Minor")
-CSdept = Department.find_by_name("Computer Science")
-CJdept = Department.find_by_name("Criminal Justice/Legal Studies")
-Engdept = Department.find_by_name("English")
-Humdept = Department.find_by_name("Humanities")
-Musdept = Department.find_by_name("Music")
-Busdept = Department.find_by_name("Business")
-Edudept = Department.find_by_name("Education")
-Bibdept = Department.find_by_name("Bibilical Studies")
-Kindept = Department.find_by_name("Kinesiology and Exercise Science")
-Scidept = Department.find_by_name("Natural and Physical Sciences")
-Socdept = Department.find_by_name("Social and Behavioral Sciences")
-degrees = [{name: "Computer Science", department_id: CSdept, degree_type: BS},
-	{name: "Computer Information Science", department_id: CSdept, degree_type: BS},
-	{name: "Informatics", department_id: CSdept, degree_type: BS},
-	{name: "Computer Information Science", department_id: CSdept, degree_type: ASdeg},
+ASdepartments.each do |nm|
+	@ASdept = Department.create(name: nm)
+	AS.departments << @ASdept
+end
+
+Bibdepartments = ["Biblical Studies",
+	"Vocational Christian Ministry"]
+Bibdepartments.each do |nm|
+	@Bibdept = Department.create(name: nm)
+	Bib.departments << @Bibdept
+end
+
+Busdept = Department.create(name:  "Business")
+Bus.departments << Busdept
+Edudept = Department.create(name:  "Education")
+Edu.departments << Edudept
+
+BS = DegreeType.find_by(name:"Bachelors of Science")
+BA = DegreeType.find_by(name:"Bachelors of Arts")
+ASdeg = DegreeType.find_by(name:"Associate of Science")
+MS = DegreeType.find_by(name:"Masters of Science")
+MA = DegreeType.find_by(name:"Masters of Arts")
+PHD = DegreeType.find_by(name:"PhD")
+Minor = DegreeType.find_by(name:"Minor")
+Engdept = AS.departments.find_by(name:"English")
+Humdept = AS.departments.find_by(name: "Humanities")
+CSdept = AS.departments.find_by(name: "Computer Science")
+Musdept = AS.departments.find_by(name:"Music")
+Bibdept = Bib.departments.find_by(name:"Bibilical Studies")
+Kindept = AS.departments.find_by(name:"Kinesiology and Exercise Science")
+Scidept = AS.departments.find_by(name:"Natural and Physical Sciences")
+Socdept = AS.departments.find_by(name:"Social and Behavioral Sciences")
+Mathdept = AS.departments.find_by(name: "Mathematics")
+
+UserDepartment.create(user: User.find_by(name:'Idong Mkpong-Ruffin'), 
+	department: CSdept)
+UserDepartment.create(user: User.find_by(name:"Jason Jewell"), 
+	department: Humdept)
+
+CSDegrees = ["Computer Science", "Computer Information Science", "Informatics"]
+
+CSDegrees.each do |nm| 
+	@CSDegree = Degree.create(name: nm) 
+	CSdept.degrees << @CSDegree
+	BS.degrees << @CSDegree
+end
+
+CISASDegree = Degree.create(name: "Computer Information System/AS")
+CSdept.degrees << CISASDegree
+ASdeg.degrees << CISASDegree
+
+HumDegrees = ["Humanities", "Liberal Arts"]
+HumDegrees.each do |nm| 
+	@HumDegree = Degree.create(name: nm) 
+	Humdept.degrees << @HumDegree
+	BA.degrees << @HumDegree
+end
+
+MathDegree = Degree.create(name: "Mathematics")
+Mathdept.degrees << MathDegree
+BS.degrees << MathDegree
+
+EngDegree = Degree.create(name: "English")
+Engdept.degrees << EngDegree
+BA.degrees << EngDegree
+
+=begin
+
+degrees = [, department_id: , degree_type: BS},
 	{name: "Criminal Justice", department_id: CJdept, degree_type: BS},
 	{name: "Legal Studies", department_id: CJdept, degree_type: BS},
 	{name: "Bachelors of Criminal Justice", department_id: CJdept, degree_type: DegreeType.find_by_name("Bachelors of Criminal Justice")},
@@ -83,7 +151,7 @@ degrees = [{name: "Computer Science", department_id: CSdept, degree_type: BS},
 	{name: "Criminal Justice/AS", department_id: CJdept, degree_type: MS},
 	{name: "Legal Studies/AS", department_id: CJdept, degree_type: MS},
 	{name: "Criminalistics", department_id: CJdept, degree_type: MS},
-	{name: "English", department_id: Engdept, degree_type: BA},
+
 	{name: "Humanities", department_id: Humdept, degree_type: BA},
 	{name: "Humanities/MA", department_id: Humdept, degree_type: MA},
 	{name: "Humanities/PhD", department_id: Humdept, degree_type: PHD},
@@ -93,7 +161,7 @@ degrees = [{name: "Computer Science", department_id: CSdept, degree_type: BS},
 	{name: "Music (Vocal)", department_id: Musdept, degree_type: BA},
 	{name: "Music (Instrumental)", department_id: Musdept, degree_type: BA},
 	{name: "Music", department_id: Musdept, degree_type: Minor},
-	{name: "Mathematics", department_id: Department.find_by_name("Mathematics"), degree_type: BS},
+
 	{name: "Exercise Science", department_id: Kindept, degree_type: BS},
 	{name: "Physical Education", department_id: Kindept, degree_type: BS},
 	{name: "Sports Management", department_id: Kindept, degree_type: BS},
@@ -140,24 +208,9 @@ degrees = [{name: "Computer Science", department_id: CSdept, degree_type: BS},
 	{name: "M.Ed.", department_id: Edudept, degree_type: DegreeType.find_by_name("M.Ed.")},
 
 ]
+Department.create(degrees)
 Department.degree.create(degrees)
-
-roles = Role.create(
-	[
-		{ name: 'VPAA' , colleges_visible: false, departments_visible: false}, 
-		{ name: 'College Dean', colleges_visible: true, departments_visible: false}, 
-		{ name: 'Department Chair', colleges_visible: false, departments_visible: true}, 
-		{ name: 'Administrative Assistants', colleges_visible: true, departments_visible: true}, 
-		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
-	]
-)
-
-users = User.create(
-	[
-		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, 
-		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1}
-	]
-)
+=end
 
 if Rails.env.development? || Rails.env.test?
 	students = [
@@ -263,12 +316,13 @@ if Rails.env.development? || Rails.env.test?
 	{first_name: 'Halla', middle_name: 'Booth', last_name: 'Mcintosh', primary_email: 'faucibus@infaucibus.edu', secondary_email: 'pede.Suspendisse.dui@orci.co.uk', cell_number: '1-301-553-5378', work_number: '1-944-533-1557', home_number: '1-618-639-9246', tracked: ' False'}
 	];
 	Student.create(students)
+=begin
 	colleges = College.create([{name: 'Arts and Sciences'}, {name: 'Business'}])
 	departments = Department.create([{name: 'Computer Science', college_id: 1},{name: 'Mathematics', college_id: 1}])
 	degrees = Degree.create([{name: 'CSIS', degree_type_id: 2, department_id: 1},{name: 'English'},{name: 'Business Administration'}])
 	user_departments = UserDepartment.create({user_id: 2, department_id: 1})
 	user_college = UserCollege.create({user_id: 1, college_id: 1})
 	earned_degrees = EarnedDegree.create([{student_id: 1, degree_id: 1}, {student_id: 2, degree_id: 2}, {student_id: 3, degree_id: 1}])
-
+=end
 end
 
