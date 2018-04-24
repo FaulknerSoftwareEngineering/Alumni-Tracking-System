@@ -20,7 +20,7 @@ end
 #begin
  get 'find_degree' => 'degrees#find_degree'
  
- 
+ post 'contact_supports' => 'welcome#contact_support'
  
 # For testing links on student details page
 
