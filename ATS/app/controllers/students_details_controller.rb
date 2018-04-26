@@ -33,6 +33,7 @@ end
     @id = params[:id]
     @student = Student.find(@id)
     @earned_degree = EarnedDegree.new
+    @date = Date.today
   end
      
   def submit_add_earned_degree
@@ -51,10 +52,25 @@ end
     end
     redirect_to student_path(@student)
   end
+  def edit_earned_degree
+    @id = params[:id] 
+    @earned_degree = EarnedDegree.find(@id) 
+    @name = @earned_degree.first_name + " " + @earned_degree.last_name
+    @date = Date.new(@earned_degree.year_graduated.to_i, 1, 1)
+    @student_id = Student.find(@earned_degree.student_id).id
+  end
+  def update_earned_degree
+    id = params[:id] 
+    @earned_degree = EarnedDegree.find(id)
+    @earned_degree.update_attributes!(earned_degree_params)
+    @student_id = @earned_degree.student_id
+    redirect_to student_path(@student_id)
+  end
 
 #grad school
   def add_grad_school
     @universities = University.all
+    @grad_schools = GradSchool.new
     @student_id = params[:id]
     @name = Student.find(@student_id).first_name + " " + Student.find(@student_id).last_name
   end
