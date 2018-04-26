@@ -55,8 +55,8 @@ end
 #grad school
   def add_grad_school
     @universities = University.all
-    @id = params[:id]
-    @name = Student.find(@id).first_name + " " + Student.find(@id).last_name
+    @student_id = params[:id]
+    @name = Student.find(@student_id).first_name + " " + Student.find(@student_id).last_name
   end
       
   def submit_add_grad_school
@@ -73,9 +73,9 @@ end
   end
   def edit_grad_school
     @id = params[:id] 
-    @grad_school = GradSchool.find(@id) 
-    @name = @grad_school.student_name
-    @student_id = Student.find(@grad_school.student_id).id
+    @grad_schools = GradSchool.find(@id) 
+    @name = @grad_schools.student_name
+    @student_id = Student.find(@grad_schools.student_id).id
   end
   def update_grad_school
     id = params[:id] 
@@ -88,6 +88,7 @@ end
   
   def add_employment
     @employers = Employer.all
+    @employment = Employment.new
     @id = params[:id]
     @name = Student.find(@id).first_name + " " + Student.find(@id).last_name
   end

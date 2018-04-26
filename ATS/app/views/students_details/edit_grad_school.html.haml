@@ -1,10 +1,11 @@
-%h2 Add Grad School To 
+%h2 Edit Grad School
 = @name
 
-= form_tag update_grad_school_path(@id), :method => :get do
-    = render :partial => 'grad_school_form'
-    
-    = submit_tag 'Edit University', :class => 'btn btn-primary'
+%div
+    = form_tag update_grad_school_path(@id), :method => :get do
+        = render :partial => 'grad_school_form'
+        
+        = submit_tag 'Edit University', :class => 'btn btn-primary'
     
 %div
     = render partial: 'shared/cancel_button', locals: {path: student_path(@student_id)}

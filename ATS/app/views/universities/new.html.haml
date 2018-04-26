@@ -1,5 +1,5 @@
 %h2 Create New University
-= form_tag universities_path, :method => :post do
+= form_tag universities_path(:student_id => @student_id), :method => :post do
     
   = label :university, :name, 'Name'
   = text_field :university, :name

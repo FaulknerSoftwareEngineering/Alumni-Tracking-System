@@ -38,22 +38,8 @@ def index
     
     @students = Student.accessible_students(session[:role_id], session[:user_id])
     
-    sort = params[:sort] || session[:sort]
-    case sort
-    when 'first_name'
-      ordering,@first_name_header = :first_name_order, 'hilite'
-    when 'last_name'
-      ordering,@last_name_header = :last_name_order, 'hilite'
-    when 'degree'
-      ordering,@degree_header = :degree_name, 'hilite'
-    when 'year_graduated'
-      ordering,@year_graduated_header = :year_graduated, 'hilite'
-    when 'season'
-      ordering,@season_header = :season, 'hilite'
-    end
     
-    
-    @earned_degrees = EarnedDegree.where(student_id: @students).sort_by(&ordering)
+    @earned_degrees = EarnedDegree.where(student_id: @students)
 end
     
 def show
