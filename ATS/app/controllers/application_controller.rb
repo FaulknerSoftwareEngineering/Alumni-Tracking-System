@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     before_action :require_login
   
     def require_login
-        if session[:user_id].nil? #and !Rails.env.development? and !Rails.env.test?
+        if session[:user_id].nil? and !Rails.env.development? and !Rails.env.test?
             flash[:danger] = "You must be logged in to access this area"
             redirect_to(root_path)
         end
