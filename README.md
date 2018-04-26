@@ -14,3 +14,5 @@ Datatables Documentation: https://datatables.net/
 Bootstrap Documentation: https://getbootstrap.com/docs/3.3/
 
 Production:  https://faulkner-ats.herokuapp.com/
+
+Pushing to Heroku: `git subtree push --prefix ATS heroku master`
