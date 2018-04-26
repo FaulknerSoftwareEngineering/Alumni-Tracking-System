@@ -7,7 +7,7 @@
                 %li= error
 %div{:class => 'form-group'}
     = label :department, :name, 'Name'
-    = text_field :department, :name, :class => 'form-control'
+    = text_field :department, :name, :required => true, :class => 'form-control'
     
 %div{:class => 'form-group'}
     = label :user_department, :user_id, 'Chair'
