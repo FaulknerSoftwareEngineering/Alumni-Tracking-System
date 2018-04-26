@@ -73,9 +73,9 @@ end
   end
   def edit_grad_school
     @id = params[:id] 
-    @grad_school = GradSchool.find(@id) 
-    @name = @grad_school.student_name
-    @student_id = Student.find(@grad_school.student_id).id
+    @grad_schools = GradSchool.find(@id) 
+    @name = @grad_schools.student_name
+    @student_id = Student.find(@grad_schools.student_id).id
   end
   def update_grad_school
     id = params[:id] 
@@ -88,6 +88,7 @@ end
   
   def add_employment
     @employers = Employer.all
+    @employment = Employment.new
     @id = params[:id]
     @name = Student.find(@id).first_name + " " + Student.find(@id).last_name
   end

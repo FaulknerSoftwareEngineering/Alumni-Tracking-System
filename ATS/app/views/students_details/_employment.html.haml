@@ -9,18 +9,17 @@
 
 %div{:class => 'form-group'}
     = label :employment, :current_job, 'Current Job?'
-    = check_box_tag "employment[current_job]", true,false,:id => "employment_current_job"  
-
+    = check_box("employment", "current_job", {:checked => @employment.current_job}, "true", "false")
 %div{:class => 'form-group'}
     = label :employment, :start_date, 'Start Date'
     = date_select(:employment, :start_date, start_year: 1942)
 %div{:class => 'form-group', :id => "end_date"}
-    = label :employment, :start_date, 'End Date'
-    = date_select(:employment, :start_date, start_year: 1942)
+    = label :employment, :end_date, 'End Date'
+    = date_select(:employment, :end_date, start_year: 1942)
 
 
 
 %div{:class => 'form-group'}
     = label :employment, :in_field, 'In Field?'
-    = check_box_tag "employment[in_field]", true,false,:id => "employment_in_field"
+    = check_box("employment","in_field",{:checked => @employment.in_field},"true","false")
 
