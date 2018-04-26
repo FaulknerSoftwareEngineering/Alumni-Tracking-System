@@ -1,2 +1,2 @@
 %div{:class => 'form-group'}
-    = collection_select(:employment, :employer_id, Employer.all, :id, :name)
+    = collection_select(:employment, :employer_id, Employer.all.order(:name), :id, :name)

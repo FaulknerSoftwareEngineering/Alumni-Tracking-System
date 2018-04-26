@@ -1,4 +1,7 @@
-= render :partial => 'universities/university_dropdown'
+%div
+    = render :partial => 'universities/university_dropdown'
+    -#= render partial: 'shared/new_button', locals: {new_name: "Add New University", path: students_path}
+    = link_to 'Add New University', new_university_path(:student_id => @student_id)
     
 %div{:class => 'form-group'}
     = label :grad_schools, :applied, 'Applied?'
@@ -15,7 +18,7 @@
     
 %div{:class => 'form-group'}
     = label :grad_schools, :higher_degree_type, 'Type'
-    = collection_select(:grad_schools, :higher_degree_type, DegreeType.all, :id, :name)
+    = collection_select(:grad_schools, :higher_degree_type, DegreeType.all.order(:name), :id, :name)
 %div{:class => 'form-group'}
     = label :grad_schools, :higher_degree_name, 'Degree Name'
     = text_field :grad_schools, :higher_degree_name, :class => 'form-control'

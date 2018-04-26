@@ -7,11 +7,11 @@
 %table#student.table
   %thead
     %tr
-      %th{:class => @first_name_header}= link_to 'First Name', students_path(:sort => 'first_name')
-      %th{:class => @last_name_header}= link_to 'Last Name', students_path(:sort => 'last_name')
-      %th{:class => @degree_header}= link_to 'Degree', students_path(:sort => 'degree')
-      %th{:class => @year_graduated_header}= link_to 'Year Graduated', students_path(:sort => 'year_graduated')
-      %th{:class => @season_header}= link_to 'Season Graduated', students_path(:sort => 'season')
+      %th= 'First Name'
+      %th= 'Last Name'
+      %th= 'Degree'
+      %th= 'Year Graduated'
+      %th= 'Season Graduated'
       %th More Info
 
   %tbody

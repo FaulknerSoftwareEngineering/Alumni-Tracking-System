@@ -1,6 +1,8 @@
-
-= render :partial => 'employers/employer_dropdown'
-
+%div
+    = render :partial => 'employers/employer_dropdown'
+    -#= render partial: 'shared/new_button', locals: {new_name: "Add New Employer", path: students_path}
+    = link_to 'Add New Employer', new_employer_path(:student_id => @id)
+    
 %div{:class => 'form-group'}
     = label :employment, :job_title, 'Job Title'
     = text_field :employment, :job_title, :class => 'form-control'

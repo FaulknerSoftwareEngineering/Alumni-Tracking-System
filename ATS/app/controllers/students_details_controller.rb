@@ -55,8 +55,8 @@ end
 #grad school
   def add_grad_school
     @universities = University.all
-    @id = params[:id]
-    @name = Student.find(@id).first_name + " " + Student.find(@id).last_name
+    @student_id = params[:id]
+    @name = Student.find(@student_id).first_name + " " + Student.find(@student_id).last_name
   end
       
   def submit_add_grad_school

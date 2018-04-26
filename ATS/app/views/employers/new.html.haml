@@ -1,5 +1,5 @@
 %h2 Create New Employer
-= form_tag employers_path, :method => :post do
+= form_tag employers_path(:student_id => @student_id), :method => :post do
     
   = render :partial => 'employer_form'
   

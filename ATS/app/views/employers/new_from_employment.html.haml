@@ -1,0 +1,7 @@
+%h2 Create New Employer
+= form_tag employers_path, :method => :post do
+    
+  = render :partial => 'employer_form'
+  
+%p
+  = render partial: 'shared/cancel_button', locals: {path: employers_path}  
