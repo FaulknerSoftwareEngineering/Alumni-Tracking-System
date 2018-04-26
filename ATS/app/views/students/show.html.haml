@@ -35,14 +35,20 @@
   %li
    =" #{earned.degree_name}  #{earned.year_graduated}  #{earned.season}"
    = link_to 'Delete Degree', delete_earned_degree_path(earned), :method => :delete
- = link_to 'Add Degree', student_add_earned_degree_path()
+   = link_to 'Edit Grad School', edit_earned_degree_path(earned),:method => :get
+ = render partial: 'shared/new_button', locals: {new_name: "Add Degree",path: student_add_earned_degree_path()}
+ 
+ 
 
 
 
-%div{:class => 'linebuttons'}  
- = render partial: 'shared/edit_button', locals: {new_name: "Edit Info", path: edit_student_path(@student)}
- = link_to 'Delete', student_path(@student), :method => :delete, :confirm => 'Are you sure?'
- = render partial: 'shared/back_to_list_button', locals: {list_name: "Alumni", path: students_path}
+%div{:class => 'row'}
+ %div{:class => 'col-2'}
+  = render partial: 'shared/edit_button', locals: {new_name: "Edit Info", path: edit_student_path(@student)}
+ -#= link_to 'Delete', student_path(@student), :method => :delete, :confirm => 'Are you sure?'
+ %div{:class => 'col-1'}
+ %div{:class => 'col-2'}
+  = render partial: 'shared/back_to_list_button', locals: {list_name: "Alumni", path: students_path}
 
 
 %div{:class => 'invisible',:id => "hidden_id"}  
@@ -50,9 +56,10 @@
 
 
 
-%div{:class => 'linebuttons'} 
- = button_tag 'Graduate Degrees', :id => "Graduate_Degrees",:class => 'btn btn-primary'
- = button_tag 'Employment', :id => "Employment",:class => 'btn btn-primary'
+%div{:class => 'row'} 
+ = button_tag 'Graduate Degrees', :id => "Graduate_Degrees",:class => 'btn btn-primary col-2'
+ %div{:class => 'col-1'}
+ = button_tag 'Employment', :id => "Employment",:class => 'btn btn-primary col-2'
  
     
  

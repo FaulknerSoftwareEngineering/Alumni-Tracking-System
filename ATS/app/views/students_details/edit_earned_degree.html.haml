@@ -1,0 +1,9 @@
+%h2 Edit Degree For 
+= @earned_degree.first_name
+= form_tag update_earned_degree_path(@id), :method => :get do
+
+    = render :partial => 'earned_degree'
+    %div{:class => 'form-group'}
+        = submit_tag 'Save Changes', :class => 'btn btn-primary'
+    %div
+        = render partial: 'shared/cancel_button', locals: {path: student_path(@student_id)}
