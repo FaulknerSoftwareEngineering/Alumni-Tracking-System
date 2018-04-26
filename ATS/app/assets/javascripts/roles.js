@@ -1,4 +1,6 @@
 $(document).ready( function () {
-    $('#roles').DataTable();
+    if ($('#roles.table').length) {
+        $('#roles.table').DataTable();
+    }
 } 
 );

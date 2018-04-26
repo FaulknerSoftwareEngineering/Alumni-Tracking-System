@@ -1,4 +1,6 @@
 $(document).ready( function () {
-    $('#departments').DataTable();
+    if ($('#departments.table').length) {
+        $('#departments.table').DataTable();
+    }
 } 
 );
