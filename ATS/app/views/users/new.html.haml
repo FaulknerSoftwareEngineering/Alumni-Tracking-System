@@ -4,11 +4,11 @@
     
     %div{:class => 'form-group'}
         = label :user, :email, 'Email'
-        = email_field :user, :email, :class => 'form-control'
+        = email_field :user, :email, :type => "email", :class => 'form-control'
         
     %div{:class => 'form-group'}
         = label :user, :name, 'Name'
-        = text_field :user, :name, :class => 'form-control'
+        = text_field :user, :name, :required => true, :class => 'form-control'
      
     %div{:class => 'form-group'}
         = label :role, :id, 'User Role'
