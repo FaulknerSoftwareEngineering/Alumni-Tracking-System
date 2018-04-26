@@ -5,16 +5,12 @@
         %tr
             %th Name
             %th Email
-            %th uid
-            %th oauth_token
             %th Edit
     %tbody
         - @users.each do|user|
             %tr
                 %td= user.name
                 %td= user.email
-                %td= user.uid
-                %td= user.oauth_token
                 %td= link_to "Edit #{user.name}", edit_user_path(user)
              
 
