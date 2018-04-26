@@ -19,6 +19,8 @@ $(function()
     }
 );
 $(document).ready( function () {
-    $('#users').DataTable();
+    if ($('#users.table').length) {
+        $('#users.table').DataTable();
+    }
 } 
 );

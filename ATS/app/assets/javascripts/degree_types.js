@@ -1,4 +1,6 @@
 $(document).ready( function () {
-    $('#degree_types').DataTable();
+    if ($('#degree_types.table').length) {
+        $('#degree_types.table').DataTable();
+    }
 } 
 );

@@ -33,7 +33,9 @@ get 'reports/generate_report' => 'reports#generate_report'
 get 'students/:id/add_degree' => 'students_details#add_earned_degree', as: :student_add_earned_degree
 get 'students/:id/submit_add_degree' => 'students_details#submit_add_earned_degree', as: :submit_student_add_earned_degree 
 delete  'students/:id/delete_degree' => 'students_details#delete_earned_degree', as: :delete_earned_degree
- 
+get 'students/:id/edit_earned_degree' => 'students_details#edit_earned_degree', as: :edit_earned_degree
+get 'students/:id/update_earned_degree' => 'students_details#update_earned_degree', as: :update_earned_degree
+#end earned degree 
  
  get 'auth/:provider/callback' => 'sessions#create'
  get 'logout' => 'sessions#destroy'

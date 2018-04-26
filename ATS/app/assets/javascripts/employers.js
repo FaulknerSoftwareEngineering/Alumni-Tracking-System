@@ -1,4 +1,6 @@
 $(document).ready( function () {
-    $('#employers').DataTable();
+    if ($('#employers.table').length) {
+        $('#employers.table').DataTable();
+    }
 } 
 );
