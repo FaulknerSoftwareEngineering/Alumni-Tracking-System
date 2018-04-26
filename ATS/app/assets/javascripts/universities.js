@@ -1,4 +1,6 @@
 $(document).ready( function () {
-    $('#universities').DataTable();
+    if ($('#universities.table').length) {
+        $('#universities.table').DataTable();
+    }
 } 
 );

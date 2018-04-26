@@ -12,6 +12,13 @@ $(function() {
       },
       success: function(data, textStatus, jqXHR) {
         return $('#table_div').html("" + data);
+        if ($('#student.table').length) {
+            $('#student.table').DataTable();
+        }
+      }, complete: function(data){
+            if ($('#student.table').length) {
+                $('#student.table').DataTable();
+            }
       }
     });
   });
@@ -29,12 +36,21 @@ $(function() {
           },
           success: function(data, textStatus, jqXHR) {
             return $('#table_div').html("" + data);
+            
+          },
+          complete: function(data) {
+            if ($('#student.table').length) {
+                $('#student.table').DataTable();
+            }
           }
         });
+        
     });
 }); 
     
 $(document).ready( function () {
-    $('#student.table').DataTable();
+    if ($('#student.table').length) {
+        $('#student.table').DataTable();
+    }
 } 
 );

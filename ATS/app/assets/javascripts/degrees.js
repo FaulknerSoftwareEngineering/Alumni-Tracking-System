@@ -37,6 +37,8 @@ $(function()
     }
 );
 $(document).ready( function () {
-    $('#degrees').DataTable();
+    if ($('#degrees.table').length) {
+        $('#degrees.table').DataTable();
+    }
 } 
 );
