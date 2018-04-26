@@ -8,8 +8,8 @@
 roles = Role.create(
 	[
 		{ name: 'VPAA' , colleges_visible: false, departments_visible: false}, 
-		{ name: 'College Dean', colleges_visible: true, departments_visible: false}, 
-		{ name: 'Department Chair', colleges_visible: false, departments_visible: true}, 
+		{ name: 'College Dean', colleges_visible: false, departments_visible: false}, 
+		{ name: 'Department Chair', colleges_visible: false, departments_visible: false}, 
 		{ name: 'Administrative Assistants', colleges_visible: true, departments_visible: true}, 
 		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
 	]
