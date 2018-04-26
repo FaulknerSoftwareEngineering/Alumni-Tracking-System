@@ -8,8 +8,8 @@
 roles = Role.create(
 	[
 		{ name: 'VPAA' , colleges_visible: false, departments_visible: false}, 
-		{ name: 'College Dean', colleges_visible: true, departments_visible: false}, 
-		{ name: 'Department Chair', colleges_visible: false, departments_visible: true}, 
+		{ name: 'College Dean', colleges_visible: false, departments_visible: false}, 
+		{ name: 'Department Chair', colleges_visible: false, departments_visible: false}, 
 		{ name: 'Administrative Assistants', colleges_visible: true, departments_visible: true}, 
 		{ name: 'System Admin', colleges_visible: false, departments_visible: false}
 	]
@@ -80,7 +80,7 @@ departments = [{name:  "Computer Science", college_id: AS.id},
 	{name:  "Kinesiology and Exercise Science", college_id: AS.id},
 	{name:  "Natural and Physical Sciences", college_id: AS.id},
 	{name:  "Social and Behavioral Sciences", college_id: AS.id},
-	{name:  "Bibilical Studies", college_id: Bib.id},
+	{name:  "Biblical Studies", college_id: Bib.id},
 	{name:  "Vocational Christian Ministry", college_id: Bib.id},
 	{name:  "Business", college_id: Bus.id},
 	{name:  "Education", college_id: Edu.id},
@@ -102,7 +102,7 @@ Humdept = Department.find_by_name("Humanities")
 Musdept = Department.find_by_name("Music")
 Busdept = Department.find_by_name("Business")
 Edudept = Department.find_by_name("Education")
-Bibdept = Department.find_by_name("Bibilical Studies")
+Bibdept = Department.find_by_name("Biblical Studies")
 Kindept = Department.find_by_name("Kinesiology and Exercise Science")
 Scidept = Department.find_by_name("Natural and Physical Sciences")
 Socdept = Department.find_by_name("Social and Behavioral Sciences")
@@ -160,8 +160,8 @@ degrees = [{name: "Computer Science", department_id: CSdept.id, degree_type_id: 
 	{name: "B.S. in Business", department_id: Busdept.id, degree_type_id: DegreeType.find_by_name("B.S. in Business").id},
 	{name: "M.S. in Business", department_id: Busdept.id, degree_type_id: DegreeType.find_by_name("M.S. in Business").id},
 	{name: "Human Resource Management", department_id: Busdept.id, degree_type_id: BS.id},
-	{name: "Bibilical Studies", department_id: Bibdept.id, degree_type_id: BA.id},
-	{name: "Bibilical Studies/MA", department_id: Bibdept.id, degree_type_id: MA.id},
+	{name: "Biblical Studies", department_id: Bibdept.id, degree_type_id: BA.id},
+	{name: "Biblical Studies/MA", department_id: Bibdept.id, degree_type_id: MA.id},
 	{name: "Christian Ministry", department_id: Bibdept.id, degree_type_id: MA.id},
 	{name: "Christian Counseling and Family Ministry", department_id: Bibdept.id, degree_type_id: MA.id},
 	{name: "Master of Philosphy", department_id: Bibdept.id, degree_type_id: MA.id},
