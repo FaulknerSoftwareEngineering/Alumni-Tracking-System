@@ -35,7 +35,7 @@
   %li
    =" #{earned.degree_name}  #{earned.year_graduated}  #{earned.season}"
    = link_to 'Delete Degree', delete_earned_degree_path(earned), :method => :delete
-   = link_to 'Edit Grad School', edit_earned_degree_path(earned),:method => :get
+   = link_to 'Edit Degree', edit_earned_degree_path(earned),:method => :get
  = render partial: 'shared/new_button', locals: {new_name: "Add Degree",path: student_add_earned_degree_path()}
  
  
