@@ -9,7 +9,7 @@
                 %li = error
 %div{:class => 'form-group'}
     = label :employer, :name, 'Name'
-    = text_field :employer, :name, :class => 'form-control'
+    = text_field :employer, :name, :required => true, :class => 'form-control'
     
 %div{:class => 'form-group'}
     = label :employer, :contact_name, 'Contact Name'
@@ -17,11 +17,11 @@
 
 %div{:class => 'form-group'}  
     = label :employer, :number, 'Phone Number'
-    = text_field :employer, :number, :class => 'form-control'
+    = text_field :employer, :number, :type => "tel", :class => 'form-control'
    
 %div{:class => 'form-group'}    
     = label :employer, :email, 'Email'
-    = text_field :employer, :email, :class => 'form-control'
+    = text_field :employer, :email, :type => "email", :class => 'form-control'
 
 %div{:class => 'form-group'}
     = submit_tag 'Save Changes', :class => 'btn btn-primary'

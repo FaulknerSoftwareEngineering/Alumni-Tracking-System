@@ -3,7 +3,7 @@
 
   %div{:class => 'form-group'}
     = label :degree_type, :title, 'Name'
-    = text_field :degree_type, :name, :class => 'form-control'
+    = text_field :degree_type, :required => true, :name, :class => 'form-control'
 
   %div{:class => 'form-group'}
     = submit_tag 'Save Changes', :class => 'btn btn-primary'

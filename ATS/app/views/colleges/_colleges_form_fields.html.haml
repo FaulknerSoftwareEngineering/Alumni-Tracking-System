@@ -7,7 +7,7 @@
                 %li= error
 %div{:class => 'form-group'}
     = label :college, :name, 'Name'
-    = text_field :college, :name, :class => 'form-control'
+    = text_field :college, :name, :required => true, :class => 'form-control'
 %div{:class => 'form-group'}
     = label :user_college, :user_id, 'Dean'
     = collection_select :user_college, :user_id, @college_deans, :id, :name, {:selected => (@sel_college_dean.id unless @sel_college_dean.nil?)}, {:class => 'form-control'}

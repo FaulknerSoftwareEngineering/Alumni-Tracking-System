@@ -5,7 +5,7 @@
 
     %div{:class => 'form-group'}
         = label :role, :name, 'Name'
-        = text_field :role, :name, :class => 'form-control'
+        = text_field :role, :name, :required => true, :class => 'form-control'
         
     %div{:class => 'form-group'}
         = label :role, :colleges_visible, 'Are colleges visible when creating a user with this role?'
