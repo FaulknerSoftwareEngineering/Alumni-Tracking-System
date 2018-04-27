@@ -52,9 +52,11 @@ end
 
 def new
   @student = Student.new
+  @date = Date.today
 end 
     
 def create
+  
     @student = Student.create!(student_params)
     @addresses = Address.create!(addresses_params.merge({student_id: @student.id}))
     @earned_degree = EarnedDegree.create!(earned_degree_params.merge({student_id: @student.id}))

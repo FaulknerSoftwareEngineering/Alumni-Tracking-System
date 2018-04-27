@@ -19,5 +19,6 @@ class GradSchool < ActiveRecord::Base
     def default_values
       self.applied ||= false
       self.accepted ||= false
+      self.graduated ||= false
     end
 end
