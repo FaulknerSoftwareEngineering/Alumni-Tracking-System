@@ -1,0 +1,27 @@
+-#
+  Created by Christopher Smith
+  on: April 28, 2018 
+
+%h1 Help Requests
+
+- if flash[:notice]
+  #notice.message= flash[:notice]
+- elsif flash[:warning]
+  #warning.message= flash[:warning]
+
+%table#helprequests.table
+  %thead
+    %tr
+      %th Email
+      %th Message
+      %th Time
+      
+  %tbody
+    - @helprequests.each do |helprequest|
+      %tr
+        %td= helprequest.email
+        %td= helprequest.message
+        %td= helprequest.created_at
+
+%p
+  = render partial: 'shared/home_page_button'

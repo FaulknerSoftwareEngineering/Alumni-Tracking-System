@@ -188,6 +188,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
+    mailgun-ruby (1.1.9)
+      rest-client (~> 2.0)
     main (6.2.2)
       arrayfields (~> 4.7, >= 4.7.4)
       chronic (~> 0.6, >= 0.6.2)
@@ -421,6 +423,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  mail (~> 2.6, >= 2.6.4)
+  mailgun-ruby (~> 1.1.6)
   metric_fu
   odf-report
   omniauth-google-oauth2

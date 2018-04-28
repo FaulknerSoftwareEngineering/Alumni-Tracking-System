@@ -32,13 +32,6 @@ ActiveRecord::Schema.define(version: 20180418145952) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "contact_supports", force: :cascade do |t|
-    t.string   "email"
-    t.text     "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "degree_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -119,6 +112,13 @@ ActiveRecord::Schema.define(version: 20180418145952) do
 
   add_index "grad_schools", ["student_id"], name: "index_grad_schools_on_student_id"
   add_index "grad_schools", ["university_id"], name: "index_grad_schools_on_university_id"
+
+  create_table "help_requests", force: :cascade do |t|
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

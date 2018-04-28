@@ -19,3 +19,6 @@
 #Ignore byebug history
 
 .byebug_history
+
+#Ignore secrets
+/config/secrets.yml
