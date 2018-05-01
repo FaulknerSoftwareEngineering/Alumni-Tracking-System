@@ -15,12 +15,13 @@ Rails.application.routes.draw do
  resources :reports, only: [:index] do
 end
  resources :degree_types
+ resources :help_requests
 
 # For testing college/department/degree partials
 #begin
  get 'find_degree' => 'degrees#find_degree'
  
- post 'contact_supports' => 'welcome#contact_support'
+ post 'contact_support' => 'help_requests#contact_support'
  
 # For links on student details page
 get 'students/students/:id/grad_school' => 'students#grad_school'
