@@ -20,7 +20,6 @@ College_Dean = Role.find_by_name("College Dean")
 Department_Chair = Role.find_by_name("Department Chair")
 AA = Role.find_by_name("Administrative Assistants")
 System_Admin = Role.find_by_name("System Admin")
-byebug
 users = User.create(
 	[
 		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: System_Admin.id}, 
