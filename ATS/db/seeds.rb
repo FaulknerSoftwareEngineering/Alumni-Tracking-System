@@ -15,10 +15,16 @@ roles = Role.create(
 	]
 )
 
+VPAA = Role.find_by_name("VPAA")
+College_Dean = Role.find_by_name("College Dean")
+Department_Chair = Role.find_by_name("Department Chair")
+AA = Role.find_by_name("Administrative Assistants")
+System_Admin = Role.find_by_name("System Admin")
+byebug
 users = User.create(
 	[
-		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: 1}, 
-		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: 1},
+		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: System_Admin.id}, 
+		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: System_Admin.id},
 		{email: 'drampersad@faulkner.edu', name: 'Dave Rampersad', role_id: 1},
 		{email: 'jarrington@faulkner.edu', name: 'Jeff Arrington', role_id: 2},
 		{email: 'sgleaves@faulkner.edu', name: 'Scott Gleaves', role_id: 2},
