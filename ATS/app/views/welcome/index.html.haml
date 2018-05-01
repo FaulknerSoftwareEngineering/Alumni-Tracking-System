@@ -7,22 +7,23 @@
     <br>
     = link_to 'Universities', universities_path
 %p
-%h6 Maintenance Functions
-%p
-    = link_to 'Faulkner Colleges', colleges_path
-    <br>
-    = link_to 'Departments', departments_path
-    <br>
-    = link_to 'Degrees', degrees_path
-    <br>
-    = link_to 'Degree Types', degree_types_path
-    <br>
-    = link_to 'Reports', reports_path
-
-%h6 Administrative Functions
-%p
-    = link_to 'Users', users_path
-    <br>    
-    = link_to 'Roles', roles_path
-    <br>
-    = link_to 'Help Requests', help_requests_path
+- if @admin_visible
+    %h6 Maintenance Functions
+    %p
+        = link_to 'Faulkner Colleges', colleges_path
+        <br>
+        = link_to 'Departments', departments_path
+        <br>
+        = link_to 'Degrees', degrees_path
+        <br>
+        = link_to 'Degree Types', degree_types_path
+        <br>
+        = link_to 'Reports', reports_path
+    
+    %h6 Administrative Functions
+    %p
+        = link_to 'Users', users_path
+        <br>    
+        = link_to 'Roles', roles_path
+        <br>
+        = link_to 'Help Requests', help_requests_path

@@ -5,6 +5,6 @@
         %ul.navbar-nav.mr-auto
             %li.navbar-item
                 = link_to 'Sign in with Google', login_path, :class => 'nav-link' if session[:user_id].nil?
-                = link_to 'Logout', logout_path, :class => 'nav-link' unless session[:user_id].nil? 
+                = link_to 'Logout', logout_path, :class => 'nav-link' unless session[:user_id].nil?
                 
                 
