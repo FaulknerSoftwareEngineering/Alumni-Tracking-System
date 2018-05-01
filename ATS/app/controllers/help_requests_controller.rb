@@ -16,7 +16,7 @@ class HelpRequestsController < ApplicationController
     mg_client = Mailgun::Client.new Rails.application.secrets.api_key
     mg_events = Mailgun::Events.new(mg_client, Rails.application.secrets.domain)
     message_params =  { from: email,
-                        to:   'christopher.smith@faulkner.edu',
+                        to:   'shammond@faulkner.edu',
                         subject: 'ATS Help Request',
                         text:    message
                       }
