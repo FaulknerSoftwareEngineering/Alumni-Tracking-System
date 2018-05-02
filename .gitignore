@@ -5,20 +5,20 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+ATS/.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
+ATS/db/*.sqlite3
+ATS/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*
-!/log/.keep
-/tmp
+ATS/log/*
+!ATS/log/.keep
+ATS/tmp
 
 #Ignore byebug history
 
-.byebug_history
+ATS/.byebug_history
 
 #Ignore secrets
-/config/secrets.yml
+ATS/config/secrets.yml
