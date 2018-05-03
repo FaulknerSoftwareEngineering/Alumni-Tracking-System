@@ -6,6 +6,8 @@
     = link_to 'Employers', employers_path
     <br>
     = link_to 'Universities', universities_path
+    <br>
+    = link_to 'Reports', reports_path
 %p
 - if @admin_visible
     %h6 Maintenance Functions
@@ -17,8 +19,7 @@
         = link_to 'Degrees', degrees_path
         <br>
         = link_to 'Degree Types', degree_types_path
-        <br>
-        = link_to 'Reports', reports_path
+        
     
     %h6 Administrative Functions
     %p
