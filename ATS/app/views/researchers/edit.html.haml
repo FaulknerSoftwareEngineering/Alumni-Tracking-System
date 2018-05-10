@@ -1,0 +1,43 @@
+%h2 Edit Researchers
+= form_tag researcher_path(@researcher), :method => :put do
+    
+    %h6= @researchertext[0].text_value
+    
+    %h4= @researchertext[1].text_value
+
+    %div{:class => 'form-group'}
+        = label :researcher, :name, @researchertext[2].text_value
+        = text_area :researcher, :name, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :researcher, :position, @researchertext[3].text_value
+        = text_area :researcher, :position, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :researcher, :email, @researchertext[4].text_value
+        = text_area :researcher, :email, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :researcher, :phone, @researchertext[5].text_value
+        = text_area :researcher, :phone, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :researcher, :department, @researchertext[6].text_value
+        = text_area :researcher, :department, :class => 'form-control'
+    
+    %div{:class => 'form-check'}
+        = radio_button :researcher, :researcher_type, "faculty", { :class => 'form-check-input', :value => 'faculty' }
+        = label :researcher, :researcher_type, @researchertext[7].text_value, :class => 'form-check-label'
+    
+    %div{:class => 'form-check'}
+        = radio_button :researcher, :researcher_type, "staff", { :class => 'form-check-input', :value => 'staff' }
+        = label :researcher, :researcher_type, @researchertext[8].text_value, :class => 'form-check-label'
+    
+    %div{:class => 'form-check'}
+        = radio_button :researcher, :researcher_type, "other", { :class => 'form-check-input', :value => 'other' }
+        = label :researcher, :researcher_type, @researchertext[9].text_value, :class => 'form-check-label'
+    
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'
+    
+    

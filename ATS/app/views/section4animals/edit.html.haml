@@ -1,0 +1,47 @@
+%h2 Edit Section 4
+= form_tag section4animal_path(@section4animal), :method => :put do
+
+    %div{:class => 'form-group'}
+        = label :section4animal, :what_data, @section4animaltext[0].text_value
+        = text_area :section4animal, :what_data, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section4animal, :location_organization_data_collection, @section4animaltext[1].text_value
+        = text_area :section4animal, :location_organization_data_collection, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4animal, :procedures_of_data_collection, @section4animaltext[2].text_value
+        = text_area :section4animal, :procedures_of_data_collection, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4animal, :period_of_data_collection, @section4animaltext[3].text_value
+        = text_area :section4animal, :period_of_data_collection, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section4animal, :data_collection_instruments, @section4animaltext[4].text_value
+        = text_area :section4animal, :data_collection_instruments, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4animal, :data_stored_how, @section4animaltext[5].text_value
+        = text_area :section4animal, :data_stored_how, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4animal, :length_of_data_retention, @section4animaltext[6].text_value
+        = text_area :section4animal, :length_of_data_retention, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section4animal, :who_has_data_access, @section4animaltext[7].text_value
+        = text_area :section4animal, :who_has_data_access, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4animal, :analysis_methods, @section4animaltext[8].text_value
+        = text_area :section4animal, :analysis_methods, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4animal, :results_desseminated, @section4animaltext[9].text_value
+        = text_area :section4animal, :results_desseminated, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'
+    
+    

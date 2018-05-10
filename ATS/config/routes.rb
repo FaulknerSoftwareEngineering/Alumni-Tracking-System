@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #get 'welcome/index'
 
- root 'welcome#index'
+ root 'index#index'
  
  #generate user routes
  resources :users
@@ -16,6 +16,24 @@ Rails.application.routes.draw do
 end
  resources :degree_types
  resources :help_requests
+ resources :welcome
+ 
+ #IRB form system
+ resources :forms
+ resources :section1s
+ resources :section2s
+ resources :section3s
+ resources :section3animals
+ resources :section4s
+ resources :section4animals
+ resources :section5s
+ resources :researchers
+ 
+ match '/form/generateForm', to: 'forms#generateForm', via: [:all], as: :generate_form
+ match '/form/addResearcher/:form', to: 'forms#addResearcher', via: [:all], as: :add_researcher
+ match '/researcher/showFormResearchers/:form', to: 'researchers#showFormResearchers', via: [:all], as: :show_form_researchers
+ #end of routes for IRB form system
+
 
 # For testing college/department/degree partials
 #begin

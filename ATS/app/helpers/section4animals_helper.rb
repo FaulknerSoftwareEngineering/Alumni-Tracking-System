@@ -1,0 +1,2 @@
+module Section4animalsHelper
+end
