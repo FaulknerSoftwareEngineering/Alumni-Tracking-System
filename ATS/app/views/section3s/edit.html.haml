@@ -1,0 +1,105 @@
+%h2 Edit Section 3
+= form_tag section3_path(@section3), :method => :put do
+    -#TODO: For some reason this form generates an error on submission because the HTTP verb is POST, instead of PUT.
+    -#Line 2 defines the HTTP verb as PUT, and this form appears to be defined the same as section1, section2, section3animal, etc.
+    %div{:class => 'form-group'}
+        = label :section3, :intended_population_characteristics, @section3text[0].text_value
+        = text_area :section3, :intended_population_characteristics, :class => 'form-control'
+    
+    %h6= @section3text[1].text_value
+    %div{:class => 'form-check'}
+        = radio_button :section3, :students_or_employees_recruited, "Students", { :class => 'form-check-input', :value => 'students' }
+        = label :section3, :students_or_employees_recruited, @section3text[2].text_value, :class => 'form-check-label'
+    
+    %div{:class => 'form-check'}
+        = radio_button :section3, :students_or_employees_recruited, "Employees", { :class => 'form-check-input', :value => 'employees' }
+        = label :section3, :students_or_employees_recruited, @section3text[3].text_value, :class => 'form-check-label'
+    
+    %div{:class => 'form-check'}
+        = radio_button :section3, :students_or_employees_recruited, "Neither", { :class => 'form-check-input', :value => 'neither' }
+        = label :section3, :students_or_employees_recruited, @section3text[4].text_value, :class => 'form-check-label'    
+    
+    %h6= @section3text[5].text_value
+    
+    %div{:class => 'form-group'}
+        = label :section3, :min_participants, @section3text[6].text_value
+        = number_field(:section3, :min_participants, :class => 'form-control')
+        
+    %div{:class => 'form-group'}
+        = label :section3, :max_participants, @section3text[7].text_value
+        = number_field(:section3, :max_participants, :class => 'form-control')
+    
+    %h6= @section3text[8].text_value
+    
+    %div{:class => 'form-check'}
+        = radio_button :section3, :vulnerable_groups, @section3text[9].text_value, { :class => 'form-check-input', :value => @section3text[9].text_value }
+        = label :section3, :vulnerable_groups, @section3text[9].text_value, :class => 'form-check-label'
+    
+    %div{:class => 'form-check'}
+        = radio_button :section3, :vulnerable_groups, @section3text[10].text_value, { :class => 'form-check-input', :value => @section3text[10].text_value }
+        = label :section3, :vulnerable_groups, @section3text[10].text_value, :class => 'form-check-label'
+    
+    %div{:class => 'form-check'}
+        = radio_button :section3, :vulnerable_groups, @section3text[11].text_value, { :class => 'form-check-input', :value => @section3text[11].text_value }
+        = label :section3, :vulnerable_groups, @section3text[11].text_value, :class => 'form-check-label'
+        
+    %div{:class => 'form-check'}
+        = radio_button :section3, :vulnerable_groups, @section3text[12].text_value, { :class => 'form-check-input', :value => @section3text[12].text_value }
+        = label :section3, :vulnerable_groups, @section3text[12].text_value, :class => 'form-check-label'   
+        
+    %div{:class => 'form-check'}
+        = radio_button :section3, :vulnerable_groups, @section3text[13].text_value, { :class => 'form-check-input', :value => @section3text[13].text_value }
+        = label :section3, :vulnerable_groups, @section3text[13].text_value, :class => 'form-check-label'   
+        
+    %div{:class => 'form-check'}
+        = radio_button :section3, :vulnerable_groups, @section3text[14].text_value, { :class => 'form-check-input', :value => @section3text[14].text_value }
+        = label :section3, :vulnerable_groups, @section3text[14].text_value, :class => 'form-check-label'   
+        
+    %div{:class => 'form-check'}
+        = radio_button :section3, :vulnerable_groups, @section3text[14].text_value, { :class => 'form-check-input', :value => @section3text[14].text_value }
+        = label :section3, :vulnerable_groups, @section3text[14].text_value, :class => 'form-check-label'   
+        
+    %div{:class => 'form-check'}
+        = radio_button :section3, :vulnerable_groups, @section3text[15].text_value, { :class => 'form-check-input', :value => @section3text[15].text_value }
+        = label :section3, :students_or_employees_recruited, @section3text[15].text_value, :class => 'form-check-label'   
+        
+    %div{:class => 'form-check'}
+        = radio_button :section3, :vulnerable_groups, @section3text[16].text_value, { :class => 'form-check-input', :value => @section3text[16].text_value }
+        = label :section3, :students_or_employees_recruited, @section3text[16].text_value, :class => 'form-check-label'   
+        
+    %div{:class => 'form-check'}
+        = radio_button :section3, :vulnerable_groups, @section3text[17].text_value, { :class => 'form-check-input', :value => @section3text[17].text_value }
+        = label :section3, :students_or_employees_recruited, @section3text[17].text_value, :class => 'form-check-label'  
+    
+    %div{:class => 'form-group'}
+        = label :section3, :vulnerable_groups_other, @section3text[18].text_value
+        = text_area :section3, :vulnerable_groups_other, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section3, :vulnerable_rationale, @section3text[19].text_value
+        = text_area :section3, :vulnerable_rationale, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section3, :protections_in_place, @section3text[20].text_value
+        = text_area :section3, :protections_in_place, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section3, :descr_of_all_risk, @section3text[21].text_value
+        = text_area :section3, :descr_of_all_risk, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section3, :descr_of_comp, @section3text[22].text_value
+        = text_area :section3, :descr_of_comp, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section3, :descr_selection_proc, @section3text[23].text_value
+        = text_area :section3, :descr_selection_proc, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section3, :assure_informed_consent, @section3text[24].text_value
+        = text_area :section3, :assure_informed_consent, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'
+    
+    

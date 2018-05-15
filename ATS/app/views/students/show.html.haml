@@ -28,15 +28,19 @@
  %li
   Address:
   = "#{@addresses.street_address} #{@addresses.city}, #{@addresses.state} #{@addresses.zip}" unless @addresses.blank?
+
 %ul#degrees
  %h4 
   Degrees
  - @earned_degrees.each do |earned|
-  %li
-   =" #{earned.degree_name}  #{earned.year_graduated}  #{earned.season}"
-   = link_to 'Delete Degree', delete_earned_degree_path(earned), :method => :delete
-   = link_to 'Edit Degree', edit_earned_degree_path(earned),:method => :get
- = render partial: 'shared/new_button', locals: {new_name: "Add Degree",path: student_add_earned_degree_path()}
+  %div
+  %li{:class => 'row'}
+   %div{:class => 'col-5'}
+    =" #{earned.degree_name}  #{earned.year_graduated}  #{earned.season}"
+   = link_to 'Delete Degree', delete_earned_degree_path(earned), :method => :delete, :class => 'col-2'
+   %div{:class => 'col-1'}
+   = link_to 'Edit degree', edit_earned_degree_path(earned),:method => :get, :class => 'col-2'
+ = render partial: 'shared/new_button', locals: {new_name: "Degree",path: student_add_earned_degree_path()}
  
  
 

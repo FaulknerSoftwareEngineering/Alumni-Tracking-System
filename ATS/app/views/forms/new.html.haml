@@ -1,0 +1,21 @@
+%h2 New IRB Form
+
+= form_for @form, url: forms_path, :method => :post do |f|
+
+    %div{:class => 'form-group'}
+        = label :form, :full_board, 'Project Name'
+        = f.text_field :project_name, :class => 'form-control'
+        
+    %div{:class => 'form-check'}
+        = f.radio_button :full_board, "Full Board", :class => 'form-check-input'
+        = label :form, :full_board, 'Full Board (greater than minimal risk to humans or non-human animals, use of hazardous materials, any greater than minimal risk to society or the environment)', :class => 'form-check-label'
+        
+        = f.radio_button :expedited_review, "Expedited Review", :class => 'form-check-input'
+        = label :form, :full_board, 'Expedited Review (less than minimal risk to humans, non-human animals, and the environment)', :class => 'form-check-label'
+        
+        = f.radio_button :exempt_review, "Exempt Review", :class => 'form-check-input'
+        = label :form, :full_board, '(no risk to humans, non-human animals, society, or the environment)', :class => 'form-check-label'
+    
+    = f.submit "Submit"
+    
+    

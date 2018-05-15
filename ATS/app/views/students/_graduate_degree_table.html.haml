@@ -10,6 +10,7 @@
       %th Type
       %th Applied
       %th Accepted
+      %th Graduated
       %th Status
       %th Edit
       %th Delete
@@ -21,6 +22,7 @@
         %td= grad_degrees.degree_type
         %td= grad_degrees.applied
         %td= grad_degrees.accepted
+        %td= grad_degrees.graduated
         %td= grad_degrees.status
         %td= link_to 'Delete Grad School', delete_grad_school_path(grad_degrees), :method => :delete
         %td= link_to 'Edit Grad School', edit_grad_school_path(grad_degrees),:method => :get

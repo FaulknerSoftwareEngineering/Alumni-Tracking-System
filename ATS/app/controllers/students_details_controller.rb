@@ -21,6 +21,7 @@ end
 def grad_schools_params
   params.require(:grad_schools).permit(
     :applied,
+    :graduated,
     :accepted,
     :status,
     :higher_degree_type,

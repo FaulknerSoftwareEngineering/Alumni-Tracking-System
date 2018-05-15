@@ -11,6 +11,8 @@ class Student < ActiveRecord::Base
     has_many :degrees, :through => :earned_degrees
     has_many :addresses, dependent: :destroy
     has_many :earned_degrees, dependent: :destroy
+    validates :first_name, :presence => true;
+    validates :last_name, :presence => true;
     
     def self.accessible_students(role, user)
         if !(Rails.env.development? || Rails.env.test?)
@@ -46,7 +48,6 @@ class Student < ActiveRecord::Base
     end
     
     
-    validates :first_name, :presence => true;
-    validates :last_name, :presence => true;
+    
     
 end

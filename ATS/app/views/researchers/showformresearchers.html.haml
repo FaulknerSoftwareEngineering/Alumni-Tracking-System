@@ -1,0 +1,28 @@
+-# Ethan Widen - 2/25/18
+%h1 Researchers
+#flash-display
+    - flash.each do |type, msg|
+        %div{:class => "alert alert-#{type == :notice ? "success" : type} fadeout", "data-dismiss" => "alert"}
+            %button.close &times;
+            = msg if msg.is_a?(String)
+%table#forms.table
+    %thead
+        %tr
+            %th Name
+            %th Position
+            %th Email
+            %th Type
+            %th Edit Researcher
+    %tbody
+        - @researchers.each do|researcher|
+            %tr
+                %td= researcher.name
+                %td= researcher.position
+                %td= researcher.email
+                %td= researcher.investigator_type
+                %td= link_to "Edit", edit_researcher_path(researcher)
+
+%p        
+    = link_to 'Add Researcher', add_researcher_url(@form)
+%p
+    = link_to 'Return to all forms', forms_path

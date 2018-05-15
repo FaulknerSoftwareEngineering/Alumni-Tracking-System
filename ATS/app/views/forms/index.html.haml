@@ -1,0 +1,32 @@
+-# Ethan Widen - 2/25/18
+%h1 All IRB forms
+%table#forms.table
+    %thead
+        %tr
+            %th Project Name
+            %th Approval Type
+            %th Human IRB Form?
+            %th Edit Section 1
+            %th Edit Section 2
+            %th Edit Section 3
+            %th Edit Section 4
+            %th Edit Section 5
+            %th Edit Researchers
+    %tbody
+        - @forms.each do|form|
+        - section1 = form.section1
+            %tr
+                %td= section1.project_name
+                %td= section1.approval_type
+                %td= form.human
+                %td= link_to "Edit", edit_section1_path(form.section1)
+                %td= link_to "Edit", edit_section2_path(form.section2)
+                %td= link_to "Edit", form.human == true ? edit_section3_path(form.section3) : edit_section3animal_path(form.section3animal)
+                %td= link_to "Edit", form.human == true ? edit_section4_path(form.section4) : edit_section4animal_path(form.section4animal)
+                %td= link_to "Edit", edit_section5_path(form.section5)
+                %td= link_to "Edit", show_form_researchers_path(form)
+
+%p        
+    = link_to 'New Human IRB Form', generate_form_path({human: true})
+%p
+    = link_to 'New Non-Human Animal IRB Form', generate_form_path({human: false})
