@@ -1,0 +1,19 @@
+%h2 Edit Section 5
+= form_tag section5_path(@section5), :method => :put do
+
+    %div{:class => 'form-group'}
+        = label :section5, :sources_of_funding, @section5text[0].text_value
+        = text_area :section5, :sources_of_funding, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section5, :researcher_competency, @section5text[1].text_value
+        = text_area :section5, :researcher_competency, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section5, :irb_comments, @section5text[2].text_value
+        = text_area :section5, :irb_comments, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'
+    
+    

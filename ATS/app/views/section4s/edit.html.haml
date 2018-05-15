@@ -1,0 +1,56 @@
+%h2 Edit Section 4
+= form_tag section4_path(@section4), :method => :put do
+
+    %div{:class => 'form-group'}
+        = label :section4, :data_collection_proc, @section4text[0].text_value
+        = text_area :section4, :data_collection_proc, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section4, :location_organization_data_collection, @section4text[1].text_value
+        = text_area :section4, :location_organization_data_collection, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4, :data_to_be_collected, @section4text[2].text_value
+        = text_area :section4, :data_to_be_collected, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4, :period_of_data_collection, @section4text[3].text_value
+        = text_area :section4, :period_of_data_collection, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section4, :prospective_or_retrospective, @section4text[4].text_value
+        = text_area :section4, :prospective_or_retrospective, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4, :anonymous_data, @section4text[5].text_value
+        = text_area :section4, :anonymous_data, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4, :data_collection_instruments, @section4text[6].text_value
+        = text_area :section4, :data_collection_instruments, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section4, :data_stored_how, @section4text[7].text_value
+        = text_area :section4, :data_stored_how, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4, :length_of_data_retention, @section4text[8].text_value
+        = text_area :section4, :length_of_data_retention, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section4, :who_has_data_access, @section4text[9].text_value
+        = text_area :section4, :who_has_data_access, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section4, :analysis_methods, @section4text[10].text_value
+        = text_area :section4, :analysis_methods, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section4, :results_desseminated, @section4text[11].text_value
+        = text_area :section4, :results_desseminated, :class => 'form-control'
+    
+        
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'
+    
+    

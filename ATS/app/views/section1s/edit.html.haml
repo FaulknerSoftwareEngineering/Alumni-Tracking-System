@@ -1,0 +1,36 @@
+%h2 Edit Section 1
+= form_tag section1_path(@section1), :method => :put do
+
+    %div{:class => 'form-group'}
+        = label :section1, :project_name, @section1text[0].text_value
+        = text_field :section1, :project_name, :class => 'form-control'
+    
+    %p
+        = @section1text[1].text_value
+    
+    %div{:class => 'form-check'}
+        = radio_button :section1, :approval_type, "Full Board", { :class => 'form-check-input', :value => 'full' }
+        = label :section1, :approval_type, @section1text[2].text_value, :class => 'form-check-label'
+    
+    %div{:class => 'form-check'}
+        = radio_button :section1, :approval_type, "Expedited Review", { :class => 'form-check-input', :value => 'expedited' }
+        = label :section1, :approval_type, @section1text[3].text_value, :class => 'form-check-label'
+    
+    %div{:class => 'form-check'}
+        = radio_button :section1, :approval_type, "Exempt Review", { :class => 'form-check-input', :value => 'exempt' }
+        = label :section1, :approval_type, @section1text[4].text_value, :class => 'form-check-label'
+        
+    %div{:class => 'form-check'}
+        = radio_button :section1, :approval_type, "Courtesy Review", { :class => 'form-check-input', :value => 'courtesy' }
+        = label :section1, :approval_type, @section1text[5].text_value, :class => 'form-check-label'
+    
+    %div{:class => 'form-group'}
+        = label :section1, :expedited_or_exempt_review_just, @section1text[6].text_value
+        = text_area :section1, :expedited_or_exempt_review_just, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'
+        
+= link_to 'Next Section', edit_section2_path(@section2)
+    
+    

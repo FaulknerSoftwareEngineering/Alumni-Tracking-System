@@ -1,0 +1,19 @@
+%h2 Edit Section 2
+= form_tag section2_path(@section2), :method => :put do
+
+    %div{:class => 'form-group'}
+        = label :section2, :abstract_summary, @section2text[0].text_value
+        = text_area :section2, :abstract_summary, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section2, :purpose, @section2text[1].text_value
+        = text_area :section2, :purpose, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section2, :content_area, @section2text[2].text_value
+        = text_area :section2, :content_area, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'
+    
+    

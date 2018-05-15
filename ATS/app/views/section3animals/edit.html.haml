@@ -1,0 +1,43 @@
+%h2 Edit Section 3
+= form_tag section3animal_path(@section3animal), :method => :put do
+
+    %div{:class => 'form-group'}
+        = label :section3animal, :describe_animals, @section3animaltext[0].text_value
+        = text_area :section3animal, :describe_animals, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section3animal, :housing_and_transport, @section3animaltext[1].text_value
+        = text_area :section3animal, :housing_and_transport, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section3animal, :ethical_care_in_altered_conditions, @section3animaltext[2].text_value
+        = text_area :section3animal, :ethical_care_in_altered_conditions, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section3animal, :protect_humans, @section3animaltext[3].text_value
+        = text_area :section3animal, :protect_humans, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section3animal, :justification_for_animals, @section3animaltext[4].text_value
+        = text_area :section3animal, :justification_for_animals, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section3animal, :foreseen_pain, @section3animaltext[5].text_value
+        = text_area :section3animal, :foreseen_pain, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section3animal, :animals_after_study, @section3animaltext[6].text_value
+        = text_area :section3animal, :animals_after_study, :class => 'form-control'
+    
+    %div{:class => 'form-group'}
+        = label :section3animal, :veterinarian_present, @section3animaltext[7].text_value
+        = text_area :section3animal, :veterinarian_present, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = label :section3animal, :other_helpful_info, @section3animaltext[8].text_value
+        = text_area :section3animal, :other_helpful_info, :class => 'form-control'
+        
+    %div{:class => 'form-group'}
+        = submit_tag "Submit", :class => 'btn btn-primary'
+    
+    

@@ -58,7 +58,6 @@ class DegreesController < ApplicationController
   end
 
   def update
-    #byebug
     @degree = Degree.find params[:id]
     #@degree.department=(Department.find(params[:department_id]))
     if @degree.update_attributes(degree_params)
@@ -67,7 +66,6 @@ class DegreesController < ApplicationController
     else
       render 'edit'
     end
-    #byebug
   end
 
   def destroy
