@@ -12,6 +12,10 @@
     = check_box("grad_schools","accepted",{:checked => @grad_schools.accepted} ,"true","false")
     
 %div{:class => 'form-group'}
+    = label :grad_schools, :graduated, 'Graduated?'
+    = check_box("grad_schools","graduated",{:checked => @grad_schools.graduated} ,"true","false")
+    
+%div{:class => 'form-group'}
     = label :grad_schools, :status, 'Status'
     = text_field :grad_schools, :status, :class => 'form-control'
 
@@ -21,4 +25,4 @@
     = collection_select(:grad_schools, :higher_degree_type, DegreeType.all.order(:name), :id, :name)
 %div{:class => 'form-group'}
     = label :grad_schools, :higher_degree_name, 'Degree Name'
-    = text_field :grad_schools, :higher_degree_name, :class => 'form-control'
+    = text_field :grad_schools, :higher_degree_name,:required => true, :class => 'form-control'

@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20180510023722) do
+
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_address"
@@ -123,6 +125,7 @@ ActiveRecord::Schema.define(version: 20180510023722) do
     t.integer  "university_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.boolean  "graduated"
   end
 
   add_index "grad_schools", ["student_id"], name: "index_grad_schools_on_student_id"
