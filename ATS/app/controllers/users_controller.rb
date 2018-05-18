@@ -15,7 +15,8 @@ class UsersController < ApplicationController
             :google_id,
             :role,
             :colleges,
-            :departments
+            :departments,
+            :irb_user
             )
     end
 

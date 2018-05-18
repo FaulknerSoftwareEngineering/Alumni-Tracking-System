@@ -45,6 +45,7 @@ gem 'haml'
 #Google API Client
 gem 'google-api-client'
 gem 'omniauth-google-oauth2'
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 #ODF-Reports
 gem 'odf-report'
