@@ -5,13 +5,17 @@ Rails.application.configure do
   
   # SMTP settings for mailgun
   ActionMailer::Base.smtp_settings = {
-    :port           => 587,
-    :address        => "smtp.mailgun.org",
-    :domain         => Rails.application.secrets.domain,
-    :user_name      => Rails.application.secrets.username,
-    :password       => Rails.application.secrets.password,
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :domain         => ENV['faulkner-ats'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
     :authentication => :plain,
   }
+  config.action_mailer.default_url_options = {:host => 'https://faulkner-ats.herokuapp.com/'}
+  config.action_mailer.asset_host = 'https://faulkner-ats.herokuapp.com'
+  config.action_controller.asset_host = 'https://faulkner-ats.herokuapp.com'
+  
   config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
   # Code is not reloaded between requests.
