@@ -58,14 +58,13 @@ gem 'mail', '~> 2.6', '>= 2.6.4'
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'figaro'
 
-<<<<<<< HEAD
+
 #look a soruce of time zone data
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
-=======
 # chart library
 gem 'chartkick'
->>>>>>> add charts to the instituational_research section
+
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
