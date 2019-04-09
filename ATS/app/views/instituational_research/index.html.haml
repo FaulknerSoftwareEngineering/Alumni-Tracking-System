@@ -1,0 +1,11 @@
+-# Ian Chen - 4/09/2019
+-# the documennation about chart is on https://chartkick.com
+%h1 Charts
+%br
+%br
+%h3 Alumni locations
+= pie_chart Address.group(:state).count
+%br
+%br
+%h3 Admin
+= column_chart User.group(:role_id).count

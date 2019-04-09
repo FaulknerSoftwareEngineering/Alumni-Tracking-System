@@ -235,7 +235,7 @@ Research projects funded by “any department, agency, or instrumentality of the
     [5, 0, "Financial and Conflicts of Interest
 List any and all sources of funding for the project, any forms of remuneration to researchers, assistants, or others involved in the research, and any potential financial or other possible conflicts of interests whether financial, personal, or otherwise.  Copies of grant approvals or other relevant documentation may be included as an appendix. "],
     [5, 1, "Qualifications of Researchers
-Ethical and federal guidelines require researchers to be competent in the principles of the research they conduct or oversee.  Faculty members with coursework in research ethics and methods and/or who are qualified to teach such generally meet this requirement.  Students taking or having completed such a course may meet this requirement under supervision of the qualified faculty advisor.  Researchers completing an approved training course will meet this requirement in most cases.  See some examples at:  OLAW-EDUCATION for guidance and available resources.   Please provide assurance below regarding the competency of the P.I. and other researchers to conduct research, including that with non-human animal subjects.  Researchers conducting specialized research areas may also be required to verify competency in the specialized area. "],
+Ethical and federal guidelines require rsesearchers to be competent in the principles of the research they conduct or oversee.  Faculty members with coursework in research ethics and methods and/or who are qualified to teach such generally meet this requirement.  Students taking or having completed such a course may meet this requirement under supervision of the qualified faculty advisor.  Researchers completing an approved training course will meet this requirement in most cases.  See some examples at:  OLAW-EDUCATION for guidance and available resources.   Please provide assurance below regarding the competency of the P.I. and other researchers to conduct research, including that with non-human animal subjects.  Researchers conducting specialized research areas may also be required to verify competency in the specialized area. "],
     [5, 2, "IRB member comments / suggestions:"],
     
     [6, 0, "By signing this application, I/we agree that all information contained herein is true and correct to the best of my/our knowledge.  All applicable information has been disclosed.  Further, assurance is given that research will conducted only within the approval guidelines and parameters, and that all ethical, moral, legal, and discipline specific expectations of conduct will be followed.  Should any relevant portion of the research approval need to be changed, a revised approval will be sought before conducting or continuing research.  
@@ -412,6 +412,28 @@ if Rails.env.development? || Rails.env.test?
 	{first_name: 'Halla', middle_name: 'Booth', last_name: 'Mcintosh', primary_email: 'faucibus@infaucibus.edu', secondary_email: 'pede.Suspendisse.dui@orci.co.uk', cell_number: '1-301-553-5378', work_number: '1-944-533-1557', home_number: '1-618-639-9246', tracked: ' False'}
 	];
 	Student.create(students)
+    
+    addresses = [
+    {street_address: '', city: '', state: 'AL', zip: 46109, country: '', student_id: 27},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 45},
+    {street_address: '', city: '', state: 'FL', zip: 32229, country: '', student_id: 49},
+    {street_address: '', city: '', state: 'TX', zip: 36109, country: '', student_id: 45},
+    {street_address: '', city: '', state: 'FL', zip: 36209, country: '', student_id: 69},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 19},
+    {street_address: '', city: '', state: 'FL', zip: 36109, country: '', student_id: 6},
+    {street_address: '', city: '', state: 'AL', zip: 32209, country: '', student_id: 79},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 41},
+    {street_address: '', city: '', state: 'GA', zip: 36109, country: '', student_id: 12},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 11},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 56},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 34},
+    {street_address: '', city: '', state: 'GA', zip: 46109, country: '', student_id: 18},
+    {street_address: '', city: '', state: 'TN', zip: 36109, country: '', student_id: 75},
+    {street_address: '', city: '', state: 'TN', zip: 35439, country: '', student_id: 31},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 52},
+    {street_address: '', city: '', state: 'GA', zip: 36109, country: '', student_id: 31}
+    ];
+    Address.create(addresses)
 
 =begin
 	colleges = College.create([{name: 'Arts and Sciences'}, {name: 'Business'}])

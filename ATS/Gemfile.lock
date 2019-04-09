@@ -65,6 +65,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
+    chartkick (3.0.2)
     choice (0.2.0)
     chronic (0.10.2)
     churn (0.0.35)
@@ -416,6 +417,7 @@ DEPENDENCIES
   ZenTest (= 4.11.0)
   bootstrap (~> 4.0.0)
   byebug
+  chartkick
   coffee-rails (~> 4.1.0)
   cucumber-rails
   cucumber-rails-training-wheels
@@ -451,4 +453,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.16.1
+   1.17.3
