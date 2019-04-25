@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-ruby '2.3.0'
+ruby '2.6.0'
 gem 'rails', '4.2.10'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -65,7 +65,7 @@ group :development, :test do
   gem 'database_cleaner', '1.4.1'
   gem 'launchy'
   gem 'rspec-rails'
-  gem 'ZenTest', '4.11.0'
+  #gem 'ZenTest', '4.11.0'
   gem 'rails-erd'
   gem 'metric_fu'
 end
