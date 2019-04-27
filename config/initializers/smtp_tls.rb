@@ -40,7 +40,7 @@ Net::SMTP.class_eval do
 			if @esmtp
 				ehlo helodomain
 			else
-				helo helodomain
+				ehlo helodomain
 			end
 		rescue Net::ProtocolError
 			if @esmtp
