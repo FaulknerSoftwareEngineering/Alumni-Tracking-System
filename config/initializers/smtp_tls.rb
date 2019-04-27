@@ -13,8 +13,7 @@ Net::SMTP.class_eval do
 		@socket.debug_output = STDERR #@debug_output
 
 		check_response(critical { recv_response() })
-		do_helo(helodomain)
-
+		
 		raise 'openssl library not installed' unless defined?(OpenSSL)
 		starttls
 		ssl = OpenSSL::SSL::SSLSocket.new(sock)
@@ -23,8 +22,7 @@ Net::SMTP.class_eval do
 		@socket = Net::InternetMessageIO.new(ssl)
 		@socket.read_timeout = 60 #@read_timeout
 		@socket.debug_output = STDERR #@debug_output
-		do_helo(helodomain)
-
+		
 		authenticate user, secret, authtype if user
 		@started = true
 	ensure
@@ -32,23 +30,6 @@ Net::SMTP.class_eval do
 			# authentication failed, cancel connection.
 			@socket.close if not @started and @socket and not @socket.closed?
 			@socket = nil
-		end
-	end
-
-	def do_helo(helodomain)
-		begin
-			if @esmtp
-				ehlo helodomain
-			else
-				ehlo helodomain
-			end
-		rescue Net::ProtocolError
-			if @esmtp
-				@esmtp = false
-				@error_occured = false
-				retry
-			end
-			raise
 		end
 	end
 
