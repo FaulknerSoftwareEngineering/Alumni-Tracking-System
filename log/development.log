@@ -3763,3 +3763,31 @@ Processing by IndexController#index as HTML
   Rendered shared/_help_dialog.html.erb (0.3ms)
   Rendered shared/_footer.html.haml (0.0ms)
 Completed 200 OK in 53ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /Users/danilo/.rvm/gems/ruby-2.6.0/gems/activerecord-5.0.7.2/lib/active_record/railtie.rb:113)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block in execute at /Users/danilo/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273)
+  [1m[35m (19.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (18.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5491561924075512810);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEmployers (20180220200435)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEmployers < ActiveRecord::Migration[4.2] (called from block in execute at /Users/danilo/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273)
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "employers" ("id" serial primary key, "name" character varying, "number" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180220200435"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDegrees (20180220200457)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateDegrees < ActiveRecord::Migration[4.2] (called from block in execute at /Users/danilo/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273)
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "degrees" ("id" serial primary key, "name" character varying, "department_id" integer, "degree_type_id" integer, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_degrees_on_department_id" ON "degrees"  ("department_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_degrees_on_degree_type_id" ON "degrees"  ("degree_type_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "degrees" ADD CONSTRAINT "fk_rails_2bf7ec1992"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5491561924075512810)[0m
