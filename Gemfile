@@ -83,7 +83,8 @@ group :development do
   gem 'spring'
 end
 
+gem 'pg', '~> 0.21.0'
+
 group :production do
-  gem 'pg', '~> 0.21.0'
   gem 'rails_12factor'
 end
