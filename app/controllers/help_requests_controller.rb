@@ -12,8 +12,21 @@ class HelpRequestsController < ApplicationController
   def contact_support
     message = params[:message]
     email = params[:email]
+    
+    msgstr = "
+    From: Your Name <you@gmail.com>
+    To: Destination Address <yourfriend@gmail.com>
+    Subject: test message
+    Date: #{Time.now.rfc2822}
 
-    ContactMailer.help_request(message, email).deliver
+    test message body"
+
+    Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+    Net::SMTP.start("smtp.gmail.com", "587", ENV['GMAIL_SMTP_USER'], ENV['GMAIL_SMTP_USER'], ENV['GMAIL_SMTP_PASSWORD'], :plain) do |smtp|
+      smtp.send_message msgstr, "danilo.aparecido.santos@gmail.com", "danilo.aparecido.santos@gmail.com"
+    end
+
+    #ContactMailer.help_request(message, email).deliver
 
     HelpRequest.create(email: email, message: message)
     render(:text => result['message'])
