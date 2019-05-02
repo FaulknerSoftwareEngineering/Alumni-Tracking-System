@@ -13,7 +13,6 @@
                 %td= university.name
                 %td= link_to "Edit #{university.name}", edit_university_path(university)
                 
-%p
+%div
     = render partial: 'shared/new_button', locals: {new_name: "University", path: new_university_path}
-%p
     = render partial: 'shared/home_page_button'
