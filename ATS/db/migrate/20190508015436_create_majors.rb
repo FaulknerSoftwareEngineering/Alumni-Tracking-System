@@ -15,5 +15,14 @@ class CreateMajors < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+		add_index :majors, :student_id if !index_exists?(:student_remedials, :student_id)
+		add_foreign_key :majors, :students
+	
   end
+  
+  def down
+		remove_index :majors, :student_id
+    remove_foreign_key :majors, :students
+  end
+  
 end

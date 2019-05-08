@@ -23,5 +23,14 @@ class CreateStudentDetails < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+		add_index :student_details, :student_id if !index_exists?(:student_remedials, :student_id)
+		add_foreign_key :student_details, :students
+	
   end
+  
+  def down
+		remove_index :student_details, :student_id
+    remove_foreign_key :student_details, :students
+  end
+	
 end

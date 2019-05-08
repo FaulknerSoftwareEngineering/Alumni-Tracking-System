@@ -12,5 +12,14 @@ class CreateHighSchools < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+		add_index :high_schools, :student_id if !index_exists?(:student_remedials, :student_id)
+		add_foreign_key :high_schools, :students
+	
   end
+  
+  def down
+		remove_index :high_schools, :student_id
+    remove_foreign_key :high_schools, :students
+  end
+  
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515193535) do
+ActiveRecord::Schema.define(version: 20190508015436) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_address"
@@ -25,6 +25,33 @@ ActiveRecord::Schema.define(version: 20180515193535) do
   end
 
   add_index "addresses", ["student_id"], name: "index_addresses_on_student_id"
+
+  create_table "athletes", force: :cascade do |t|
+    t.boolean  "baseball"
+    t.boolean  "basketball"
+    t.boolean  "cheerleader"
+    t.boolean  "football"
+    t.boolean  "golf"
+    t.boolean  "soccer"
+    t.boolean  "softball"
+    t.boolean  "volleyball"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "attendances", force: :cascade do |t|
+    t.string   "current"
+    t.date     "effective"
+    t.string   "firstYear"
+    t.string   "firstTermUndergrad"
+    t.string   "attendanceUndergrad"
+    t.boolean  "termOfficalUndergrad"
+    t.string   "firstTermGraduate"
+    t.string   "attendanceGraduate"
+    t.boolean  "termOfficialGraduate"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
@@ -134,6 +161,35 @@ ActiveRecord::Schema.define(version: 20180515193535) do
     t.text     "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "high_schools", force: :cascade do |t|
+    t.string   "ceebHS"
+    t.string   "nameHS"
+    t.string   "typeHS"
+    t.string   "gpaHS"
+    t.integer  "percentageHS", limit: 2
+    t.integer  "rankHS",       limit: 2
+    t.integer  "sizeHS",       limit: 2
+    t.string   "gradYearHS"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "majors", force: :cascade do |t|
+    t.string   "majorType"
+    t.string   "majorFullName"
+    t.string   "advisor"
+    t.string   "majorShortName"
+    t.string   "assocMajor"
+    t.string   "undergradMajorOne"
+    t.string   "undergradMajorTwo"
+    t.string   "undergradMajorThree"
+    t.string   "undergradMinorOne"
+    t.string   "undergradMinorTwo"
+    t.string   "graduateMajor"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "researchers", force: :cascade do |t|
@@ -270,11 +326,131 @@ ActiveRecord::Schema.define(version: 20180515193535) do
 
   add_index "section5s", ["form_id"], name: "index_section5s_on_form_id"
 
+  create_table "standardized_tests", force: :cascade do |t|
+    t.integer  "convertedACT", limit: 1
+    t.integer  "compositeACT", limit: 1
+    t.boolean  "officialACT"
+    t.integer  "englishACT",   limit: 1
+    t.integer  "mathACT",      limit: 1
+    t.integer  "socialACT",    limit: 1
+    t.integer  "naturalACT",   limit: 1
+    t.integer  "toefl",        limit: 2
+    t.integer  "gre",          limit: 2
+    t.integer  "gmat",         limit: 2
+    t.integer  "mat",          limit: 2
+    t.integer  "lsat",         limit: 2
+    t.integer  "compositeSAT", limit: 2
+    t.boolean  "officialSAT"
+    t.integer  "mathSAT",      limit: 2
+    t.integer  "readingSAT",   limit: 2
+    t.integer  "writingSAT",   limit: 2
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "student_addresses", force: :cascade do |t|
+    t.string   "streetAddressOne"
+    t.string   "streetAddressTwo"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "countryID"
+    t.string   "originCountryID"
+    t.string   "originState"
+    t.string   "originCountyID"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "student_details", force: :cascade do |t|
+    t.string   "sex"
+    t.string   "maritalStatus"
+    t.boolean  "usCitizen"
+    t.string   "citizenship"
+    t.string   "ethnicity"
+    t.string   "race"
+    t.boolean  "athlete"
+    t.date     "dateOfBirth"
+    t.string   "primaryEmail"
+    t.boolean  "deceased"
+    t.string   "churchType"
+    t.boolean  "graduated"
+    t.string   "firstName"
+    t.string   "middleName"
+    t.string   "lastName"
+    t.string   "preferredName"
+    t.string   "title"
+    t.string   "suffix"
+    t.string   "level"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "student_hours", force: :cascade do |t|
+    t.decimal  "jslHoursAttempted"
+    t.decimal  "jslHoursCompleted"
+    t.decimal  "jslQualityHours"
+    t.decimal  "jslQualityPoints"
+    t.string   "doctorateMajor"
+    t.decimal  "gradHoursAttempted"
+    t.decimal  "gradHoursCompleted"
+    t.decimal  "gradQualityHours"
+    t.decimal  "gradQualityPoints"
+    t.boolean  "transient"
+    t.boolean  "transfer"
+    t.decimal  "undergradTransferQualityHours"
+    t.decimal  "undergradTransferQualityPoints"
+    t.decimal  "undergradSemesterHoursAttempted"
+    t.decimal  "undergradSemesterHoursCompleted"
+    t.decimal  "undergradQualityHours"
+    t.decimal  "undergradQualityPoints"
+    t.integer  "currentHours"
+    t.date     "expectedDegreeDate"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  create_table "student_housings", force: :cascade do |t|
+    t.string   "campus"
+    t.string   "program"
+    t.string   "housingType"
+    t.string   "housingID"
+    t.string   "roomNumber"
+    t.string   "mealPlan"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "student_remedials", force: :cascade do |t|
+    t.boolean  "remedial0301"
+    t.boolean  "remedial0302"
+    t.boolean  "remedial0305"
+    t.boolean  "remedial1335"
+    t.boolean  "remedial1300"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "student_tuitions", force: :cascade do |t|
+    t.boolean  "tuitionAssistance"
+    t.string   "source"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "student_universities", id: false, force: :cascade do |t|
     t.integer  "student_id"
     t.integer  "university_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "student_veterans", force: :cascade do |t|
+    t.boolean  "veteran"
+    t.string   "chapter"
+    t.integer  "percent",    limit: 2
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "students", force: :cascade do |t|

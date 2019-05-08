@@ -16,12 +16,22 @@ class CreateStudentHours < ActiveRecord::Migration
       t.decimal :undergradTransferQualityPoints
       t.decimal :undergradSemesterHoursAttempted
       t.decimal :undergradSemesterHoursCompleted
-	  t.decimal :undergradQualityHours
+			t.decimal :undergradQualityHours
       t.decimal :undergradQualityPoints
       t.integer :currentHours
       t.date :expectedDegreeDate
 
       t.timestamps null: false
     end
+	
+		add_index :student_hours, :student_id if !index_exists?(:student_tuitions, :student_id)
+    add_foreign_key :student_hours, :students
+  
   end
+  
+  def down
+    remove_index :student_hours, :student_id
+    remove_foreign_key :student_hours, :students
+  end
+  
 end

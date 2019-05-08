@@ -8,5 +8,15 @@ class CreateStudentRemedials < ActiveRecord::Migration
 		t.boolean :remedial1300
 		t.timestamps null: false
     end
+	
+		add_index :student_remedials, :student_id if !index_exists?(:student_remedials, :student_id)
+		add_foreign_key :student_remedials, :students
+	
   end
+  
+  def down
+		remove_index :student_remedials, :student_id
+    remove_foreign_key :student_remedials, :students
+  end
+  
 end

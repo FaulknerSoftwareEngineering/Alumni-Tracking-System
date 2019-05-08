@@ -12,6 +12,16 @@ class CreateAttendances < ActiveRecord::Migration
       t.boolean :termOfficialGraduate
 
       t.timestamps null: false
-    end
+		end
+		
+		add_index :attendances, :student_id if !index_exists?(:student_tuitions, :student_id)
+    add_foreign_key :attendances, :students
+		
+  end
+	
+  
+  def down
+		remove_index :attendances, :student_id
+    remove_foreign_key :attendances, :students
   end
 end

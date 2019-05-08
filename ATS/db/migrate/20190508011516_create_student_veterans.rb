@@ -6,5 +6,14 @@ class CreateStudentVeterans < ActiveRecord::Migration
 		t.integer :percent, limit: 2
 		t.timestamps null: false
     end
+		add_index :student_veterans, :student_id if !index_exists?(:student_remedials, :student_id)
+		add_foreign_key :student_veterans, :students
+	
   end
+  
+  def down
+		remove_index :student_veterans, :student_id
+    remove_foreign_key :student_veterans, :students
+  end
+
 end

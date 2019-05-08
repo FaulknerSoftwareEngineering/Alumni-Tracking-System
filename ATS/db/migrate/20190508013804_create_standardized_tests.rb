@@ -21,5 +21,15 @@ class CreateStandardizedTests < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+		
+		add_index :standardized_tests, :student_id if !index_exists?(:student_tuitions, :student_id)
+    add_foreign_key :standardized_tests, :students
+	
   end
+  
+  def down
+    remove_index :standardized_tests, :student_id
+    remove_foreign_key :standardized_tests, :students
+  end
+	
 end

@@ -12,5 +12,15 @@ class CreateAthletes < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+		
+		add_index :athletes, :student_id if !index_exists?(:student_tuitions, :student_id)
+    add_foreign_key :athletes, :students
+	
   end
+  
+  def down
+    remove_index :athletes, :student_id
+    remove_foreign_key :athletes, :students
+  end
+
 end

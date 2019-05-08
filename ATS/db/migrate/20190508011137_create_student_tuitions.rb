@@ -5,5 +5,15 @@ class CreateStudentTuitions < ActiveRecord::Migration
 		t.string :source
 		t.timestamps null: false
     end
+	
+		add_index :student_tuitions, :student_id if !index_exists?(:student_tuitions, :student_id)
+    add_foreign_key :student_tuitions, :students
+	
   end
+  
+  def down
+    remove_index :student_tuitions, :student_id
+    remove_foreign_key :student_tuitions, :students
+  end
+  
 end
