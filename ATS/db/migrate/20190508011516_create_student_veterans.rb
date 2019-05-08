@@ -3,7 +3,7 @@ class CreateStudentVeterans < ActiveRecord::Migration
     create_table :student_veterans do |t|
 		t.boolean :veteran
 		t.string :chapter
-		t.integer{2} :percent
+		t.integer :percent, limit: 2
 		t.timestamps null: false
     end
   end
