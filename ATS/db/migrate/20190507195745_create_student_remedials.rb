@@ -6,6 +6,8 @@ class CreateStudentRemedials < ActiveRecord::Migration
 		t.boolean :remedial0305
 		t.boolean :remedial1335
 		t.boolean :remedial1300
+		t.belongs_to :student, index: true
+		t.integer :student_id
 		t.timestamps null: false
     end
 	

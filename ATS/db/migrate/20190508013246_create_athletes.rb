@@ -9,11 +9,13 @@ class CreateAthletes < ActiveRecord::Migration
       t.boolean :soccer
       t.boolean :softball
       t.boolean :volleyball
+			t.belongs_to :student, index: true
+			t.integer :student_id
 
       t.timestamps null: false
     end
 		
-		add_index :athletes, :student_id if !index_exists?(:student_tuitions, :student_id)
+		add_index :athletes, :student_id if !index_exists?(:athletes, :student_id)
     add_foreign_key :athletes, :students
 	
   end

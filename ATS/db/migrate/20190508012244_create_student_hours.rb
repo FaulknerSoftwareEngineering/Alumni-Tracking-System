@@ -19,12 +19,14 @@ class CreateStudentHours < ActiveRecord::Migration
 			t.decimal :undergradQualityHours
       t.decimal :undergradQualityPoints
       t.integer :currentHours
+			t.belongs_to :student, index: true
+			t.integer :student_id
       t.date :expectedDegreeDate
 
       t.timestamps null: false
     end
 	
-		add_index :student_hours, :student_id if !index_exists?(:student_tuitions, :student_id)
+		add_index :student_hours, :student_id if !index_exists?(:student_hours, :student_id)
     add_foreign_key :student_hours, :students
   
   end

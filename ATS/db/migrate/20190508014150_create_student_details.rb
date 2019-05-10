@@ -20,10 +20,12 @@ class CreateStudentDetails < ActiveRecord::Migration
       t.string :title
       t.string :suffix
       t.string :level
+			t.belongs_to :student, index: true
+			t.integer :student_id
 
       t.timestamps null: false
     end
-		add_index :student_details, :student_id if !index_exists?(:student_remedials, :student_id)
+		add_index :student_details, :student_id if !index_exists?(:student_details, :student_id)
 		add_foreign_key :student_details, :students
 	
   end

@@ -9,10 +9,12 @@ class CreateHighSchools < ActiveRecord::Migration
       t.integer :rankHS, limit: 2
       t.integer :sizeHS, limit: 2
       t.string :gradYearHS
+			t.belongs_to :student, index: true
+			t.integer :student_id
 
       t.timestamps null: false
     end
-		add_index :high_schools, :student_id if !index_exists?(:student_remedials, :student_id)
+		add_index :high_schools, :student_id if !index_exists?(:high_schools, :student_id)
 		add_foreign_key :high_schools, :students
 	
   end

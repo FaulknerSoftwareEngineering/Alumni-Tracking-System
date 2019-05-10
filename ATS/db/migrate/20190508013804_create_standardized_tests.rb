@@ -18,11 +18,13 @@ class CreateStandardizedTests < ActiveRecord::Migration
       t.integer :mathSAT, limit: 2
       t.integer :readingSAT, limit: 2
       t.integer :writingSAT, limit: 2
+			t.belongs_to :student, index: true
+			t.integer :student_id
 
       t.timestamps null: false
     end
 		
-		add_index :standardized_tests, :student_id if !index_exists?(:student_tuitions, :student_id)
+		add_index :standardized_tests, :student_id if !index_exists?(:standardized_tests, :student_id)
     add_foreign_key :standardized_tests, :students
 	
   end

@@ -3,6 +3,8 @@ class CreateStudentTuitions < ActiveRecord::Migration
     create_table :student_tuitions do |t|
 		t.boolean :tuitionAssistance
 		t.string :source
+		t.belongs_to :student, index: true
+		t.integer :student_id
 		t.timestamps null: false
     end
 	

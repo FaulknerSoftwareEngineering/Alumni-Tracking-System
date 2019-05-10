@@ -10,11 +10,13 @@ class CreateAttendances < ActiveRecord::Migration
       t.string :firstTermGraduate
       t.string :attendanceGraduate
       t.boolean :termOfficialGraduate
+			t.belongs_to :student, index: true
+			t.integer :student_id
 
       t.timestamps null: false
 		end
 		
-		add_index :attendances, :student_id if !index_exists?(:student_tuitions, :student_id)
+		add_index :attendances, :student_id if !index_exists?(:attendances, :student_id)
     add_foreign_key :attendances, :students
 		
   end

@@ -11,7 +11,7 @@ class CreateDegrees < ActiveRecord::Migration
     
     add_index :degrees, :department_id if !index_exists?(:degrees, :department_id)
     add_foreign_key :degrees, :departments
-     add_index :degrees, :degree_type_id if !index_exists?(:degrees, :degree_type_id)
+    add_index :degrees, :degree_type_id if !index_exists?(:degrees, :degree_type_id)
     add_foreign_key :degrees, :degree_types
   end
 end

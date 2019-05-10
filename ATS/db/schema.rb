@@ -14,14 +14,18 @@
 ActiveRecord::Schema.define(version: 20190508015436) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "street_address"
+    t.string   "streetAddressOne"
+    t.string   "streetAddressTwo"
     t.string   "city"
     t.string   "state"
-    t.integer  "zip"
-    t.string   "country"
+    t.string   "zipcode"
+    t.string   "countryID"
+    t.string   "originCountryID"
+    t.string   "originState"
+    t.string   "originCountyID"
     t.integer  "student_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   add_index "addresses", ["student_id"], name: "index_addresses_on_student_id"
@@ -35,9 +39,12 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.boolean  "soccer"
     t.boolean  "softball"
     t.boolean  "volleyball"
+    t.integer  "student_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "athletes", ["student_id"], name: "index_athletes_on_student_id"
 
   create_table "attendances", force: :cascade do |t|
     t.string   "current"
@@ -49,9 +56,12 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.string   "firstTermGraduate"
     t.string   "attendanceGraduate"
     t.boolean  "termOfficialGraduate"
+    t.integer  "student_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  add_index "attendances", ["student_id"], name: "index_attendances_on_student_id"
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
@@ -172,9 +182,12 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.integer  "rankHS",       limit: 2
     t.integer  "sizeHS",       limit: 2
     t.string   "gradYearHS"
+    t.integer  "student_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "high_schools", ["student_id"], name: "index_high_schools_on_student_id"
 
   create_table "majors", force: :cascade do |t|
     t.string   "majorType"
@@ -188,9 +201,12 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.string   "undergradMinorOne"
     t.string   "undergradMinorTwo"
     t.string   "graduateMajor"
+    t.integer  "student_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
+
+  add_index "majors", ["student_id"], name: "index_majors_on_student_id"
 
   create_table "researchers", force: :cascade do |t|
     t.text     "name"
@@ -344,23 +360,12 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.integer  "mathSAT",      limit: 2
     t.integer  "readingSAT",   limit: 2
     t.integer  "writingSAT",   limit: 2
+    t.integer  "student_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  create_table "student_addresses", force: :cascade do |t|
-    t.string   "streetAddressOne"
-    t.string   "streetAddressTwo"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zipcode"
-    t.string   "countryID"
-    t.string   "originCountryID"
-    t.string   "originState"
-    t.string   "originCountyID"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
+  add_index "standardized_tests", ["student_id"], name: "index_standardized_tests_on_student_id"
 
   create_table "student_details", force: :cascade do |t|
     t.string   "sex"
@@ -382,9 +387,12 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.string   "title"
     t.string   "suffix"
     t.string   "level"
+    t.integer  "student_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  add_index "student_details", ["student_id"], name: "index_student_details_on_student_id"
 
   create_table "student_hours", force: :cascade do |t|
     t.decimal  "jslHoursAttempted"
@@ -405,10 +413,13 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.decimal  "undergradQualityHours"
     t.decimal  "undergradQualityPoints"
     t.integer  "currentHours"
+    t.integer  "student_id"
     t.date     "expectedDegreeDate"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
+
+  add_index "student_hours", ["student_id"], name: "index_student_hours_on_student_id"
 
   create_table "student_housings", force: :cascade do |t|
     t.string   "campus"
@@ -417,9 +428,12 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.string   "housingID"
     t.string   "roomNumber"
     t.string   "mealPlan"
+    t.integer  "student_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "student_housings", ["student_id"], name: "index_student_housings_on_student_id"
 
   create_table "student_remedials", force: :cascade do |t|
     t.boolean  "remedial0301"
@@ -427,16 +441,22 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.boolean  "remedial0305"
     t.boolean  "remedial1335"
     t.boolean  "remedial1300"
+    t.integer  "student_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
+  add_index "student_remedials", ["student_id"], name: "index_student_remedials_on_student_id"
+
   create_table "student_tuitions", force: :cascade do |t|
     t.boolean  "tuitionAssistance"
     t.string   "source"
+    t.integer  "student_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  add_index "student_tuitions", ["student_id"], name: "index_student_tuitions_on_student_id"
 
   create_table "student_universities", id: false, force: :cascade do |t|
     t.integer  "student_id"
@@ -449,9 +469,12 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.boolean  "veteran"
     t.string   "chapter"
     t.integer  "percent",    limit: 2
+    t.integer  "student_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  add_index "student_veterans", ["student_id"], name: "index_student_veterans_on_student_id"
 
   create_table "students", force: :cascade do |t|
     t.string   "first_name"
@@ -463,9 +486,12 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.string   "work_number"
     t.string   "home_number"
     t.boolean  "tracked"
+    t.integer  "student_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  add_index "students", ["student_id"], name: "index_students_on_student_id"
 
   create_table "universities", force: :cascade do |t|
     t.string   "name"

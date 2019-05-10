@@ -7,6 +7,8 @@ class CreateStudentHousings < ActiveRecord::Migration
 		t.string :housingID
 		t.string :roomNumber
 		t.string :mealPlan
+		t.belongs_to :student, index: true
+		t.integer :student_id
 		t.timestamps null: false
     end
 	
