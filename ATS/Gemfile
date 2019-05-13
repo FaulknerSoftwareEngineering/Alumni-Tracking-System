@@ -61,6 +61,8 @@ gem 'figaro'
 #look a soruce of time zone data
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
+#For import csv file
+gem 'fastercsv', '~> 1.5', '>= 1.5.5'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

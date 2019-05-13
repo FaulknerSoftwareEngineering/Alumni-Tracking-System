@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'institutional_research/index'
+
   #get 'welcome/index'
 
  root 'index#index'
@@ -11,7 +13,10 @@ Rails.application.routes.draw do
  resources :roles
  resources :departments
  resources :colleges
- resources :students 
+ resources :students
+ resources :institutional_research do
+	collection { post :import}
+ end
  resources :reports, only: [:index] do
 end
  resources :degree_types
@@ -75,5 +80,7 @@ get 'students/:id/update_earned_degree' => 'students_details#update_earned_degre
  delete  'students/:id/delete_employment' => 'students_details#delete_employment', as: :delete_employment
  get 'students/:id/edit_employment' => 'students_details#edit_employment', as: :edit_employment
  get 'students/:id/update_employment' => 'students_details#update_employment', as: :update_employment
+
+ 
 end
 #end
