@@ -72,6 +72,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    chartkick (3.0.2)
     choice (0.2.0)
     chronic (0.10.2)
     churn (0.0.35)
