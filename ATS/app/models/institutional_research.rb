@@ -9,4 +9,5 @@ class InstitutionalResearch < ActiveRecord::Base
 			})
 		end
 	end
+   
 end
