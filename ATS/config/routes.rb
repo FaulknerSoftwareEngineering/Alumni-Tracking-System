@@ -11,7 +11,8 @@ Rails.application.routes.draw do
  resources :roles
  resources :departments
  resources :colleges
- resources :students 
+ resources :students
+ resources :instituational_research
  resources :reports, only: [:index] do
 end
  resources :degree_types
