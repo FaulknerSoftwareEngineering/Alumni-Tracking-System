@@ -1,10 +1,11 @@
 -# Ian Chen - 4/09/2019
--# the documennation about chart is on https://chartkick.com
+-# the documennation about chart is on https://www.chartjs.org
 %h1 Charts
 %br
 %br
 %h3 Alumni locations
-= pie_chart Address.group(:state).count
+%canvas#myChart{height: "50", width: "200"}
+
 %br
 %br
 %h3 Admin
