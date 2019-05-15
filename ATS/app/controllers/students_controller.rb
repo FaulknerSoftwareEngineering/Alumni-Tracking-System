@@ -19,10 +19,10 @@ end
 
 def addresses_params
       params.require(:addresses).permit(
-        :street_address,
+        :streetAddressOne,
         :city,
         :state,
-        :zip)
+        :zipcode)
 end
 
 def earned_degree_params

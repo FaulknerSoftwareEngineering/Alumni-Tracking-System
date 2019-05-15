@@ -14,14 +14,18 @@
 ActiveRecord::Schema.define(version: 20190508015436) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "street_address"
+    t.string   "streetAddressOne"
+    t.string   "streetAddressTwo"
     t.string   "city"
     t.string   "state"
-    t.integer  "zip"
-    t.string   "country"
+    t.string   "zipcode"
+    t.string   "countryID"
+    t.string   "originCountryID"
+    t.string   "originState"
+    t.string   "originCountyID"
     t.integer  "student_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   add_index "addresses", ["student_id"], name: "index_addresses_on_student_id"
@@ -482,9 +486,12 @@ ActiveRecord::Schema.define(version: 20190508015436) do
     t.string   "work_number"
     t.string   "home_number"
     t.boolean  "tracked"
+    t.integer  "student_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  add_index "students", ["student_id"], name: "index_students_on_student_id"
 
   create_table "universities", force: :cascade do |t|
     t.string   "name"
