@@ -310,10 +310,10 @@ end
 
 if Rails.env.development? || Rails.env.test?
 	students = [
-	{first_name: 'Baxter', middle_name: 'Macdonald', last_name: 'Park', primary_email: 'ipsum@nonenimcommodo.ca', secondary_email: 'elit@egetvolutpatornare.org', cell_number: '1-659-614-6991', work_number: '1-265-965-1292', home_number: '1-989-248-7403', tracked: 'True '},
-	{first_name: 'Rowan', middle_name: 'Nichols', last_name: 'Wiggins', primary_email: 'Cras@dolor.com', secondary_email: 'pharetra.nibh@veliteget.com', cell_number: '1-574-999-6837', work_number: '1-296-643-6094', home_number: '1-906-106-7868', tracked: 'True '},
-	{first_name: 'Ainsley', middle_name: 'Cook', last_name: 'Becker', primary_email: 'Nullam@Inlorem.edu', secondary_email: 'id@dictumplacerataugue.com', cell_number: '1-799-390-1712', work_number: '1-856-342-1563', home_number: '1-615-175-9482', tracked: 'True '},
-	{first_name: 'Montana', middle_name: 'Potts', last_name: 'Obrien', primary_email: 'senectus.et@felis.ca', secondary_email: 'consectetuer.ipsum@eleifend.ca', cell_number: '1-751-634-2255', work_number: '1-850-919-6041', home_number: '1-162-121-6082', tracked: 'True '},
+	{first_name: 'Baxter', middle_name: 'Macdonald', last_name: 'Park', primary_email: 'ipsum@nonenimcommodo.ca', secondary_email: 'elit@egetvolutpatornare.org', cell_number: '1-659-614-6991', work_number: '1-265-965-1292', home_number: '1-989-248-7403',student_id: 701111, tracked: 'True '},
+	{first_name: 'Rowan', middle_name: 'Nichols', last_name: 'Wiggins', primary_email: 'Cras@dolor.com', secondary_email: 'pharetra.nibh@veliteget.com', cell_number: '1-574-999-6837', work_number: '1-296-643-6094', home_number: '1-906-106-7868', student_id: 701112, tracked: 'True '},
+	{first_name: 'Ainsley', middle_name: 'Cook', last_name: 'Becker', primary_email: 'Nullam@Inlorem.edu', secondary_email: 'id@dictumplacerataugue.com', cell_number: '1-799-390-1712', work_number: '1-856-342-1563', home_number: '1-615-175-9482', student_id: 701113, tracked: 'True '},
+	{first_name: 'Montana', middle_name: 'Potts', last_name: 'Obrien', primary_email: 'senectus.et@felis.ca', secondary_email: 'consectetuer.ipsum@eleifend.ca', cell_number: '1-751-634-2255', work_number: '1-850-919-6041', home_number: '1-162-121-6082', student_id: 701114, tracked: 'True '},
 	{first_name: 'Uriah', middle_name: 'Browning', last_name: 'Orr', primary_email: 'posuere.at.velit@Nullam.org', secondary_email: 'est.congue@tempuseu.net', cell_number: '1-349-959-7477', work_number: '1-565-513-9209', home_number: '1-262-873-6931', tracked: 'True '},
 	{first_name: 'Jaime', middle_name: 'Beck', last_name: 'Gilbert', primary_email: 'sociis.natoque.penatibus@magnaet.net', secondary_email: 'Suspendisse.sed.dolor@amet.org', cell_number: '1-553-671-4413', work_number: '1-395-794-7400', home_number: '1-552-853-8460', tracked: 'True '},
 	{first_name: 'Carol', middle_name: 'Cooper', last_name: 'Howard', primary_email: 'felis.adipiscing.fringilla@Curae.ca', secondary_email: 'nec@euligulaAenean.com', cell_number: '1-632-899-4188', work_number: '1-399-910-5868', home_number: '1-498-436-5659', tracked: ' False'},
@@ -412,7 +412,15 @@ if Rails.env.development? || Rails.env.test?
 	{first_name: 'Halla', middle_name: 'Booth', last_name: 'Mcintosh', primary_email: 'faucibus@infaucibus.edu', secondary_email: 'pede.Suspendisse.dui@orci.co.uk', cell_number: '1-301-553-5378', work_number: '1-944-533-1557', home_number: '1-618-639-9246', tracked: ' False'}
 	];
 	Student.create(students)
-
+	
+	student_remedials = [
+	{remedial0301: true, remedial0302: true, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701111},
+	{remedial0301: false, remedial0302: true, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701112},
+	{remedial0301: true, remedial0302: false, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701113},
+	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701114}
+	];
+	StudentRemedial.create(student_remedials)
+	
 =begin
 	colleges = College.create([{name: 'Arts and Sciences'}, {name: 'Business'}])
 	departments = Department.create([{name: 'Computer Science', college_id: 1},{name: 'Mathematics', college_id: 1}])

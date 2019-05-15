@@ -10,7 +10,10 @@ class CreateStudents < ActiveRecord::Migration
       t.string :work_number
       t.string :home_number
       t.boolean :tracked
+			t.integer :student_id
       t.timestamps null: false
     end
+		add_index :students, :student_id
+		
   end
 end

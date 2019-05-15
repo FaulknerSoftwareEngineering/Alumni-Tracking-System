@@ -1,11 +1,15 @@
 class CreateAddresses < ActiveRecord::Migration
   def change
     create_table :addresses do |t|
-      t.string :street_address
+      t.string :streetAddressOne
+      t.string :streetAddressTwo
       t.string :city
       t.string :state
-      t.integer :zip
-      t.string :country
+      t.string :zipcode
+      t.string :countryID
+      t.string :originCountryID
+      t.string :originState
+      t.string :originCountyID
       t.belongs_to :student, index: true
       t.integer :student_id
       t.timestamps null: false

@@ -11,6 +11,17 @@ class Student < ActiveRecord::Base
     has_many :degrees, :through => :earned_degrees
     has_many :addresses, dependent: :destroy
     has_many :earned_degrees, dependent: :destroy
+		has_one :student_remedial, dependent: :destroy
+		has_one :student_housing, dependent: :destroy
+		has_one :student_tuition, dependent: :destroy
+		has_one :student_veteran, dependent: :destroy
+		has_one :student_hour, dependent: :destroy
+		has_one :attendance, dependent: :destroy
+		has_one :athlete, dependent: :destroy
+		has_one :standardized_test, dependent: :destroy
+		has_one :student_detail, dependent: :destroy
+		has_one :high_school, dependent: :destroy
+		has_one :major, dependent: :destroy
     validates :first_name, :presence => true;
     validates :last_name, :presence => true;
     
