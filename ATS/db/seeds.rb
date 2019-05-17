@@ -412,6 +412,7 @@ if Rails.env.development? || Rails.env.test?
 	{first_name: 'Halla', middle_name: 'Booth', last_name: 'Mcintosh', primary_email: 'faucibus@infaucibus.edu', secondary_email: 'pede.Suspendisse.dui@orci.co.uk', cell_number: '1-301-553-5378', work_number: '1-944-533-1557', home_number: '1-618-639-9246', tracked: ' False'}
 	];
 	Student.create(students)
+<<<<<<< HEAD
 	
 	student_remedials = [
 	{remedial0301: true, remedial0302: true, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701111},
@@ -444,6 +445,27 @@ if Rails.env.development? || Rails.env.test?
 	{street_address: '', city: '', state: 'GA', zip: 36109, country: '', student_id: 31}
 	];
 	Address.create(addresses)
+    addresses = [
+    {street_address: '', city: '', state: 'AL', zip: 46109, country: '', student_id: 27},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 45},
+    {street_address: '', city: '', state: 'FL', zip: 32229, country: '', student_id: 49},
+    {street_address: '', city: '', state: 'TX', zip: 36109, country: '', student_id: 45},
+    {street_address: '', city: '', state: 'FL', zip: 36209, country: '', student_id: 69},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 19},
+    {street_address: '', city: '', state: 'FL', zip: 36109, country: '', student_id: 6},
+    {street_address: '', city: '', state: 'AL', zip: 32209, country: '', student_id: 79},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 41},
+    {street_address: '', city: '', state: 'GA', zip: 36109, country: '', student_id: 12},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 11},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 56},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 34},
+    {street_address: '', city: '', state: 'GA', zip: 46109, country: '', student_id: 18},
+    {street_address: '', city: '', state: 'TN', zip: 36109, country: '', student_id: 75},
+    {street_address: '', city: '', state: 'TN', zip: 35439, country: '', student_id: 31},
+    {street_address: '', city: '', state: 'AL', zip: 36109, country: '', student_id: 52},
+    {street_address: '', city: '', state: 'GA', zip: 36109, country: '', student_id: 31}
+    ];
+    Address.create(addresses)
 
 =begin
 	colleges = College.create([{name: 'Arts and Sciences'}, {name: 'Business'}])
