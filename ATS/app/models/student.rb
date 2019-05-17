@@ -5,6 +5,7 @@
 =end
 
 #Ethan Widen 3/27/18
+#Ian Chen 5/17/19
 class Student < ActiveRecord::Base
     has_many :employments, dependent: :destroy
     has_many :grad_schools
