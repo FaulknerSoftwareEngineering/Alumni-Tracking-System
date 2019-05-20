@@ -18,7 +18,7 @@ end
  resources :degree_types
  resources :help_requests
  resources :welcome
- 
+
  #IRB form system
  resources :forms
  resources :section1s

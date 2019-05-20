@@ -6,6 +6,8 @@
 
 #Ethan Widen 3/27/18
 class Student < ActiveRecord::Base
+		self.primary_key = 'student_id'
+
     has_many :employments, dependent: :destroy
     has_many :grad_schools
     has_many :degrees, :through => :earned_degrees

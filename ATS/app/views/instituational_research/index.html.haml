@@ -3,9 +3,10 @@
 %h1 Charts
 %br
 %br
-%h3 Alumni locations
-%canvas#myChart{height: "50", width: "200"}
-
+%h3 Degree Type by Gender
+= degree_by_gender
+= column_chart @students.joins(:student_detail).joins(:degrees).group(:sex).group(:degree_type_id).count
+= column_chart @students.joins(:student_detail).joins(:student_remedial).group(:sex).group(:remedial0301).count
 %br
 %br
 %h3 Admin
