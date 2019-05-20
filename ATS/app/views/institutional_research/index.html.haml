@@ -8,340 +8,43 @@
 			%th= 'Middle Name'
 			%th= 'Email'
 			%th= 'Student ID'
-			%th= 'mealp Plan'
-
-	%tbody
-		- @students.each do |students|
-			%tr
-			%td= students.first_name
-			%td= students.last_name
-			%td= students.middle_name
-			%td= students.primary_email
-			%td= students.student_id
-			%td= students.student_housing.try(:mealPlan)
-
-%table#student_remedials.table
-	%thead
-		%tr
-			%th= 'remedial0301'
-			%th= 'remedial0302'
-			%th= 'remedial0305'
-			%th= 'remedial1335'
-			%th= 'remedial1300'
-
-	%tbody
-		- @student_remedials.each do |remedials|
-			%tr
-				%td= remedials.remedial0301
-				%td= remedials.remedial0302
-				%td= remedials.remedial0305
-				%td= remedials.remedial1335
-				%td= remedials.remedial1300
-
-%table#student_housing.table
-	%thead
-		%tr
+			%th= 'gender'
 			%th= 'campus'
-			%th= 'program'
-			%th= 'housingType'
-			%th= 'housingID'
-			%th= 'roomNumber'
-			%th= 'mealPlan'
-			%th= 'Standent_id'
-
-	%tbody
-		- @student_housings.each do |housings|
-			%tr
-				%td= housings.campus
-				%td= housings.program
-				%td= housings.housingType
-				%td= housings.housingID
-				%td= housings.roomNumber
-				%td= housings.mealPlan
-				%td= housings.student_id
-
-%table#student_tuition.table
-	%thead
-		%tr
-			%th= 'tuitionAssistance'
-			%th= 'source'
-			%th= 'student_id'
-
-	%tbody
-		- @student_tuitions.each do |tuitions|
-			%tr
-				%td= tuitions.tuitionAssistance
-				%td= tuitions.source
-				%td= tuitions.student_id
-
-%table#student_veteran.table
-	%thead
-		%tr
-			%th= 'veteran'
-			%th= 'chapter'
-			%th= 'percent'
-			%th= 'student_id'
-
-	%tbody
-		- @student_veterans.each do |veterans|
-			%tr
-				%td= veterans.veteran
-				%td= veterans.chapter
-				%td= veterans.percent
-				%td= veterans.student_id
-
-%table#student_hour.table
-	%thead
-		%tr
-			%th= 'jslHoursAttempted'
-			%th= 'jslHoursCompleted'
-			%th= 'jslQualityHours'
-			%th= 'jslQualityPoints'
-			%th= 'doctorateMajor'
-			%th= 'gradHoursAttempted'
-			%th= 'gradHoursCompleted'
-			%th= 'gradQualityHours'
-			%th= 'gradQualityPoints'
-			%th= 'transient'
-			%th= 'transfer'
-			%th= 'undergradTransferQualityHours'
-			%th= 'undergradTransferQualityPoints'
-			%th= 'undergradSemesterHoursAttempted'
-			%th= 'undergradSemesterHoursCompleted'
-			%th= 'undergradQualityHours'
-			%th= 'undergradQualityPoints'
-			%th= 'currentHours'
-			%th= 'student_id'
-
-	%tbody
-		- @student_hours.each do |hours|
-			%tr
-				%td= hours.jslHoursAttempted
-				%td= hours.jslHoursCompleted
-				%td= hours.jslQualityHours
-				%td= hours.jslQualityPoints
-				%td= hours.doctorateMajor
-				%td= hours.gradHoursAttempted
-				%td= hours.gradHoursCompleted
-				%td= hours.gradQualityHours
-				%td= hours.gradQualityPoints
-				%td= hours.transient
-				%td= hours.transfer
-				%td= hours.undergradTransferQualityHours
-				%td= hours.undergradTransferQualityPoints
-				%td= hours.undergradSemesterHoursAttempted
-				%td= hours.undergradSemesterHoursCompleted
-				%td= hours.undergradQualityHours
-				%td= hours.undergradQualityPoints
-				%td= hours.currentHours
-				%td= hours.student_id
-
-%table#attendance.table
-	%thead
-		%tr
-			%th= 'current'
-			%th= 'effective'
-			%th= 'firstYear'
-			%th= 'firstTermUndergrad'
-			%th= 'attendanceUndergrad'
-			%th= 'termOfficalUndergrad'
-			%th= 'firstTermGraduate'
-			%th= 'attendanceGraduate'
-			%th= 'termOfficialGraduate'
-			%th= 'student_id'
-
-	%tbody
-		- @attendances.each do |attendances|
-			%tr
-				%td= attendances.current
-				%td= attendances.effective
-				%td= attendances.firstYear
-				%td= attendances.firstTermUndergrad
-				%td= attendances.attendanceUndergrad
-				%td= attendances.termOfficalUndergrad
-				%td= attendances.firstTermGraduate
-				%td= attendances.attendanceGraduate
-				%td= attendances.termOfficialGraduate
-				%td= attendances.student_id
-
-%table#athlete.table
-	%thead
-		%tr
-			%th= 'baseball'
-			%th= 'basketball'
-			%th= 'cheerleader'
-			%th= 'football'
-			%th= 'golf'
-			%th= 'soccer'
-			%th= 'softball'
-			%th= 'volleyball'
-			%th= 'student_id'
-
-	%tbody
-		- @athletes.each do |athletes|
-			%tr
-				%td= athletes.baseball
-				%td= athletes.basketball
-				%td= athletes.cheerleader
-				%td= athletes.football
-				%td= athletes.golf
-				%td= athletes.soccer
-				%td= athletes.softball
-				%td= athletes.volleyball
-				%td= athletes.student_id
-
-%table#standardized_test.table
-	%thead
-		%tr
-			%th= 'convertedACT'
-			%th= 'compositeACT'
-			%th= 'officialACT'
-			%th= 'englishACT'
-			%th= 'mathACT'
-			%th= 'socialACT'
-			%th= 'naturalACT'
-			%th= 'toefl'
-			%th= 'gre'
-			%th= 'gmat'
-			%th= 'mat'
-			%th= 'lsat'
-			%th= 'compositeSAT'
-			%th= 'officialSAT'
-			%th= 'mathSAT'
-			%th= 'readingSAT'
-			%th= 'writingSAT'
-			%th= 'student_id'
-
-	%tbody
-		- @standardized_tests.each do |tests|
-			%tr
-				%td= tests.convertedACT
-				%td= tests.compositeACT
-				%td= tests.officialACT
-				%td= tests.englishACT
-				%td= tests.mathACT
-				%td= tests.socialACT
-				%td= tests.naturalACT
-				%td= tests.toefl
-				%td= tests.gre
-				%td= tests.gmat
-				%td= tests.mat
-				%td= tests.lsat
-				%td= tests.compositeSAT
-				%td= tests.officialSAT
-				%td= tests.mathSAT
-				%td= tests.readingSAT
-				%td= tests.writingSAT
-				%td= tests.student_id
-
-%table#student_detail.table
-	%thead
-		%tr
-			%th= 'sex'
-			%th= 'maritalStatus'
-			%th= 'usCitizen'
-			%th= 'citizenship'
+			%th= 'Meal Plan'
+			%th= 'Undergrad Semester Hours Attempted'
+			%th= 'Undergrad Semester Hours Completed'
+			%th= 'Chapter'
+			%th= 'Current Attendace'
+			%th= 'Play Baseball'
+			%th= 'Official ACT'
 			%th= 'ethnicity'
-			%th= 'race'
-			%th= 'athlete'
-			%th= 'dateOfBirth'
-			%th= 'primaryEmail'
-			%th= 'deceased'
-			%th= 'churchType'
-			%th= 'graduated'
-			%th= 'firstName'
-			%th= 'middleName'
-			%th= 'lastName'
-			%th= 'preferredName'
-			%th= 'title'
-			%th= 'suffix'
-			%th= 'level'
-			%th= 'student_id'
+			%th= 'High School Name'
+			%th= 'Major Short Name'
+			%th= 'Have taken English Comp'
 
 	%tbody
-		- @student_details.each do |details|
+		- @students.joins(:student_detail).joins(:student_housing).joins(:student_hour).joins(:student_veteran).joins(:attendance).joins(:athlete).joins(:standardized_test).joins(:high_school).joins(:major).joins(:student_remedial).find_each do |students|
 			%tr
-				%td= details.sex
-				%td= details.maritalStatus
-				%td= details.usCitizen
-				%td= details.citizenship
-				%td= details.ethnicity
-				%td= details.race
-				%td= details.athlete
-				%td= details.dateOfBirth
-				%td= details.primaryEmail
-				%td= details.deceased
-				%td= details.churchType
-				%td= details.graduated
-				%td= details.firstName
-				%td= details.middleName
-				%td= details.lastName
-				%td= details.preferredName
-				%td= details.title
-				%td= details.suffix
-				%td= details.level
-				%td= details.student_id
-
-%table#high_scools.table
-	%thead
-		%tr
-			%th= 'ceebHS'
-			%th= 'nameHS'
-			%th= 'typeHS'
-			%th= 'gpaHS'
-			%th= 'percentageHS'
-			%th= 'rankHS'
-			%th= 'sizeHS'
-			%th= 'gradYearHS'
-			%th= 'student_id'
-
-	%tbody
-		- @high_schools.each do |schools|
-			%tr
-				%td= schools.ceebHS
-				%td= schools.nameHS
-				%td= schools.typeHS
-				%td= schools.gpaHS
-				%td= schools.percentageHS
-				%td= schools.rankHS
-				%td= schools.sizeHS
-				%td= schools.gradYearHS
-				%td= schools.student_id
-
-%table#major.table
-	%thead
-		%tr
-			%th= 'majorType'
-			%th= 'majorFullName'
-			%th= 'advisor'
-			%th= 'majorShortName'
-			%th= 'assocMajor'
-			%th= 'undergradMajorOne'
-			%th= 'undergradMajorTwo'
-			%th= 'undergradMajorThree'
-			%th= 'undergradMinorOne'
-			%th= 'undergradMinorTwo'
-			%th= 'graduateMajor'
-			%th= 'student_id'
-
-	%tbody
-		- @majors.each do |majors|
-			%tr
-				%td= majors.majorType
-				%td= majors.majorFullName
-				%td= majors.advisor
-				%td= majors.majorShortName
-				%td= majors.assocMajor
-				%td= majors.undergradMajorOne
-				%td= majors.undergradMajorTwo
-				%td= majors.undergradMajorThree
-				%td= majors.undergradMinorOne
-				%td= majors.undergradMinorTwo
-				%td= majors.graduateMajor
-				%td= majors.student_id
+				%td= students.first_name
+				%td= students.last_name
+				%td= students.middle_name
+				%td= students.primary_email
+				%td= students.student_id
+				%td= students.student_detail.sex
+				%td= students.student_housing.campus
+				%td= students.student_housing.mealPlan
+				%td= students.student_hour.undergradSemesterHoursAttempted
+				%td= students.student_hour.undergradSemesterHoursCompleted
+				%td= students.student_veteran.chapter
+				%td= students.attendance.current
+				%td= students.athlete.baseball
+				%td= students.standardized_test.officialACT
+				%td= students.student_detail.ethnicity
+				%td= students.high_school.nameHS
+				%td= students.major.majorShortName
+				%td= students.student_remedial.remedial0301
 %br
 %h3 Import Students
-
 
 = form_tag import_institutional_research_index_path, multipart: true do	
 	= file_field_tag :file

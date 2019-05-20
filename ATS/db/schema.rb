@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20190508015436) do
 
   create_table "attendances", force: :cascade do |t|
     t.string   "current"
-    t.date     "effective"
+    t.string   "effective"
     t.string   "firstYear"
     t.string   "firstTermUndergrad"
     t.string   "attendanceUndergrad"
