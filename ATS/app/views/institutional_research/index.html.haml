@@ -9,21 +9,11 @@
 			%th= 'Email'
 			%th= 'Student ID'
 			%th= 'gender'
-			%th= 'campus'
-			%th= 'Meal Plan'
-			%th= 'Undergrad Semester Hours Attempted'
-			%th= 'Undergrad Semester Hours Completed'
-			%th= 'Chapter'
-			%th= 'Current Attendace'
-			%th= 'Play Baseball'
 			%th= 'Official ACT'
 			%th= 'ethnicity'
-			%th= 'High School Name'
-			%th= 'Major Short Name'
-			%th= 'Have taken English Comp'
 
 	%tbody
-		- @students.joins(:student_detail).joins(:student_housing).joins(:student_hour).joins(:student_veteran).joins(:attendance).joins(:athlete).joins(:standardized_test).joins(:high_school).joins(:major).joins(:student_remedial).find_each do |students|
+		- @students.joins(:student_detail).joins(:standardized_test).joins(:student_detail).find_each do |students|
 			%tr
 				%td= students.first_name
 				%td= students.last_name
@@ -31,18 +21,8 @@
 				%td= students.primary_email
 				%td= students.student_id
 				%td= students.student_detail.sex
-				%td= students.student_housing.campus
-				%td= students.student_housing.mealPlan
-				%td= students.student_hour.undergradSemesterHoursAttempted
-				%td= students.student_hour.undergradSemesterHoursCompleted
-				%td= students.student_veteran.chapter
-				%td= students.attendance.current
-				%td= students.athlete.baseball
 				%td= students.standardized_test.officialACT
 				%td= students.student_detail.ethnicity
-				%td= students.high_school.nameHS
-				%td= students.major.majorShortName
-				%td= students.student_remedial.remedial0301
 %br
 %h3 Import Students
 
