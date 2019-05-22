@@ -437,7 +437,7 @@ DEPENDENCIES
   metric_fu
   odf-report
   omniauth-google-oauth2
-  pg (~> 1.1, >= 1.1.4)
+  pg (>= 1.1.4)
   popper_js (~> 1.12.9)
   rails (= 4.2.10)
   rails-erd

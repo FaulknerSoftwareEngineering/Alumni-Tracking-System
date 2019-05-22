@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ ruby '2.5.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use SCSS for stylesheets
@@ -61,8 +62,6 @@ gem 'figaro'
 #look a soruce of time zone data
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
-
-
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', git: "https://github.com/sparklemotion/sqlite3-ruby"
@@ -89,6 +88,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '~> 1.1', '>= 1.1.4'
   gem 'rails_12factor'
+	gem 'pg', '~> 0.20'
 end
