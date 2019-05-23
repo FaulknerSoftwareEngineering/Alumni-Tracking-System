@@ -1,0 +1,516 @@
+/* global google */
+var registrationData = gon.test;
+var student_details = gon.student_details;
+alert("work");
+$(function () {
+	//var registrationData = "";
+	var countTotal = 0;
+	var countMale = 0;
+	var countFemale = 0;
+
+	getRegestrationData();
+
+	// calculate amount of male and female numbers
+	function getRegestrationData() {
+		for (var i = 0; i < student_details.length; i++) {
+			if (student_details[i].sex == "M") {
+				countMale++;
+			}
+			else {
+				countFemale++;
+			}
+
+			countTotal = student_details.length;
+		}
+
+		//var opt = '<tr><td>' + countTotal + '</td><td>' + countMale + '</td><td>' + countFemale + '</td></tr>';
+		//$('#registrationBody').append(opt);
+
+		buildGenderRaceTable(student_details);
+		buildGraduateTable(student_details);
+
+		chartsLoader(registrationData);
+	}
+
+	//This function will iterate through the registrationData array and build
+	//the Ethnicity and Gender table.
+	function buildGenderRaceTable(data) {
+		var raceMale = { raceA: 0, raceB: 0, raceH: 0, raceN: 0, raceP: 0, raceW: 0, raceT: 0, raceO: 0, raceU: 0, raceNR: 0 };
+		var raceFemale = { raceA: 0, raceB: 0, raceH: 0, raceN: 0, raceP: 0, raceW: 0, raceT: 0, raceO: 0, raceU: 0, raceNR: 0 };
+
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].sex == "M") {
+				switch (data[i].race) {
+					case "A":
+						raceMale.raceA++;
+						break;
+					case "B":
+						raceMale.raceB++;
+						break;
+					case "H":
+						raceMale.raceH++;
+						break;
+					case "N":
+						raceMale.raceN++;
+						break;
+					case "P":
+						raceMale.raceP++;
+						break;
+					case "W":
+						raceMale.raceW++;
+						break;
+					case "T":
+						raceMale.raceT++;
+						break;
+					case "O":
+						raceMale.raceO++;
+						break;
+					case "U":
+						raceMale.raceU++;
+						break;
+					case "NR":
+						raceMale.raceNR++;
+					default:
+						raceMale.raceU++;
+						break;
+				}
+			}
+			else {
+				switch (data[i].race) {
+					case "A":
+						raceFemale.raceA++;
+						break;
+					case "B":
+						raceFemale.raceB++;
+						break;
+					case "H":
+						raceFemale.raceH++;
+						break;
+					case "N":
+						raceFemale.raceN++;
+						break;
+					case "P":
+						raceFemale.raceP++;
+						break;
+					case "W":
+						raceFemale.raceW++;
+						break;
+					case "T":
+						raceFemale.raceT++;
+						break;
+					case "O":
+						raceFemale.raceO++;
+						break;
+					case "U":
+						raceFemale.raceU++;
+						break;
+					case "NR":
+						raceFemale.raceNR++;
+					default:
+						raceFemale.raceU++;
+						break;
+				}
+			}
+		}
+
+		//Trying to figure out how to make this more efficient/less of a pain to look at
+		var percMale = {
+			percA: calcPercRace(raceMale.raceA, countMale), percB: calcPercRace(raceMale.raceB, countMale), percH: calcPercRace(raceMale.raceH, countMale),
+			percN: calcPercRace(raceMale.raceN, countMale), percP: calcPercRace(raceMale.raceP, countMale), percW: calcPercRace(raceMale.raceW, countMale),
+			percT: calcPercRace(raceMale.raceT, countMale), percO: calcPercRace(raceMale.raceO, countMale), percU: calcPercRace(raceMale.raceU, countMale),
+			percNR: calcPercRace(raceMale.raceNR, countMale)
+		};
+		var percFemale = {
+			percA: calcPercRace(raceFemale.raceA, countFemale), percB: calcPercRace(raceFemale.raceB, countFemale), percH: calcPercRace(raceFemale.raceH, countFemale),
+			percN: calcPercRace(raceFemale.raceN, countFemale), percP: calcPercRace(raceFemale.raceP, countFemale), percW: calcPercRace(raceFemale.raceW, countFemale),
+			percT: calcPercRace(raceFemale.raceT, countFemale), percO: calcPercRace(raceFemale.raceO, countFemale), percU: calcPercRace(raceFemale.raceU, countFemale),
+			percNR: calcPercRace(raceFemale.raceNR, countFemale)
+		};
+		var percTotal = {
+			percA: calcPercRace((raceMale.raceA + raceFemale.raceA), countTotal), percB: calcPercRace((raceMale.raceB + raceFemale.raceB), countTotal), percH: calcPercRace((raceMale.raceH + raceFemale.raceH), countTotal),
+			percN: calcPercRace((raceMale.raceN + raceFemale.raceN), countTotal), percP: calcPercRace((raceMale.raceP + raceFemale.raceP), countTotal), percW: calcPercRace((raceMale.raceW + raceFemale.raceW), countTotal),
+			percT: calcPercRace((raceMale.raceT + raceFemale.raceT), countTotal), percO: calcPercRace((raceMale.raceO + raceFemale.raceO), countTotal), percU: calcPercRace((raceMale.raceU + raceFemale.raceU), countTotal),
+			percNR: calcPercRace((raceMale.raceNR + raceFemale.raceNR), countTotal)
+		};
+
+		//Same as chunk above
+		var optA = writeTableRowRace('Asian', raceFemale.raceA, percFemale.percA, raceMale.raceA, percMale.percA, percTotal.percA);
+		var optB = writeTableRowRace('Black/African American', raceFemale.raceB, percFemale.percB, raceMale.raceB, percMale.percB, percTotal.percB);
+		var optH = writeTableRowRace('Hispanic', raceFemale.raceH, percFemale.percH, raceMale.raceH, percMale.percH, percTotal.percH);
+		var optN = writeTableRowRace('Native American', raceFemale.raceN, percFemale.percN, raceMale.raceN, percMale.percN, percTotal.percN);
+		var optP = writeTableRowRace('Pacific Islander', raceFemale.raceP, percFemale.percP, raceMale.raceP, percMale.percP, percTotal.percP);
+		var optW = writeTableRowRace('White', raceFemale.raceW, percFemale.percW, raceMale.raceW, percMale.percW, percTotal.percW);
+		var optT = writeTableRowRace('Two or more', raceFemale.raceT, percFemale.percT, raceMale.raceT, percMale.percT, percTotal.percT);
+		var optO = writeTableRowRace('Opt out', raceFemale.raceO, percFemale.percO, raceMale.raceO, percMale.percO, percTotal.percO);
+		var optU = writeTableRowRace('Unknown/Not reported', raceFemale.raceU, percFemale.percU, raceMale.raceU, percMale.percU, percTotal.percU);
+		var optNR = writeTableRowRace('Non-Resident', raceFemale.raceNR, percFemale.percNR, raceMale.raceNR, percMale.percNR, percTotal.percNR);
+
+		var total = writeTableRowRace('Total', countFemale, calcPercRace(countFemale, countTotal), countMale, calcPercRace(countMale, countTotal), calcPercRace(countTotal, countTotal));
+
+
+		$('#genderEthnicityBody').append(optA);
+		$('#genderEthnicityBody').append(optB);
+		$('#genderEthnicityBody').append(optH);
+		$('#genderEthnicityBody').append(optN);
+		$('#genderEthnicityBody').append(optP);
+		$('#genderEthnicityBody').append(optW);
+		$('#genderEthnicityBody').append(optT);
+		$('#genderEthnicityBody').append(optO);
+		$('#genderEthnicityBody').append(optU);
+		$('#genderEthnicityBody').append(optNR);
+		$('#genderEthnicityBody').append(total);
+	}
+
+	//Helper function for Ethnicity_Gender table.
+	//Calculates what percent the partial amount is of the total.
+	function calcPercRace(partial, total) {
+		return ((partial / total) * 100).toFixed(1);
+	}
+
+	//Helper function for Ethnicity_Gender table.
+	//Takes the name of the row and values given to construct the table tow.
+	function writeTableRowRace(name, femaleCount, femalePerc, maleCount, malePerc, totalPerc) {
+		return '<tr><td>' + name + '</td><td>' + femaleCount + '</td><td>' + femalePerc + '%</td><td>' + maleCount + '</td><td>' + malePerc + '%</td><td>' + (maleCount + femaleCount) + '</td><td>' + totalPerc + '%</td></tr>';
+	}
+
+
+	/*------------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------*/
+
+
+
+	/*------------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------*/
+
+	/*
+	 * From here below are functions that require the Google API for charts.
+	 * These will be separated from this file in the future for readability
+	 * and organization.
+	 */
+
+	google.charts.load('current', { 'packages': ['corechart'] });
+	google.charts.load('current', { 'packages': ['bar'] });
+	google.charts.setOnLoadCallback(undergradEnrollmentChart);
+	google.charts.setOnLoadCallback(gradEnrollmentChart);
+	google.charts.setOnLoadCallback(undergradAdultData);
+
+	//Builds the Enrollment chart for undergraduates.
+	//Gets the amount of male and female undergraduates and separates them
+	//by year based on the hours completed.
+	//This function will take the data from getUndergradData and display it
+	//in a Google Bar Graph.
+	function undergradEnrollmentChart() {
+		var undergradData = getUndergradData(registrationData);
+		var maleUGData = undergradData[0];
+		var femaleUGData = undergradData[1];
+
+		var chartData = google.visualization.arrayToDataTable([
+			['Year', 'Male', 'Female', { role: 'annotation' }],
+			['Freshman', maleUGData.freshman, femaleUGData.freshman, ''],
+			['Sophomore', maleUGData.sophomore, femaleUGData.sophomore, ''],
+			['Junior', maleUGData.junior, femaleUGData.junior, ''],
+			['Senior', maleUGData.senior, femaleUGData.senior, '']
+		]);
+
+		var options = {
+			chartArea: { width: '75%', height: '75%' },
+			isStacked: true
+		};
+
+		var chart = new google.charts.Bar(document.getElementById('undergradChart'));
+		chart.draw(chartData, google.charts.Bar.convertOptions(options));
+	}
+
+	//Helper function for undergradEnrollmentChart.
+	//This function actually figures out how many male and female undergraduates
+	//there are as well as separating them by year based on hours completed.
+	function getUndergradData(data) {
+		var maleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
+		var femaleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
+
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].UG_G == "UG") {
+				if (data[i].sex == "M") {
+					if (data[i].Earn >= 0 && data[i].Earn <= 29.9) {
+						maleUG.freshman++;
+					}
+					else if (data[i].Earn >= 30 && data[i].Earn <= 59.9) {
+						maleUG.sophomore++;
+					}
+					else if (data[i].Earn >= 60 && data[i].Earn <= 89.9) {
+						maleUG.junior++;
+					}
+					else if (data[i].Earn >= 90) {
+						maleUG.senior++;
+					}
+				}
+
+				if (data[i].sex == "F") {
+					if (data[i].Earn >= 0 && data[i].Earn <= 29.9) {
+						femaleUG.freshman++;
+					}
+					else if (data[i].Earn >= 30 && data[i].Earn <= 59.9) {
+						femaleUG.sophomore++;
+					}
+					else if (data[i].Earn >= 60 && data[i].Earn <= 89.9) {
+						femaleUG.junior++;
+					}
+					else if (data[i].Earn >= 90) {
+						femaleUG.senior++;
+					}
+				}
+			}
+		}
+
+		var underGrad = [maleUG, femaleUG];
+
+		return underGrad;
+	}
+
+
+	/*------------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------*/
+
+
+	//Builds the graduate enrollment chart.
+	//Takes the data gathered from getGradData and builds a Google Bar Graph
+	//using that data.
+	function gradEnrollmentChart() {
+		var gradData = getGradData(registrationData);
+		var maleGradData = gradData[0];
+		var femaleGradData = gradData[1];
+
+		var chartData = google.visualization.arrayToDataTable([
+			['Type', 'Male', 'Female', { role: 'annotation' }],
+			['Master', maleGradData.master, femaleGradData.master, ''],
+			['Docotorate', maleGradData.doctorate, femaleGradData.doctorate, ''],
+			['JSL', maleGradData.jsl, femaleGradData.jsl, '']
+		]);
+
+		var options = {
+			chartArea: { width: '75%', height: '75%' },
+			isStacked: true
+		};
+
+		var chart = new google.charts.Bar(document.getElementById('gradChart'));
+
+		chart.draw(chartData, google.charts.Bar.convertOptions(options));
+	}
+
+	//Helper function for gradEnrollmentChart
+	//Figures out how many male and female graduates there are and separates
+	//them by the degree they are attempting to get.
+	//Returns male and female grad data in an array where the 0th element is
+	//male data and the 1st element is female data.
+	function getGradData(data) {
+		var maleG = { master: 0, doctorate: 0, jsl: 0 };
+		var femaleG = { master: 0, doctorate: 0, jsl: 0 };
+
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].sex == "M") {
+				switch (data[i].Deg) {
+					case "M.A.":
+						maleG.master++;
+						break;
+					case "M.B.A.":
+						maleG.master++;
+						break;
+					case "M.ED.":
+						maleG.master++;
+						break;
+					case "M.J.A.":
+						maleG.master++;
+						break;
+					case "M.S.":
+						maleG.master++;
+						break;
+					case "M.S.M.":
+						maleG.master++;
+						break;
+					case "PHD":
+						maleG.doctorate++;
+						break;
+					case "J.D.":
+						maleG.jsl++;
+						break;
+					default:
+						break;
+
+				}
+			}
+
+			if (data[i].sex == "F") {
+				switch (data[i].Deg) {
+					case "M.A.":
+						femaleG.master++;
+						break;
+					case "M.B.A.":
+						femaleG.master++;
+						break;
+					case "M.ED.":
+						femaleG.master++;
+						break;
+					case "M.J.A.":
+						femaleG.master++;
+						break;
+					case "M.S.":
+						femaleG.master++;
+						break;
+					case "M.S.M.":
+						femaleG.master++;
+						break;
+					case "PHD":
+						femaleG.doctorate++;
+						break;
+					case "J.D.":
+						femaleG.jsl++;
+						break;
+					default:
+						break;
+				}
+			}
+		}
+
+		var grad = [maleG, femaleG];
+		console.log(femaleG);
+
+		return grad;
+	}
+
+
+	/*------------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------*/
+
+
+	function undergradAdultData() {
+		var undergradData = getUndergradAdultData(registrationData);
+		var maleUGData = undergradData[0];
+		var femaleUGData = undergradData[1];
+
+		var undergradAdultChart = google.visualization.arrayToDataTable([
+			['Type', 'Male', 'Female', { role: 'annotation' }],
+			['Dual', maleUGData.dual, femaleUGData.dual, ''],
+			['Traditional', maleUGData.traditional, femaleUGData.traditional, ''],
+			['Adult', maleUGData.adult, femaleUGData.adult, '']
+		]);
+
+		var options = {
+			chartArea: { width: '75%', height: '75%' },
+			isStacked: true
+		};
+
+		var chart = new google.charts.Bar(document.getElementById('undergradAdultChart'));
+		chart.draw(undergradAdultChart, google.charts.Bar.convertOptions(options));
+	}
+
+	//Requires more work
+	function getUndergradAdultData(data) {
+		var maleUG = { dual: 0, traditional: 0, adult: 0 };
+		var femaleUG = { dual: 0, traditional: 0, adult: 0 };
+
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].sex == "M") {
+				switch (data[i].Prog) {
+					case "DUAL":
+						maleUG.dual++;
+						break;
+					case "OSDE":
+						maleUG.dual++;
+						break;
+					case "OLDE":
+						maleUG.dual++;
+						break;
+					case "TRAD":
+						maleUG.traditional++;
+						break;
+					case "AA":
+						maleUG.adult++;
+						break;
+					case "ALDT":
+						maleUG.adult++;
+						break;
+					case "BBA":
+						maleUG.adult++;
+						break;
+					case "BCJ":
+						maleUG.adult++;
+						break;
+					case "BHUM":
+						maleUG.adult++;
+						break;
+					case "BSB":
+						maleUG.adult++;
+						break;
+					case "EBCJ":
+						maleUG.adult++;
+						break;
+					case "HRM":
+						maleUG.adult++;
+						break;
+					case "XPCO":
+						maleUG.adult++;
+						break;
+					default:
+						break;
+				}
+			}
+
+			if (data[i].sex == "F") {
+				switch (data[i].Prog) {
+					case "DUAL":
+						femaleUG.dual++;
+						break;
+					case "OSDE":
+						femaleUG.dual++;
+						break;
+					case "OLDE":
+						femaleUG.dual++;
+						break;
+					case "TRAD":
+						femaleUG.traditional++;
+						break;
+					case "AA":
+						femaleUG.adult++;
+						break;
+					case "ALDT":
+						femaleUG.adult++;
+						break;
+					case "BBA":
+						femaleUG.adult++;
+						break;
+					case "BCJ":
+						femaleUG.adult++;
+						break;
+					case "BHUM":
+						femaleUG.adult++;
+						break;
+					case "BSB":
+						femaleUG.adult++;
+						break;
+					case "EBCJ":
+						femaleUG.adult++;
+						break;
+					case "HRM":
+						femaleUG.adult++;
+						break;
+					case "XPCO":
+						femaleUG.adult++;
+						break;
+					default:
+						break;
+				}
+			}
+		}
+
+		var underGrad = [maleUG, femaleUG];
+
+		console.log(maleUG);
+		console.log(femaleUG);
+
+		return underGrad;
+	}
+});

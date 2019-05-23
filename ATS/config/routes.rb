@@ -12,7 +12,10 @@ Rails.application.routes.draw do
  resources :departments
  resources :colleges
  resources :students
- resources :instituational_research
+ resources :institutional_research
+ resources :institutional_research do
+	collection { post :import}
+ end
  resources :reports, only: [:index] do
 end
  resources :degree_types

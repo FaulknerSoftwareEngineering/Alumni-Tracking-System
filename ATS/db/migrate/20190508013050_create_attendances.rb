@@ -2,7 +2,7 @@ class CreateAttendances < ActiveRecord::Migration
   def change
     create_table :attendances do |t|
       t.string :current
-      t.date :effective
+      t.string :effective
       t.string :firstYear
       t.string :firstTermUndergrad
       t.string :attendanceUndergrad

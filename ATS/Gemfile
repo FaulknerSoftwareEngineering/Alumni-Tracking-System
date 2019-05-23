@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '>= 2.5.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use SCSS for stylesheets
@@ -64,6 +65,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 # chart library
 gem 'chartkick'
+
+# Pass data to JavaScript
+gem 'gon'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

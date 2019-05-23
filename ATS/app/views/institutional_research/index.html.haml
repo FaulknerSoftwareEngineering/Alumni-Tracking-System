@@ -1,0 +1,42 @@
+-# Ian Chen - 4/09/2019
+-# the documennation about chart is on https://www.chartjs.org
+
+
+%h3 Import Students
+= form_tag import_institutional_research_index_path, multipart: true do	
+	= file_field_tag :file
+	= submit_tag "Upload Students"
+
+#ethnicityTable.container
+%div
+	%h2#ethnicityTableHeader.mdl-card__title-text.font-weight-bold Total Enrollment by Gender and Ethnicity
+%div
+	.col-md-4
+		%table.mdl-data-table
+			%thead
+				%tr
+					%th Ethnicity
+					%th.mdl-data-table__cell--non-numeric Female
+					%th.mdl-data-table__cell--non-numeric % of Female
+					%th.mdl-data-table__cell--non-numeric Male
+					%th.mdl-data-table__cell--non-numeric % of Male
+					%th.mdl-data-table__cell--non-numeric Total
+					%th.md1-data-table__cell--non-numeric % of Total
+				%tbody#genderEthnicityBody
+.container
+.row
+	.col-md-6
+		.mdl-card__title
+			%h2.mdl-card__title-text.font-weight-bold Undergraduate Enrollment by Classification and Gender
+		.mdl-card__supporting-text
+			#undergradChart
+	.col-md-6
+		.mdl-card__title
+			%h2.mdl-card__title-text.font-weight-bold Graduate Enrollment by Classification and Gender
+		.mdl-card__supporting-text
+			#gradChart
+.container
+.mdl-card__title
+	%h2.mdl-card__title-text.font-weight-bold Undergraduate Adult Learners by Classification and Gender
+.mdl-card__supporting-text
+	#undergradAdultChart

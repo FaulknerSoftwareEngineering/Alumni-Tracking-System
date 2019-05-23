@@ -152,6 +152,10 @@ GEM
     gherkin (5.1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.2.1)
+      actionpack (>= 3.0)
+      multi_json
+      request_store (>= 1.0)
     google-api-client (0.29.1)
       addressable (~> 2.5, >= 2.5.1)
       googleauth (>= 0.5, < 0.10.0)
@@ -323,6 +327,8 @@ GEM
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
       uber (< 0.2.0)
+    request_store (1.4.1)
+      rack (>= 1.4)
     require_all (2.0.0)
     rest-client (2.0.2-x64-mingw32)
       ffi (~> 1.9)
@@ -429,6 +435,7 @@ DEPENDENCIES
   cucumber-rails-training-wheels
   database_cleaner (= 1.4.1)
   figaro
+  gon
   google-api-client
   haml
   jbuilder (~> 2.0)
@@ -456,6 +463,9 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+RUBY VERSION
+   ruby 2.5.5p157
 
 BUNDLED WITH
    1.17.3
