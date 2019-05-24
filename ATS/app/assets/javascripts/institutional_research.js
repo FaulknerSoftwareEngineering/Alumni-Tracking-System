@@ -1,6 +1,9 @@
 /* global google */
-var registrationData = gon.test;
+var registrationData = ""
 var student_details = gon.student_details;
+var ugbyClassAndGen = gon.ugbyClassAndGen;
+var gabyClassAndGen = gon.gabyClassAndGen
+var galbyClassAndGen = gon.galbyClassAndGen
 alert("work");
 $(function () {
 	//var registrationData = "";
@@ -27,9 +30,6 @@ $(function () {
 		//$('#registrationBody').append(opt);
 
 		buildGenderRaceTable(student_details);
-		buildGraduateTable(student_details);
-
-		chartsLoader(registrationData);
 	}
 
 	//This function will iterate through the registrationData array and build
@@ -202,7 +202,7 @@ $(function () {
 	//This function will take the data from getUndergradData and display it
 	//in a Google Bar Graph.
 	function undergradEnrollmentChart() {
-		var undergradData = getUndergradData(registrationData);
+		var undergradData = getUndergradData(ugbyClassAndGen);
 		var maleUGData = undergradData[0];
 		var femaleUGData = undergradData[1];
 
@@ -231,33 +231,33 @@ $(function () {
 		var femaleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
 
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].UG_G == "UG") {
+			if (data[i].program == "TRAD" ) {
 				if (data[i].sex == "M") {
-					if (data[i].Earn >= 0 && data[i].Earn <= 29.9) {
+					if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
 						maleUG.freshman++;
 					}
-					else if (data[i].Earn >= 30 && data[i].Earn <= 59.9) {
+					else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
 						maleUG.sophomore++;
 					}
-					else if (data[i].Earn >= 60 && data[i].Earn <= 89.9) {
+					else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
 						maleUG.junior++;
 					}
-					else if (data[i].Earn >= 90) {
+					else if (data[i].undergradQualityHours >= 90) {
 						maleUG.senior++;
 					}
 				}
 
 				if (data[i].sex == "F") {
-					if (data[i].Earn >= 0 && data[i].Earn <= 29.9) {
+					if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
 						femaleUG.freshman++;
 					}
-					else if (data[i].Earn >= 30 && data[i].Earn <= 59.9) {
+					else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
 						femaleUG.sophomore++;
 					}
-					else if (data[i].Earn >= 60 && data[i].Earn <= 89.9) {
+					else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
 						femaleUG.junior++;
 					}
-					else if (data[i].Earn >= 90) {
+					else if (data[i].undergradQualityHours >= 90) {
 						femaleUG.senior++;
 					}
 				}
@@ -279,7 +279,7 @@ $(function () {
 	//Takes the data gathered from getGradData and builds a Google Bar Graph
 	//using that data.
 	function gradEnrollmentChart() {
-		var gradData = getGradData(registrationData);
+		var gradData = getGradData(gabyClassAndGen);
 		var maleGradData = gradData[0];
 		var femaleGradData = gradData[1];
 
@@ -311,7 +311,7 @@ $(function () {
 
 		for (var i = 0; i < data.length; i++) {
 			if (data[i].sex == "M") {
-				switch (data[i].Deg) {
+				switch (data[i].majorType) {
 					case "M.A.":
 						maleG.master++;
 						break;
@@ -343,7 +343,7 @@ $(function () {
 			}
 
 			if (data[i].sex == "F") {
-				switch (data[i].Deg) {
+				switch (data[i].majorType) {
 					case "M.A.":
 						femaleG.master++;
 						break;
@@ -375,7 +375,7 @@ $(function () {
 		}
 
 		var grad = [maleG, femaleG];
-		console.log(femaleG);
+		//console.log(femaleG);
 
 		return grad;
 	}
@@ -387,15 +387,16 @@ $(function () {
 
 
 	function undergradAdultData() {
-		var undergradData = getUndergradAdultData(registrationData);
+		var undergradData = getUndergradAdultData(galbyClassAndGen);
 		var maleUGData = undergradData[0];
 		var femaleUGData = undergradData[1];
 
 		var undergradAdultChart = google.visualization.arrayToDataTable([
-			['Type', 'Male', 'Female', { role: 'annotation' }],
-			['Dual', maleUGData.dual, femaleUGData.dual, ''],
-			['Traditional', maleUGData.traditional, femaleUGData.traditional, ''],
-			['Adult', maleUGData.adult, femaleUGData.adult, '']
+			['Year', 'Male', 'Female', { role: 'annotation' }],
+			['Freshman', maleUGData.freshman, femaleUGData.freshman, ''],
+			['Sophomore', maleUGData.sophomore, femaleUGData.sophomore, ''],
+			['Junior', maleUGData.junior, femaleUGData.junior, ''],
+			['Senior', maleUGData.senior, femaleUGData.senior, '']
 		]);
 
 		var options = {
@@ -403,114 +404,154 @@ $(function () {
 			isStacked: true
 		};
 
-		var chart = new google.charts.Bar(document.getElementById('undergradAdultChart'));
+		var chart = new google.charts.Bar(document.getElementById('undergradAdultByClassificatioinGenderChart'));
 		chart.draw(undergradAdultChart, google.charts.Bar.convertOptions(options));
 	}
 
-	//Requires more work
+	
 	function getUndergradAdultData(data) {
-		var maleUG = { dual: 0, traditional: 0, adult: 0 };
-		var femaleUG = { dual: 0, traditional: 0, adult: 0 };
+		var maleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
+		var femaleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
 
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].sex == "M") {
-				switch (data[i].Prog) {
-					case "DUAL":
-						maleUG.dual++;
-						break;
-					case "OSDE":
-						maleUG.dual++;
-						break;
-					case "OLDE":
-						maleUG.dual++;
-						break;
-					case "TRAD":
-						maleUG.traditional++;
-						break;
-					case "AA":
-						maleUG.adult++;
-						break;
-					case "ALDT":
-						maleUG.adult++;
-						break;
-					case "BBA":
-						maleUG.adult++;
-						break;
-					case "BCJ":
-						maleUG.adult++;
-						break;
-					case "BHUM":
-						maleUG.adult++;
-						break;
-					case "BSB":
-						maleUG.adult++;
-						break;
-					case "EBCJ":
-						maleUG.adult++;
-						break;
-					case "HRM":
-						maleUG.adult++;
-						break;
-					case "XPCO":
-						maleUG.adult++;
-						break;
-					default:
-						break;
+			if (isAdultLeaner(data[i].program)) {
+				if (data[i].sex == "M") {
+					if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
+						maleUG.freshman++;
+					}
+					else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
+						maleUG.sophomore++;
+					}
+					else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
+						maleUG.junior++;
+					}
+					else if (data[i].undergradQualityHours >= 90) {
+						maleUG.senior++;
+					}
 				}
-			}
 
-			if (data[i].sex == "F") {
-				switch (data[i].Prog) {
-					case "DUAL":
-						femaleUG.dual++;
-						break;
-					case "OSDE":
-						femaleUG.dual++;
-						break;
-					case "OLDE":
-						femaleUG.dual++;
-						break;
-					case "TRAD":
-						femaleUG.traditional++;
-						break;
-					case "AA":
-						femaleUG.adult++;
-						break;
-					case "ALDT":
-						femaleUG.adult++;
-						break;
-					case "BBA":
-						femaleUG.adult++;
-						break;
-					case "BCJ":
-						femaleUG.adult++;
-						break;
-					case "BHUM":
-						femaleUG.adult++;
-						break;
-					case "BSB":
-						femaleUG.adult++;
-						break;
-					case "EBCJ":
-						femaleUG.adult++;
-						break;
-					case "HRM":
-						femaleUG.adult++;
-						break;
-					case "XPCO":
-						femaleUG.adult++;
-						break;
-					default:
-						break;
+				if (data[i].sex == "F") {
+					if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
+						femaleUG.freshman++;
+					}
+					else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
+						femaleUG.sophomore++;
+					}
+					else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
+						femaleUG.junior++;
+					}
+					else if (data[i].undergradQualityHours >= 90) {
+						femaleUG.senior++;
+					}
 				}
 			}
 		}
 
+		//for (var i = 0; i < data.length; i++) {
+		//	if (data[i].sex == "M") {
+		//		switch (data[i].program) {
+		//			case "DUAL":
+		//				maleUG.dual++;
+		//				break;
+		//			case "OSDE":
+		//				maleUG.dual++;
+		//				break;
+		//			case "OLDE":
+		//				maleUG.dual++;
+		//				break;
+		//			case "TRAD":
+		//				maleUG.traditional++;
+		//				break;
+		//			case "AA":
+		//				maleUG.adult++;
+		//				break;
+		//			case "ALDT":
+		//				maleUG.adult++;
+		//				break;
+		//			case "BBA":
+		//				maleUG.adult++;
+		//				break;
+		//			case "BCJ":
+		//				maleUG.adult++;
+		//				break;
+		//			case "BHUM":
+		//				maleUG.adult++;
+		//				break;
+		//			case "BSB":
+		//				maleUG.adult++;
+		//				break;
+		//			case "EBCJ":
+		//				maleUG.adult++;
+		//				break;
+		//			case "HRM":
+		//				maleUG.adult++;
+		//				break;
+		//			case "XPCO":
+		//				maleUG.adult++;
+		//				break;
+		//			default:
+		//				break;
+		//		}
+		//	}
+
+		//	if (data[i].sex == "F") {
+		//		switch (data[i].program) {
+		//			case "DUAL":
+		//				femaleUG.dual++;
+		//				break;
+		//			case "OSDE":
+		//				femaleUG.dual++;
+		//				break;
+		//			case "OLDE":
+		//				femaleUG.dual++;
+		//				break;
+		//			case "TRAD":
+		//				femaleUG.traditional++;
+		//				break;
+		//			case "AA":
+		//				femaleUG.adult++;
+		//				break;
+		//			case "ALDT":
+		//				femaleUG.adult++;
+		//				break;
+		//			case "BBA":
+		//				femaleUG.adult++;
+		//				break;
+		//			case "BCJ":
+		//				femaleUG.adult++;
+		//				break;
+		//			case "BHUM":
+		//				femaleUG.adult++;
+		//				break;
+		//			case "BSB":
+		//				femaleUG.adult++;
+		//				break;
+		//			case "EBCJ":
+		//				femaleUG.adult++;
+		//				break;
+		//			case "HRM":
+		//				femaleUG.adult++;
+		//				break;
+		//			case "XPCO":
+		//				femaleUG.adult++;
+		//				break;
+		//			default:
+		//				break;
+		//		}
+		//	}
+		//}
+
 		var underGrad = [maleUG, femaleUG];
 
-		console.log(maleUG);
-		console.log(femaleUG);
+		//console.log(maleUG);
+		//console.log(femaleUG);
 
 		return underGrad;
 	}
+
+	function isAdultLeaner(data) {
+		data = "AA" || "ALDT" || "BBA" || "BCJ" || "BHUM" || "BSB" || "EBCJ" || "HRM" || "XPCO"
+		return true;
+	}
+	
 });

@@ -13,9 +13,12 @@ class InstitutionalResearchController < ApplicationController
 		@student_details = StudentDetail.all
 		@high_schools = HighSchool.all
 		@majors = Major.all
-		gon.student = Student.joins(:student_detail).joins(:student_housing).joins(:student_hour).joins(:student_veteran).joins(:attendance).joins(:athlete).joins(:standardized_test).joins(:high_school).joins(:major).joins(:student_remedial).limit(200)
+		gon.test = @student_hours
 		gon.student_details = @student_details
-		
+		gon.ugbyClassAndGen = InstitutionalResearch.undergraduatebyclassificationAndGender
+		gon.gabyClassAndGen = InstitutionalResearch.graduatebyclassificationAndGender
+		gon.galbyClassAndGen = InstitutionalResearch.udlbyClassificationandGender
+		gon.ualbyCollege = InstitutionalResearch.ualbyCollege
 	end
 
 	def import

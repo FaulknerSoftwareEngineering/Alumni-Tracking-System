@@ -9,34 +9,40 @@
 
 #ethnicityTable.container
 %div
-	%h2#ethnicityTableHeader.mdl-card__title-text.font-weight-bold Total Enrollment by Gender and Ethnicity
+	%h2.font-weight-bold Total Enrollment by Gender and Ethnicity
 %div
 	.col-md-4
-		%table.mdl-data-table
+		%table.genderEthnicity.table
 			%thead
 				%tr
-					%th Ethnicity
-					%th.mdl-data-table__cell--non-numeric Female
-					%th.mdl-data-table__cell--non-numeric % of Female
-					%th.mdl-data-table__cell--non-numeric Male
-					%th.mdl-data-table__cell--non-numeric % of Male
-					%th.mdl-data-table__cell--non-numeric Total
-					%th.md1-data-table__cell--non-numeric % of Total
-				%tbody#genderEthnicityBody
+					%th= 'Ethnicity'
+					%th= 'Female'
+					%th= '% of Female'
+					%th= 'Male'
+					%th= '% of Male'
+					%th= 'Total'
+					%th= '% of Total'
+			%tbody#genderEthnicityBody 
+
 .container
 .row
 	.col-md-6
-		.mdl-card__title
-			%h2.mdl-card__title-text.font-weight-bold Undergraduate Enrollment by Classification and Gender
-		.mdl-card__supporting-text
-			#undergradChart
+		%h2.font-weight-bold Undergraduate Enrollment by Classification and Gender
+		#undergradChart
 	.col-md-6
-		.mdl-card__title
-			%h2.mdl-card__title-text.font-weight-bold Graduate Enrollment by Classification and Gender
-		.mdl-card__supporting-text
-			#gradChart
+		%h2.font-weight-bold Graduate Enrollment by Classification and Gender
+		#gradChart
+
 .container
-.mdl-card__title
-	%h2.mdl-card__title-text.font-weight-bold Undergraduate Adult Learners by Classification and Gender
-.mdl-card__supporting-text
-	#undergradAdultChart
+.row
+	.col-md-6
+		%h2.font-weight-bold Undergraduate Adult Learners by Classification and Gender
+		#undergradAdultByClassificatioinGenderChart
+	.col-md-6
+		%h2.font-weight-bold Undergraduate Adult Learners by College
+		#undergradAdultByCollegeChart
+
+.container
+	.col-md-6
+		%h2.font-weight-bold 
+	.col-md-6

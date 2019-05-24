@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20190508015436) do
 
   create_table "attendances", force: :cascade do |t|
     t.string   "current"
-    t.date     "effective"
+    t.string   "effective"
     t.string   "firstYear"
     t.string   "firstTermUndergrad"
     t.string   "attendanceUndergrad"
@@ -395,6 +395,7 @@ ActiveRecord::Schema.define(version: 20190508015436) do
   add_index "student_details", ["student_id"], name: "index_student_details_on_student_id"
 
   create_table "student_hours", force: :cascade do |t|
+    t.string   "program"
     t.decimal  "jslHoursAttempted"
     t.decimal  "jslHoursCompleted"
     t.decimal  "jslQualityHours"
@@ -423,7 +424,6 @@ ActiveRecord::Schema.define(version: 20190508015436) do
 
   create_table "student_housings", force: :cascade do |t|
     t.string   "campus"
-    t.string   "program"
     t.string   "housingType"
     t.string   "housingID"
     t.string   "roomNumber"

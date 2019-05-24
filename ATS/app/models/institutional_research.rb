@@ -1,4 +1,5 @@
 class InstitutionalResearch < ActiveRecord::Base
+	
 	def self.import(file)
 
 		CSV.foreach(file.path, headers: true) do |row|
@@ -22,7 +23,6 @@ class InstitutionalResearch < ActiveRecord::Base
 					 		 
 			StudentHousing.create!({
 				:campus => row[13],
-				:program => row[14],
 				:housingType => row[115],
 				:housingID => row[116],
 				:roomNumber => row[117],
@@ -48,6 +48,7 @@ class InstitutionalResearch < ActiveRecord::Base
 
 
 			StudentHour.create!({
+				:program => row[14],
 				:jslHoursAttempted => row[97],
 				:jslHoursCompleted => row[98],
 				:jslQualityHours => row[99],
@@ -170,5 +171,29 @@ class InstitutionalResearch < ActiveRecord::Base
 			})
 
 		end
+	end
+
+	def self.undergraduatebyclassificationAndGender
+		Student
+			.select('student_details.sex, student_hours.undergradQualityHours, student_hours.program')
+			.joins(:student_hour)
+			.joins(:student_detail)
+  end
+
+	def self.graduatebyclassificationAndGender
+		Student
+			.select('student_details.sex, majors.majorType')
+			.joins(:major)
+			.joins(:student_detail)
+	end
+
+	def self.udlbyClassificationandGender
+		Student
+			.select('student_details.sex, student_hours.program, student_hours.undergradQualityHours')
+			.joins(:student_hour)
+			.joins(:student_detail)
+	end
+
+	def self.ualbyCollege
 	end
 end
