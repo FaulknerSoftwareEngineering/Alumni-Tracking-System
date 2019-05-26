@@ -12,7 +12,6 @@
                 %td= link_to "Edit #{employer.name}", edit_employer_path(employer)
 
 
-%p
+%div
     = render partial: 'shared/new_button', locals: {new_name: "Employer", path: new_employer_path}
-%p
     = render partial: 'shared/home_page_button'

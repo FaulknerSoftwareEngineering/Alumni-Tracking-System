@@ -24,8 +24,7 @@
         %td= earned.season
         %td= link_to "More About #{earned.first_name}", student_path(earned.student_id)
 
-%p
-  = link_to 'Add New Alumni', new_student_path, :class => 'btn btn-primary d-print-none'     
-%p
+%div
+  = link_to 'Add New Alumni', new_student_path, :class => 'btn btn-primary d-print-none'
   = render partial: 'shared/home_page_button'
   

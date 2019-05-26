@@ -5,7 +5,9 @@
   display: flex;
   flex-direction: row; /* this is actually the default, but I put it here for clarity reasons */
 }
-
+a.btn {
+  display:inline-block;
+}
 th.hilite {
   background-color: black;
 }

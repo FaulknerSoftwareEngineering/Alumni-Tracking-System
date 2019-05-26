@@ -1,3 +1,12 @@
 // Place all the styles related to the index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h5 a {
+  background: #005daa !important;
+  color: #fff !important;
+  padding: 2px 5px;
+  &:hover {
+    background: #002544 !important;
+    text-decoration: none;
+  }
+}
