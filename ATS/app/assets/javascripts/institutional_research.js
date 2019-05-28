@@ -1,18 +1,33 @@
 /* global google */
-var registrationData = ""
-var student_details = gon.student_details;
-var ugbyClassAndGen = gon.ugbyClassAndGen;
-var gabyClassAndGen = gon.gabyClassAndGen
-var galbyClassAndGen = gon.galbyClassAndGen
-alert("work");
+if(gon.student_details != null) {
+	var student_details = gon.student_details;
+}
+
+if (gon.ugbyClassAndGen != null) {
+	var ugbyClassAndGen = gon.ugbyClassAndGen;
+}
+
+if (gon.gabyClassAndGen != null) {
+	var gabyClassAndGen = gon.gabyClassAndGen;
+}
+
+if (gon.galbyClassAndGen != null) {
+	var galbyClassAndGen = gon.galbyClassAndGen;
+}
+
+if (gon.galbyClassAndGen != null) {
+	var ualbyCollege = gon.ualbyCollege;
+}
+
+
 $(function () {
-	//var registrationData = "";
 	var countTotal = 0;
 	var countMale = 0;
 	var countFemale = 0;
-
-	getRegestrationData();
-
+	if (student_details != null) {
+		getRegestrationData();
+	}
+	
 	// calculate amount of male and female numbers
 	function getRegestrationData() {
 		for (var i = 0; i < student_details.length; i++) {
@@ -25,9 +40,6 @@ $(function () {
 
 			countTotal = student_details.length;
 		}
-
-		//var opt = '<tr><td>' + countTotal + '</td><td>' + countMale + '</td><td>' + countFemale + '</td></tr>';
-		//$('#registrationBody').append(opt);
 
 		buildGenderRaceTable(student_details);
 	}
@@ -190,368 +202,325 @@ $(function () {
 	 * and organization.
 	 */
 
-	google.charts.load('current', { 'packages': ['corechart'] });
-	google.charts.load('current', { 'packages': ['bar'] });
-	google.charts.setOnLoadCallback(undergradEnrollmentChart);
-	google.charts.setOnLoadCallback(gradEnrollmentChart);
-	google.charts.setOnLoadCallback(undergradAdultData);
+	if (ugbyClassAndGen != null) {
+		google.charts.load('current', { 'packages': ['bar'] });
+		google.charts.setOnLoadCallback(undergradEnrollmentChart);
+		google.charts.setOnLoadCallback(gradEnrollmentChart);
+		google.charts.setOnLoadCallback(undergradAdultData);
+		google.charts.load('current', { 'packages': ['corechart'] });
+		google.charts.setOnLoadCallback(undergradbyCollegeChart);
 
-	//Builds the Enrollment chart for undergraduates.
-	//Gets the amount of male and female undergraduates and separates them
-	//by year based on the hours completed.
-	//This function will take the data from getUndergradData and display it
-	//in a Google Bar Graph.
-	function undergradEnrollmentChart() {
-		var undergradData = getUndergradData(ugbyClassAndGen);
-		var maleUGData = undergradData[0];
-		var femaleUGData = undergradData[1];
+		//Builds the Enrollment chart for undergraduates.
+		//Gets the amount of male and female undergraduates and separates them
+		//by year based on the hours completed.
+		//This function will take the data from getUndergradData and display it
+		//in a Google Bar Graph.
+		function undergradEnrollmentChart() {
+			var undergradData = getUndergradData(ugbyClassAndGen);
+			var maleUGData = undergradData[0];
+			var femaleUGData = undergradData[1];
 
-		var chartData = google.visualization.arrayToDataTable([
-			['Year', 'Male', 'Female', { role: 'annotation' }],
-			['Freshman', maleUGData.freshman, femaleUGData.freshman, ''],
-			['Sophomore', maleUGData.sophomore, femaleUGData.sophomore, ''],
-			['Junior', maleUGData.junior, femaleUGData.junior, ''],
-			['Senior', maleUGData.senior, femaleUGData.senior, '']
-		]);
+			var chartData = google.visualization.arrayToDataTable([
+				['Year', 'Male', 'Female', { role: 'annotation' }],
+				['Freshman', maleUGData.freshman, femaleUGData.freshman, ''],
+				['Sophomore', maleUGData.sophomore, femaleUGData.sophomore, ''],
+				['Junior', maleUGData.junior, femaleUGData.junior, ''],
+				['Senior', maleUGData.senior, femaleUGData.senior, '']
+			]);
 
-		var options = {
-			chartArea: { width: '75%', height: '75%' },
-			isStacked: true
-		};
+			var options = {
+				chartArea: { width: '100%', height: '100%' },
+				isStacked: true
+			};
 
-		var chart = new google.charts.Bar(document.getElementById('undergradChart'));
-		chart.draw(chartData, google.charts.Bar.convertOptions(options));
-	}
+			var chart = new google.charts.Bar(document.getElementById('undergradChart'));
+			chart.draw(chartData, google.charts.Bar.convertOptions(options));
+		}
 
-	//Helper function for undergradEnrollmentChart.
-	//This function actually figures out how many male and female undergraduates
-	//there are as well as separating them by year based on hours completed.
-	function getUndergradData(data) {
-		var maleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
-		var femaleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
+		//Helper function for undergradEnrollmentChart.
+		//This function actually figures out how many male and female undergraduates
+		//there are as well as separating them by year based on hours completed.
+		function getUndergradData(data) {
+			var maleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
+			var femaleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
 
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].program == "TRAD" ) {
+			for (var i = 0; i < data.length; i++) {
+				if (data[i].program == "TRAD") {
+					if (data[i].sex == "M") {
+						if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
+							maleUG.freshman++;
+						}
+						else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
+							maleUG.sophomore++;
+						}
+						else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
+							maleUG.junior++;
+						}
+						else if (data[i].undergradQualityHours >= 90) {
+							maleUG.senior++;
+						}
+					}
+
+					if (data[i].sex == "F") {
+						if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
+							femaleUG.freshman++;
+						}
+						else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
+							femaleUG.sophomore++;
+						}
+						else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
+							femaleUG.junior++;
+						}
+						else if (data[i].undergradQualityHours >= 90) {
+							femaleUG.senior++;
+						}
+					}
+				}
+			}
+
+			var underGrad = [maleUG, femaleUG];
+
+			return underGrad;
+		}
+
+
+		/*------------------------------------------------------------------------*/
+		/*------------------------------------------------------------------------*/
+		/*------------------------------------------------------------------------*/
+
+
+		//Builds the graduate enrollment chart.
+		//Takes the data gathered from getGradData and builds a Google Bar Graph
+		//using that data.
+		function gradEnrollmentChart() {
+			var gradData = getGradData(gabyClassAndGen);
+			var maleGradData = gradData[0];
+			var femaleGradData = gradData[1];
+
+			var chartData = google.visualization.arrayToDataTable([
+				['Type', 'Male', 'Female', { role: 'annotation' }],
+				['Master', maleGradData.master, femaleGradData.master, ''],
+				['Docotorate', maleGradData.doctorate, femaleGradData.doctorate, ''],
+				['JSL', maleGradData.jsl, femaleGradData.jsl, '']
+			]);
+
+			var options = {
+				chartArea: { width: '100%', height: '100%' },
+				isStacked: true
+			};
+
+			var chart = new google.charts.Bar(document.getElementById('gradChart'));
+
+			chart.draw(chartData, google.charts.Bar.convertOptions(options));
+		}
+
+		//Helper function for gradEnrollmentChart
+		//Figures out how many male and female graduates there are and separates
+		//them by the degree they are attempting to get.
+		//Returns male and female grad data in an array where the 0th element is
+		//male data and the 1st element is female data.
+		function getGradData(data) {
+			var maleG = { master: 0, doctorate: 0, jsl: 0 };
+			var femaleG = { master: 0, doctorate: 0, jsl: 0 };
+
+			for (var i = 0; i < data.length; i++) {
 				if (data[i].sex == "M") {
-					if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
-						maleUG.freshman++;
-					}
-					else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
-						maleUG.sophomore++;
-					}
-					else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
-						maleUG.junior++;
-					}
-					else if (data[i].undergradQualityHours >= 90) {
-						maleUG.senior++;
+					switch (data[i].majorType) {
+						case "M.A.":
+							maleG.master++;
+							break;
+						case "M.B.A.":
+							maleG.master++;
+							break;
+						case "M.ED.":
+							maleG.master++;
+							break;
+						case "M.J.A.":
+							maleG.master++;
+							break;
+						case "M.S.":
+							maleG.master++;
+							break;
+						case "M.S.M.":
+							maleG.master++;
+							break;
+						case "PHD":
+							maleG.doctorate++;
+							break;
+						case "J.D.":
+							maleG.jsl++;
+							break;
+						default:
+							break;
+
 					}
 				}
 
 				if (data[i].sex == "F") {
-					if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
-						femaleUG.freshman++;
-					}
-					else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
-						femaleUG.sophomore++;
-					}
-					else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
-						femaleUG.junior++;
-					}
-					else if (data[i].undergradQualityHours >= 90) {
-						femaleUG.senior++;
+					switch (data[i].majorType) {
+						case "M.A.":
+							femaleG.master++;
+							break;
+						case "M.B.A.":
+							femaleG.master++;
+							break;
+						case "M.ED.":
+							femaleG.master++;
+							break;
+						case "M.J.A.":
+							femaleG.master++;
+							break;
+						case "M.S.":
+							femaleG.master++;
+							break;
+						case "M.S.M.":
+							femaleG.master++;
+							break;
+						case "PHD":
+							femaleG.doctorate++;
+							break;
+						case "J.D.":
+							femaleG.jsl++;
+							break;
+						default:
+							break;
 					}
 				}
 			}
+
+			var grad = [maleG, femaleG];
+
+			return grad;
 		}
 
-		var underGrad = [maleUG, femaleUG];
 
-		return underGrad;
-	}
-
-
-	/*------------------------------------------------------------------------*/
-	/*------------------------------------------------------------------------*/
-	/*------------------------------------------------------------------------*/
+		/*------------------------------------------------------------------------*/
+		/*------------------------------------------------------------------------*/
+		/*------------------------------------------------------------------------*/
 
 
-	//Builds the graduate enrollment chart.
-	//Takes the data gathered from getGradData and builds a Google Bar Graph
-	//using that data.
-	function gradEnrollmentChart() {
-		var gradData = getGradData(gabyClassAndGen);
-		var maleGradData = gradData[0];
-		var femaleGradData = gradData[1];
+		function undergradAdultData() {
+			var undergradData = getUndergradAdultData(galbyClassAndGen);
+			var maleUGData = undergradData[0];
+			var femaleUGData = undergradData[1];
 
-		var chartData = google.visualization.arrayToDataTable([
-			['Type', 'Male', 'Female', { role: 'annotation' }],
-			['Master', maleGradData.master, femaleGradData.master, ''],
-			['Docotorate', maleGradData.doctorate, femaleGradData.doctorate, ''],
-			['JSL', maleGradData.jsl, femaleGradData.jsl, '']
-		]);
+			var undergradAdultChart = google.visualization.arrayToDataTable([
+				['Year', 'Male', 'Female', { role: 'annotation' }],
+				['Freshman', maleUGData.freshman, femaleUGData.freshman, ''],
+				['Sophomore', maleUGData.sophomore, femaleUGData.sophomore, ''],
+				['Junior', maleUGData.junior, femaleUGData.junior, ''],
+				['Senior', maleUGData.senior, femaleUGData.senior, '']
+			]);
 
-		var options = {
-			chartArea: { width: '75%', height: '75%' },
-			isStacked: true
-		};
+			var options = {
+				chartArea: { width: '100%', height: '100%' },
+				isStacked: true
+			};
 
-		var chart = new google.charts.Bar(document.getElementById('gradChart'));
-
-		chart.draw(chartData, google.charts.Bar.convertOptions(options));
-	}
-
-	//Helper function for gradEnrollmentChart
-	//Figures out how many male and female graduates there are and separates
-	//them by the degree they are attempting to get.
-	//Returns male and female grad data in an array where the 0th element is
-	//male data and the 1st element is female data.
-	function getGradData(data) {
-		var maleG = { master: 0, doctorate: 0, jsl: 0 };
-		var femaleG = { master: 0, doctorate: 0, jsl: 0 };
-
-		for (var i = 0; i < data.length; i++) {
-			if (data[i].sex == "M") {
-				switch (data[i].majorType) {
-					case "M.A.":
-						maleG.master++;
-						break;
-					case "M.B.A.":
-						maleG.master++;
-						break;
-					case "M.ED.":
-						maleG.master++;
-						break;
-					case "M.J.A.":
-						maleG.master++;
-						break;
-					case "M.S.":
-						maleG.master++;
-						break;
-					case "M.S.M.":
-						maleG.master++;
-						break;
-					case "PHD":
-						maleG.doctorate++;
-						break;
-					case "J.D.":
-						maleG.jsl++;
-						break;
-					default:
-						break;
-
-				}
-			}
-
-			if (data[i].sex == "F") {
-				switch (data[i].majorType) {
-					case "M.A.":
-						femaleG.master++;
-						break;
-					case "M.B.A.":
-						femaleG.master++;
-						break;
-					case "M.ED.":
-						femaleG.master++;
-						break;
-					case "M.J.A.":
-						femaleG.master++;
-						break;
-					case "M.S.":
-						femaleG.master++;
-						break;
-					case "M.S.M.":
-						femaleG.master++;
-						break;
-					case "PHD":
-						femaleG.doctorate++;
-						break;
-					case "J.D.":
-						femaleG.jsl++;
-						break;
-					default:
-						break;
-				}
-			}
+			var chart = new google.charts.Bar(document.getElementById('undergradAdultByClassificatioinGenderChart'));
+			chart.draw(undergradAdultChart, google.charts.Bar.convertOptions(options));
 		}
 
-		var grad = [maleG, femaleG];
-		//console.log(femaleG);
 
-		return grad;
-	}
+		function getUndergradAdultData(data) {
+			var maleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
+			var femaleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
 
-
-	/*------------------------------------------------------------------------*/
-	/*------------------------------------------------------------------------*/
-	/*------------------------------------------------------------------------*/
-
-
-	function undergradAdultData() {
-		var undergradData = getUndergradAdultData(galbyClassAndGen);
-		var maleUGData = undergradData[0];
-		var femaleUGData = undergradData[1];
-
-		var undergradAdultChart = google.visualization.arrayToDataTable([
-			['Year', 'Male', 'Female', { role: 'annotation' }],
-			['Freshman', maleUGData.freshman, femaleUGData.freshman, ''],
-			['Sophomore', maleUGData.sophomore, femaleUGData.sophomore, ''],
-			['Junior', maleUGData.junior, femaleUGData.junior, ''],
-			['Senior', maleUGData.senior, femaleUGData.senior, '']
-		]);
-
-		var options = {
-			chartArea: { width: '75%', height: '75%' },
-			isStacked: true
-		};
-
-		var chart = new google.charts.Bar(document.getElementById('undergradAdultByClassificatioinGenderChart'));
-		chart.draw(undergradAdultChart, google.charts.Bar.convertOptions(options));
-	}
-
-	
-	function getUndergradAdultData(data) {
-		var maleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
-		var femaleUG = { freshman: 0, sophomore: 0, junior: 0, senior: 0 };
-
-		for (var i = 0; i < data.length; i++) {
-			if (isAdultLeaner(data[i].program)) {
-				if (data[i].sex == "M") {
-					if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
-						maleUG.freshman++;
+			for (var i = 0; i < data.length; i++) {
+				if (isAdultLeaner(data[i].program)) {
+					if (data[i].sex == "M") {
+						if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
+							maleUG.freshman++;
+						}
+						else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
+							maleUG.sophomore++;
+						}
+						else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
+							maleUG.junior++;
+						}
+						else if (data[i].undergradQualityHours >= 90) {
+							maleUG.senior++;
+						}
 					}
-					else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
-						maleUG.sophomore++;
-					}
-					else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
-						maleUG.junior++;
-					}
-					else if (data[i].undergradQualityHours >= 90) {
-						maleUG.senior++;
-					}
-				}
 
-				if (data[i].sex == "F") {
-					if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
-						femaleUG.freshman++;
-					}
-					else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
-						femaleUG.sophomore++;
-					}
-					else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
-						femaleUG.junior++;
-					}
-					else if (data[i].undergradQualityHours >= 90) {
-						femaleUG.senior++;
+					if (data[i].sex == "F") {
+						if (data[i].undergradQualityHours >= 0 && data[i].undergradQualityHours <= 29.9) {
+							femaleUG.freshman++;
+						}
+						else if (data[i].undergradQualityHours >= 30 && data[i].undergradQualityHours <= 59.9) {
+							femaleUG.sophomore++;
+						}
+						else if (data[i].undergradQualityHours >= 60 && data[i].undergradQualityHours <= 89.9) {
+							femaleUG.junior++;
+						}
+						else if (data[i].undergradQualityHours >= 90) {
+							femaleUG.senior++;
+						}
 					}
 				}
 			}
+			var underGrad = [maleUG, femaleUG];
+
+			return underGrad;
 		}
 
-		//for (var i = 0; i < data.length; i++) {
-		//	if (data[i].sex == "M") {
-		//		switch (data[i].program) {
-		//			case "DUAL":
-		//				maleUG.dual++;
-		//				break;
-		//			case "OSDE":
-		//				maleUG.dual++;
-		//				break;
-		//			case "OLDE":
-		//				maleUG.dual++;
-		//				break;
-		//			case "TRAD":
-		//				maleUG.traditional++;
-		//				break;
-		//			case "AA":
-		//				maleUG.adult++;
-		//				break;
-		//			case "ALDT":
-		//				maleUG.adult++;
-		//				break;
-		//			case "BBA":
-		//				maleUG.adult++;
-		//				break;
-		//			case "BCJ":
-		//				maleUG.adult++;
-		//				break;
-		//			case "BHUM":
-		//				maleUG.adult++;
-		//				break;
-		//			case "BSB":
-		//				maleUG.adult++;
-		//				break;
-		//			case "EBCJ":
-		//				maleUG.adult++;
-		//				break;
-		//			case "HRM":
-		//				maleUG.adult++;
-		//				break;
-		//			case "XPCO":
-		//				maleUG.adult++;
-		//				break;
-		//			default:
-		//				break;
-		//		}
-		//	}
+		/*------------------------------------------------------------------------*/
+		/*------------------------------------------------------------------------*/
+		/*------------------------------------------------------------------------*/
 
-		//	if (data[i].sex == "F") {
-		//		switch (data[i].program) {
-		//			case "DUAL":
-		//				femaleUG.dual++;
-		//				break;
-		//			case "OSDE":
-		//				femaleUG.dual++;
-		//				break;
-		//			case "OLDE":
-		//				femaleUG.dual++;
-		//				break;
-		//			case "TRAD":
-		//				femaleUG.traditional++;
-		//				break;
-		//			case "AA":
-		//				femaleUG.adult++;
-		//				break;
-		//			case "ALDT":
-		//				femaleUG.adult++;
-		//				break;
-		//			case "BBA":
-		//				femaleUG.adult++;
-		//				break;
-		//			case "BCJ":
-		//				femaleUG.adult++;
-		//				break;
-		//			case "BHUM":
-		//				femaleUG.adult++;
-		//				break;
-		//			case "BSB":
-		//				femaleUG.adult++;
-		//				break;
-		//			case "EBCJ":
-		//				femaleUG.adult++;
-		//				break;
-		//			case "HRM":
-		//				femaleUG.adult++;
-		//				break;
-		//			case "XPCO":
-		//				femaleUG.adult++;
-		//				break;
-		//			default:
-		//				break;
-		//		}
-		//	}
-		//}
+		//Helper function for Undergraduate Adult Learners by College Chart
+		function undergradbyCollegeChart() {
+			var undergradData = getundergradbyCollegeChart(ualbyCollege);
 
-		var underGrad = [maleUG, femaleUG];
+			var data = google.visualization.arrayToDataTable([
+				['College', 'Student Enrollment'],
+				['College of Arts and Sciences', undergradData.artsAndScience],
+				['College of Bible', undergradData.bible],
+				['College of Business', undergradData.business],
+				['College of Education', undergradData.education]
+			]);
 
-		//console.log(maleUG);
-		//console.log(femaleUG);
+			var options = {
+				chartArea: { width: '100%', height: '100%' },
+				is3D: true
+			};
 
-		return underGrad;
-	}
+			var chart = new google.visualization.PieChart(document.getElementById('undergradAdultByCollegeChart'));
+			chart.draw(data, options);
 
-	function isAdultLeaner(data) {
-		data = "AA" || "ALDT" || "BBA" || "BCJ" || "BHUM" || "BSB" || "EBCJ" || "HRM" || "XPCO"
-		return true;
+		}
+
+		function getundergradbyCollegeChart(data) {
+			var collegedata = { artsAndScience: 0, bible: 0, business: 0, education: 0 };
+
+			for (var i = 0; i < data.length; i++) {
+				if (isAdultLeaner(data[i].program)) {
+					switch (data[i].name) {
+						case "College of Arts and Sciences":
+							collegedata.artsAndScience++;
+							break;
+						case "College of Bible":
+							collegedata.bible++;
+							break;
+						case "College of Business":
+							collegedata.business++;
+							break;
+						case "College of Education":
+							collegedata.education++;
+							break;
+						default:
+							break;
+					}
+				}
+			}
+
+			return collegedata
+		}
+
+		function isAdultLeaner(data) {
+			data = "AA" || "ALDT" || "BBA" || "BCJ" || "BHUM" || "BSB" || "EBCJ" || "HRM" || "XPCO"
+			return true;
+		}
 	}
 	
 });

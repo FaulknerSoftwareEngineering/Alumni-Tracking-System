@@ -173,6 +173,11 @@ class InstitutionalResearch < ActiveRecord::Base
 		end
 	end
 
+	def self.StudentDetail
+		StudentDetail
+			.select('student_details.sex, student_details.race')
+	end
+
 	def self.undergraduatebyclassificationAndGender
 		Student
 			.select('student_details.sex, student_hours.undergradQualityHours, student_hours.program')
@@ -195,5 +200,18 @@ class InstitutionalResearch < ActiveRecord::Base
 	end
 
 	def self.ualbyCollege
+		Student
+			.select('colleges.name, student_hours.program')
+			.joins(:major)
+			.joins(:student_hour)
+			.joins("INNER JOIN degrees ON degrees.name = majors.majorFullName")
+			.joins("INNER JOIN departments ON departments.id = degrees.department_id")
+			.joins("INNER JOIN colleges ON colleges.id = departments.college_id")
+	end
+
+	def self.dateOfCreated
+		Student
+			.select("students.id, strftime('%Y', students.created_at) as Year")
+			.group("strftime('%Y', students.created_at)")
 	end
 end

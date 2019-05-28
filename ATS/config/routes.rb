@@ -14,7 +14,10 @@ Rails.application.routes.draw do
  resources :students
  resources :institutional_research
  resources :institutional_research do
-	collection { post :import}
+	collection do
+		post :import
+		post :chart
+	end
  end
  resources :reports, only: [:index] do
 end
@@ -79,5 +82,7 @@ get 'students/:id/update_earned_degree' => 'students_details#update_earned_degre
  delete  'students/:id/delete_employment' => 'students_details#delete_employment', as: :delete_employment
  get 'students/:id/edit_employment' => 'students_details#edit_employment', as: :edit_employment
  get 'students/:id/update_employment' => 'students_details#update_employment', as: :update_employment
+
+
 end
 #end

@@ -24,6 +24,7 @@ users = User.create(
 	[
 		{email: 'ethan.widen@faulkner.edu', name: 'Ethan Widen', role_id: System_Admin.id}, 
 		{email: 'shammond@faulkner.edu', name: 'Susan Hammond', role_id: System_Admin.id},
+		{email: 'zilin.chen@faulkner.edu', name: 'Ian Chen', role_id: System_Admin.id},
 		{email: 'drampersad@faulkner.edu', name: 'Dave Rampersad', role_id: 1},
 		{email: 'jarrington@faulkner.edu', name: 'Jeff Arrington', role_id: 2},
 		{email: 'sgleaves@faulkner.edu', name: 'Scott Gleaves', role_id: 2},
@@ -309,112 +310,112 @@ end
 
 
 if Rails.env.development? || Rails.env.test?
-	students = [
-	{first_name: 'Baxter', middle_name: 'Macdonald', last_name: 'Park', primary_email: 'ipsum@nonenimcommodo.ca', secondary_email: 'elit@egetvolutpatornare.org', cell_number: '1-659-614-6991', work_number: '1-265-965-1292', home_number: '1-989-248-7403',student_id: 701111, tracked: 'True '},
-	{first_name: 'Rowan', middle_name: 'Nichols', last_name: 'Wiggins', primary_email: 'Cras@dolor.com', secondary_email: 'pharetra.nibh@veliteget.com', cell_number: '1-574-999-6837', work_number: '1-296-643-6094', home_number: '1-906-106-7868', student_id: 701112, tracked: 'True '},
-	{first_name: 'Ainsley', middle_name: 'Cook', last_name: 'Becker', primary_email: 'Nullam@Inlorem.edu', secondary_email: 'id@dictumplacerataugue.com', cell_number: '1-799-390-1712', work_number: '1-856-342-1563', home_number: '1-615-175-9482', student_id: 701113, tracked: 'True '},
-	{first_name: 'Montana', middle_name: 'Potts', last_name: 'Obrien', primary_email: 'senectus.et@felis.ca', secondary_email: 'consectetuer.ipsum@eleifend.ca', cell_number: '1-751-634-2255', work_number: '1-850-919-6041', home_number: '1-162-121-6082', student_id: 701114, tracked: 'True '},
-	{first_name: 'Uriah', middle_name: 'Browning', last_name: 'Orr', primary_email: 'posuere.at.velit@Nullam.org', secondary_email: 'est.congue@tempuseu.net', cell_number: '1-349-959-7477', work_number: '1-565-513-9209', home_number: '1-262-873-6931', student_id: 701115, tracked: 'True '},
-	{first_name: 'Jaime', middle_name: 'Beck', last_name: 'Gilbert', primary_email: 'sociis.natoque.penatibus@magnaet.net', secondary_email: 'Suspendisse.sed.dolor@amet.org', cell_number: '1-553-671-4413', work_number: '1-395-794-7400', home_number: '1-552-853-8460', student_id: 701116, tracked: 'True '},
-	{first_name: 'Carol', middle_name: 'Cooper', last_name: 'Howard', primary_email: 'felis.adipiscing.fringilla@Curae.ca', secondary_email: 'nec@euligulaAenean.com', cell_number: '1-632-899-4188', work_number: '1-399-910-5868', home_number: '1-498-436-5659', student_id: 701117, tracked: ' False'},
-	{first_name: 'Keane', middle_name: 'Cochran', last_name: 'Tucker', primary_email: 'tincidunt.congue.turpis@sitametornare.co.uk', secondary_email: 'cursus.diam@ultriciessem.com', cell_number: '1-361-150-3980', work_number: '1-126-150-1001', home_number: '1-932-763-3460', student_id: 701118, tracked: ' False'},
-	{first_name: 'Stuart', middle_name: 'Mann', last_name: 'Franco', primary_email: 'ipsum.non.arcu@nisi.co.uk', secondary_email: 'aliquet@id.org', cell_number: '1-655-667-1231', work_number: '1-477-453-9473', home_number: '1-816-706-6935', student_id: 701119, tracked: 'True '},
-	{first_name: 'Marvin', middle_name: 'Owen', last_name: 'Watts', primary_email: 'luctus.et.ultrices@in.edu', secondary_email: 'Integer@velitjustonec.net', cell_number: '1-656-754-5245', work_number: '1-119-958-0598', home_number: '1-990-304-4559', student_id: 701120, tracked: ' False'},
-	{first_name: 'Quentin', middle_name: 'Drake', last_name: 'Guy', primary_email: 'amet.diam@orci.org', secondary_email: 'vulputate.risus.a@ametnulla.ca', cell_number: '1-978-156-0804', work_number: '1-546-610-6480', home_number: '1-899-165-2804', student_id: 701121, tracked: ' False'},
-	{first_name: 'Theodore', middle_name: 'Page', last_name: 'Schultz', primary_email: 'sed.dui.Fusce@ProinmiAliquam.ca', secondary_email: 'interdum@vitaealiquameros.org', cell_number: '1-306-303-8145', work_number: '1-288-260-8819', home_number: '1-756-178-6507', student_id: 701122, tracked: ' False'},
-	{first_name: 'Dillon', middle_name: 'Chen', last_name: 'Walsh', primary_email: 'metus@tinciduntaliquamarcu.ca', secondary_email: 'ligula@ipsumprimis.org', cell_number: '1-743-143-2807', work_number: '1-178-826-0372', home_number: '1-421-394-5357', student_id: 701123, tracked: 'True '},
-	{first_name: 'Emily', middle_name: 'Padilla', last_name: 'Becker', primary_email: 'ultricies.sem.magna@pede.net', secondary_email: 'lacus.Quisque.imperdiet@ipsumCurabiturconsequat.org', cell_number: '1-883-211-0176', work_number: '1-790-645-3301', home_number: '1-759-207-5902', student_id: 701124, tracked: 'True '},
-	{first_name: 'Francis', middle_name: 'Ramirez', last_name: 'Levine', primary_email: 'a@tincidunt.org', secondary_email: 'mus.Aenean.eget@sollicitudin.org', cell_number: '1-243-372-4449', work_number: '1-696-830-1721', home_number: '1-665-709-3858', student_id: 701125, tracked: ' False'},
-	{first_name: 'Lyle', middle_name: 'Frye', last_name: 'Juarez', primary_email: 'sociosqu@semperetlacinia.ca', secondary_email: 'Lorem@ultricies.edu', cell_number: '1-285-692-7336', work_number: '1-535-415-2441', home_number: '1-743-225-1638', student_id: 701126, tracked: 'True '},
-	{first_name: 'Christian', middle_name: 'Jacobson', last_name: 'Cruz', primary_email: 'condimentum.Donec.at@Vestibulumanteipsum.co.uk', secondary_email: 'fermentum@arcuSed.com', cell_number: '1-322-853-9008', work_number: '1-128-113-6534', home_number: '1-946-951-9056', student_id: 701127, tracked: ' False'},
-	{first_name: 'Imani', middle_name: 'Joseph', last_name: 'Walsh', primary_email: 'Nullam@dignissimtemporarcu.org', secondary_email: 'neque@anteiaculis.net', cell_number: '1-430-622-0913', work_number: '1-361-727-6997', home_number: '1-704-357-2816', student_id: 701128, tracked: 'True '},
-	{first_name: 'Frances', middle_name: 'Morris', last_name: 'Myers', primary_email: 'interdum.Nunc@risusQuisquelibero.ca', secondary_email: 'et.rutrum.eu@tellus.ca', cell_number: '1-141-762-4082', work_number: '1-985-335-5816', home_number: '1-310-188-0089', student_id: 701129, tracked: ' False'},
-	{first_name: 'Keefe', middle_name: 'Cantrell', last_name: 'Kaufman', primary_email: 'sodales.Mauris@Donecegestas.net', secondary_email: 'dis@auctorodioa.co.uk', cell_number: '1-887-860-0810', work_number: '1-306-919-5832', home_number: '1-370-695-3400', student_id: 701130, tracked: ' False'},
-	{first_name: 'Chester', middle_name: 'Figueroa', last_name: 'Goodwin', primary_email: 'pede@sapienNuncpulvinar.com', secondary_email: 'eu.nulla.at@adipiscing.ca', cell_number: '1-378-933-9779', work_number: '1-456-181-5238', home_number: '1-519-627-2956', student_id: 701131, tracked: ' False'},
-	{first_name: 'Matthew', middle_name: 'Rodriquez', last_name: 'Rivers', primary_email: 'ultrices.Vivamus.rhoncus@necleoMorbi.com', secondary_email: 'ornare@nullaInteger.co.uk', cell_number: '1-259-720-5309', work_number: '1-491-817-9839', home_number: '1-395-150-0755', student_id: 701132, tracked: ' False'},
-	{first_name: 'Brenden', middle_name: 'Moreno', last_name: 'Moore', primary_email: 'ligula.eu@eratnequenon.org', secondary_email: 'rhoncus.Proin@egestas.co.uk', cell_number: '1-640-469-8320', work_number: '1-155-750-4312', home_number: '1-743-148-5296', student_id: 701133, tracked: ' False'},
-	{first_name: 'Dai', middle_name: 'Mckay', last_name: 'Howard', primary_email: 'Maecenas@sem.org', secondary_email: 'dictum.mi@necmaurisblandit.ca', cell_number: '1-798-642-3241', work_number: '1-139-821-7996', home_number: '1-256-958-7487', student_id: 701134, tracked: ' False'}
-	];
-	Student.create(students)
-
-	student_details = [
-	{sex: 'Male', student_id: 701111},
-	{sex: 'Male', student_id: 701112},
-	{sex: 'Male', student_id: 701113},
-	{sex: 'Male', student_id: 701114},
-	{sex: 'Male', student_id: 701115},
-	{sex: 'Male', student_id: 701116},
-	{sex: 'Male', student_id: 701117},
-	{sex: 'Female', student_id: 701118},
-	{sex: 'Female', student_id: 701119},
-	{sex: 'Female', student_id: 701120},
-	{sex: 'Female', student_id: 701121},
-	{sex: 'Female', student_id: 701122},
-	{sex: 'Female', student_id: 701123},
-	{sex: 'Female', student_id: 701124},
-	{sex: 'Female', student_id: 701125},
-	{sex: 'Female', student_id: 701126},
-	{sex: 'Female', student_id: 701127},
-	{sex: 'Female', student_id: 701128},
-	{sex: 'Female', student_id: 701129},
-	{sex: 'Female', student_id: 701130},
-	{sex: 'Female', student_id: 701131},
-	{sex: 'Female', student_id: 701132},
-	{sex: 'Female', student_id: 701133},
-	{sex: 'Female', student_id: 701134}
-	];
-	StudentDetail.create(student_details)
-
-	
-	student_remedials = [
-	{remedial0301: true, remedial0302: true, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701111},
-	{remedial0301: false, remedial0302: true, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701112},
-	{remedial0301: true, remedial0302: false, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701113},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701114},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701115},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701116},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701117},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701118},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701119},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701120},
-	{remedial0301: true, remedial0302: true, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701121},
-	{remedial0301: false, remedial0302: true, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701122},
-	{remedial0301: true, remedial0302: false, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701123},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701124},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701125},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701126},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701127},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701128},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701129},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701130},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701131},
-	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701132},
-	];
-	StudentRemedial.create(student_remedials)
+#	students = [
+#	{first_name: 'Baxter', middle_name: 'Macdonald', last_name: 'Park', primary_email: 'ipsum@nonenimcommodo.ca', secondary_email: 'elit@egetvolutpatornare.org', cell_number: '1-659-614-6991', work_number: '1-265-965-1292', home_number: '1-989-248-7403',student_id: 701111, tracked: 'True '},
+#	{first_name: 'Rowan', middle_name: 'Nichols', last_name: 'Wiggins', primary_email: 'Cras@dolor.com', secondary_email: 'pharetra.nibh@veliteget.com', cell_number: '1-574-999-6837', work_number: '1-296-643-6094', home_number: '1-906-106-7868', student_id: 701112, tracked: 'True '},
+#	{first_name: 'Ainsley', middle_name: 'Cook', last_name: 'Becker', primary_email: 'Nullam@Inlorem.edu', secondary_email: 'id@dictumplacerataugue.com', cell_number: '1-799-390-1712', work_number: '1-856-342-1563', home_number: '1-615-175-9482', student_id: 701113, tracked: 'True '},
+#	{first_name: 'Montana', middle_name: 'Potts', last_name: 'Obrien', primary_email: 'senectus.et@felis.ca', secondary_email: 'consectetuer.ipsum@eleifend.ca', cell_number: '1-751-634-2255', work_number: '1-850-919-6041', home_number: '1-162-121-6082', student_id: 701114, tracked: 'True '},
+#	{first_name: 'Uriah', middle_name: 'Browning', last_name: 'Orr', primary_email: 'posuere.at.velit@Nullam.org', secondary_email: 'est.congue@tempuseu.net', cell_number: '1-349-959-7477', work_number: '1-565-513-9209', home_number: '1-262-873-6931', student_id: 701115, tracked: 'True '},
+#	{first_name: 'Jaime', middle_name: 'Beck', last_name: 'Gilbert', primary_email: 'sociis.natoque.penatibus@magnaet.net', secondary_email: 'Suspendisse.sed.dolor@amet.org', cell_number: '1-553-671-4413', work_number: '1-395-794-7400', home_number: '1-552-853-8460', student_id: 701116, tracked: 'True '},
+#	{first_name: 'Carol', middle_name: 'Cooper', last_name: 'Howard', primary_email: 'felis.adipiscing.fringilla@Curae.ca', secondary_email: 'nec@euligulaAenean.com', cell_number: '1-632-899-4188', work_number: '1-399-910-5868', home_number: '1-498-436-5659', student_id: 701117, tracked: ' False'},
+#	{first_name: 'Keane', middle_name: 'Cochran', last_name: 'Tucker', primary_email: 'tincidunt.congue.turpis@sitametornare.co.uk', secondary_email: 'cursus.diam@ultriciessem.com', cell_number: '1-361-150-3980', work_number: '1-126-150-1001', home_number: '1-932-763-3460', student_id: 701118, tracked: ' False'},
+#	{first_name: 'Stuart', middle_name: 'Mann', last_name: 'Franco', primary_email: 'ipsum.non.arcu@nisi.co.uk', secondary_email: 'aliquet@id.org', cell_number: '1-655-667-1231', work_number: '1-477-453-9473', home_number: '1-816-706-6935', student_id: 701119, tracked: 'True '},
+#	{first_name: 'Marvin', middle_name: 'Owen', last_name: 'Watts', primary_email: 'luctus.et.ultrices@in.edu', secondary_email: 'Integer@velitjustonec.net', cell_number: '1-656-754-5245', work_number: '1-119-958-0598', home_number: '1-990-304-4559', student_id: 701120, tracked: ' False'},
+#	{first_name: 'Quentin', middle_name: 'Drake', last_name: 'Guy', primary_email: 'amet.diam@orci.org', secondary_email: 'vulputate.risus.a@ametnulla.ca', cell_number: '1-978-156-0804', work_number: '1-546-610-6480', home_number: '1-899-165-2804', student_id: 701121, tracked: ' False'},
+#	{first_name: 'Theodore', middle_name: 'Page', last_name: 'Schultz', primary_email: 'sed.dui.Fusce@ProinmiAliquam.ca', secondary_email: 'interdum@vitaealiquameros.org', cell_number: '1-306-303-8145', work_number: '1-288-260-8819', home_number: '1-756-178-6507', student_id: 701122, tracked: ' False'},
+#	{first_name: 'Dillon', middle_name: 'Chen', last_name: 'Walsh', primary_email: 'metus@tinciduntaliquamarcu.ca', secondary_email: 'ligula@ipsumprimis.org', cell_number: '1-743-143-2807', work_number: '1-178-826-0372', home_number: '1-421-394-5357', student_id: 701123, tracked: 'True '},
+#	{first_name: 'Emily', middle_name: 'Padilla', last_name: 'Becker', primary_email: 'ultricies.sem.magna@pede.net', secondary_email: 'lacus.Quisque.imperdiet@ipsumCurabiturconsequat.org', cell_number: '1-883-211-0176', work_number: '1-790-645-3301', home_number: '1-759-207-5902', student_id: 701124, tracked: 'True '},
+#	{first_name: 'Francis', middle_name: 'Ramirez', last_name: 'Levine', primary_email: 'a@tincidunt.org', secondary_email: 'mus.Aenean.eget@sollicitudin.org', cell_number: '1-243-372-4449', work_number: '1-696-830-1721', home_number: '1-665-709-3858', student_id: 701125, tracked: ' False'},
+#	{first_name: 'Lyle', middle_name: 'Frye', last_name: 'Juarez', primary_email: 'sociosqu@semperetlacinia.ca', secondary_email: 'Lorem@ultricies.edu', cell_number: '1-285-692-7336', work_number: '1-535-415-2441', home_number: '1-743-225-1638', student_id: 701126, tracked: 'True '},
+#	{first_name: 'Christian', middle_name: 'Jacobson', last_name: 'Cruz', primary_email: 'condimentum.Donec.at@Vestibulumanteipsum.co.uk', secondary_email: 'fermentum@arcuSed.com', cell_number: '1-322-853-9008', work_number: '1-128-113-6534', home_number: '1-946-951-9056', student_id: 701127, tracked: ' False'},
+#	{first_name: 'Imani', middle_name: 'Joseph', last_name: 'Walsh', primary_email: 'Nullam@dignissimtemporarcu.org', secondary_email: 'neque@anteiaculis.net', cell_number: '1-430-622-0913', work_number: '1-361-727-6997', home_number: '1-704-357-2816', student_id: 701128, tracked: 'True '},
+#	{first_name: 'Frances', middle_name: 'Morris', last_name: 'Myers', primary_email: 'interdum.Nunc@risusQuisquelibero.ca', secondary_email: 'et.rutrum.eu@tellus.ca', cell_number: '1-141-762-4082', work_number: '1-985-335-5816', home_number: '1-310-188-0089', student_id: 701129, tracked: ' False'},
+#	{first_name: 'Keefe', middle_name: 'Cantrell', last_name: 'Kaufman', primary_email: 'sodales.Mauris@Donecegestas.net', secondary_email: 'dis@auctorodioa.co.uk', cell_number: '1-887-860-0810', work_number: '1-306-919-5832', home_number: '1-370-695-3400', student_id: 701130, tracked: ' False'},
+#	{first_name: 'Chester', middle_name: 'Figueroa', last_name: 'Goodwin', primary_email: 'pede@sapienNuncpulvinar.com', secondary_email: 'eu.nulla.at@adipiscing.ca', cell_number: '1-378-933-9779', work_number: '1-456-181-5238', home_number: '1-519-627-2956', student_id: 701131, tracked: ' False'},
+#	{first_name: 'Matthew', middle_name: 'Rodriquez', last_name: 'Rivers', primary_email: 'ultrices.Vivamus.rhoncus@necleoMorbi.com', secondary_email: 'ornare@nullaInteger.co.uk', cell_number: '1-259-720-5309', work_number: '1-491-817-9839', home_number: '1-395-150-0755', student_id: 701132, tracked: ' False'},
+#	{first_name: 'Brenden', middle_name: 'Moreno', last_name: 'Moore', primary_email: 'ligula.eu@eratnequenon.org', secondary_email: 'rhoncus.Proin@egestas.co.uk', cell_number: '1-640-469-8320', work_number: '1-155-750-4312', home_number: '1-743-148-5296', student_id: 701133, tracked: ' False'},
+#	{first_name: 'Dai', middle_name: 'Mckay', last_name: 'Howard', primary_email: 'Maecenas@sem.org', secondary_email: 'dictum.mi@necmaurisblandit.ca', cell_number: '1-798-642-3241', work_number: '1-139-821-7996', home_number: '1-256-958-7487', student_id: 701134, tracked: ' False'}
+#	];
+#	Student.create(students)
+#
+#	student_details = [
+#	{sex: 'Male', student_id: 701111},
+#	{sex: 'Male', student_id: 701112},
+#	{sex: 'Male', student_id: 701113},
+#	{sex: 'Male', student_id: 701114},
+#	{sex: 'Male', student_id: 701115},
+#	{sex: 'Male', student_id: 701116},
+#	{sex: 'Male', student_id: 701117},
+#	{sex: 'Female', student_id: 701118},
+#	{sex: 'Female', student_id: 701119},
+#	{sex: 'Female', student_id: 701120},
+#	{sex: 'Female', student_id: 701121},
+#	{sex: 'Female', student_id: 701122},
+#	{sex: 'Female', student_id: 701123},
+#	{sex: 'Female', student_id: 701124},
+#	{sex: 'Female', student_id: 701125},
+#	{sex: 'Female', student_id: 701126},
+#	{sex: 'Female', student_id: 701127},
+#	{sex: 'Female', student_id: 701128},
+#	{sex: 'Female', student_id: 701129},
+#	{sex: 'Female', student_id: 701130},
+#	{sex: 'Female', student_id: 701131},
+#	{sex: 'Female', student_id: 701132},
+#	{sex: 'Female', student_id: 701133},
+#	{sex: 'Female', student_id: 701134}
+#	];
+#	StudentDetail.create(student_details)
+#
+#	
+#	student_remedials = [
+#	{remedial0301: true, remedial0302: true, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701111},
+#	{remedial0301: false, remedial0302: true, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701112},
+#	{remedial0301: true, remedial0302: false, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701113},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701114},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701115},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701116},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701117},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701118},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701119},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701120},
+#	{remedial0301: true, remedial0302: true, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701121},
+#	{remedial0301: false, remedial0302: true, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701122},
+#	{remedial0301: true, remedial0302: false, remedial0305: true, remedial1335: true, remedial1300: true, student_id: 701123},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701124},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701125},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701126},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701127},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701128},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701129},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701130},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701131},
+#	{remedial0301: true, remedial0302: true, remedial0305: false, remedial1335: false, remedial1300: true, student_id: 701132},
+#	];
+#	StudentRemedial.create(student_remedials)
 
 
     
-	addresses = [
-	{streetAddressOne: '', city: '', state: 'AL', zipcode: 46109, countryID: '', student_id: 27},
-	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 45},
-	{streetAddressOne: '', city: '', state: 'FL', zipcode: 32229, countryID: '', student_id: 49},
-	{streetAddressOne: '', city: '', state: 'TX', zipcode: 36109, countryID: '', student_id: 45},
-	{streetAddressOne: '', city: '', state: 'FL', zipcode: 36209, countryID: '', student_id: 69},
-	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 19},
-	{streetAddressOne: '', city: '', state: 'FL', zipcode: 36109, countryID: '', student_id: 6},
-	{streetAddressOne: '', city: '', state: 'AL', zipcode: 32209, countryID: '', student_id: 79},
-	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 41},
-	{streetAddressOne: '', city: '', state: 'GA', zipcode: 36109, countryID: '', student_id: 12},
-	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 11},
-	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 56},
-	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 34},
-	{streetAddressOne: '', city: '', state: 'GA', zipcode: 46109, countryID: '', student_id: 18},
-	{streetAddressOne: '', city: '', state: 'TN', zipcode: 36109, countryID: '', student_id: 75},
-	{streetAddressOne: '', city: '', state: 'TN', zipcode: 35439, countryID: '', student_id: 31},
-	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 52},
-	{streetAddressOne: '', city: '', state: 'GA', zipcode: 36109, countryID: '', student_id: 31}
-	];
-	Address.create(addresses)
+#	addresses = [
+#	{streetAddressOne: '', city: '', state: 'AL', zipcode: 46109, countryID: '', student_id: 27},
+#	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 45},
+#	{streetAddressOne: '', city: '', state: 'FL', zipcode: 32229, countryID: '', student_id: 49},
+#	{streetAddressOne: '', city: '', state: 'TX', zipcode: 36109, countryID: '', student_id: 45},
+#	{streetAddressOne: '', city: '', state: 'FL', zipcode: 36209, countryID: '', student_id: 69},
+#	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 19},
+#	{streetAddressOne: '', city: '', state: 'FL', zipcode: 36109, countryID: '', student_id: 6},
+#	{streetAddressOne: '', city: '', state: 'AL', zipcode: 32209, countryID: '', student_id: 79},
+#	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 41},
+#	{streetAddressOne: '', city: '', state: 'GA', zipcode: 36109, countryID: '', student_id: 12},
+#	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 11},
+#	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 56},
+#	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 34},
+#	{streetAddressOne: '', city: '', state: 'GA', zipcode: 46109, countryID: '', student_id: 18},
+#	{streetAddressOne: '', city: '', state: 'TN', zipcode: 36109, countryID: '', student_id: 75},
+#	{streetAddressOne: '', city: '', state: 'TN', zipcode: 35439, countryID: '', student_id: 31},
+#	{streetAddressOne: '', city: '', state: 'AL', zipcode: 36109, countryID: '', student_id: 52},
+#	{streetAddressOne: '', city: '', state: 'GA', zipcode: 36109, countryID: '', student_id: 31}
+#	];
+#	Address.create(addresses)
 
 =begin
 	colleges = College.create([{name: 'Arts and Sciences'}, {name: 'Business'}])
@@ -425,32 +426,32 @@ if Rails.env.development? || Rails.env.test?
 	earned_degrees = EarnedDegree.create([{student_id: 1, degree_id: 1}, {student_id: 2, degree_id: 2}, {student_id: 3, degree_id: 1}])
 =end
 
-	earned_degrees = [
-	{degree_id: 38, student_id: 701111},
-	{degree_id: 57, student_id: 701112},
-	{degree_id: 16, student_id: 701113},
-	{degree_id: 2, student_id: 701114},
-	{degree_id: 3, student_id: 701115},
-	{degree_id: 18, student_id: 701116},
-	{degree_id: 14, student_id: 701117},
-	{degree_id: 62, student_id: 701118},
-	{degree_id: 46, student_id: 701119},
-	{degree_id: 5, student_id: 701120},
-	{degree_id: 28, student_id: 701121},
-	{degree_id: 9, student_id: 701122},
-	{degree_id: 63, student_id: 701123},
-	{degree_id: 31, student_id: 701124},
-	{degree_id: 24, student_id: 701125},
-	{degree_id: 57, student_id: 701126},
-	{degree_id: 51, student_id: 701127},
-	{degree_id: 7, student_id: 701128},
-	{degree_id: 7, student_id: 701129},
-	{degree_id: 42, student_id: 701130},
-	{degree_id: 45, student_id: 701131},
-	{degree_id: 35, student_id: 701132},
-	{degree_id: 44, student_id: 701133},
-	{degree_id: 20, student_id: 701134}
-	];
-	EarnedDegree.create(earned_degrees)
+#	earned_degrees = [
+#	{degree_id: 38, student_id: 701111},
+#	{degree_id: 57, student_id: 701112},
+#	{degree_id: 16, student_id: 701113},
+#	{degree_id: 2, student_id: 701114},
+#	{degree_id: 3, student_id: 701115},
+#	{degree_id: 18, student_id: 701116},
+#	{degree_id: 14, student_id: 701117},
+#	{degree_id: 62, student_id: 701118},
+#	{degree_id: 46, student_id: 701119},
+#	{degree_id: 5, student_id: 701120},
+#	{degree_id: 28, student_id: 701121},
+#	{degree_id: 9, student_id: 701122},
+#	{degree_id: 63, student_id: 701123},
+#	{degree_id: 31, student_id: 701124},
+#	{degree_id: 24, student_id: 701125},
+#	{degree_id: 57, student_id: 701126},
+#	{degree_id: 51, student_id: 701127},
+#	{degree_id: 7, student_id: 701128},
+#	{degree_id: 7, student_id: 701129},
+#	{degree_id: 42, student_id: 701130},
+#	{degree_id: 45, student_id: 701131},
+#	{degree_id: 35, student_id: 701132},
+#	{degree_id: 44, student_id: 701133},
+#	{degree_id: 20, student_id: 701134}
+#	];
+#	EarnedDegree.create(earned_degrees)
 
 end

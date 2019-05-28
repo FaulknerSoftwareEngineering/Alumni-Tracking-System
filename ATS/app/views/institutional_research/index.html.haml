@@ -1,48 +1,41 @@
 -# Ian Chen - 4/09/2019
--# the documennation about chart is on https://www.chartjs.org
+
+.container
+	%input.btn.btn-primary.hidden-print{:onclick => "history.go(-1);", :type => "button", :value => "Back"}
+	%input.btn.btn-primary.hidden-print{:onclick => "window.print()", :type => "button", :value => "Print Table"}
+	%br
+	%br
+
+.container.hidden-print
+	%h3 Import Students
+	= form_tag import_institutional_research_index_path, multipart: true do	
+		= file_field_tag :file
+		= submit_tag "Upload Students"
+	%br
+
+	= link_to 'Institutional Research Charts', chart_institutional_research_index_path
+%br
+%br
+
+#ImportHistory.container
+%div
+	%h2.font-weight-bold Import History
+	= select("post", "student_id", @import_history.collect {|s| [ s.Year, s.id ] }, {include_blank: 'None'})
 
 
-%h3 Import Students
-= form_tag import_institutional_research_index_path, multipart: true do	
-	= file_field_tag :file
-	= submit_tag "Upload Students"
 
 #ethnicityTable.container
 %div
 	%h2.font-weight-bold Total Enrollment by Gender and Ethnicity
 %div
-	.col-md-4
-		%table.genderEthnicity.table
-			%thead
-				%tr
-					%th= 'Ethnicity'
-					%th= 'Female'
-					%th= '% of Female'
-					%th= 'Male'
-					%th= '% of Male'
-					%th= 'Total'
-					%th= '% of Total'
-			%tbody#genderEthnicityBody 
-
-.container
-.row
-	.col-md-6
-		%h2.font-weight-bold Undergraduate Enrollment by Classification and Gender
-		#undergradChart
-	.col-md-6
-		%h2.font-weight-bold Graduate Enrollment by Classification and Gender
-		#gradChart
-
-.container
-.row
-	.col-md-6
-		%h2.font-weight-bold Undergraduate Adult Learners by Classification and Gender
-		#undergradAdultByClassificatioinGenderChart
-	.col-md-6
-		%h2.font-weight-bold Undergraduate Adult Learners by College
-		#undergradAdultByCollegeChart
-
-.container
-	.col-md-6
-		%h2.font-weight-bold 
-	.col-md-6
+	%table.genderEthnicity.table
+		%thead
+			%tr
+				%th= 'Ethnicity'
+				%th= 'Female'
+				%th= '% of Female'
+				%th= 'Male'
+				%th= '% of Male'
+				%th= 'Total'
+				%th= '% of Total'
+		%tbody#genderEthnicityBody 
