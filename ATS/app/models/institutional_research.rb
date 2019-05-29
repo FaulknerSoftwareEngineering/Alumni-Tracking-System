@@ -214,4 +214,13 @@ class InstitutionalResearch < ActiveRecord::Base
 			.select("students.id, strftime('%Y', students.created_at) as Year")
 			.group("strftime('%Y', students.created_at)")
 	end
+
+	def self.studentEnrollment
+		Attendance
+			.select('attendances.firstYear, student_hours.program, majors.majorType')
+			.joins("INNER JOIN student_hours ON student_hours.student_id = attendances.student_id")
+			.joins("INNER JOIN majors ON majors.student_id = attendances.student_id")
+	end
+
+
 end

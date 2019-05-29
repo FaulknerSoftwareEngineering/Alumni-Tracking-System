@@ -22,6 +22,7 @@ class InstitutionalResearchController < ApplicationController
 		gon.gabyClassAndGen = InstitutionalResearch.graduatebyclassificationAndGender
 		gon.galbyClassAndGen = InstitutionalResearch.udlbyClassificationandGender
 		gon.ualbyCollege = InstitutionalResearch.ualbyCollege
+		gon.studentEnrollment = InstitutionalResearch.studentEnrollment
 	end
 
 end

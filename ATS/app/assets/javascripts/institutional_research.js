@@ -19,12 +19,21 @@ if (gon.galbyClassAndGen != null) {
 	var ualbyCollege = gon.ualbyCollege;
 }
 
+if (gon.studentEnrollment != null) {
+	var studentEnrollment = gon.studentEnrollment;
+}
 
-$(function () {
+
+
+$(function () {	
 	var countTotal = 0;
 	var countMale = 0;
 	var countFemale = 0;
+	var curYear = new Date().getFullYear();
+	var pasYear = new Date().getFullYear() - 4;
+
 	if (student_details != null) {
+		alert("work");
 		getRegestrationData();
 	}
 	
@@ -202,13 +211,20 @@ $(function () {
 	 * and organization.
 	 */
 
-	if (ugbyClassAndGen != null) {
+	if (ugbyClassAndGen != null) // run script if it is on charts page
+	{
+		// Return titles with the matching year
+		document.getElementById("undergraduateEnrollmentTitle").innerHTML = "Undergraduate Enrollment, Spring " + pasYear.toString() + " to " + "Spring " + curYear.toString();
+		document.getElementById("graduateEnrollmentTitle").innerHTML = "Graduate Enrollment, Spring " + pasYear.toString() + " to " + "Spring " + curYear.toString();
+
 		google.charts.load('current', { 'packages': ['bar'] });
 		google.charts.setOnLoadCallback(undergradEnrollmentChart);
 		google.charts.setOnLoadCallback(gradEnrollmentChart);
-		google.charts.setOnLoadCallback(undergradAdultData);
+		google.charts.setOnLoadCallback(undergradAdultDataChart);
+		google.charts.setOnLoadCallback(undergradEnrollChart);
 		google.charts.load('current', { 'packages': ['corechart'] });
 		google.charts.setOnLoadCallback(undergradbyCollegeChart);
+		google.charts.setOnLoadCallback(gradEnrollChart);
 
 		//Builds the Enrollment chart for undergraduates.
 		//Gets the amount of male and female undergraduates and separates them
@@ -398,8 +414,8 @@ $(function () {
 		/*------------------------------------------------------------------------*/
 		/*------------------------------------------------------------------------*/
 
-
-		function undergradAdultData() {
+		//Helper function for Undergraduate Adult Learners by Classification and Gender Chart
+		function undergradAdultDataChart() {
 			var undergradData = getUndergradAdultData(galbyClassAndGen);
 			var maleUGData = undergradData[0];
 			var femaleUGData = undergradData[1];
@@ -494,7 +510,8 @@ $(function () {
 			var collegedata = { artsAndScience: 0, bible: 0, business: 0, education: 0 };
 
 			for (var i = 0; i < data.length; i++) {
-				if (isAdultLeaner(data[i].program)) {
+				if (isAdultLeaner(data[i].program) == true) {
+					
 					switch (data[i].name) {
 						case "College of Arts and Sciences":
 							collegedata.artsAndScience++;
@@ -517,10 +534,216 @@ $(function () {
 			return collegedata
 		}
 
-		function isAdultLeaner(data) {
-			data = "AA" || "ALDT" || "BBA" || "BCJ" || "BHUM" || "BSB" || "EBCJ" || "HRM" || "XPCO"
-			return true;
+
+	/*------------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------*/
+	/*------------------------------------------------------------------------*/
+
+		// helper function for Undergraduate Enrollment Chart
+		function undergradEnrollChart() {
+			var undergradData = getEnrollmentCout(studentEnrollment);
+			var count = undergradData[1];
+			var year = undergradData[0];
+
+			var chartData = google.visualization.arrayToDataTable([
+				['Year', 'Enrollment'],
+				[year.year5, count.year5],
+				[year.year4, count.year4],
+				[year.year3, count.year3],
+				[year.year2, count.year2],
+				[year.year1, count.year1]
+			]);
+
+			var options = {
+				chartArea: { width: '100%', height: '100%' }
+			};
+
+			var chart = new google.charts.Bar(document.getElementById('undergradEnrollChart'));
+			chart.draw(chartData, google.charts.Bar.convertOptions(options));
 		}
+
+		function getEnrollmentCout(data) {
+			
+			var year = parseInt(curYear.toString());
+			var year1 = year.toString();
+			var year2 = (year1 - 1).toString();
+			var year3 = (year1 - 2).toString();
+			var year4 = (year1 - 3).toString();
+			var year5 = (year1 - 4).toString();
+
+			var EnrollmentCout = { year1: 0, year2: 0, year3: 0, year4: 0, year5: 0 };
+			var EnrollmentYear = { year1: "Spring " + year1, year2: "Spring " + year2, year3: "Spring " + year3, year4: "Spring " + year4, year5: "Spring " + year5};
+
+			for (var i = 0; i < data.length; i++) {
+				if (data[i].program == "TRAD") {
+					switch (data[i].firstYear) {
+						case year1:
+							EnrollmentCout.year1++;
+							break;
+						case year2:
+							EnrollmentCout.year2++;
+							break;
+						case year3:
+							EnrollmentCout.year3++;
+							break;
+						case year4:
+							EnrollmentCout.year4++;
+							break;
+						case year5:
+							EnrollmentCout.year5++;
+							break;
+						default:
+							break;
+					}
+				}
+			}
+
+			var undergradData = [EnrollmentYear, EnrollmentCout];
+
+			return undergradData;
+		}
+
+		/*------------------------------------------------------------------------*/
+		/*------------------------------------------------------------------------*/
+		/*------------------------------------------------------------------------*/
+
+		// helper function for Graduate Enrollment Chart
+		function gradEnrollChart() {
+			var gradData = getGradEnrollmentCout(studentEnrollment);
+			var count = gradData[1];
+			var year = gradData[0];
+
+			var chartData = google.visualization.arrayToDataTable([
+				['Year', 'Enrollment'],
+				[year.year5, count.year5],
+				[year.year4, count.year4],
+				[year.year3, count.year3],
+				[year.year2, count.year2],
+				[year.year1, count.year1]
+			]);
+
+			var options = {
+				chartArea: { width: '100%', height: '100%' }
+			};
+
+			var chart = new google.charts.Bar(document.getElementById('gradEnrollChart'));
+			chart.draw(chartData, google.charts.Bar.convertOptions(options));
+		}
+
+		function getGradEnrollmentCout(data) {
+
+			var year = parseInt(curYear.toString());
+			var year1 = year.toString();
+			var year2 = (year1 - 1).toString();
+			var year3 = (year1 - 2).toString();
+			var year4 = (year1 - 3).toString();
+			var year5 = (year1 - 4).toString();
+
+			var EnrollmentCout = { year1: 0, year2: 0, year3: 0, year4: 0, year5: 0 };
+			var EnrollmentYear = { year1: "Spring " + year1, year2: "Spring " + year2, year3: "Spring " + year3, year4: "Spring " + year4, year5: "Spring " + year5 };
+
+			for (var i = 0; i < data.length; i++) {
+				if (isGraduateStudent(data[i].majorType) == true) {
+					switch (data[i].firstYear) {
+						case year1:
+							EnrollmentCout.year1++;
+							break;
+						case year2:
+							EnrollmentCout.year2++;
+							break;
+						case year3:
+							EnrollmentCout.year3++;
+							break;
+						case year4:
+							EnrollmentCout.year4++;
+							break;
+						case year5:
+							EnrollmentCout.year5++;
+							break;
+						default:
+							break;
+					}
+				}
+			}
+
+			var gradData = [EnrollmentYear, EnrollmentCout];
+			return gradData;
+		}
+
+
 	}
-	
+
+	// determine if student is adult leaner
+	function isAdultLeaner(data) {
+		var result;
+		switch (data) {
+			case "AA":
+				result = true;
+				break;
+			case "ADLT":
+				result = true;
+				break;
+			case "BBA":
+				result = true;
+				break;
+			case "BCJ":
+				result = true;
+				break;
+			case "BHUM":
+				result = true;
+				break;
+			case "BSB":
+				result = true;
+				break;
+			case "EBCJ":
+				result = true;
+				break;
+			case "HRM":
+				result = true;
+				break;
+			case "XPCO":
+				result = true;
+				break;
+			default:
+				result = false;
+				break;
+		}
+		return result;
+	}
+
+	// determine if the studnet is in graduate school
+	function isGraduateStudent(data) {
+		switch (data) {
+			case "M.A.":
+				result = true;
+				break;
+			case "M.B.A.":
+				result = true;
+				break;
+			case "M.ED.":
+				result = true;
+				break;
+			case "M.J.A.":
+				result = true;
+				break;
+			case "M.S.":
+				result = true;
+				break;
+			case "M.S.M.":
+				result = true;
+				break;
+			case "PHD":
+				result = true;
+				break;
+			case "J.D.":
+				result = true;
+				break;
+			default:
+				result = false;
+				break;
+		}
+		return result;
+
+
+	}
 });

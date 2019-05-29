@@ -1,12 +1,12 @@
 -# Ian Chen - 4/09/2019
 
-.container
+%div.hidden-print
 	%input.btn.btn-primary.hidden-print{:onclick => "history.go(-1);", :type => "button", :value => "Back"}
 	%input.btn.btn-primary.hidden-print{:onclick => "window.print()", :type => "button", :value => "Print Table"}
 	%br
 	%br
 
-.container.hidden-print
+%div.hidden-print
 	%h3 Import Students
 	= form_tag import_institutional_research_index_path, multipart: true do	
 		= file_field_tag :file
@@ -17,12 +17,12 @@
 %br
 %br
 
-#ImportHistory.container
-%div
+
+%div.hidden-print#ImportHistory
 	%h2.font-weight-bold Import History
-	= select("post", "student_id", @import_history.collect {|s| [ s.Year, s.id ] }, {include_blank: 'None'})
-
-
+	= select("post", "id", @import_history.collect {|s| [ s.Year, s.Year ] }, {include_blank: 'None'})
+%br
+%br	
 
 #ethnicityTable.container
 %div

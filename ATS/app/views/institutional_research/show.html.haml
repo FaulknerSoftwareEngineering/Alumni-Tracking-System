@@ -1,13 +1,11 @@
 -# Created by Ian Chen
 -# on: May 23, 2019 
 
-%input.btn.btn-primary.hidden-print{:onclick => "history.go(-1);", :type => "button", :value => "Back"}
-%br
-%br
-
-%input.btn.btn-primary.hidden-print{:onclick => "window.print()", :type => "button", :value => "Print Charts"}
-%br
-%br
+%div.hidden-print
+	%input.btn.btn-primary.hidden-print{:onclick => "history.go(-1);", :type => "button", :value => "Back"}
+	%input.btn.btn-primary.hidden-print{:onclick => "window.print()", :type => "button", :value => "Print Table"}
+	%br
+	%br
 
 %h4 OFFICE OF INSTITUTIOINAL RESEARCH - ENROLLMENT UPDATE
 %br
@@ -29,3 +27,12 @@
 	.col-md-6
 		%h4.font-weight-bold Undergraduate Adult Learners by College
 		#undergradAdultByCollegeChart
+
+.container
+.row
+	.col-md-6
+		%h4.font-weight-bold#undergraduateEnrollmentTitle Title1
+		#undergradEnrollChart
+	.col-md-6
+		%h4.font-weight-bold#graduateEnrollmentTitle Title2
+		#gradEnrollChart
