@@ -20,7 +20,10 @@
 
 %div.hidden-print#ImportHistory
 	%h2.font-weight-bold Import History
-	= select("post", "id", @import_history.collect {|s| [ s.Year, s.Year ] }, {include_blank: 'None'})
+	= form_tag delete_institutional_research_index_path do
+		= label :importHistory, 'Which import do you want to delete'
+		= collection_select(:post, :id, @import_history, :Year, :Year, {:prompt => true})
+		= submit_tag 'Delete', :class => 'btn btn-primary'
 %br
 %br	
 

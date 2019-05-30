@@ -1,5 +1,5 @@
 class InstitutionalResearch < ActiveRecord::Base
-	
+	# Ian Chen 5/15/2019
 	def self.import(file)
 
 		CSV.foreach(file.path, headers: true) do |row|
@@ -173,6 +173,7 @@ class InstitutionalResearch < ActiveRecord::Base
 		end
 	end
 
+
 	def self.StudentDetail
 		StudentDetail
 			.select('student_details.sex, student_details.race')
@@ -211,8 +212,8 @@ class InstitutionalResearch < ActiveRecord::Base
 
 	def self.dateOfCreated
 		Student
-			.select("students.id, strftime('%Y', students.created_at) as Year")
-			.group("strftime('%Y', students.created_at)")
+			.select("students.id, strftime('%Y-%m-%d', students.created_at) as Year")
+			.group("strftime('%Y-%m-%d', students.created_at)")
 	end
 
 	def self.studentEnrollment

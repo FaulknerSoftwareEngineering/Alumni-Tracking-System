@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 	collection do
 		post :import
 		post :chart
+		post :delete
 	end
  end
  resources :reports, only: [:index] do

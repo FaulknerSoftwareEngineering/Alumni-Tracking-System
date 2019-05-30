@@ -1,31 +1,30 @@
-/* global google */
-if(gon.student_details != null) {
-	var student_details = gon.student_details;
-}
+$(function () {
 
-if (gon.ugbyClassAndGen != null) {
-	var ugbyClassAndGen = gon.ugbyClassAndGen;
-}
+	// pass data from model to client side by using gon gem
+	if (gon.student_details != null) {
+		var student_details = gon.student_details;
+	}
 
-if (gon.gabyClassAndGen != null) {
-	var gabyClassAndGen = gon.gabyClassAndGen;
-}
+	if (gon.ugbyClassAndGen != null) {
+		var ugbyClassAndGen = gon.ugbyClassAndGen;
+	}
 
-if (gon.galbyClassAndGen != null) {
-	var galbyClassAndGen = gon.galbyClassAndGen;
-}
+	if (gon.gabyClassAndGen != null) {
+		var gabyClassAndGen = gon.gabyClassAndGen;
+	}
 
-if (gon.galbyClassAndGen != null) {
-	var ualbyCollege = gon.ualbyCollege;
-}
+	if (gon.galbyClassAndGen != null) {
+		var galbyClassAndGen = gon.galbyClassAndGen;
+	}
 
-if (gon.studentEnrollment != null) {
-	var studentEnrollment = gon.studentEnrollment;
-}
+	if (gon.galbyClassAndGen != null) {
+		var ualbyCollege = gon.ualbyCollege;
+	}
 
+	if (gon.studentEnrollment != null) {
+		var studentEnrollment = gon.studentEnrollment;
+	}
 
-
-$(function () {	
 	var countTotal = 0;
 	var countMale = 0;
 	var countFemale = 0;
@@ -33,7 +32,6 @@ $(function () {
 	var pasYear = new Date().getFullYear() - 4;
 
 	if (student_details != null) {
-		alert("work");
 		getRegestrationData();
 	}
 	
@@ -193,12 +191,6 @@ $(function () {
 	function writeTableRowRace(name, femaleCount, femalePerc, maleCount, malePerc, totalPerc) {
 		return '<tr><td>' + name + '</td><td>' + femaleCount + '</td><td>' + femalePerc + '%</td><td>' + maleCount + '</td><td>' + malePerc + '%</td><td>' + (maleCount + femaleCount) + '</td><td>' + totalPerc + '%</td></tr>';
 	}
-
-
-	/*------------------------------------------------------------------------*/
-	/*------------------------------------------------------------------------*/
-	/*------------------------------------------------------------------------*/
-
 
 
 	/*------------------------------------------------------------------------*/
