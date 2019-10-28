@@ -1,4 +1,4 @@
-class CreateSection1s < ActiveRecord::Migration
+class CreateSection1s < ActiveRecord::Migration[5.1]
   def change
     create_table :section1s do |t|
       t.string :project_name

@@ -1,4 +1,4 @@
-class CreateSection2s < ActiveRecord::Migration
+class CreateSection2s < ActiveRecord::Migration[5.1]
   def change
     create_table :section2s do |t|
       t.text :abstract_summary

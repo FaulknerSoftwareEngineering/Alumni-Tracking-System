@@ -1,4 +1,4 @@
-class CreateUserColleges < ActiveRecord::Migration
+class CreateUserColleges < ActiveRecord::Migration[5.1]
   def change
     create_table :user_colleges do |t|
       t.belongs_to :user, index: true

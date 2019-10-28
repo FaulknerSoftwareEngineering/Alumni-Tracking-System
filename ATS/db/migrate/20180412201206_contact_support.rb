@@ -1,4 +1,4 @@
-class ContactSupport < ActiveRecord::Migration
+class ContactSupport < ActiveRecord::Migration[5.1]
   def change
   end
 end

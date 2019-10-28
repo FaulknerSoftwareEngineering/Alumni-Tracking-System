@@ -1,4 +1,4 @@
-class CreateDegreeTypes < ActiveRecord::Migration
+class CreateDegreeTypes < ActiveRecord::Migration[5.1]
   def change
     create_table :degree_types do |t|
       t.string :name

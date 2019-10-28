@@ -1,4 +1,4 @@
-class CreateSection3s < ActiveRecord::Migration
+class CreateSection3s < ActiveRecord::Migration[5.1]
   def change
     create_table :section3s do |t|
       t.text :intended_population_characteristics

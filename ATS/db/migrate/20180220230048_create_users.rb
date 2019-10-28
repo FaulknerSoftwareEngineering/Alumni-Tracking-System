@@ -1,4 +1,4 @@
-class CreateUsers < ActiveRecord::Migration
+class CreateUsers < ActiveRecord::Migration[5.1]
   #Ethan Widen 2/20/18
   def change
     create_table :users do |t|

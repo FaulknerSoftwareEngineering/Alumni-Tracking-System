@@ -1,4 +1,4 @@
-class CreateGradSchools < ActiveRecord::Migration
+class CreateGradSchools < ActiveRecord::Migration[5.1]
   def change
     create_table :grad_schools do |t|
       t.boolean :applied
