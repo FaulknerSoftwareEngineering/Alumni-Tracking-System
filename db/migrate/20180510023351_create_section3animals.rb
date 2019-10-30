@@ -1,4 +1,4 @@
-class CreateSection3animals < ActiveRecord::Migration
+class CreateSection3animals < ActiveRecord::Migration[5.1]
   def change
     create_table :section3animals do |t|
 

@@ -1,4 +1,4 @@
-class CreateEarnedDegrees < ActiveRecord::Migration
+class CreateEarnedDegrees < ActiveRecord::Migration[5.1]
   def change
     create_table :earned_degrees do |t|
       t.string :season

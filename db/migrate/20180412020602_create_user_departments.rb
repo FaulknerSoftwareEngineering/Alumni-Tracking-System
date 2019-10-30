@@ -1,4 +1,4 @@
-class CreateUserDepartments < ActiveRecord::Migration
+class CreateUserDepartments < ActiveRecord::Migration[5.1]
   def change
     create_table :user_departments do |t|
       t.belongs_to :user, index: true

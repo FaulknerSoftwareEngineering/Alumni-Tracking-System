@@ -1,4 +1,4 @@
-class CreateFormtexts < ActiveRecord::Migration
+class CreateFormtexts < ActiveRecord::Migration[5.1]
   def change
     create_table :formtexts do |t|
 

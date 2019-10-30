@@ -3,7 +3,7 @@
   On: February 20, 2018
 =end
 
-class CreateEmployers < ActiveRecord::Migration
+class CreateEmployers < ActiveRecord::Migration[5.1]
   def change
     create_table :employers do |t|
       t.string :name

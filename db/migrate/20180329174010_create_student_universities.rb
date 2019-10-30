@@ -1,4 +1,4 @@
-class CreateStudentUniversities < ActiveRecord::Migration
+class CreateStudentUniversities < ActiveRecord::Migration[5.1]
   def change
     create_table :student_universities, id: false do |t|
       t.belongs_to :student

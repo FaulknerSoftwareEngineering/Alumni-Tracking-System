@@ -1,4 +1,4 @@
-class CreateSection5s < ActiveRecord::Migration
+class CreateSection5s < ActiveRecord::Migration[5.1]
   def change
     create_table :section5s do |t|
       t.text :sources_of_funding
