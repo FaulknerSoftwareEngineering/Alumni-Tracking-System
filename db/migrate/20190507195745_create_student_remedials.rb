@@ -1,4 +1,4 @@
-class CreateStudentRemedials < ActiveRecord::Migration
+class CreateStudentRemedials < ActiveRecord::Migration[5.2]
   def change
     create_table :student_remedials do |t|
 		t.boolean :remedial0301

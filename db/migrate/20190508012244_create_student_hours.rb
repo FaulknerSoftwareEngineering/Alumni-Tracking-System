@@ -1,4 +1,4 @@
-class CreateStudentHours < ActiveRecord::Migration
+class CreateStudentHours < ActiveRecord::Migration[5.2]
   def change
     create_table :student_hours do |t|
       t.decimal :jslHoursAttempted

@@ -34,6 +34,7 @@ module ATS
     #config.active_record.raise_in_transactional_callbacks = true
     
     config.assets.initialize_on_precompile = false
+    Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
     
   end
 end
