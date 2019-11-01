@@ -1,4 +1,4 @@
-class CreateStandardizedTests < ActiveRecord::Migration
+class CreateStandardizedTests < ActiveRecord::Migration[5.2]
   def change
     create_table :standardized_tests do |t|
       t.integer :convertedACT, limit: 1

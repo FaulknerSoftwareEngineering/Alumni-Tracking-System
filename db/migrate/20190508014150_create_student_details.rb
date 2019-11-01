@@ -1,4 +1,4 @@
-class CreateStudentDetails < ActiveRecord::Migration
+class CreateStudentDetails < ActiveRecord::Migration[5.2]
   def change
     create_table :student_details do |t|
       t.string :sex

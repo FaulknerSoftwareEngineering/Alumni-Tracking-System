@@ -1,4 +1,4 @@
-class CreateStudentTuitions < ActiveRecord::Migration
+class CreateStudentTuitions < ActiveRecord::Migration[5.2]
   def change
     create_table :student_tuitions do |t|
 		t.boolean :tuitionAssistance

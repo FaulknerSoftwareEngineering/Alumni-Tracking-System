@@ -1,4 +1,4 @@
-class CreateStudentVeterans < ActiveRecord::Migration
+class CreateStudentVeterans < ActiveRecord::Migration[5.2]
   def change
     create_table :student_veterans do |t|
 		t.boolean :veteran
