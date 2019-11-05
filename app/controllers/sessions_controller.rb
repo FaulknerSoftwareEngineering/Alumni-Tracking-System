@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     # Ethan Widen 3/17/18
     skip_before_action :require_login, only: [:create]
     def create
-        user = User.from_omniauth(env["omniauth.auth"])
+        user = User.from_omniauth(request.env["omniauth.auth"])
         if user
             session[:user_id] = user.id
             session[:role_id] = user.role_id

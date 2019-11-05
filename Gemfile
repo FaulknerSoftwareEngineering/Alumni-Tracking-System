@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
  ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-
+gem 'sassc-rails'
 gem 'rails', '5.2.2'
 gem 'rake', '13.0.0'
 
@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 
-# gem 'mini_racer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
 
 # gem 'therubyracer', platforms: :ruby
 
@@ -44,6 +44,7 @@ gem 'haml'
 #Google API Client
 gem 'google-api-client'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-oauth2'
 #gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 #ODF-Reports
 gem 'odf-report'
