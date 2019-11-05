@@ -333,6 +333,14 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    sassc (2.2.1-x64-mingw32)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -402,8 +410,10 @@ DEPENDENCIES
   mail (~> 2.6, >= 2.6.4)
   mailgun-ruby (~> 1.1.6)
   metric_fu
+  mini_racer
   odf-report
   omniauth-google-oauth2
+  omniauth-oauth2
   pg (~> 1.1)
   popper_js (~> 1.12.9)
   rails (= 5.2.2)
@@ -412,6 +422,7 @@ DEPENDENCIES
   rake (= 13.0.0)
   rspec-rails (= 3.8.2)
   rubyzip
+  sassc-rails
   sdoc (~> 0.4.0)
   spring (~> 2.0.2)
   sqlite3!
