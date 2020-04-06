@@ -15,6 +15,7 @@ def student_params
         :cell_number,
         :work_number,
         :home_number)
+        #:student_id)
 end
 
 def addresses_params
