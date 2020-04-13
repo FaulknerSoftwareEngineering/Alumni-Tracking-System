@@ -16,12 +16,14 @@ Feature: create and edit students
         And I follow "Add new student"
         And  I fill in "First Name" with "Jack"
         And I fill in "Cell Phone" with "123-456-7890"
+        And I fill in "Student Id" with "123456"
         And I press "Save Changes"
         Then I should be on the student home page
         And I should see "Jack"
     
     Scenario: edit student information
         Given I am on the edit student page for "Zack"
+        Then I should not see "Student Id"
         And  I fill in "First Name" with "AAA"
         And  I press "Save Changes"
         Then I am on the student details page for "AAA"

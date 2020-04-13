@@ -137,4 +137,12 @@ end
     redirect_to student_path(@student_id)
   end
     
+#Student Id
+ def student_id
+   @id = params[:id]
+   
+ end
+    
+ 
+    
 end

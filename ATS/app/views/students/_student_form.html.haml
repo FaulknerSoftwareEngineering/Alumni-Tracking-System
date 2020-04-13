@@ -48,4 +48,7 @@
     %div{:class => 'form-group col-3'}
         = label :addresses, :zip, 'ZIP Code'
         = text_field :addresses, :zip, :class => 'form-control'
-
+%div{:class => 'form-group row'}
+    %div{:class => 'form-group col-3'}
+        = label :regent_id, :regent_id, 'Student Id'
+        = text_field :regent_id, :regent_id, :maxlength => 6, :class => 'form-control'
