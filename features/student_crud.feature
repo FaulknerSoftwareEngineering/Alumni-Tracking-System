@@ -1,4 +1,4 @@
-Feature: create and edit students
+Feature: create and edit students 
 
   As a user
   So that I can update information in the system
