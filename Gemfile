@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
+
  ruby '2.6.5'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'sassc-rails'
 gem 'rails', '5.2.2'
@@ -59,9 +61,17 @@ gem 'figaro'
 #look a soruce of time zone data
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
+
+# chart library
+gem 'chartkick'
+
+# Pass data to JavaScript
+gem 'gon'
+
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', git: "https://github.com/sparklemotion/sqlite3-ruby"
+  gem 'sqlite3', '~>1.3', '< 1.4'
   gem 'byebug'
   gem 'database_cleaner', '1.4.1'
   gem 'launchy'
@@ -73,8 +83,8 @@ group :development, :test do
 end
 
 group :test do
-#  gem 'cucumber-rails', :require=> false
-#  gem 'cucumber-rails-training-wheels'
+  gem 'cucumber-rails', :require=> false
+  gem 'cucumber-rails-training-wheels'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -84,5 +94,5 @@ group :development do
 end
 group :production do
   gem 'rails_12factor'
-	gem 'pg', '~> 1.1'
+	gem 'pg'
 end

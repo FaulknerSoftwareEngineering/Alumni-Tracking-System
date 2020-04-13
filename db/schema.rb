@@ -372,6 +372,7 @@ ActiveRecord::Schema.define(version: 2019_05_08_015436) do
   end
 
   create_table "student_hours", force: :cascade do |t|
+    t.string "program"
     t.decimal "jslHoursAttempted"
     t.decimal "jslHoursCompleted"
     t.decimal "jslQualityHours"
@@ -399,7 +400,6 @@ ActiveRecord::Schema.define(version: 2019_05_08_015436) do
 
   create_table "student_housings", force: :cascade do |t|
     t.string "campus"
-    t.string "program"
     t.string "housingType"
     t.string "housingID"
     t.string "roomNumber"
