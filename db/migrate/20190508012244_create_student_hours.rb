@@ -1,6 +1,7 @@
 class CreateStudentHours < ActiveRecord::Migration[5.2]
   def change
     create_table :student_hours do |t|
+			t.string :program
       t.decimal :jslHoursAttempted
       t.decimal :jslHoursCompleted
       t.decimal :jslQualityHours

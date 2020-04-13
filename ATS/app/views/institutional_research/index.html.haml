@@ -1,0 +1,44 @@
+-# Ian Chen - 4/09/2019
+
+%div.hidden-print
+	%input.btn.btn-primary.hidden-print{:onclick => "history.go(-1);", :type => "button", :value => "Back"}
+	%input.btn.btn-primary.hidden-print{:onclick => "window.print()", :type => "button", :value => "Print Table"}
+	%br
+	%br
+
+%div.hidden-print
+	%h3 Import Students
+	= form_tag import_institutional_research_index_path, multipart: true do	
+		= file_field_tag :file
+		= submit_tag "Upload Students"
+	%br
+
+	= link_to 'Institutional Research Charts', chart_institutional_research_index_path
+%br
+%br
+
+
+%div.hidden-print#ImportHistory
+	%h2.font-weight-bold Import History
+	= form_tag delete_institutional_research_index_path do
+		= label :importHistory, 'Which import do you want to delete'
+		= collection_select(:post, :id, @import_history, :Year, :Year, {:prompt => true})
+		= submit_tag 'Delete', :class => 'btn btn-primary'
+%br
+%br	
+
+#ethnicityTable.container
+%div
+	%h2.font-weight-bold Total Enrollment by Gender and Ethnicity
+%div
+	%table.genderEthnicity.table
+		%thead
+			%tr
+				%th= 'Ethnicity'
+				%th= 'Female'
+				%th= '% of Female'
+				%th= 'Male'
+				%th= '% of Male'
+				%th= 'Total'
+				%th= '% of Total'
+		%tbody#genderEthnicityBody 
