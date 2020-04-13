@@ -1,8 +1,8 @@
 
 Rails.application.routes.draw do
-  get 'institutional_research/index'
+  #get 'institutional_research/index'
 
-  #get 'welcome/index'
+  get 'welcome/index'
 
  root 'index#index'
  
