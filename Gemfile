@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #Use bootstrap for styling
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.1.3'
 #bootstrap gem requires sprockets-rails
 #gem 'sprockets-rails', :require => 'sprockets/railtie'
 #bootstrap also needs popper
