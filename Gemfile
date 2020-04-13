@@ -73,8 +73,8 @@ group :development, :test do
 end
 
 group :test do
-#  gem 'cucumber-rails', :require=> false
-#  gem 'cucumber-rails-training-wheels'
+  gem 'cucumber-rails', :require=> false
+  gem 'cucumber-rails-training-wheels'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -82,7 +82,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.0.2'
 end
-group :production do
-  gem 'rails_12factor'
-	gem 'pg', '~> 1.1'
-end
+#group :production do
+#  gem 'rails_12factor'
+#gem 'pg' , '~> 1.1'
+#end

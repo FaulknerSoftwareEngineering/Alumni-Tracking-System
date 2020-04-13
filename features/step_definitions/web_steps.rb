@@ -86,6 +86,10 @@ When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
   select(value, :from => field)
 end
 
+When /^(?:|I )set "([^"]*)" to "([^"]*)"$/ do |label, value|
+  fill_in(label, :with => value)
+end
+
 When /^(?:|I )check "([^"]*)"$/ do |field|
   check(field)
 end

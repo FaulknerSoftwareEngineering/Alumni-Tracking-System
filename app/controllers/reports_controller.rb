@@ -12,7 +12,8 @@ end
     end
     
     def generate_report
-        @students = Student.accessible_students(session[:role_id], session[:user_id])
+        #@students = Student.accessible_students(session[:role_id], session[:user_id])
+        @students = Student.all
         @earned_degree = EarnedDegree.where(student_id: @students).where(earned_degree_params)
         
     end

@@ -13,12 +13,16 @@ Feature: create and edit students
   
     Scenario: add students to database
         Given I am on the student home page
-        And I follow "Add new student"
+        #And I follow "Add new student" It is new Alumni not new student I commented this out
+        And I follow "Add New Alumni"
         And  I fill in "First Name" with "Jack"
         And I fill in "Cell Phone" with "123-456-7890"
+        #Last Name added by me, since it is a required field to run
+        And I fill in "Last Name" with "Echstreme"
         And I press "Save Changes"
         Then I should be on the student home page
         And I should see "Jack"
+        And I should see "Zack" # this one fails so it is not creating anything with the initial given
     
     Scenario: edit student information
         Given I am on the edit student page for "Zack"

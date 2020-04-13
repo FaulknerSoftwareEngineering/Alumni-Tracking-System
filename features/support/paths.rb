@@ -27,6 +27,11 @@ module NavigationHelpers
       student_path(Student.find_by(first_name: $1))
     when /^the edit student page for "(.*)"$/
       edit_student_path(Student.find_by(first_name: $1))
+        #added by Zachery
+    when /^the report filter page$/
+        '/reports'
+    when /^the report result page$/ #can't tell if this is working
+        '/reports/generate_report'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

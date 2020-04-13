@@ -36,8 +36,8 @@ end
 
 def index
     
-    @students = Student.accessible_students(session[:role_id], session[:user_id])
-    
+    #@students = Student.accessible_students(session[:role_id], session[:user_id])
+    @students = Student.all
     
     @earned_degrees = EarnedDegree.where(student_id: @students)
 end
