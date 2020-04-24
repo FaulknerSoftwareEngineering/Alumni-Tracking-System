@@ -6,11 +6,24 @@
 
 #Ethan Widen 3/27/18
 class Student < ActiveRecord::Base
+		self.primary_key = 'student_id'
+
     has_many :employments, dependent: :destroy
     has_many :grad_schools
     has_many :degrees, :through => :earned_degrees
     has_many :addresses, dependent: :destroy
     has_many :earned_degrees, dependent: :destroy
+		has_one :student_remedial, dependent: :destroy
+		has_one :student_housing, dependent: :destroy
+		has_one :student_tuition, dependent: :destroy
+		has_one :student_veteran, dependent: :destroy
+		has_one :student_hour, dependent: :destroy
+		has_one :attendance, dependent: :destroy
+		has_one :athlete, dependent: :destroy
+		has_one :standardized_test, dependent: :destroy
+		has_one :student_detail, dependent: :destroy
+		has_one :high_school, dependent: :destroy
+		has_one :major, dependent: :destroy
     validates :first_name, :presence => true;
     validates :last_name, :presence => true;
     
@@ -46,8 +59,5 @@ class Student < ActiveRecord::Base
             return Student.all
         end
     end
-    
-    
-    
     
 end

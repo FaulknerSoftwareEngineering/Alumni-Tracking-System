@@ -1,0 +1,64 @@
+-# Created by Zack Pace
+-# on: April 5, 2018
+
+
+%div{:class => 'row'}
+    %div{:class => 'form-group col-12'}
+        REQUIRED *
+    
+
+%div{:class => 'form-group row'}
+    %div{:class => 'form-group col-4'}
+        = label :student, :first_name, 'First Name *'
+        = text_field :student, :first_name,:required => true,:class => 'form-control'
+    %div{:class => 'form-group col-4'}
+        = label :student, :middle_name, 'Middle Name'
+        = text_field :student, :middle_name, :class => 'form-control'
+    %div{:class => 'form-group col-4'}
+        = label :student, :last_name, 'Last Name *'
+        = text_field :student, :last_name,:required => true, :class => 'form-control'
+%div{:class => 'form-group row'}
+    %div{:class => 'form-group col-6'}
+        = label :student, :primary_email, 'Primary Email'
+        = text_field :student, :primary_email,:type=>"email", :class => 'form-control'
+    %div{:class => 'form-group col-6'}
+        = label :student, :secondary_email, 'Secondary Email'
+        = text_field :student, :secondary_email,:type=>"email" ,:class => 'form-control'
+%div{:class => 'form-group row'}
+    %div{:class => 'form-group col-4'}
+        = label :student, :cell_number, 'Cell Phone'
+        = text_field :student, :cell_number,:type=>"tel", :maxlength => 20 , :class => 'form-control'
+    %div{:class => 'form-group col-4'}
+        = label :student, :work_number, 'Work Phone'
+        = text_field :student, :work_number,:type=>"tel", :maxlength => 20 , :class => 'form-control'
+    %div{:class => 'form-group col-4'}
+        = label :student, :home_number, 'Home Phone'
+        = text_field :student, :home_number,:type=>"tel", :maxlength => 20 , :class => 'form-control'
+%div{:class => 'form-group row'}
+    %div{:class => 'form-group col-12'}
+        = label :addresses, :street_address, 'Street Address'
+        = text_field :addresses, :street_address, :class => 'form-control'
+%div{:class => 'form-group row'}
+    %div{:class => 'form-group col-6'}
+        = label :addresses, :city, 'City'
+        = text_field :addresses, :city, :class => 'form-control'
+    %div{:class => 'form-group col-3'}
+        = label :addresses, :state, 'State'
+        = text_field :addresses, :state, :class => 'form-control'
+    %div{:class => 'form-group col-3'}
+        = label :addresses, :zip, 'ZIP Code'
+        = text_field :addresses, :zip, :class => 'form-control'
+%div{:class => 'form-group row'}
+    %div{:class => 'form-group col-3'}
+        = label :regent_id, :regent_id, 'Regent Id'
+        = text_field :regent_id, :regent_id, :maxlength => 6, :class => 'form-control'
+        - if :method == :post
+            = label :regent_id, :regent_id, 'Regent Id'
+            = text_field :regent_id, :regent_id, :maxlength => 6, :class => 'form-control'
+           
+        - if :method == :put
+            = label :regent_id, :regent_id, 'Regent Id'
+            = text_field :regent_id, :regent_id, :maxlength => 6, :class => 'form-control',input_html: { readonly: true }
+            
+       
+        

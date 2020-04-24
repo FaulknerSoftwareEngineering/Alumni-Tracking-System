@@ -1,0 +1,31 @@
+%h1 list of students
+
+%table#student.table
+	%thead
+		%tr
+			%th= 'First Name'
+			%th= 'Last Name'
+			%th= 'Middle Name'
+			%th= 'Email'
+			%th= 'Student ID'
+			%th= 'gender'
+			%th= 'Official ACT'
+			%th= 'ethnicity'
+
+	%tbody
+		- @students.joins(:student_detail).joins(:standardized_test).joins(:student_detail).find_each do |students|
+			%tr
+				%td= students.first_name
+				%td= students.last_name
+				%td= students.middle_name
+				%td= students.primary_email
+				%td= students.student_id
+				%td= students.student_detail.sex
+				%td= students.standardized_test.officialACT
+				%td= students.student_detail.ethnicity
+%br
+%h3 Import Students
+
+= form_tag import_institutional_research_index_path, multipart: true do	
+	= file_field_tag :file
+	= submit_tag "Upload Students"

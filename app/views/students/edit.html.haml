@@ -1,0 +1,13 @@
+-# Created by Zack Pace
+-# on: March 23, 2018 
+%h2 Edit Alumni
+= form_tag student_path(@student), :method => :put do
+    
+    = render :partial => 'student_form'
+   
+    
+    = submit_tag 'Save Changes', :class => 'btn btn-primary'
+
+%p
+    = render partial: 'shared/cancel_button', locals: {path: student_path(@student)} 
+

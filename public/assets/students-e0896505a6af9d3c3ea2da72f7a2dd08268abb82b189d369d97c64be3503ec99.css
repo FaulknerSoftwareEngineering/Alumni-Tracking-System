@@ -1,0 +1,14 @@
+/* line 4, app/assets/stylesheets/students.scss */
+.linebuttons {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  /* this is actually the default, but I put it here for clarity reasons */
+}
+
+/* line 9, app/assets/stylesheets/students.scss */
+th.hilite {
+  background-color: black;
+}

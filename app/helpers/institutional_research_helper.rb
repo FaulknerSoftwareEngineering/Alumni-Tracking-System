@@ -1,0 +1,2 @@
+module InstitutionalResearchHelper
+end

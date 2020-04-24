@@ -4,21 +4,26 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Ignore Gemfile.lock
+/.Gemfile.lock
+
 # Ignore bundler config.
-ATS/.bundle
+/.bundle
 
 # Ignore the default SQLite database.
-ATS/db/*.sqlite3
-ATS/db/*.sqlite3-journal
+/db/*.sqlite3
+/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-ATS/log/*
-!ATS/log/.keep
-ATS/tmp
+/log/*
+!/log/.keep
+/tmp
 
 #Ignore byebug history
 
-ATS/.byebug_history
+.byebug_history
 
 #Ignore secrets
-ATS/config/secrets.yml
+#/config/secrets.yml
+# Ignore application configuration
+/config/application.yml
