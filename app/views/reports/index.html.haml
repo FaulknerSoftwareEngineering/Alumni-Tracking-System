@@ -13,11 +13,12 @@
         = label :degree, 'Degree'
         = collection_select(:earned_degree, :degree_id, Degree.all.order(:name), :id, :name, :include_blank => true)
         <br>
-    
+        
+        
     %h5 By Graduate School
     %div{:class => 'form-group'}
         = label :university, 'Graduate School'
         = collection_select(:university, :university, University.all, :id, :name, :include_blank => '')
         <br>
         
-    = submit_tag 'Generate Report', :class => 'btn btn-primary, generate_report'
+    = submit_tag 'Generate Report', params: EarnedDegree, :class => 'btn btn-primary, generate_report'

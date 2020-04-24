@@ -32,7 +32,9 @@ users = User.create(
 		{email: 'jjewell@faulkner.edu', name: 'Jason Jewell', role_id: 3},
 		{email: 'spaulk@faulkner.edu', name: 'Sharon Paulk', role_id: 3},
 		{email: 'jwright.edu', name: 'Jonathan Wright', role_id: 3},
-		{email: 'imkpong-ruffin@faulkner.edu', name: 'Idong Mkpong-Ruffin', role_id: 3}
+		{email: 'imkpong-ruffin@faulkner.edu', name: 'Idong Mkpong-Ruffin', role_id: 3},
+        {email: 'zachery.tomlin@faulkner.edu', name: 'Zachery Tomlin', role_id: System_Admin.id},
+        {email: 'mason.simonton@faulkner.edu', name: 'Æτ├┤Σ┌', role_id: 3}
 	]
 )
 

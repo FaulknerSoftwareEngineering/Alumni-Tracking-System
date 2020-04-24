@@ -45,6 +45,10 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Given /("{string} is {string}")/ do |string, string2|
+    string == string2
+end
+
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -255,4 +259,11 @@ end
 
 Then /^show me the page$/ do
   save_and_open_page
+end
+
+Then /^"([^"]*)" should( not)? be an option for "([^"]*)"(?: within "([^\"]*)")?$/ do |value, negate, field, selector|
+  with_scope(selector) do
+    expectation = negate ? :should_not : :should
+    field_labeled(field).first(:xpath, ".//option[text() = '#{value}']").send(expectation, be_present)
+  end
 end
