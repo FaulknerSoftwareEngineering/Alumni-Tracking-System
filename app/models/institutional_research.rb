@@ -1,6 +1,9 @@
 class InstitutionalResearch < ActiveRecord::Base
 	def self.import(file)
+        byebug
 		CSV.foreach(file.path, headers: true) do |row|
+            InstitutionalResearch.where(student_id: row[0]).first_or_create
+            
 			Student.create!({
 				:first_name => row[1],
 				:middle_name => row[2],
@@ -161,5 +164,4 @@ class InstitutionalResearch < ActiveRecord::Base
 
 		end
 	end
-   
 end
