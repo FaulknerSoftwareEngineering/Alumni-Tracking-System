@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_015436) do
+
+ActiveRecord::Schema.define(version: 2020_04_13_163952) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "streetAddressOne"
@@ -399,7 +400,6 @@ ActiveRecord::Schema.define(version: 2019_05_08_015436) do
 
   create_table "student_housings", force: :cascade do |t|
     t.string "campus"
-    t.string "program"
     t.string "housingType"
     t.string "housingID"
     t.string "roomNumber"
@@ -463,6 +463,7 @@ ActiveRecord::Schema.define(version: 2019_05_08_015436) do
     t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "regent_id"
     t.index ["student_id"], name: "index_students_on_student_id"
   end
 
@@ -489,6 +490,7 @@ ActiveRecord::Schema.define(version: 2019_05_08_015436) do
     t.index ["department_id"], name: "index_user_departments_on_department_id"
     t.index ["user_id"], name: "index_user_departments_on_user_id"
   end
+
 
   create_table "users", force: :cascade do |t|
     t.string "provider"

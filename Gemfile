@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 
+
  ruby '2.6.5'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
 gem 'sassc-rails'
+
 gem 'rails', '5.2.2'
 gem 'rake', '13.0.0'
 
@@ -59,9 +63,17 @@ gem 'figaro'
 #look a soruce of time zone data
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
+
+# chart library
+gem 'chartkick'
+
+# Pass data to JavaScript
+gem 'gon'
+
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', git: "https://github.com/sparklemotion/sqlite3-ruby"
+  gem 'sqlite3', '~>1.3', '< 1.4'
   gem 'byebug'
   gem 'database_cleaner', '1.4.1'
   gem 'launchy'
@@ -73,8 +85,8 @@ group :development, :test do
 end
 
 group :test do
-#  gem 'cucumber-rails', :require=> false
-#  gem 'cucumber-rails-training-wheels'
+  gem 'cucumber-rails', :require=> false
+  gem 'cucumber-rails-training-wheels'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -82,4 +94,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.0.2'
 end
+
+#group :production do
+  #gem 'pg', '~>1.1'
+# gem 'rails_12factor'
+#end
+
 

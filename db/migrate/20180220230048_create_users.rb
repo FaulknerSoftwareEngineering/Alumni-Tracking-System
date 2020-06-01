@@ -1,7 +1,8 @@
 class CreateUsers < ActiveRecord::Migration[5.1]
   #Ethan Widen 2/20/18
   def change
-    create_table :users do |t|
+    create_table :users, id: false do|t|
+      t.primary_key :sku
       t.string :provider
       t.string :uid
       t.string :email

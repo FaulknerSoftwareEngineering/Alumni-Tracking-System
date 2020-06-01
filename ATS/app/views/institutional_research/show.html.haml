@@ -1,0 +1,38 @@
+-# Created by Ian Chen
+-# on: May 23, 2019 
+
+%div.hidden-print
+	%input.btn.btn-primary.hidden-print{:onclick => "history.go(-1);", :type => "button", :value => "Back"}
+	%input.btn.btn-primary.hidden-print{:onclick => "window.print()", :type => "button", :value => "Print Charts"}
+	%br
+	%br
+
+%h4 OFFICE OF INSTITUTIOINAL RESEARCH - ENROLLMENT UPDATE
+%br
+
+.container
+.row
+	.col-md-6
+		%h4.font-weight-bold Undergraduate Enrollment by Classification and Gender
+		#undergradChart
+	.col-md-6
+		%h4.font-weight-bold Graduate Enrollment by Classification and Gender
+		#gradChart
+
+.container
+.row
+	.col-md-6
+		%h4.font-weight-bold Undergraduate Adult Learners by Classification and Gender
+		#undergradAdultByClassificatioinGenderChart
+	.col-md-6
+		%h4.font-weight-bold Undergraduate Adult Learners by College
+		#undergradAdultByCollegeChart
+
+.container
+.row
+	.col-md-6
+		%h4.font-weight-bold#undergraduateEnrollmentTitle Title1
+		#undergradEnrollChart
+	.col-md-6
+		%h4.font-weight-bold#graduateEnrollmentTitle Title2
+		#gradEnrollChart

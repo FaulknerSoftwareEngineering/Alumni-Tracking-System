@@ -1,7 +1,8 @@
-Rails.application.routes.draw do
-  get 'institutional_research/index'
 
-  #get 'welcome/index'
+Rails.application.routes.draw do
+  #get 'institutional_research/index'
+
+  get 'welcome/index'
 
  root 'index#index'
  
@@ -83,4 +84,3 @@ get 'students/:id/update_earned_degree' => 'students_details#update_earned_degre
 
  
 end
-#end
