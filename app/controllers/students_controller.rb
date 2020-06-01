@@ -14,8 +14,9 @@ def student_params
         :secondary_email,
         :cell_number,
         :work_number,
-        :home_number)
-        #:student_id)
+        :home_number,
+        :student_id)
+
 end
 
 def addresses_params
@@ -69,6 +70,11 @@ end
     id = params[:id] 
     @student = Student.find(id) 
     @addresses = Address.find_by(student_id: id)
+    if @regent_id = nil?
+      @regent_id = Regent_Id.edit!
+    else 
+      @regent_id = Regent_Id.readonly! 
+    end
   end
 
   def update
