@@ -70,10 +70,10 @@ end
     id = params[:id] 
     @student = Student.find(id) 
     @addresses = Address.find_by(student_id: id)
-    if @regent_id = nil?
-      @regent_id = Regent_Id.edit!
+    if @student_id = nil?
+      @student_id = Regent_ID.edit!
     else 
-      @regent_id = Regent_Id.readonly! 
+      @student_id = Regent_ID.readonly! 
     end
   end
 

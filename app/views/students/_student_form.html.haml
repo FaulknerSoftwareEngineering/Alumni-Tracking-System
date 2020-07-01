@@ -48,17 +48,22 @@
     %div{:class => 'form-group col-3'}
         = label :addresses, :zip, 'ZIP Code'
         = text_field :addresses, :zip, :class => 'form-control'
+
+
+
+
 %div{:class => 'form-group row'}
     %div{:class => 'form-group col-3'}
-        = label :regent_id, :regent_id, 'Regent Id'
-        = text_field :regent_id, :regent_id, :maxlength => 6, :class => 'form-control'
+        = label :student, :student_id, 'Regent ID'
+        = text_field :student, :student_id, :maxlength => 6, :class => 'form-control'
         - if :method == :post
-            = label :regent_id, :regent_id, 'Regent Id'
-            = text_field :regent_id, :regent_id, :maxlength => 6, :class => 'form-control'
+            = label :student, :student_id, 'Regent ID'
+            = text_field :student, :student_id, :maxlength => 6, :class => 'form-control'
            
         - if :method == :put
-            = label :regent_id, :regent_id, 'Regent Id'
-            = text_field :regent_id, :regent_id, :maxlength => 6, :class => 'form-control',input_html: { readonly: true }
+            = label :student, :student_id, 'Regent ID'
+            = text_field :student, :student_id, :maxlength => 6, :class => 'form-control',input_html: { readonly: true }
             
        
         
+
