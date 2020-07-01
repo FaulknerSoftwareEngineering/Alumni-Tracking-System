@@ -17,7 +17,7 @@ Feature: create and edit students
         And  I fill in "First Name" with "Jack"
         And  I fill in "Last Name" with "Reacher"
         And I fill in "Cell Phone" with "123-456-7890"
-        And I fill in "Regent Id" with "123456"
+        And I fill in "Regent ID" with "123456"
         And I press "Save Changes"
         Then I should be on the student home page
         And I should see "Jack"
@@ -25,7 +25,7 @@ Feature: create and edit students
     Scenario: edit student information
        Given I am on the student home page
         And I go to the student details page for "Zack"
-        Then I should not see "Regent Id"
+        Then I should not see "Regent ID"
         And  I fill in "First Name" with "AAA"
         And  I press "Save Changes"
         Then I am on the student details page for "AAA"
@@ -39,7 +39,7 @@ Feature: create and edit students
         
     Scenario: View details page for a student
        Given I am on the student home page
-       And I follow "More About Zack"
+       And I follow "'More About' Zack"
        Then I should be on the student details page for "Zack"
       
     
