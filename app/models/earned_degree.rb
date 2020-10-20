@@ -8,8 +8,10 @@ class EarnedDegree < ActiveRecord::Base
     
     
     def degree_name
-        degree = Degree.find(self.degree_id)
-        return degree.name
+        begin degree = Degree.find(self.degree_id)
+            return degree.name
+        rescue ActiveRecord::RecordNotFound
+        end
     end
     
     def first_name
