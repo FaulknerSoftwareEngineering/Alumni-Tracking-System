@@ -1,6 +1,11 @@
 class InstitutionalResearch < ActiveRecord::Base
+    validates_uniqueness_of :student_id
 	def self.import(file)
-		CSV.foreach(file.path, headers: true) do |row|
+         CSV.foreach(file.path, headers: true, skip_lines: /^(?:,\s*)+$/) do |row|
+         student_hash = row.to_hash
+        begin
+            student = Student.find(row[0])
+         rescue ActiveRecord::RecordNotFound
 			Student.create!({
 				:first_name => row[1],
 				:middle_name => row[2],
@@ -145,7 +150,7 @@ class InstitutionalResearch < ActiveRecord::Base
 			})
 
 			Major.create!({
-				:majorType => row[34],
+				:majorType => row[49], #said 34 initially but 34 was degree type, but 49 says major type so i changed it
 				:majorFullName => row[50],
 				:advisor => row[36],
 				:majorShortName => row[48],
@@ -158,8 +163,143 @@ class InstitutionalResearch < ActiveRecord::Base
 				:graduateMajor => row[57],
 				:student_id => row[0],
 			})
-
-		end
-	end
-   
+            
+            EarnedDegree.create!({
+                :year_graduated => row[35],
+                :degreeType => row[34], #this threw an error because the column 'type' is reserved for storing the class in case of inheritance.
+                :student_id => row[0],
+            })
+         else #this is where you update a record if it already exists, however this code doesnt work 
+             student.update_attributes({
+                 :last_name => row[3],
+                 :primary_email => row[59],
+             })
+           begin studenthour = StudentHour.find(row[0])
+            rescue ActiveRecord::RecordNotFound
+                StudentHour.create!({
+				:jslHoursAttempted => row[97],
+				:jslHoursCompleted => row[98],
+				:jslQualityHours => row[99],
+				:jslQualityPoints => row[100],
+				:doctorateMajor => row[58],
+				:gradHoursAttempted => row[93],
+				:gradHoursCompleted => row[94],
+				:gradQualityHours => row[95],
+				:gradQualityPoints => row[96],
+				:transient => row[24],
+				:transfer => row[25],
+				:undergradTransferQualityHours => row[26],
+				:undergradTransferQualityPoints => row[27],
+				:undergradSemesterHoursAttempted => row[29],
+				:undergradSemesterHoursCompleted => row[30],
+				:undergradQualityHours => row[31],
+				:undergradQualityPoints => row[32],
+				:currentHours => row[33],
+				:student_id => row[0],
+			})
+                
+            else
+			studenthour.update_attributes({
+				:jslHoursAttempted => row[97],
+				:jslHoursCompleted => row[98],
+				:jslQualityHours => row[99],
+				:jslQualityPoints => row[100],
+				:doctorateMajor => row[58],
+				:gradHoursAttempted => row[93],
+				:gradHoursCompleted => row[94],
+				:gradQualityHours => row[95],
+				:gradQualityPoints => row[96],
+				:transient => row[24],
+				:transfer => row[25],
+				:undergradTransferQualityHours => row[26],
+				:undergradTransferQualityPoints => row[27],
+				:undergradSemesterHoursAttempted => row[29],
+				:undergradSemesterHoursCompleted => row[30],
+				:undergradQualityHours => row[31],
+				:undergradQualityPoints => row[32],
+				:currentHours => row[33],
+				:student_id => row[0],
+            })
+           end
+           begin studentdetail = StudentDetail.find(row[0])
+            rescue ActiveRecord::RecordNotFound
+  			StudentDetail.create!({
+				:sex => row[7],
+				:maritalStatus => row[8],
+				:usCitizen => row[9],
+				:citizenship => row[10],
+				:ethnicity => row[11],
+				:race => row[12],
+				:athlete => row[15],
+				:dateOfBirth => row[37],
+				:primaryEmail => row[59],
+				:deceased => row[65],
+				:churchType => row[119],
+				:graduated => row[28],
+				:firstName => row[1],
+				:middleName => row[2],
+				:lastName => row[3],
+				:preferredName => row[4],
+				:title => row[5],
+				:suffix => row[6],
+				:level => row[47],
+				:student_id => row[0],
+			})              
+            else    
+            studentdetail.update_attributes({
+                :maritalStatus => row[8],
+                :last_name => row[3],
+                :title => row[5],
+            })
+           end
+           begin major = Major.find(row[0])
+            rescue ActiveRecord::RecordNotFound
+               Major.create!({
+				:majorType => row[49], 
+				:majorFullName => row[50],
+				:advisor => row[36],
+				:majorShortName => row[48],
+				:assocMajor => row[51],
+				:undergradMajorOne => row[52],
+				:undergradMajorTwo => row[53],
+				:undergradMajorThree => row[54],
+				:undergradMinorOne => row[55],
+				:undergradMinorTwo => row[56],
+				:graduateMajor => row[57],
+				:student_id => row[0],
+			})     
+            else
+			major.update_attributes({
+				:majorType => row[49], 
+				:majorFullName => row[50],
+				:advisor => row[36],
+				:majorShortName => row[48],
+				:assocMajor => row[51],
+				:undergradMajorOne => row[52],
+				:undergradMajorTwo => row[53],
+				:undergradMajorThree => row[54],
+				:undergradMinorOne => row[55],
+				:undergradMinorTwo => row[56],
+				:graduateMajor => row[57],
+				:student_id => row[0],
+            })
+          end
+          begin earneddegree = EarnedDegree.find(row[0])
+           rescue ActiveRecord::RecordNotFound
+              EarnedDegree.create!({
+                :year_graduated => row[35],
+                :degreeType => row[34], 
+                :student_id => row[0],
+            })      
+           else
+            earneddegree.update_attributes({
+                :year_graduated => row[35],
+                :degreeType => row[34],
+                :student_id => row[0],
+            })
+          end
+             
+         end
+        end
+    end   
 end

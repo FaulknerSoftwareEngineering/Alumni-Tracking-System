@@ -12,17 +12,17 @@ class InstitutionalResearchController < ApplicationController
 		@student_details = StudentDetail.all
 		@high_schools = HighSchool.all
 		@majors = Major.all
+        @earned_degrees = EarnedDegree.all
   end
 	
 	def import
-		if params[:file].blank?
+     if params[:file].blank?
       flash[:error] = 'File cannot be empty.'
       redirect_to institutional_research_index_path
-		else
-			InstitutionalResearch.import(params[:file])
-			redirect_to institutional_research_index_path, notice: "Students Added Successfully"
-		end
-
+	  else
+	  InstitutionalResearch.import(params[:file])
+	  redirect_to institutional_research_index_path, notice: "Students Added Successfully"
+	 end
 		
 	end
 end

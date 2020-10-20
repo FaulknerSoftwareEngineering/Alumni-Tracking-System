@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_163952) do
+ActiveRecord::Schema.define(version: 2020_08_05_151334) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "streetAddressOne"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_163952) do
   create_table "earned_degrees", force: :cascade do |t|
     t.string "season"
     t.string "year_graduated"
-    t.string "type"
+    t.string "degreeType"
     t.integer "student_id"
     t.integer "degree_id"
     t.datetime "created_at", null: false
@@ -463,7 +463,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_163952) do
     t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["student_id"], name: "index_students_on_student_id"
+    t.index ["student_id"], name: "index_students_on_student_id", unique: true
   end
 
   create_table "universities", force: :cascade do |t|
